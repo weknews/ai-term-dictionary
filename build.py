@@ -6,9 +6,15 @@
 결과: dist/위뉴-AI-용어집.html  (파일 하나. 그대로 보내거나 아무 데나 올리면 된다)
 글꼴만 Google Fonts에서 받아오므로, 오프라인에서는 시스템 글꼴로 대체돼 표시된다.
 """
-import io, os, re
+import io, os, re, subprocess, sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
+# 발행 전 점검을 먼저 통과해야 빌드된다. --skip-check 로만 건너뛸 수 있다.
+if "--skip-check" not in sys.argv:
+    if subprocess.call([sys.executable, os.path.join(ROOT, "check.py")]) != 0:
+        raise SystemExit("\n점검 실패. 위 항목을 고치고 다시 빌드할 것 (강행하려면 --skip-check).")
+    print()
+
 html = io.open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
 terms = io.open(os.path.join(ROOT, "terms.js"), encoding="utf-8").read()
 
