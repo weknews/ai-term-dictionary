@@ -52,3 +52,28 @@
 - **major** — 분류 체계나 문서 구조를 바꿀 때
 - **minor** — 용어를 묶음으로 추가하거나 뉘앙스를 크게 손볼 때
 - **patch** — 오타, 개별 용어 한두 개 수정
+
+## "어디까지 왔나" 섹션 갱신
+이 섹션의 유통기한이 문서에서 가장 짧다. **한 달 주기로 다시 훑는다.**
+
+수집 경로 (전부 인증 없이 됨):
+
+```bash
+# Hacker News — 최근 인기 스토리
+curl -sL "https://hn.algolia.com/api/v1/search_by_date?tags=story&numericFilters=points%3E200,created_at_i%3E$(date -v-14d +%s)&hitsPerPage=30"
+
+# HN — 특정 주제 반응 (점수·댓글수로 화제성 판단)
+curl -sL "https://hn.algolia.com/api/v1/search?query=<키워드>&tags=story&numericFilters=points%3E20"
+
+# GitHub — 최근 신규 저장소 스타 순
+curl -sL "https://api.github.com/search/repositories?q=created:%3E$(date -v-30d +%F)+stars:%3E500&sort=stars&order=desc&per_page=25"
+
+# Reddit — 커뮤니티 상위 (plain curl은 403, curl_cffi 지문 필요)
+python3 -c "from curl_cffi import requests as r; print(r.get('https://www.reddit.com/r/LocalLLaMA/hot/.rss', impersonate='safari').text)"
+```
+
+### 수록 기준
+- **소문·유출·예고는 뺀다.** r/singularity 상위권 절반이 이런 것들이다. 화제성 신호로만 쓰고 본문에 쓰지 않는다.
+- **벤더 발표 수치는 그렇다고 표시한다.** "회사 발표 기준"이라고 적고, 자체 검증 전에는 근거로 쓰지 말라고 덧붙인다.
+- **모델 이름은 최소한으로.** 주 단위로 낡는다. 구조적 서술("플래그십은 100만 토큰이 표준")로 바꿔 쓸 수 있으면 그렇게 한다.
+- 새 범주가 생겼으면 `terms.js`에도 용어로 넣는다. 섹션과 사전이 따로 놀면 안 된다.

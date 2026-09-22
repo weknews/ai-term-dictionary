@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>위뉴 AI 용어집</title>
-<meta name="description" content="위뉴 내부 공유용 AI 용어집. 236개 용어의 정의와 업계에서 통하는 뉘앙스.">
+<meta name="description" content="위뉴 내부 공유용 AI 용어집. 242개 용어의 정의와 업계 뉘앙스, 그리고 2026-09-22 현장 동향.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -141,6 +141,43 @@ h1{font-family:var(--display); font-weight:400; margin:0 0 18px;
 .term mark{background:var(--yellow); color:#16233F; padding:0 1px}
 .empty{font-family:var(--mono); font-size:13px; color:var(--muted); padding:40px 0; text-align:center}
 
+
+/* ── 어디까지 왔나 ── */
+.now-lead{border:3px solid var(--line); background:var(--card); padding:clamp(20px,3vw,28px); margin-top:26px}
+.now-lead .kick{font-family:var(--display); font-size:clamp(20px,3.2vw,30px); line-height:1.25; margin:0 0 10px}
+.now-lead p{margin:0 0 12px; max-width:72ch}
+.now-lead p:last-child{margin-bottom:0}
+.src{font-family:var(--mono); font-size:10.5px; font-weight:600; letter-spacing:.08em;
+  border:2px solid var(--faint); padding:2px 7px; color:var(--muted); white-space:nowrap}
+.specs{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0;
+  border:2px solid var(--faint); margin:18px 0 6px}
+.specs div{padding:13px 15px; border-right:2px solid var(--faint)}
+.specs div:last-child{border-right:0}
+@media (max-width:640px){
+  .specs div{border-right:0; border-bottom:2px solid var(--faint)}
+  .specs div:last-child{border-bottom:0}
+}
+.specs b{display:block; font-family:var(--mono); font-size:10.5px; font-weight:600;
+  letter-spacing:.1em; color:var(--muted); margin-bottom:5px}
+.specs span{font-family:var(--display); font-size:19px; line-height:1.2}
+.specs em{font-style:normal; display:block; font-family:var(--body); font-size:12.5px;
+  color:var(--muted); margin-top:3px; line-height:1.45}
+.vendor{font-size:13px; color:var(--muted); font-style:normal; margin-top:8px}
+.repos{margin:16px 0 0; padding:0; list-style:none; border-top:2px solid var(--faint)}
+.repos li{display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:baseline;
+  padding:9px 0; border-bottom:2px solid var(--faint-2); font-size:14.5px}
+.repos li:last-child{border-bottom:0}
+.repos .st{font-family:var(--mono); font-size:12px; font-weight:600; color:var(--pink); white-space:nowrap}
+.repos .nm{font-family:var(--mono); font-size:13px}
+.repos .ds{display:block; color:var(--muted); font-size:13.5px; margin-top:2px}
+.signals{display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:18px; margin-top:26px}
+.signal{border-top:3px solid var(--line); padding-top:14px}
+.signal h3{font-family:var(--display); font-weight:400; font-size:19px; margin:0 0 4px; line-height:1.25}
+.signal p{margin:0; font-size:14.5px; color:var(--muted)}
+.signal .src{display:inline-block; margin-bottom:8px}
+.caveat{margin-top:28px; border:2px dashed var(--yellow); padding:16px 18px; font-size:14.5px; color:var(--muted)}
+.caveat b{color:var(--ink)}
+
 /* ── 치트시트 ── */
 .sheet{margin-top:20px; overflow-x:auto; border:3px solid var(--line); background:var(--card)}
 table{border-collapse:collapse; width:100%; min-width:640px; font-size:14.5px}
@@ -176,7 +213,7 @@ a{color:var(--pink)}
 
 <div class="wrap">
   <header class="mast">
-    <p class="badge"><b>v1.1</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
+    <p class="badge"><b>v1.2</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
     <h1>위뉴<br>AI 용어집</h1>
     <p class="lede">AI 씬의 용어는 빠르게 생기고 빠르게 뜻이 바뀐다. 상당수는 기술 용어라기보다 유행어에 가깝고, 엄밀히 따지면 경계가 흐린 것도 많다. 그래도 업계에는 <strong>그 단어를 어떤 뜻으로 쓰는지에 관한 암묵적 합의</strong>가 있다. 합의를 공유하지 못하면 같은 단어로 서로 다른 얘기를 하게 되고, 설명이 한 번씩 더 필요해진다.</p>
     <p class="lede">패션에서 발레코어를, 10대 대상 서비스에서 그들의 말을 알아야 하는 것과 같은 종류의 지식이다. 몰라도 일은 되지만, 그 단어를 쓰는 사람들과 일할 때는 아는 것과 모르는 것의 차이가 크다.</p>
@@ -186,7 +223,7 @@ a{color:var(--pink)}
       <span>이 씬에서 “2026년 기준”은 이미 너무 넓은 표현이다. 분기 단위로 뜻과 위상이 바뀌기 때문에, 시점에 따라 달라지는 설명에는 관찰 날짜를 박아뒀다. 날짜가 붙은 줄은 그 날의 관찰이지 영구적인 사실이 아니다. 현재 <b id="scount">—</b>개 용어에 붙어 있고, 갱신할 때 가장 먼저 손봐야 할 부분이다.</span>
     </div>
     <div class="meta">
-      <span>문서 버전 <b>v1.1</b></span>
+      <span>문서 버전 <b>v1.2</b></span>
       <span>관찰 시점 <b>2026-09-22</b></span>
       <span>수록 <b id="tcount2">—</b></span>
       <span>분류 <b id="ccount">—</b>개</span>
@@ -222,6 +259,69 @@ a{color:var(--pink)}
 <div class="wrap">
   <main id="list" aria-live="polite"></main>
 
+  <section class="blk" id="now">
+    <h2>어디까지 왔나</h2>
+    <p class="sub">용어만 알고 지금 무슨 일이 벌어지는지 모르면 절반이다. 2026년 9월 22일에 Hacker News · GitHub · Reddit에서 실제로 화제인 것을 추렸다. 소문과 유출은 뺐고, 회사가 발표한 수치는 그렇다고 표시했다.</p>
+
+    <div class="now-lead">
+      <p class="kick">지금 가장 큰 사건: System One 모델</p>
+      <p><span class="src">2026-09-15</span> &nbsp;TypeSafe AI가 <b>Jev</b>를 공개했다. ChatGPT의 지시 따르기 연구를 맡았던 전 OpenAI 연구자가 2년 스텔스 끝에 내놓은 모델이다. 해커뉴스 1,948점 · 댓글 511개로 최근 몇 달 중 가장 큰 반응이었다.</p>
+      <p><b>무엇이 다른가.</b> 텍스트를 만들지 않는다. 프로그램 상태를 입력받아 <b>미리 정의된 타입의 결정과 그 확률</b>을 한 번의 계산으로 내놓는다. 토큰을 하나씩 뽑는 자기회귀 과정이 없다. 출력 후보가 미리 정해져 있으니 형식 오류도, 할루시네이션도 구조적으로 생기지 않는다는 게 주장의 핵심이다.</p>
+      <div class="specs">
+        <div><b>응답 시간</b><span>70–500 ms</span><em>LLM은 같은 일에 3초~수 분</em></div>
+        <div><b>입력 단가</b><span>$0.042 / MTok</span><em>출력 토큰은 과금하지 않음</em></div>
+        <div><b>훈련 방식</b><span>RLCD</span><em>확신도를 실제 적중률에 맞추는 강화학습</em></div>
+        <div><b>포기한 것</b><span>문장 생성</span><em>대화·작문·코드 생성은 못 한다</em></div>
+      </div>
+      <p class="vendor">숫자는 모두 회사 발표 기준이다. 자체 과제로 검증하기 전에는 인용만 하고 근거로 쓰지 않는 게 맞다.</p>
+      <p><b>왜 중요한가.</b> LLM의 대체재가 아니라, <b>LLM을 과하게 쓰던 자리</b>를 겨냥한다. 분류, 라우팅, 승인 판단, 우선순위 매기기처럼 "문장이 필요 없고 결정만 필요한" 호출이다. 현장에서는 기존 파이프라인 LLM 호출의 40~70%가 여기 해당한다는 추정이 나온다. 맞다면 원가 구조가 달라진다.</p>
+      <p><b>반응 속도가 더 놀랍다.</b> 발표 나흘에서 일주일 사이에 파생 프로젝트가 쏟아졌다.</p>
+      <ul class="repos">
+        <li><span class="st">16.5k ★</span><span><b class="nm">browser-use/jev-ultrafast</b><span class="ds">Jev로 돌리는 웹 에이전트. 6일 만에 이 숫자다</span></span></li>
+        <li><span class="st">12.0k ★</span><span><b class="nm">Laya</b><span class="ds">오픈 웨이트 대응. 421M 파라미터, 33ms, 100개 넘는 언어, Apache 2.0. 나흘 만에 나왔다</span></span></li>
+        <li><span class="st">426 pts</span><span><b class="nm">Kev</b><span class="ds">오픈 모델 위에 올린 소형 결정 모델 가족</span></span></li>
+        <li><span class="st">6.1k ★</span><span><b class="nm">fast-jev-compaction</b><span class="ds">코딩 에이전트의 컨텍스트 압축을 Jev 결정으로 대체하는 플러그인</span></span></li>
+        <li><span class="st">3.4k ★</span><span><b class="nm">SemIf</b><span class="ds">오픈 모델로 만든 "의미로 분기하는 if문". 가정용 GPU에서 돈다</span></span></li>
+      </ul>
+      <p class="vendor">폐쇄형 모델이 나오면 며칠 안에 오픈 웨이트 대응이 붙는 패턴이 이번에도 반복됐다. 이제 이 주기는 분기가 아니라 주 단위다.</p>
+    </div>
+
+    <div class="signals">
+      <div class="signal">
+        <span class="src">용어 충돌</span>
+        <h3>AX가 셋이 됐다</h3>
+        <p>국내의 AI Transformation, 영미권의 Agent Experience에 더해 2026년 9월 Google이 에이전트 오케스트레이터를 <b>AX</b>라는 이름으로 내놨다. 이제 문맥 없이 이 두 글자만 쓰면 거의 반드시 되묻는다.</p>
+      </div>
+      <div class="signal">
+        <span class="src">백래시</span>
+        <h3>MCP 회의론</h3>
+        <p>표준 자리를 굳히는 동시에 "애초에 좋은 설계였나"라는 반론이 커뮤니티 상위 화제로 올라온다. 도입을 제안할 때 찬성 논리만 준비하면 막힌다.</p>
+      </div>
+      <div class="signal">
+        <span class="src">저장소 이름</span>
+        <h3>하네스가 제품명이 됐다</h3>
+        <p>새로 뜨는 저장소 설명에 <b>harness</b>가 그대로 박혀 나온다. 코딩 에이전트 하네스, 에이전트 하네스 자동 개선 연구. 용어가 아니라 제품 범주로 넘어갔다는 신호다.</p>
+      </div>
+      <div class="signal">
+        <span class="src">연구 → 취미</span>
+        <h3>컨티뉴얼 러닝이 8GB로 내려왔다</h3>
+        <p>가정용 GPU에서 도는 지속 학습 데모가 커뮤니티 상위에 올라온다. 아직 장난감이지만, 연구실에만 있던 게 내려오는 중이라는 뜻이다.</p>
+      </div>
+      <div class="signal">
+        <span class="src">정서</span>
+        <h3>AI 슬롭 피로</h3>
+        <p>"당신이 쓰지 않은 글을 읽고 싶지 않다"는 글이 상위권에 오른다. AI로 만든 산출물에 대한 반감이 실재하고, 커지고 있다. 대외 문서에 그대로 적용되는 얘기다.</p>
+      </div>
+      <div class="signal">
+        <span class="src">경쟁</span>
+        <h3>모델 발표 주기가 주 단위</h3>
+        <p>한 주에 프런티어·오픈 모델 발표가 여러 건 겹친다. 특정 모델 이름을 문서나 제안서에 박으면 몇 주면 낡는다. 이 용어집이 모델 이름을 거의 쓰지 않는 이유다.</p>
+      </div>
+    </div>
+
+    <p class="caveat"><b>이 섹션의 유통기한이 가장 짧다.</b> 용어의 뜻은 분기 단위로 바뀌지만 "지금 무슨 일이 벌어지나"는 주 단위로 바뀐다. 2026년 9월 22일의 스냅샷으로만 읽고, 한 달이 지났으면 이 섹션부터 다시 확인할 것. 출처는 Hacker News 인기 스토리, GitHub 신규 저장소 스타 순위, Reddit 커뮤니티 상위 글, 각 발표 원문이다.</p>
+  </section>
+
   <section class="blk">
     <h2>더 정확하게 말하는 법</h2>
     <p class="sub">용어를 외우는 것보다 이 표가 실전에서 더 자주 쓰인다. 왼쪽이 틀린 말이라는 뜻은 아니고, 오른쪽이 상대에게 더 적은 설명으로 전달된다는 뜻이다.</p>
@@ -249,6 +349,16 @@ a{color:var(--pink)}
     <p class="sub">이 문서는 계속 갱신한다. 용어는 6개월이면 뉘앙스가 바뀌고, 1년이면 낡는다.</p>
     <ul class="log">
       <li>
+        <span class="v">v1.2</span><span class="dt">2026-09-22</span>
+        <p><b>어디까지 왔나</b> 섹션 추가. 용어만 알고 지금 무슨 일이 벌어지는지 모르면 절반이라는 판단.</p>
+        <ul>
+          <li>System One 모델 계열 6개 용어 신규 — <b>System One 모델 · Jev · 비자기회귀 모델 · RLCD · 캘리브레이션 · System 1/System 2</b></li>
+          <li>Hacker News · GitHub · Reddit 실측 기반 현장 스냅샷 수록 (소문·유출 제외, 벤더 수치는 표시)</li>
+          <li>AX 충돌이 셋으로 늘어난 건(Google의 동명 제품) 반영, MCP 회의론 반영</li>
+          <li>수록 236 → 242개</li>
+        </ul>
+      </li>
+      <li>
         <span class="v">v1.1</span><span class="dt">2026-09-22</span>
         <p>서론을 다시 썼고, 시점에 따라 달라지는 설명에 관찰 날짜를 박았다.</p>
         <ul>
@@ -265,6 +375,7 @@ a{color:var(--pink)}
           <li>기초·모델 / 스케일링·추론 / 프롬프트·컨텍스트 / RAG·검색 / 에이전트 / 에이전틱 코딩 / 프로토콜 / 인프라·비용 / 평가·관측 / 보안·안전 / 멀티모달 / 비즈니스 버즈워드 / 의료 AI</li>
           <li>자율성 6단 사다리와 “바꿔야 할 표현” 치트시트 수록</li>
           <li>플래그 도입 — <b>지금 뜨는 말</b> / <b>잘못 쓰면 까임</b> / <b>쓰면 옛날 사람</b></li>
+          <li>236개 용어 수록</li>
         </ul>
       </li>
     </ul>
@@ -278,7 +389,7 @@ a{color:var(--pink)}
   </section>
 
   <footer>
-    <span>WEKNEWS · AI TERM DICTIONARY v1.1</span>
+    <span>WEKNEWS · AI TERM DICTIONARY v1.2</span>
     <span>내부 공유용 · 관찰 시점 2026-09-22</span>
   </footer>
 </div>
