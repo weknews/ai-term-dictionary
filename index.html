@@ -336,11 +336,71 @@ td.bad{color:var(--muted)}
 footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:var(--mono);
   font-size:11.5px; letter-spacing:.08em; color:var(--muted);
   display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap}
+
+/* ══ 좁은 화면 ══ */
+/* 탭 7개는 가로 스크롤로 두면 뒤쪽 탭을 못 찾는다. 줄바꿈으로 전부 보이게 한다. */
+@media (max-width:620px){
+  .tabs{flex-wrap:wrap; overflow-x:visible}
+  .tab{flex:1 1 auto; min-width:33%; padding:13px 10px; font-size:15px;
+    border-bottom:2px solid var(--faint)}
+  .tab em{display:none}
+  .tab[aria-selected="true"]::after{bottom:-2px}
+  .mast{padding-block:28px 18px}
+  h1{font-size:clamp(32px,9vw,44px)}
+  .mast .badge{font-size:10.5px; letter-spacing:.1em; padding:5px 9px}
+  .tagline{font-size:15.5px}
+  .view{padding-block:26px 44px}
+  .view > h2{font-size:clamp(24px,7vw,32px)}
+}
+/* 필터 패널 — 넓은 화면에서는 항상 펼친 상태, 좁은 화면에서만 접는다 */
+.filters > summary{display:none}
+@media (max-width:900px){
+  .filters{border:2px solid var(--faint); margin-bottom:6px}
+  .filters > summary{display:block; cursor:pointer; padding:11px 14px;
+    font-family:var(--mono); font-size:12px; color:var(--muted); list-style:none}
+  .filters > summary::-webkit-details-marker{display:none}
+  .filters > summary::after{content:"펼치기"; float:right; color:var(--pink)}
+  .filters[open] > summary::after{content:"접기"}
+  .filters[open] > summary{border-bottom:2px solid var(--faint)}
+  .filters > div{padding:12px 14px}
+  .chip{padding:8px 11px; font-size:12px}
+}
+/* 능력표 — 점 다섯 칸이 폭을 먹어 설명이 뭉개진다 */
+@media (max-width:560px){
+  .abil{--cols:repeat(5, 30px)}
+  .abil-head .ab{font-size:0; line-height:1.2}
+  .abil-head .ab::after{font-size:9.5px; white-space:pre-line; display:block}
+  .abil-head .ab:nth-child(2)::after{content:"대화"}
+  .abil-head .ab:nth-child(3)::after{content:"자료"}
+  .abil-head .ab:nth-child(4)::after{content:"도구"}
+  .abil-head .ab:nth-child(5)::after{content:"순서"}
+  .abil-head .ab:nth-child(6)::after{content:"위임"}
+  .abil .row .lv{font-size:14.5px; padding-right:8px}
+  .abil .row .lv em{font-size:12px}
+  .abil .row .lv b{margin-right:6px}
+  .dot{width:11px; height:11px}
+  .abil .line span{font-size:9px; padding-right:6px}
+  .slab{padding:18px 14px}
+}
+/* 가로로 넘치는 표에는 스크롤된다는 표시를 준다 */
+.sheet{position:relative; -webkit-overflow-scrolling:touch}
+@media (max-width:760px){
+  .sheet::after{content:"→ 옆으로 넘겨 보세요"; position:sticky; left:0; display:block;
+    font-family:var(--mono); font-size:10.5px; color:var(--muted);
+    padding:7px 14px; border-top:2px solid var(--faint)}
+  table{min-width:560px}
+}
+/* 손가락으로 누를 수 있는 크기 확보 */
+@media (max-width:620px){
+  .sit button{padding:15px 16px}
+  .chip{min-height:38px; display:flex; align-items:center}
+  #q{font-size:16px}
+}
 </style>
 
 <div class="wrap">
   <header class="mast">
-    <p class="badge"><b>v2.9</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
+    <p class="badge"><b>v3.0</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
     <h1>위뉴 AI 용어집</h1>
     <p class="tagline">업계가 이 단어를 <b>실제로 어떤 뜻으로 쓰는지</b> 적은 문서. 학술적 정의가 아니라 현장 어법이 기준이다.</p>
   </header>
@@ -472,7 +532,9 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 <section class="view" data-view="terms" hidden>
   <div class="split">
     <aside class="side">
-      <div id="chips"></div>
+      <details class="filters" open><summary>분류와 표시로 걸러보기</summary>
+        <div id="chips"></div>
+      </details>
     </aside>
     <main id="list" aria-live="polite"></main>
   </div>
@@ -705,6 +767,17 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   <p class="sub">이 문서는 계속 갱신한다. 용어는 6개월이면 뉘앙스가 바뀌고, 1년이면 낡는다.</p>
   <ul class="log">
     <li>
+      <span class="v">v3.0</span><span class="dt">2026-09-23</span>
+      <p>모바일에서 탭이 안 눌리고 스크립트 오류가 뜨던 문제를 고쳤다. 원인은 하나였다.</p>
+      <ul>
+        <li><b>용어 데이터를 못 불러오면 첫 줄에서 스크립트가 통째로 죽었다.</b> 그래서 탭 동작까지 멈췄다. 탭은 데이터와 무관하게 먼저 살려두고, 데이터 실패는 안내 문구로 격리했다</li>
+        <li><b>탭 일곱 개</b>가 좁은 화면에서 가로로 잘려 뒤쪽 탭을 찾을 수 없었다. 줄바꿈으로 전부 보이게 했다</li>
+        <li><b>필터 열여덟 개</b>가 목록을 화면 밖으로 밀어냈다. 좁은 화면에서는 접은 상태로 시작한다</li>
+        <li>능력 누적 표의 점 다섯 칸이 설명을 눌렀다. 칸을 줄이고 머리글을 두 글자로 바꿨다</li>
+        <li>가로로 넘치는 표에 “옆으로 넘겨 보세요” 표시를 붙였다. 손가락 닿는 크기도 키웠다</li>
+      </ul>
+    </li>
+    <li>
       <span class="v">v2.9</span><span class="dt">2026-09-22</span>
       <p><b>유행의 역사</b> 탭 추가. ChatGPT 이후 무엇이 얼마나 뜨거웠고 그래서 어떻게 됐는지를 시기별로 놓았다.</p>
       <ul>
@@ -906,7 +979,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 </section>
 
   <footer>
-    <span>WEKNEWS · AI TERM DICTIONARY v2.9</span>
+    <span>WEKNEWS · AI TERM DICTIONARY v3.0</span>
     <span>내부 공유용 · 관찰 시점 2026-09-22</span>
   </footer>
 </div>
@@ -914,14 +987,54 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 <script src="terms.js" charset="utf-8"></script>
 <script>
 (function(){
+  /* 탭은 데이터와 무관하게 먼저 살려둔다. 예전에는 terms.js가 안 올라오면
+     첫 줄에서 죽어 탭까지 멈췄다. */
+  var VIEWS0 = ["start","core","terms","hype","now","say","log"];
+  function showView(v){
+    if (VIEWS0.indexOf(v) < 0) v = "start";
+    document.body.setAttribute("data-view", v);
+    VIEWS0.forEach(function(name){
+      var el = document.querySelector('.view[data-view="' + name + '"]');
+      if (el) el.hidden = (name !== v);
+    });
+    document.querySelectorAll(".tab").forEach(function(b){
+      b.setAttribute("aria-selected", String(b.dataset.go === v));
+    });
+    if (location.hash.slice(1) !== v) {
+      try { history.replaceState(null, "", "#" + v); } catch (e) { location.hash = v; }
+    }
+    window.scrollTo(0, 0);
+    measureTop();
+  }
+  function measureTop(){
+    var bar = document.querySelector(".topbar");
+    if (bar) document.documentElement.style.setProperty("--top", (bar.offsetHeight + 24) + "px");
+  }
+  document.querySelectorAll(".tab").forEach(function(b){
+    b.addEventListener("click", function(){ showView(b.dataset.go); });
+  });
+  window.addEventListener("hashchange", function(){ showView(location.hash.slice(1)); });
+  window.addEventListener("resize", measureTop);
+  window.addEventListener("orientationchange", function(){ setTimeout(measureTop, 200); });
+  var _f = document.querySelector(".filters");
+  if (_f && window.matchMedia("(max-width:900px)").matches) _f.open = false;
+  showView(location.hash.slice(1) || "start");
+
   var CATS = window.CATS, TERMS = window.TERMS;
+  if (!CATS || !TERMS || !TERMS.length){
+    var box = document.getElementById("list");
+    if (box) box.innerHTML = '<p class="empty">용어 데이터를 불러오지 못했습니다.<br><br>' +
+      'terms.js가 index.html과 같은 폴더에 있어야 합니다. 파일 하나만 받으셨다면 ' +
+      'dist 폴더의 단일 파일 버전을 여세요. 그 파일은 데이터가 안에 들어 있어 따로 필요한 것이 없습니다.</p>';
+    var cnt = document.getElementById("navcount"); if (cnt) cnt.textContent = "";
+    return;
+  }
   var ASOF = "2026-09-22";
   var FLAGS = {
     hot:  {label:"지금 뜨는 말", cls:"hot"},
     care: {label:"쓸 때 주의", cls:"care"},
     old:  {label:"한물간 말", cls:"old"}
   };
-  var VIEWS = ["start","core","terms","hype","now","say","log"];
   var activeCat = null, activeFlag = null, onlyAsof = false;
   var q = document.getElementById("q");
   var list = document.getElementById("list");
@@ -933,32 +1046,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   document.getElementById("total").textContent = TERMS.length;
   document.getElementById("navcount").textContent = TERMS.length;
 
-  /* ── 탭 ── */
-  function show(v){
-    if (VIEWS.indexOf(v) < 0) v = "start";
-    document.body.setAttribute("data-view", v);
-    VIEWS.forEach(function(name){
-      document.querySelector('.view[data-view="' + name + '"]').hidden = (name !== v);
-    });
-    document.querySelectorAll(".tab").forEach(function(b){
-      b.setAttribute("aria-selected", String(b.dataset.go === v));
-    });
-    if (location.hash.slice(1) !== v) history.replaceState(null, "", "#" + v);
-    window.scrollTo(0, 0);
-    measure();
-    if (v === "terms") setTimeout(function(){ q.focus({preventScroll:true}); }, 0);
-  }
-  document.querySelectorAll(".tab").forEach(function(b){
-    b.addEventListener("click", function(){ show(b.dataset.go); });
-  });
-  window.addEventListener("hashchange", function(){ show(location.hash.slice(1)); });
-
-  /* 사이드바 상단 오프셋 = 스티키 바 높이 */
-  function measure(){
-    var h = document.querySelector(".topbar").offsetHeight;
-    document.documentElement.style.setProperty("--top", (h + 24) + "px");
-  }
-  window.addEventListener("resize", measure);
+  function show(v){ showView(v); }
 
   /* ── 필터 칩 ── */
   function label(text, count){
@@ -1069,7 +1157,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   q.addEventListener("input", function(){ clearTimeout(timer); timer = setTimeout(render, 90); });
   document.addEventListener("keydown", function(e){
     if (e.key === "/" && document.activeElement !== q){
-      e.preventDefault(); show("terms"); q.focus(); q.select();
+      e.preventDefault(); showView("terms"); q.focus(); q.select();
     }
     if (e.key === "Escape" && document.activeElement === q){ q.value = ""; render(); q.blur(); }
   });
@@ -1162,11 +1250,11 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
       var b = e.target.closest("button[data-k]");
       if (!b) return;
       activeCat = null; activeFlag = null; onlyAsof = false;
-      q.value = b.dataset.k; sync(); render(); show("terms");
+      q.value = b.dataset.k; sync(); render(); showView("terms");
     });
   })();
 
-  sync(); render(); measure();
-  show(location.hash.slice(1) || "start");
+  sync(); render(); measureTop();
+  if (document.body.getAttribute("data-view") === "terms") q.focus({preventScroll:true});
 })();
 </script>
