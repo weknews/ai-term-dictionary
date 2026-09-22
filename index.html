@@ -63,6 +63,7 @@ h1{margin:0 0 14px; font-size:clamp(38px,7.4vw,74px); line-height:1; letter-spac
 .tab:focus-visible{outline:3px solid var(--pink); outline-offset:-3px}
 .tab[aria-selected="true"]{color:var(--ink); background:var(--paper-2)}
 .tab[aria-selected="true"]::after{content:""; position:absolute; left:0; right:0; bottom:-3px; height:3px; background:var(--pink)}
+.tab .short{display:none}
 .tab em{font-style:normal; font-family:var(--mono); font-size:11px; color:var(--muted); margin-left:7px}
 .searchrow{display:none; gap:10px; align-items:center; padding-block:11px; border-top:2px solid var(--faint)}
 body[data-view="terms"] .searchrow{display:flex}
@@ -338,13 +339,15 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap}
 
 /* ══ 좁은 화면 ══ */
-/* 탭 7개는 가로 스크롤로 두면 뒤쪽 탭을 못 찾는다. 줄바꿈으로 전부 보이게 한다. */
+/* 중간 폭 — 원래 라벨 그대로, 여백만 줄여 한 줄에 넣는다 */
+@media (max-width:760px){ .tab{padding-inline:10px} }
+/* 탭 7개 — 가로 스크롤은 뒤쪽 탭을 숨기고, 줄바꿈은 세 줄을 먹는다.
+   두 글자 라벨로 바꿔 한 줄에 전부 넣는다. 원래 라벨은 화면 읽기용으로 남긴다. */
 @media (max-width:620px){
-  .tabs{flex-wrap:wrap; overflow-x:visible}
-  .tab{flex:1 1 auto; min-width:33%; padding:13px 10px; font-size:15px;
-    border-bottom:2px solid var(--faint)}
+  .tab{flex:1 1 0; min-width:0; padding:13px 2px; font-size:15px; text-align:center}
+  .tab .full{position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%)}
+  .tab .short{display:inline}
   .tab em{display:none}
-  .tab[aria-selected="true"]::after{bottom:-2px}
   .mast{padding-block:28px 18px}
   h1{font-size:clamp(32px,9vw,44px)}
   .mast .badge{font-size:10.5px; letter-spacing:.1em; padding:5px 9px}
@@ -382,13 +385,19 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   .abil .line span{font-size:9px; padding-right:6px}
   .slab{padding:18px 14px}
 }
-/* 가로로 넘치는 표에는 스크롤된다는 표시를 준다 */
-.sheet{position:relative; -webkit-overflow-scrolling:touch}
+/* 표 — 좁은 화면에서는 줄마다 카드로 쌓는다. 가로 스크롤로 두면 정답 열이 화면 밖에 남는다. */
 @media (max-width:760px){
-  .sheet::after{content:"→ 옆으로 넘겨 보세요"; position:sticky; left:0; display:block;
-    font-family:var(--mono); font-size:10.5px; color:var(--muted);
-    padding:7px 14px; border-top:2px solid var(--faint)}
-  table{min-width:560px}
+  table{min-width:0}
+  thead{display:none}
+  table, tbody, tr, td{display:block}
+  tr{padding:12px 16px; border-bottom:2px solid var(--faint-2)}
+  tr:last-child{border-bottom:0}
+  td{padding:2px 0; border:0}
+  td::before{display:block; font-family:var(--mono); font-size:10.5px; font-weight:600;
+    letter-spacing:.1em; color:var(--muted)}
+  td:nth-child(1)::before{content:"흔히 쓰는 말"}
+  td:nth-child(2)::before{content:"실제 내용이 이렇다면"; margin-top:6px}
+  td:nth-child(3)::before{content:"이렇게 말하면 더 빠르다"; margin-top:6px}
 }
 /* 손가락으로 누를 수 있는 크기 확보 */
 @media (max-width:620px){
@@ -400,7 +409,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 
 <div class="wrap">
   <header class="mast">
-    <p class="badge"><b>v3.0</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
+    <p class="badge"><b>v3.1</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
     <h1>위뉴 AI 용어집</h1>
     <p class="tagline">업계가 이 단어를 <b>실제로 어떤 뜻으로 쓰는지</b> 적은 문서. 학술적 정의가 아니라 현장 어법이 기준이다.</p>
   </header>
@@ -409,16 +418,16 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 <div class="topbar">
   <div class="wrap">
     <div class="tabs" role="tablist" aria-label="문서 구역">
-      <button class="tab" role="tab" data-go="start" aria-selected="true">시작</button>
-      <button class="tab" role="tab" data-go="core" aria-selected="false">상황별<em>42</em></button>
-      <button class="tab" role="tab" data-go="terms" aria-selected="false">용어 사전<em id="navcount"></em></button>
-      <button class="tab" role="tab" data-go="hype" aria-selected="false">유행의 역사</button>
-      <button class="tab" role="tab" data-go="now" aria-selected="false">어디까지 왔나</button>
-      <button class="tab" role="tab" data-go="say" aria-selected="false">더 정확하게</button>
-      <button class="tab" role="tab" data-go="log" aria-selected="false">갱신</button>
+      <button class="tab" role="tab" data-go="start" aria-selected="true"><span class="full">시작</span><span class="short" aria-hidden="true">시작</span></button>
+      <button class="tab" role="tab" data-go="core" aria-selected="false"><span class="full">상황별</span><span class="short" aria-hidden="true">상황</span><em>42</em></button>
+      <button class="tab" role="tab" data-go="terms" aria-selected="false"><span class="full">용어 사전</span><span class="short" aria-hidden="true">사전</span><em id="navcount"></em></button>
+      <button class="tab" role="tab" data-go="hype" aria-selected="false"><span class="full">유행의 역사</span><span class="short" aria-hidden="true">역사</span></button>
+      <button class="tab" role="tab" data-go="now" aria-selected="false"><span class="full">어디까지 왔나</span><span class="short" aria-hidden="true">현황</span></button>
+      <button class="tab" role="tab" data-go="say" aria-selected="false"><span class="full">더 정확하게</span><span class="short" aria-hidden="true">표현</span></button>
+      <button class="tab" role="tab" data-go="log" aria-selected="false"><span class="full">갱신</span><span class="short" aria-hidden="true">갱신</span></button>
     </div>
     <div class="searchrow">
-      <input id="q" type="search" placeholder="용어 검색 —  에이전트, RAG, MCP, 하네스, harness…" autocomplete="off" aria-label="용어 검색">
+      <input id="q" type="search" placeholder="용어 검색 — 에이전트, RAG, MCP, 하네스, harness…" autocomplete="off" aria-label="용어 검색">
       <span class="count"><b id="hits">—</b> / <span id="total">—</span></span>
     </div>
   </div>
@@ -741,7 +750,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 <!-- ════════ 더 정확하게 ════════ -->
 <section class="view" data-view="say" hidden>
   <h2>더 정확하게 말하는 법</h2>
-  <p class="sub">용어를 외우는 것보다 이 표가 실전에서 더 자주 쓰인다. 왼쪽이 틀린 말이라는 뜻은 아니고, 오른쪽이 상대에게 더 적은 설명으로 전달된다는 뜻이다.</p>
+  <p class="sub">용어를 외우는 것보다 이 표가 실전에서 더 자주 쓰인다. 흔히 쓰는 말이 틀렸다는 뜻은 아니고, 마지막 칸의 말이 상대에게 더 적은 설명으로 전달된다는 뜻이다.</p>
   <div class="sheet">
     <table>
       <thead><tr><th>흔히 쓰는 말</th><th>실제 내용이 이렇다면</th><th>이렇게 말하면 더 빠르다</th></tr></thead>
@@ -766,6 +775,16 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   <h2>갱신 이력</h2>
   <p class="sub">이 문서는 계속 갱신한다. 용어는 6개월이면 뉘앙스가 바뀌고, 1년이면 낡는다.</p>
   <ul class="log">
+    <li>
+      <span class="v">v3.1</span><span class="dt">2026-09-23</span>
+      <p>좁은 화면에서 상단 고정 영역과 표를 다시 손봤다.</p>
+      <ul>
+        <li><b>탭</b>이 세 줄로 접혀 화면의 4분의 1을 가렸다. 폭 620px 이하에서는 두 글자 라벨(시작·상황·사전·역사·현황·표현·갱신)로 바꿔 한 줄에 넣었다. 용어 사전 탭의 상단 고정 영역이 216px에서 122px로 줄었다</li>
+        <li>폭 620~760px에서 탭이 옆으로 넘쳐 “갱신”이 가려지던 것도 여백을 줄여 한 줄에 들어오게 했다</li>
+        <li><b>더 정확하게</b> 표의 마지막 칸이 화면 밖에 있었다. 좁은 화면에서는 줄마다 카드로 쌓아 세 칸이 모두 보이게 했다. 옆으로 넘기는 표시는 필요 없어져 뺐다</li>
+        <li>검색창 안내 문구가 잘렸다. 좁은 화면에서는 짧은 문구를 쓴다</li>
+      </ul>
+    </li>
     <li>
       <span class="v">v3.0</span><span class="dt">2026-09-23</span>
       <p>모바일에서 탭이 안 눌리고 스크립트 오류가 뜨던 문제를 고쳤다. 원인은 하나였다.</p>
@@ -979,7 +998,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 </section>
 
   <footer>
-    <span>WEKNEWS · AI TERM DICTIONARY v3.0</span>
+    <span>WEKNEWS · AI TERM DICTIONARY v3.1</span>
     <span>내부 공유용 · 관찰 시점 2026-09-22</span>
   </footer>
 </div>
@@ -1018,6 +1037,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   window.addEventListener("orientationchange", function(){ setTimeout(measureTop, 200); });
   var _f = document.querySelector(".filters");
   if (_f && window.matchMedia("(max-width:900px)").matches) _f.open = false;
+  if (window.matchMedia("(max-width:620px)").matches) document.getElementById("q").placeholder = "용어 검색 — RAG, MCP…";
   showView(location.hash.slice(1) || "start");
 
   var CATS = window.CATS, TERMS = window.TERMS;
