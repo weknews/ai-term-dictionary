@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>위뉴 AI 용어집</title>
-<meta name="description" content="위뉴 내부 공유용 AI 용어집. 270개 용어의 정의와 업계 뉘앙스, 그리고 2026-09-22 현장 동향.">
+<meta name="description" content="위뉴 AI 용어집. 242개 용어의 정의와 업계 뉘앙스, 그리고 2026-09-22 현장 동향.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -409,7 +409,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 
 <div class="wrap">
   <header class="mast">
-    <p class="badge"><b>v3.1</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
+    <p class="badge"><b>v4.0</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
     <h1>위뉴 AI 용어집</h1>
     <p class="tagline">업계가 이 단어를 <b>실제로 어떤 뜻으로 쓰는지</b> 적은 문서. 학술적 정의가 아니라 현장 어법이 기준이다.</p>
   </header>
@@ -419,7 +419,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   <div class="wrap">
     <div class="tabs" role="tablist" aria-label="문서 구역">
       <button class="tab" role="tab" data-go="start" aria-selected="true"><span class="full">시작</span><span class="short" aria-hidden="true">시작</span></button>
-      <button class="tab" role="tab" data-go="core" aria-selected="false"><span class="full">상황별</span><span class="short" aria-hidden="true">상황</span><em>42</em></button>
+      <button class="tab" role="tab" data-go="core" aria-selected="false"><span class="full">상황별</span><span class="short" aria-hidden="true">상황</span><em id="corecount"></em></button>
       <button class="tab" role="tab" data-go="terms" aria-selected="false"><span class="full">용어 사전</span><span class="short" aria-hidden="true">사전</span><em id="navcount"></em></button>
       <button class="tab" role="tab" data-go="hype" aria-selected="false"><span class="full">유행의 역사</span><span class="short" aria-hidden="true">역사</span></button>
       <button class="tab" role="tab" data-go="now" aria-selected="false"><span class="full">어디까지 왔나</span><span class="short" aria-hidden="true">현황</span></button>
@@ -448,7 +448,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 
   <div class="slab">
     <h3>가장 자주 어긋나는 단어: 에이전트</h3>
-    <p class="s">기술적으로 따지면 경계가 흐린 말이다. 다만 업계는 업계는 할 수 있는 일이 하나씩 늘어나는 여섯 칸으로 구분해 쓴다. 우리가 어느 칸에 있는지 정확히 말하면 대화가 빨라지고, 뭉뚱그리면 상대가 다시 물어야 한다.</p>
+    <p class="s">기술적으로 따지면 경계가 흐린 말이다. 다만 업계는 할 수 있는 일이 하나씩 늘어나는 여섯 칸으로 구분해 쓴다. 만든 시스템이 어느 칸에 있는지 정확히 말하면 대화가 빨라지고, 뭉뚱그리면 상대가 다시 물어야 한다.</p>
     <div class="abil">
       <div class="abil-head">
         <span class="lv">단계</span>
@@ -524,7 +524,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
     </div>
     <div>
       <h4><span class="fl flag asof">시점 의존</span></h4>
-      <p>노란 줄, 곧 <b>관찰 날짜가 붙은 현황</b>이 달린 항목. 270개 중 56개다. 앞의 셋과 달리 단어의 성격이 아니라 <b>설명의 수명</b>을 가리킨다. 여기 적힌 내용은 그날의 관찰이라 시간이 지나면 틀려지고, 그래서 갱신할 때 이 51개부터 본다.</p>
+      <p>노란 줄, 곧 <b>관찰 날짜가 붙은 현황</b>이 달린 항목. 242개 중 52개다. 앞의 셋과 달리 단어의 성격이 아니라 <b>설명의 수명</b>을 가리킨다. 여기 적힌 내용은 그날의 관찰이라 시간이 지나면 틀려지고, 그래서 갱신할 때 이 항목들부터 본다.</p>
     </div>
   </div>
 </section>
@@ -532,9 +532,9 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 <!-- ════════ 상황별 ════════ -->
 <section class="view" data-view="core" hidden>
   <h2>상황별로 찾기</h2>
-  <p class="sub">사전은 단어로 찾는다. 여기는 <b>상황으로 찾는다.</b> 같은 용어를 어떤 얘기를 할 때 쓰는지에 따라 일곱 묶음으로 나눠 놨다. 회의 들어가기 전에 해당하는 묶음만 펼쳐 보면 된다. 용어를 누르면 사전의 전체 설명으로 넘어간다.</p>
+  <p class="sub">사전은 단어로 찾는다. 여기는 <b>상황으로 찾는다.</b> 같은 용어를 어떤 얘기를 할 때 쓰는지에 따라 여섯 묶음으로 나눠 놨다. 회의 들어가기 전에 해당하는 묶음만 펼쳐 보면 된다. 용어를 누르면 사전의 전체 설명으로 넘어간다.</p>
   <div id="corelist"></div>
-  <p class="caveat"><b>무엇을 어디에 넣었나.</b> 중요도 순위가 아니다. 여기 없는 용어가 덜 중요한 것도 아니다. <b>그 얘기를 할 때 실제로 입에 오르는가</b>만 기준으로 묶었다. 그래서 유명하지만 거기서는 안 나오는 말은 빠졌고, 수수해 보여도 매번 등장하는 말은 들어갔다. 사전 탭에 270개가 그대로 있다. 이 탭은 그중 자주 쓰는 묶음을 미리 펼쳐둔 것뿐이다.</p>
+  <p class="caveat"><b>무엇을 어디에 넣었나.</b> 중요도 순위가 아니다. 여기 없는 용어가 덜 중요한 것도 아니다. <b>그 얘기를 할 때 실제로 입에 오르는가</b>만 기준으로 묶었다. 그래서 유명하지만 거기서는 안 나오는 말은 빠졌고, 수수해 보여도 매번 등장하는 말은 들어갔다. 사전 탭에 242개가 그대로 있다. 이 탭은 그중 자주 쓰는 묶음을 미리 펼쳐둔 것뿐이다.</p>
 </section>
 
 <!-- ════════ 용어 사전 ════════ -->
@@ -652,7 +652,6 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
       <div>
         <h3>전문의급 영상 판독 모델이 오픈소스로 풀렸다</h3>
         <p>Alibaba Damo Academy가 <b>Damo Radar</b>를 Apache 2.0으로 공개했다. 조영증강 복부 CT를 읽어 18개 장기, <b>146개 임상 소견</b>을 판정한다. 실제 검사 약 4만 건에서 평균 AUC <b>0.913</b>, 여러 병원 방사선의 26명 중 23명보다 높은 성적을 냈다. 논문은 하루 전 Science에 실렸다.</p>
-        <p class="note">위뉴가 있는 시장에 직접 걸리는 사건이다. 가중치가 공개됐고 라이선스가 상업적으로 열려 있다.</p>
       </div>
     </div>
 
@@ -761,7 +760,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
         <tr><td class="bad">“프롬프트 엔지니어링 해요”</td><td>검색·메모리·컨텍스트 구성을 설계한다</td><td class="fix">컨텍스트 엔지니어링</td></tr>
         <tr><td class="bad">“오픈소스 모델 씁니다”</td><td>가중치만 공개된 모델이다</td><td class="fix">오픈 웨이트 모델</td></tr>
         <tr><td class="bad">“벡터 검색으로 찾습니다”</td><td>약품명·코드가 자주 안 걸린다</td><td class="fix">하이브리드 검색 + 리랭킹</td></tr>
-        <tr><td class="bad">“정확도 높습니다”</td><td>근거가 없다</td><td class="fix">평가 세트·지표·표본 수로 말하기 (의료면 민감도·특이도·AUROC)</td></tr>
+        <tr><td class="bad">“정확도 높습니다”</td><td>근거가 없다</td><td class="fix">평가 세트·지표·표본 수로 말하기 (분류 모델이면 민감도·특이도·AUROC)</td></tr>
         <tr><td class="bad">“AI로 자동화했어요”</td><td>검증과 롤백 체계가 있다</td><td class="fix">휴먼 인 더 루프 + 평가 기반 자동화</td></tr>
         <tr><td class="bad">“계속 학습합니다”</td><td>실은 RAG나 메모리다</td><td class="fix">검색 기반 최신화 · 에이전트 메모리</td></tr>
         <tr><td class="bad">“AX 하는 회사입니다”</td><td>해외 상대다</td><td class="fix">AI Transformation이라고 풀어 말하기 (AX는 Agent Experience로도, Google 제품명으로도 읽힌다)</td></tr>
@@ -775,6 +774,18 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   <h2>갱신 이력</h2>
   <p class="sub">이 문서는 계속 갱신한다. 용어는 6개월이면 뉘앙스가 바뀌고, 1년이면 낡는다.</p>
   <ul class="log">
+    <li>
+      <span class="v">v4.0</span><span class="dt">2026-09-23</span>
+      <p><b>의료 AI 분류를 없애고 회사 관점 서술을 걷어냈다.</b> 이 문서는 AI 용어와 흐름을 설명하는 문서이고, 특정 산업이나 회사의 사업 자료가 아니다.</p>
+      <ul>
+        <li>의료 AI 36개 중 인허가·수가·병원 시스템처럼 그 산업 안에서만 통하는 28개를 뺐다. SaMD·PACS·DICOM·신의료기술평가·요양급여·변경관리 계획서 등이다</li>
+        <li>원래 AI 일반 개념인 8개는 살려 옮겼다. AUROC·PPV/NPV·외부 검증·분포 이동·정답 기준 설정·DICE/IoU는 평가·관측으로, 알고리즘 편향·자동화 편향은 보안·안전·규제로. 설명에서 의료 색을 뺐다</li>
+        <li>다른 분류에 흩어져 있던 의료 예시를 어느 직무에서도 읽히는 예시로 바꿨다. 진료 기록은 계약서와 보고서로, 약품명은 제품 코드로, 환자번호는 주문번호로</li>
+        <li>“위뉴가 가장 많이 하는 일”, “우리 시스템 대부분이 여기다” 같은 회사 관점 문장을 일반 서술로 바꾸거나 뺐다. 상황별 탭의 “의료 쪽과 얘기할 때” 묶음을 없애고 “우리 제품을 설명할 때”는 “만든 것을 설명할 때”로 바꿨다</li>
+        <li>상황별 묶음 개수를 실제로 그려지는 항목으로 세게 고쳤다. 사전에서 빠진 용어를 가리켜도 “6개”가 그대로 남던 문제다. 시작 탭의 “업계는 업계는” 중복과 시점 의존 개수 불일치(56·51)도 바로잡았다</li>
+        <li>수록 270 → 242개, 분류 13 → 12개, 상황별 42 → 36개</li>
+      </ul>
+    </li>
     <li>
       <span class="v">v3.1</span><span class="dt">2026-09-23</span>
       <p>좁은 화면에서 상단 고정 영역과 표를 다시 손봤다.</p>
@@ -998,8 +1009,8 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 </section>
 
   <footer>
-    <span>WEKNEWS · AI TERM DICTIONARY v3.1</span>
-    <span>내부 공유용 · 관찰 시점 2026-09-22</span>
+    <span>WEKNEWS · AI TERM DICTIONARY v4.0</span>
+    <span>관찰 시점 2026-09-22</span>
   </footer>
 </div>
 
@@ -1185,12 +1196,12 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 
   /* ── 상황별 ── */
   var SITUATIONS = [
-    { t:"우리 제품을 설명할 때", d:"밖에서 가장 자주 어긋난다. 이 여섯 개면 우리가 무엇을 만들었는지 정확히 전달된다.",
+    { t:"만든 것을 설명할 때", d:"밖에서 가장 자주 어긋난다. 이 여섯 개면 무엇을 만들었는지 정확히 전달된다.",
       items:[
         ["에이전트","모델이 다음 행동을 스스로 정하고 도구를 쓰며 루프를 돈다. <b>여기 해당할 때 이 말이 정확하다.</b>"],
-        ["워크플로우","순서를 사람이 코드에 박아뒀다. <b>우리 시스템 대부분이 실제로는 여기다.</b>"],
-        ["RAG","문서를 먼저 찾아 그 근거로 답한다. 우리가 가장 많이 하는 일이고 이렇게 부르면 정확하다."],
-        ["그라운딩","답을 출처에 묶는 것. 의료에서는 정확도보다 이쪽이 먼저 나온다."],
+        ["워크플로우","순서를 사람이 코드에 박아뒀다. <b>에이전트라 불리는 시스템 대부분이 실제로는 여기다.</b>"],
+        ["RAG","문서를 먼저 찾아 그 근거로 답한다. 사내 문서 챗봇은 대부분 이렇게 부르면 정확하다."],
+        ["그라운딩","답을 출처에 묶는 것. 틀리면 책임이 따르는 업무에서는 정확도보다 이쪽이 먼저 나온다."],
         ["휴먼 인 더 루프","중요한 행동 전에 사람이 승인한다. <b>어느 지점에서 끊는지</b>까지 나와야 실속 있는 설명이 된다."],
         ["자율성 레벨","매번 승인 → 지켜보기 → 완전 자율. 이 축으로 설명하면 규제 질문이 정리된다."]
       ]},
@@ -1209,9 +1220,9 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
       items:[
         ["평가","우리 데이터로 만든 자체 시험. <b>공개 벤치마크 점수만 내밀면 약하게 받아들여진다.</b>"],
         ["골든 데이터셋","정답이 붙은 대표 입력 묶음. 평가의 기준자라 여기가 흔들리면 모든 점수가 무의미해진다."],
-        ["충실도","답이 검색해온 근거에만 기대고 있는가. 의료 RAG에서 정확도보다 먼저 볼 지표."],
-        ["AUROC / 민감도 / 특이도","<b>유병률 1% 질환은 전부 정상이라 답해도 정확도 99%다.</b> 그래서 정확도만으로는 아무것도 증명되지 않는다."],
-        ["전향적 / 후향적 검증","앞으로 모아 검증하기 / 쌓인 데이터로 되짚기. 규제 논의에서 무게가 전혀 다르다."],
+        ["충실도","답이 검색해온 근거에만 기대고 있는가. 문서 기반 RAG에서 정확도보다 먼저 볼 지표."],
+        ["AUROC / 민감도 / 특이도","<b>사기 거래가 1%뿐이면 전부 정상이라 답해도 정확도 99%다.</b> 그래서 정확도만으로는 아무것도 증명되지 않는다."],
+        ["외부 검증","만들 때 쓰지 않은 데이터로 다시 잰다. <b>논문 속 수치와 실제 성능이 가장 자주 갈리는 단계.</b>"],
         ["결정성 / 재현성","어제 본 결과를 오늘 그대로 낼 수 있는가. 심사에서 가장 자주 나오는 질문."]
       ]},
     { t:"비용 얘기를 할 때", d:"에이전트를 붙이는 순간 원가 구조가 달라진다. 이 다섯 개면 숫자로 대화할 수 있다.",
@@ -1227,17 +1238,8 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
         ["간접 프롬프트 인젝션","<b>남이 만든 문서에 숨긴 한 줄을 에이전트가 명령으로 읽는다.</b> 지금 가장 실질적인 위협."],
         ["치명적 3요소","민감 데이터 + 외부 콘텐츠 + 외부 통로. 셋이 모이면 유출은 시간문제고, <b>하나만 끊어도 막힌다.</b>"],
         ["최소 권한","꼭 필요한 권한만 준다. 보안 질문에 대한 가장 정직하고 효과적인 답."],
-        ["감사 로그","무엇을 읽고 어떤 도구를 어떻게 불렀는지 남긴다. 의료에서는 기술 설명보다 이게 먼저다."],
+        ["감사 로그","무엇을 읽고 어떤 도구를 어떻게 불렀는지 남긴다. 규제가 있는 업무에서는 기술 설명보다 이게 먼저다."],
         ["섀도 AI","직원이 개인 계정으로 업무에 쓰는 것. 금지보다 안전한 대안을 주는 게 정석."]
-      ]},
-    { t:"의료 쪽과 얘기할 때", d:"우리 본업이다. 허가와 평가와 급여가 서로 다른 관문이라는 게 이 묶음의 골자다.",
-      items:[
-        ["신의료기술평가","<b>허가와 별개로 거쳐야 하는 관문.</b> 판매 허가를 받아도 이걸 통과해야 병원에서 쓰고 비용을 받는다."],
-        ["요양급여 / 비급여","보험이 비용을 대주는지. 수가가 안 붙으면 병원이 살 이유를 찾기 어렵다."],
-        ["외부 검증","다른 병원·다른 장비·다른 환자군으로 다시 재는 것. <b>의료 AI가 가장 자주 무너지는 지점.</b>"],
-        ["PPV / NPV","현장에서 체감하는 건 이쪽이다. 민감도 95%라도 드문 질환에서는 양성 알림 대부분이 헛것일 수 있다."],
-        ["CADe / CADx","표시만 하느냐 판정까지 하느냐. <b>설명 문구 하나로 규제 등급이 달라진다.</b>"],
-        ["PACS","영상 AI는 성능보다 여기 붙느냐로 도입이 갈린다. “어느 PACS와 붙여봤나”가 실제 질문."]
       ]},
     { t:"지금 흐름을 짚을 때", d:"최근 1~2년 사이 논의의 중심이 이쪽으로 옮겨왔다. 무엇이 쟁점인지가 이 여섯 개에 담겨 있다.",
       items:[
@@ -1246,7 +1248,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
         ["MCP","모델과 외부 도구를 잇는 표준. 사실상 업계 규격이 됐고 Linux Foundation 산하다."],
         ["에이전틱 엔지니어링","검증 체계를 먼저 깔아두고 에이전트에 맡기는 방식. 바이브 코딩의 반대편."],
         ["System One 모델","텍스트를 만들지 않고 정해진 선택지와 확률만 내놓는 새 범주. 2026년 9월 등장."],
-        ["소버린 AI","인프라와 데이터를 자기 통제 아래 두려는 흐름. 의료 데이터는 거의 언제나 여기 걸린다."]
+        ["소버린 AI","인프라와 데이터를 자기 통제 아래 두려는 흐름. 공공·금융 데이터는 거의 언제나 여기 걸린다."]
       ]}
   ];
 
@@ -1254,11 +1256,13 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
     var box = document.getElementById("corelist");
     var byK = {}; TERMS.forEach(function(t){ byK[t.k] = t; });
     var html = "";
+    var shown = 0;
     SITUATIONS.forEach(function(g){
-      html += '<div class="sit"><div class="sit-h"><b>' + g.t + "</b><span>" + g.d + "</span><i>" + g.items.length + "개</i></div><ul>";
-      g.items.forEach(function(it){
+      var items = g.items.filter(function(it){ return byK[it[0]]; });
+      shown += items.length;
+      html += '<div class="sit"><div class="sit-h"><b>' + g.t + "</b><span>" + g.d + "</span><i>" + items.length + "개</i></div><ul>";
+      items.forEach(function(it){
         var t = byK[it[0]];
-        if (!t) return;
         html += '<li><button type="button" data-k="' + esc(t.k) + '">' +
                 '<span class="kw">' + esc(t.k) + "<em>" + esc(t.e) + "</em></span>" +
                 '<span class="gl">' + it[1] + "</span></button></li>";
@@ -1266,6 +1270,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
       html += "</ul></div>";
     });
     box.innerHTML = html;
+    document.getElementById("corecount").textContent = shown;
     box.addEventListener("click", function(e){
       var b = e.target.closest("button[data-k]");
       if (!b) return;
