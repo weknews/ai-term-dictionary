@@ -147,8 +147,12 @@ body[data-view="terms"] .searchrow{display:flex}
 /* ── 용어 사전 ── */
 .split{display:grid; grid-template-columns:200px 1fr; gap:38px; align-items:start}
 @media (max-width:900px){ .split{grid-template-columns:1fr; gap:22px} }
-.side{position:sticky; top:calc(env(safe-area-inset-top, 0px) + var(--top)); align-self:start}
-@media (max-width:900px){ .side{position:static} }
+.side{position:sticky; top:calc(env(safe-area-inset-top, 0px) + var(--top)); align-self:start;
+  max-height:calc(100vh - var(--top) - env(safe-area-inset-top, 0px) - 24px);
+  overflow-y:auto; scrollbar-width:thin; padding-right:4px}
+.side::-webkit-scrollbar{width:6px}
+.side::-webkit-scrollbar-thumb{background:var(--faint)}
+@media (max-width:900px){ .side{position:static; max-height:none; overflow:visible} }
 .chips{display:flex; flex-direction:column; gap:5px}
 @media (max-width:900px){ .chips{flex-direction:row; flex-wrap:wrap} }
 .chip{font-family:var(--mono); font-size:11.5px; font-weight:500; text-align:left;
@@ -183,6 +187,7 @@ body[data-view="terms"] .searchrow{display:flex}
 .flag.hot{background:var(--pink); color:#fff}
 .flag.care{background:var(--yellow); color:#16233F}
 .flag.old{background:var(--muted); color:var(--paper)}
+.flag.asof{background:var(--yellow); color:#16233F}
 .term .d{margin:0; max-width:74ch}
 .term .n{margin:9px 0 0; max-width:74ch; font-size:14.5px; color:var(--muted);
   border-left:3px solid var(--pink); padding-left:14px}
@@ -257,7 +262,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 
 <div class="wrap">
   <header class="mast">
-    <p class="badge"><b>v1.9</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
+    <p class="badge"><b>v2.0</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
     <h1>위뉴 AI 용어집</h1>
     <p class="tagline">업계가 이 단어를 <b>실제로 어떤 뜻으로 쓰는지</b> 적은 문서. 학술적 정의가 아니라 현장 어법이 기준이다.</p>
   </header>
@@ -290,7 +295,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 
   <div class="asof">
     <b>관찰 시점 2026년 9월 22일</b>
-    <span>이 씬에서 “2026년 기준”은 이미 너무 넓은 표현이다. 분기 단위로 뜻과 위상이 바뀌기 때문에, 시점에 따라 달라지는 설명에는 관찰 날짜를 박아뒀다. 날짜가 붙은 줄은 그 날의 관찰이지 영구적인 사실이 아니다. 현재 <b id="scount">—</b>개 용어에 붙어 있고, 갱신할 때 가장 먼저 손봐야 할 부분이다.</span>
+    <span>이 씬에서 “2026년 기준”은 이미 너무 넓은 표현이다. 분기 단위로 뜻과 위상이 바뀌기 때문에, 시점에 따라 달라지는 설명에는 관찰 날짜를 박아뒀다. 날짜가 붙은 줄은 그 날의 관찰이지 영구적인 사실이 아니다. 현재 <b id="scount">—</b>개 용어에 붙어 있다. 용어 사전에서 <b>시점 의존</b>으로 걸러 이 항목만 모아 볼 수 있고, 갱신할 때 가장 먼저 손봐야 할 부분이다.</span>
   </div>
 
   <div class="slab">
@@ -311,7 +316,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   <div class="howto">
     <div>
       <h4>정의 · 뉘앙스 · 현황</h4>
-      <p>각 용어는 세 층으로 되어 있다. 검은 줄이 정의, <b>분홍 줄</b>이 업계 뉘앙스, <b>노란 줄</b>이 관찰 날짜가 붙은 현황이다.</p>
+      <p>각 용어는 세 층으로 되어 있다. 검은 줄이 정의, <b>분홍 줄</b>이 업계 뉘앙스, <b>노란 줄</b>이 관찰 날짜가 붙은 현황이다. 셋째 줄은 빠르게 변하는 용어에만 붙는다.</p>
     </div>
     <div>
       <h4><span class="fl flag hot">지금 뜨는 말</span></h4>
@@ -324,6 +329,10 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
     <div>
       <h4><span class="fl flag old">한물간 말</span></h4>
       <p>한때 널리 쓰였으나 지금 그대로 꺼내면 오래된 자료처럼 읽히는 말. 넷뿐이다 — 이 씬은 말을 버리기보다 쌓는다. 대개는 사라지는 대신 지위가 바뀐다.</p>
+    </div>
+    <div>
+      <h4><span class="fl flag asof">시점 의존</span></h4>
+      <p>노란 줄, 곧 <b>관찰 날짜가 붙은 현황</b>이 달린 항목. 245개 중 51개다. 앞의 셋과 달리 단어의 성격이 아니라 <b>설명의 수명</b>을 가리킨다. 여기 적힌 내용은 그날의 관찰이라 시간이 지나면 틀려지고, 그래서 갱신할 때 이 51개부터 본다.</p>
     </div>
   </div>
 </section>
@@ -492,6 +501,15 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   <p class="sub">이 문서는 계속 갱신한다. 용어는 6개월이면 뉘앙스가 바뀌고, 1년이면 낡는다.</p>
   <ul class="log">
     <li>
+      <span class="v">v2.0</span><span class="dt">2026-09-22</span>
+      <p><b>시점 의존</b> 설명을 추가하고, 사이드바에서 플래그와 분리했다.</p>
+      <ul>
+        <li>읽는 법에 카드 추가 — 앞의 셋이 <b>단어의 성격</b>을 가리킨다면 이쪽은 <b>설명의 수명</b>을 가리킨다. 성격이 다른데 나란히 놓여 있어 같은 종류로 보였다</li>
+        <li>사이드바 묶음을 “단어의 성격”과 “설명의 수명”으로 나눴다</li>
+        <li>관찰 시점 안내에서 이 필터 이름을 직접 가리키도록 문장을 고쳤다</li>
+      </ul>
+    </li>
+    <li>
       <span class="v">v1.9</span><span class="dt">2026-09-22</span>
       <p>플래그 세 개를 점검하고 <b>지금 뜨는 말</b>의 정의를 실제 쓰임에 맞게 고쳤다.</p>
       <ul>
@@ -593,7 +611,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 </section>
 
   <footer>
-    <span>WEKNEWS · AI TERM DICTIONARY v1.9</span>
+    <span>WEKNEWS · AI TERM DICTIONARY v2.0</span>
     <span>내부 공유용 · 관찰 시점 2026-09-22</span>
   </footer>
 </div>
@@ -683,7 +701,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
     gCat.appendChild(catBtns[c.id]);
   });
 
-  var gFlag = group("표시");
+  var gFlag = group("단어의 성격");
   var flagBtns = {};
   Object.keys(FLAGS).forEach(function(f){
     var n = TERMS.filter(function(t){ return t.f === f; }).length;
@@ -692,10 +710,11 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
     }, "f-" + f);
     gFlag.appendChild(flagBtns[f]);
   });
+  var gAsof = group("설명의 수명");
   var asofBtn = chip("시점 의존", withS, function(){
     onlyAsof = !onlyAsof; sync(); render();
   }, "f-asof");
-  gFlag.appendChild(asofBtn);
+  gAsof.appendChild(asofBtn);
 
   function sync(){
     Object.keys(catBtns).forEach(function(k){
