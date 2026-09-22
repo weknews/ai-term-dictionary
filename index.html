@@ -8,60 +8,86 @@
 <style>
 :root{
   --paper:#F1EFE9; --paper-2:#E7E4DB; --card:#FBFAF7;
-  --ink:#16233F; --ink-soft:#53608022; --muted:#5A6580;
-  --pink:#E0234E; --yellow:#F0B400; --green:#1F7A5C;
+  --ink:#16233F; --muted:#5A6580;
+  --pink:#E0234E; --yellow:#F0B400;
   --line:#16233F; --faint:rgba(22,35,63,.16); --faint-2:rgba(22,35,63,.07);
   --display:"Black Han Sans","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
   --body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --top:0px;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --paper:#0F1626; --paper-2:#172134; --card:#151F31;
     --ink:#EFEDE5; --muted:#98A3BA;
-    --pink:#FF5C77; --yellow:#FFCA4A; --green:#4FC79B;
+    --pink:#FF5C77; --yellow:#FFCA4A;
     --line:#EFEDE5; --faint:rgba(239,237,229,.2); --faint-2:rgba(239,237,229,.07);
   }
 }
 :root[data-theme="dark"]{
   --paper:#0F1626; --paper-2:#172134; --card:#151F31;
   --ink:#EFEDE5; --muted:#98A3BA;
-  --pink:#FF5C77; --yellow:#FFCA4A; --green:#4FC79B;
+  --pink:#FF5C77; --yellow:#FFCA4A;
   --line:#EFEDE5; --faint:rgba(239,237,229,.2); --faint-2:rgba(239,237,229,.07);
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth; scroll-padding-top:140px}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none!important} }
 body{margin:0; background:var(--paper); color:var(--ink);
   font-family:var(--body); font-size:16px; line-height:1.68; -webkit-font-smoothing:antialiased}
-@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none!important} }
-.wrap{max-width:1080px; margin:0 auto; padding-inline:20px}
+.wrap{max-width:1120px; margin:0 auto; padding-inline:20px}
+h1,h2,h3{font-family:var(--display); font-weight:400; text-wrap:balance}
+a{color:var(--pink)}
+code{font-family:var(--mono); font-size:.88em; background:var(--faint-2); padding:1px 5px}
 
 /* ── 머리말 ── */
-.mast{padding-block:clamp(44px,7vw,84px) 34px}
-.mast .badge{display:inline-flex; align-items:center; gap:10px; font-family:var(--mono);
-  font-size:11.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
-  border:2px solid var(--line); padding:6px 12px; margin-bottom:22px}
-.mast .badge b{color:var(--pink); font-weight:600}
-h1{font-family:var(--display); font-weight:400; margin:0 0 18px;
-  font-size:clamp(40px,8vw,84px); line-height:1; letter-spacing:-.02em; text-wrap:balance}
-.mast .lede{font-size:clamp(17px,2.1vw,20px); color:var(--muted); max-width:58ch; margin:0 0 14px}
-.mast .lede strong{color:var(--ink); font-weight:600}
-.meta{display:flex; flex-wrap:wrap; gap:8px 22px; font-family:var(--mono);
-  font-size:12px; color:var(--muted); margin-top:26px; padding-top:20px; border-top:2px solid var(--faint)}
-.meta b{color:var(--ink); font-weight:600}
+.mast{padding-block:clamp(34px,5vw,60px) 26px}
+.badge{display:inline-flex; gap:10px; font-family:var(--mono); font-size:11.5px; font-weight:600;
+  letter-spacing:.14em; text-transform:uppercase; border:2px solid var(--line); padding:6px 12px; margin-bottom:18px}
+.badge b{color:var(--pink); font-weight:600}
+h1{margin:0 0 14px; font-size:clamp(38px,7.4vw,74px); line-height:1; letter-spacing:-.02em}
+.tagline{font-size:clamp(16px,2vw,19px); color:var(--muted); max-width:60ch; margin:0}
+.tagline b{color:var(--ink); font-weight:600}
 
-.asof{margin-top:28px; border-left:4px solid var(--pink); padding:2px 0 2px 18px}
+/* ── 탭 ── */
+.topbar{position:sticky; top:env(safe-area-inset-top, 0px); z-index:50;
+  background:var(--paper); border-top:3px solid var(--line); border-bottom:3px solid var(--line)}
+.tabs{display:flex; gap:0; overflow-x:auto; scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none; font-family:var(--display); font-weight:400; font-size:clamp(15px,2vw,18px);
+  background:transparent; border:0; border-right:2px solid var(--faint); color:var(--muted);
+  padding:14px 20px; cursor:pointer; line-height:1.2; white-space:nowrap; position:relative}
+.tab:last-child{border-right:0}
+.tab:hover{color:var(--ink)}
+.tab:focus-visible{outline:3px solid var(--pink); outline-offset:-3px}
+.tab[aria-selected="true"]{color:var(--ink); background:var(--paper-2)}
+.tab[aria-selected="true"]::after{content:""; position:absolute; left:0; right:0; bottom:-3px; height:3px; background:var(--pink)}
+.tab em{font-style:normal; font-family:var(--mono); font-size:11px; color:var(--muted); margin-left:7px}
+.searchrow{display:none; gap:10px; align-items:center; padding-block:11px; border-top:2px solid var(--faint)}
+body[data-view="terms"] .searchrow{display:flex}
+#q{flex:1; min-width:0; font-family:var(--body); font-size:16px; color:var(--ink);
+  background:var(--card); border:2px solid var(--line); padding:10px 13px; border-radius:0}
+#q::placeholder{color:var(--muted)}
+#q:focus{outline:3px solid var(--pink); outline-offset:1px}
+.count{font-family:var(--mono); font-size:12px; font-weight:600; color:var(--muted); white-space:nowrap}
+.count b{color:var(--pink)}
+
+/* ── 뷰 ── */
+.view{padding-block:clamp(34px,5vw,56px) 60px}
+.view > h2{font-size:clamp(27px,4.6vw,44px); line-height:1.1; margin:0 0 10px}
+.view > .sub{color:var(--muted); max-width:66ch; margin:0 0 4px}
+
+/* ── 시작 ── */
+.lede{font-size:clamp(16.5px,2vw,19px); color:var(--muted); max-width:60ch; margin:0 0 15px}
+.lede b{color:var(--ink); font-weight:600}
+.asof{margin-top:26px; border-left:4px solid var(--pink); padding:2px 0 2px 18px}
 .asof > b{display:block; font-family:var(--mono); font-size:12px; font-weight:600;
   letter-spacing:.1em; color:var(--pink); margin-bottom:6px}
 .asof > span{display:block; font-size:14.5px; color:var(--muted); max-width:64ch}
-.asof b{font-weight:600}
-
-/* ── 사다리 ── */
-.slab{border:3px solid var(--line); background:var(--card); padding:clamp(22px,3.4vw,34px); margin-bottom:56px}
-.slab h2{font-family:var(--display); font-weight:400; font-size:clamp(24px,4vw,38px);
-  line-height:1.14; margin:0 0 8px; text-wrap:balance}
-.slab .sub{color:var(--muted); margin:0 0 26px; max-width:62ch; font-size:15.5px}
+.slab{border:3px solid var(--line); background:var(--card); padding:clamp(20px,3.2vw,32px); margin-top:40px}
+.slab h3{font-size:clamp(22px,3.6vw,34px); line-height:1.14; margin:0 0 8px}
+.slab .s{color:var(--muted); margin:0 0 24px; max-width:64ch; font-size:15.5px}
 .ladder{display:flex; flex-direction:column-reverse}
 .rung{display:grid; grid-template-columns:52px 1fr auto; align-items:center; gap:16px;
   padding:13px 0; border-top:2px solid var(--faint-2)}
@@ -69,59 +95,59 @@ h1{font-family:var(--display); font-weight:400; margin:0 0 18px;
 .rung .n{font-family:var(--mono); font-size:12px; font-weight:600; color:var(--muted);
   border:2px solid var(--faint); width:40px; height:40px; display:grid; place-items:center; border-radius:999px}
 .rung .t{font-family:var(--display); font-size:20px; line-height:1.25}
-.rung .t span{display:block; font-family:var(--body); font-size:14px; font-weight:400;
-  color:var(--muted); line-height:1.55; margin-top:2px}
+.rung .t span{display:block; font-family:var(--body); font-size:14px; color:var(--muted); line-height:1.55; margin-top:2px}
 .rung .tag{font-family:var(--mono); font-size:10.5px; font-weight:600; letter-spacing:.08em;
   border:2px solid var(--faint); padding:4px 8px; color:var(--muted); white-space:nowrap}
-.rung.ag .n{border-color:var(--pink); color:var(--pink)}
+.rung.ag .n,.rung.ag .tag{border-color:var(--pink); color:var(--pink)}
 .rung.ag .t{color:var(--pink)}
-.rung.ag .tag{border-color:var(--pink); color:var(--pink)}
 .rung.us .n{border-color:var(--yellow); color:var(--ink); background:var(--yellow)}
 .rung.us .tag{border-color:var(--yellow)}
 .cut{margin-top:22px; border:2px dashed var(--pink); padding:16px 18px; color:var(--pink);
   font-family:var(--display); font-size:clamp(17px,2.6vw,22px); line-height:1.35}
-.cut span{display:block; font-family:var(--body); font-size:14.5px; font-weight:400;
-  color:var(--muted); margin-top:8px; line-height:1.6}
+.cut span{display:block; font-family:var(--body); font-size:14.5px; color:var(--muted); margin-top:8px; line-height:1.6}
 @media (max-width:600px){
   .rung{grid-template-columns:40px 1fr; gap:12px}
   .rung .tag{grid-column:2; justify-self:start; margin-top:6px}
   .rung .n{width:34px; height:34px; font-size:11px}
 }
+.howto{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:20px; margin-top:40px}
+.howto div{border-top:3px solid var(--line); padding-top:13px}
+.howto h4{font-family:var(--display); font-weight:400; font-size:18px; margin:0 0 5px; line-height:1.25}
+.howto p{margin:0; font-size:14.5px; color:var(--muted)}
+.howto .fl{font-family:var(--mono); font-size:10px; font-weight:600; letter-spacing:.09em;
+  padding:3px 7px; text-transform:uppercase; margin-right:6px}
 
-/* ── 검색 바 ── */
-.bar{position:sticky; top:env(safe-area-inset-top, 0px); z-index:40;
-  background:var(--paper); border-bottom:3px solid var(--line); padding-block:12px}
-.bar .row1{display:flex; gap:10px; align-items:center}
-#q{flex:1; min-width:0; font-family:var(--body); font-size:16px; color:var(--ink);
-  background:var(--card); border:2px solid var(--line); padding:11px 14px; border-radius:0}
-#q::placeholder{color:var(--muted)}
-#q:focus{outline:3px solid var(--pink); outline-offset:1px}
-.count{font-family:var(--mono); font-size:12px; font-weight:600; color:var(--muted); white-space:nowrap}
-.count b{color:var(--pink)}
-.chips{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px}
-.chip{font-family:var(--mono); font-size:11.5px; font-weight:500; letter-spacing:.02em;
+/* ── 용어 사전 ── */
+.split{display:grid; grid-template-columns:200px 1fr; gap:38px; align-items:start}
+@media (max-width:900px){ .split{grid-template-columns:1fr; gap:22px} }
+.side{position:sticky; top:calc(env(safe-area-inset-top, 0px) + var(--top)); align-self:start}
+@media (max-width:900px){ .side{position:static} }
+.chips{display:flex; flex-direction:column; gap:5px}
+@media (max-width:900px){ .chips{flex-direction:row; flex-wrap:wrap} }
+.chip{font-family:var(--mono); font-size:11.5px; font-weight:500; text-align:left;
   border:2px solid var(--faint); background:transparent; color:var(--muted);
-  padding:5px 10px; cursor:pointer; line-height:1.3}
+  padding:6px 10px; cursor:pointer; line-height:1.3; display:flex; justify-content:space-between; gap:8px}
 .chip:hover{border-color:var(--line); color:var(--ink)}
 .chip:focus-visible{outline:3px solid var(--pink); outline-offset:1px}
 .chip[aria-pressed="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
 .chip.f-hot[aria-pressed="true"]{background:var(--pink); border-color:var(--pink); color:#fff}
 .chip.f-care[aria-pressed="true"]{background:var(--yellow); border-color:var(--yellow); color:#16233F}
-.chip.f-old[aria-pressed="true"]{background:var(--muted); border-color:var(--muted); color:var(--paper)}
-.chip .c{opacity:.55; margin-left:5px}
-
-/* ── 용어 목록 ── */
-#list{padding-block:40px 20px}
-.cat{margin-bottom:46px}
-.cat h2{font-family:var(--display); font-weight:400; font-size:clamp(26px,4.2vw,40px);
-  line-height:1.1; margin:0; display:flex; align-items:baseline; gap:14px; flex-wrap:wrap}
-.cat h2 em{font-style:normal; font-family:var(--mono); font-size:12px; font-weight:500;
+.chip.f-old[aria-pressed="true"],.chip.f-asof[aria-pressed="true"]{background:var(--muted); border-color:var(--muted); color:var(--paper)}
+.chip.f-asof[aria-pressed="true"]{background:var(--yellow); border-color:var(--yellow); color:#16233F}
+.chip .c{opacity:.55}
+.sidelabel{font-family:var(--mono); font-size:10px; font-weight:600; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--muted); margin:18px 0 7px}
+.sidelabel:first-child{margin-top:0}
+.cat{margin-bottom:44px}
+.cat h3{font-size:clamp(24px,3.8vw,36px); line-height:1.1; margin:0;
+  display:flex; align-items:baseline; gap:13px; flex-wrap:wrap}
+.cat h3 em{font-style:normal; font-family:var(--mono); font-size:11.5px; font-weight:500;
   letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
-.cat .rule{height:3px; background:var(--line); margin:14px 0 4px}
-.term{padding:18px 0; border-bottom:2px solid var(--faint-2)}
+.cat .rule{height:3px; background:var(--line); margin:13px 0 2px}
+.term{padding:17px 0; border-bottom:2px solid var(--faint-2)}
 .term:last-child{border-bottom:0}
-.term .h{display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 12px; margin-bottom:8px}
-.term .k{font-family:var(--display); font-weight:400; font-size:21px; line-height:1.25}
+.term .h{display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 12px; margin-bottom:7px}
+.term .k{font-family:var(--display); font-size:21px; line-height:1.25}
 .term .e{font-family:var(--mono); font-size:12.5px; color:var(--muted)}
 .term .y{font-family:var(--mono); font-size:11px; color:var(--muted); border:2px solid var(--faint);
   padding:2px 7px; margin-left:auto; white-space:nowrap}
@@ -131,63 +157,52 @@ h1{font-family:var(--display); font-weight:400; margin:0 0 18px;
 .flag.care{background:var(--yellow); color:#16233F}
 .flag.old{background:var(--muted); color:var(--paper)}
 .term .d{margin:0; max-width:74ch}
-.term .n{margin:10px 0 0; max-width:74ch; font-size:14.5px; color:var(--muted);
+.term .n{margin:9px 0 0; max-width:74ch; font-size:14.5px; color:var(--muted);
   border-left:3px solid var(--pink); padding-left:14px}
-.term .s{margin:10px 0 0; max-width:74ch; font-size:14.5px; color:var(--ink);
+.term .s{margin:9px 0 0; max-width:74ch; font-size:14.5px;
   background:var(--faint-2); padding:10px 14px; border-left:3px solid var(--yellow)}
 .term .s b{display:block; font-family:var(--mono); font-size:10.5px; font-weight:600;
   letter-spacing:.1em; color:var(--muted); margin-bottom:3px}
-.chip.f-asof[aria-pressed="true"]{background:var(--yellow); border-color:var(--yellow); color:#16233F}
 .term mark{background:var(--yellow); color:#16233F; padding:0 1px}
-.empty{font-family:var(--mono); font-size:13px; color:var(--muted); padding:40px 0; text-align:center}
-
+.empty{font-family:var(--mono); font-size:13px; color:var(--muted); padding:50px 0; text-align:center}
 
 /* ── 어디까지 왔나 ── */
 .tl{border:3px solid var(--line); background:var(--card); margin-top:26px}
-.tl-h{display:flex; align-items:baseline; gap:12px; padding:14px 20px; border-bottom:3px solid var(--line);
+.tl-h{display:flex; align-items:baseline; gap:12px; padding:13px 20px; border-bottom:3px solid var(--line);
   font-family:var(--mono); font-size:11.5px; letter-spacing:.12em; text-transform:uppercase}
 .tl-h b{color:var(--pink); font-weight:600}
 .tl-h span{color:var(--muted)}
-.ev{display:grid; grid-template-columns:110px 1fr; gap:20px; padding:20px;
-  border-bottom:2px solid var(--faint-2)}
+.ev{display:grid; grid-template-columns:106px 1fr; gap:20px; padding:20px; border-bottom:2px solid var(--faint-2)}
 .ev:last-child{border-bottom:0}
-.ev .d{font-family:var(--mono); font-size:12px; font-weight:600; color:var(--muted);
-  padding-top:4px; white-space:nowrap}
-.ev h3{font-family:var(--display); font-weight:400; font-size:21px; line-height:1.25; margin:0 0 7px}
+.ev .d{font-family:var(--mono); font-size:12px; font-weight:600; color:var(--muted); padding-top:4px; white-space:nowrap}
+.ev h3{font-size:21px; line-height:1.25; margin:0 0 7px}
 .ev p{margin:0 0 8px; font-size:15px; max-width:74ch}
 .ev p:last-child{margin-bottom:0}
 .ev .note{font-size:13.5px; color:var(--muted); border-left:3px solid var(--faint); padding-left:12px}
 .ev.big{background:var(--paper-2)}
 .ev.big h3{font-size:clamp(22px,3.2vw,28px); color:var(--pink)}
 .ev.big .d{color:var(--pink)}
-.ev.warn h3{color:var(--muted)}
 .ev.warn{border-left:4px solid var(--yellow)}
-@media (max-width:620px){
-  .ev{grid-template-columns:1fr; gap:8px; padding:18px}
-  .ev .d{padding-top:0}
-}
+.ev.warn h3{color:var(--muted)}
+@media (max-width:620px){ .ev{grid-template-columns:1fr; gap:8px; padding:18px} .ev .d{padding-top:0} }
 .debate{margin-top:30px; border:3px solid var(--line); padding:clamp(20px,3vw,28px)}
-.debate h3{font-family:var(--display); font-weight:400; font-size:clamp(21px,3.2vw,28px);
-  line-height:1.2; margin:0 0 8px}
+.debate h3{font-size:clamp(21px,3.2vw,28px); line-height:1.2; margin:0 0 8px}
 .debate .dsub{color:var(--muted); font-size:14.5px; margin:0 0 18px; max-width:70ch}
 .debate ul{margin:0; padding:0; list-style:none}
-.debate li{padding:11px 0 11px 26px; border-top:2px solid var(--faint-2); position:relative;
-  font-size:15px; max-width:76ch}
+.debate li{padding:11px 0 11px 26px; border-top:2px solid var(--faint-2); position:relative; font-size:15px; max-width:76ch}
 .debate li::before{content:"—"; position:absolute; left:0; color:var(--pink); font-weight:600}
-.pace{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:0;
-  border:3px solid var(--line); border-top:0; margin-top:30px}
-.pace{border-top:3px solid var(--line)}
-.pace div{padding:18px 18px; border-right:2px solid var(--faint); border-bottom:2px solid var(--faint)}
-.pace div b{display:block; font-family:var(--display); font-weight:400;
-  font-size:clamp(26px,4vw,34px); line-height:1; color:var(--pink); margin-bottom:8px}
-.pace div em{font-style:normal; font-size:13px; color:var(--muted); line-height:1.5; display:block}
+.pace{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
+  border:3px solid var(--line); margin-top:30px}
+.pace div{padding:18px; border-right:2px solid var(--faint); border-bottom:2px solid var(--faint)}
+.pace b{display:block; font-family:var(--display); font-size:clamp(26px,4vw,34px);
+  line-height:1; color:var(--pink); margin-bottom:8px}
+.pace em{font-style:normal; font-size:13px; color:var(--muted); line-height:1.5; display:block}
 .caveat{margin-top:28px; border:2px dashed var(--yellow); padding:16px 18px; font-size:14.5px; color:var(--muted)}
 .caveat b{color:var(--ink)}
-.caveat code{font-family:var(--mono); font-size:13px; background:var(--faint-2); padding:1px 5px}
 
-/* ── 치트시트 ── */
-.sheet{margin-top:20px; overflow-x:auto; border:3px solid var(--line); background:var(--card)}
-table{border-collapse:collapse; width:100%; min-width:640px; font-size:14.5px}
+/* ── 표 ── */
+.sheet{margin-top:24px; overflow-x:auto; border:3px solid var(--line); background:var(--card)}
+table{border-collapse:collapse; width:100%; min-width:660px; font-size:14.5px}
 th,td{text-align:left; padding:12px 16px; border-bottom:2px solid var(--faint-2); vertical-align:top}
 th{font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.1em;
   text-transform:uppercase; color:var(--muted); border-bottom:3px solid var(--line); white-space:nowrap}
@@ -195,9 +210,9 @@ tbody tr:last-child td{border-bottom:0}
 td.fix{color:var(--pink); font-weight:600}
 td.bad{color:var(--muted)}
 
-/* ── 이력 ── */
-.log{margin-top:20px}
-.log li{border-left:3px solid var(--faint); padding:0 0 18px 20px; list-style:none; position:relative}
+/* ── 갱신 ── */
+.log{margin-top:24px; padding:0}
+.log li{border-left:3px solid var(--faint); padding:0 0 20px 20px; list-style:none; position:relative}
 .log li:last-child{padding-bottom:0}
 .log li::before{content:""; position:absolute; left:-7px; top:9px; width:11px; height:11px;
   background:var(--paper); border:3px solid var(--pink); border-radius:999px}
@@ -205,41 +220,54 @@ td.bad{color:var(--muted)}
 .log .dt{font-family:var(--mono); font-size:12px; color:var(--muted); margin-left:10px}
 .log p{margin:4px 0 0; font-size:15px; max-width:72ch}
 .log ul{margin:6px 0 0; padding-left:18px; font-size:14.5px; color:var(--muted)}
-.how{margin-top:26px; border:2px dashed var(--faint); padding:18px 20px; font-size:14.5px; color:var(--muted)}
-.how code{font-family:var(--mono); font-size:13px; background:var(--faint-2); padding:1px 5px}
+.how{margin-top:30px; border:2px dashed var(--faint); padding:18px 20px; font-size:14.5px; color:var(--muted)}
+.how b{color:var(--ink)}
 
-section.blk{padding-block:clamp(40px,6vw,70px); border-top:3px solid var(--line)}
-section.blk > h2{font-family:var(--display); font-weight:400; font-size:clamp(26px,4.6vw,44px);
-  line-height:1.1; margin:0 0 10px; text-wrap:balance}
-section.blk > .sub{color:var(--muted); max-width:64ch; margin:0}
-footer{padding-block:34px 56px; border-top:3px solid var(--line); font-family:var(--mono);
+footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:var(--mono);
   font-size:11.5px; letter-spacing:.08em; color:var(--muted);
   display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap}
-a{color:var(--pink)}
 </style>
 
 <div class="wrap">
   <header class="mast">
-    <p class="badge"><b>v1.3</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
-    <h1>위뉴<br>AI 용어집</h1>
-    <p class="lede">AI 씬의 용어는 빠르게 생기고 빠르게 뜻이 바뀐다. 상당수는 기술 용어라기보다 유행어에 가깝고, 엄밀히 따지면 경계가 흐린 것도 많다. 그래도 업계에는 <strong>그 단어를 어떤 뜻으로 쓰는지에 관한 암묵적 합의</strong>가 있다. 합의를 공유하지 못하면 같은 단어로 서로 다른 얘기를 하게 되고, 설명이 한 번씩 더 필요해진다.</p>
-    <p class="lede">패션에서 발레코어를, 10대 대상 서비스에서 그들의 말을 알아야 하는 것과 같은 종류의 지식이다. 몰라도 일은 되지만, 그 단어를 쓰는 사람들과 일할 때는 아는 것과 모르는 것의 차이가 크다.</p>
-    <p class="lede">그래서 정확한 학술적 정의가 아니라 <strong>이 단어가 현장에서 실제로 어떤 뜻으로 오가는지</strong>를 적는 데 목적을 뒀다. 정의 아래에 뉘앙스를 따로 붙인 이유다.</p>
-    <div class="asof">
-      <b>관찰 시점 2026년 9월 22일</b>
-      <span>이 씬에서 “2026년 기준”은 이미 너무 넓은 표현이다. 분기 단위로 뜻과 위상이 바뀌기 때문에, 시점에 따라 달라지는 설명에는 관찰 날짜를 박아뒀다. 날짜가 붙은 줄은 그 날의 관찰이지 영구적인 사실이 아니다. 현재 <b id="scount">—</b>개 용어에 붙어 있고, 갱신할 때 가장 먼저 손봐야 할 부분이다.</span>
-    </div>
-    <div class="meta">
-      <span>문서 버전 <b>v1.3</b></span>
-      <span>관찰 시점 <b>2026-09-22</b></span>
-      <span>수록 <b id="tcount2">—</b></span>
-      <span>분류 <b id="ccount">—</b>개</span>
-    </div>
+    <p class="badge"><b>v1.4</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
+    <h1>위뉴 AI 용어집</h1>
+    <p class="tagline">업계가 이 단어를 <b>실제로 어떤 뜻으로 쓰는지</b> 적은 문서. 학술적 정의가 아니라 현장 어법이 기준이다.</p>
   </header>
+</div>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="tabs" role="tablist" aria-label="문서 구역">
+      <button class="tab" role="tab" data-go="start" aria-selected="true">시작</button>
+      <button class="tab" role="tab" data-go="terms" aria-selected="false">용어 사전<em id="navcount"></em></button>
+      <button class="tab" role="tab" data-go="now" aria-selected="false">어디까지 왔나</button>
+      <button class="tab" role="tab" data-go="say" aria-selected="false">더 정확하게</button>
+      <button class="tab" role="tab" data-go="log" aria-selected="false">갱신</button>
+    </div>
+    <div class="searchrow">
+      <input id="q" type="search" placeholder="용어 검색 —  에이전트, RAG, MCP, 하네스, harness…" autocomplete="off" aria-label="용어 검색">
+      <span class="count"><b id="hits">—</b> / <span id="total">—</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ════════ 시작 ════════ -->
+<section class="view" data-view="start">
+  <p class="lede">AI 씬의 용어는 빠르게 생기고 빠르게 뜻이 바뀐다. 상당수는 기술 용어라기보다 유행어에 가깝고, 엄밀히 따지면 경계가 흐린 것도 많다. 그래도 업계에는 <b>그 단어를 어떤 뜻으로 쓰는지에 관한 암묵적 합의</b>가 있다. 합의를 공유하지 못하면 같은 단어로 서로 다른 얘기를 하게 되고, 설명이 한 번씩 더 필요해진다.</p>
+  <p class="lede">패션에서 발레코어를, 10대 대상 서비스에서 그들의 말을 알아야 하는 것과 같은 종류의 지식이다. 몰라도 일은 되지만, 그 단어를 쓰는 사람들과 일할 때는 아는 것과 모르는 것의 차이가 크다.</p>
+  <p class="lede">그래서 정확한 학술적 정의가 아니라 <b>이 단어가 현장에서 실제로 어떤 뜻으로 오가는지</b>를 적는 데 목적을 뒀다. 정의 아래에 뉘앙스를 따로 붙인 이유다.</p>
+
+  <div class="asof">
+    <b>관찰 시점 2026년 9월 22일</b>
+    <span>이 씬에서 “2026년 기준”은 이미 너무 넓은 표현이다. 분기 단위로 뜻과 위상이 바뀌기 때문에, 시점에 따라 달라지는 설명에는 관찰 날짜를 박아뒀다. 날짜가 붙은 줄은 그 날의 관찰이지 영구적인 사실이 아니다. 현재 <b id="scount">—</b>개 용어에 붙어 있고, 갱신할 때 가장 먼저 손봐야 할 부분이다.</span>
+  </div>
 
   <div class="slab">
-    <h2>가장 자주 어긋나는 단어: 에이전트</h2>
-    <p class="sub">기술적으로 따지면 경계가 흐린 말이다. 다만 업계는 자율성과 실행 권한의 정도에 따라 아래 여섯 칸을 구분해 쓴다. 우리가 어느 칸에 있는지 정확히 말하면 대화가 빨라지고, 뭉뚱그리면 상대가 다시 물어야 한다.</p>
+    <h3>가장 자주 어긋나는 단어: 에이전트</h3>
+    <p class="s">기술적으로 따지면 경계가 흐린 말이다. 다만 업계는 자율성과 실행 권한의 정도에 따라 아래 여섯 칸을 구분해 쓴다. 우리가 어느 칸에 있는지 정확히 말하면 대화가 빨라지고, 뭉뚱그리면 상대가 다시 물어야 한다.</p>
     <div class="ladder">
       <div class="rung ag"><span class="n">05</span><span class="t">멀티 에이전트<span>에이전트가 다른 에이전트를 만들고 위임·조율한다</span></span><span class="tag">에이전트 맞음</span></div>
       <div class="rung ag"><span class="n">04</span><span class="t">에이전트<span>다음 행동을 모델이 스스로 정하고, 도구를 쓰고, 결과를 보고 다시 판단한다</span></span><span class="tag">에이전트 맞음</span></div>
@@ -251,216 +279,242 @@ a{color:var(--pink)}
     <p class="cut">경계선은 3과 4 사이에 있다.
       <span>“제어 흐름을 사람이 짰나, 모델이 짰나.” Anthropic이 2024년 말 <b>Building Effective Agents</b>에서 워크플로우와 에이전트를 나눈 뒤 이 구분이 업계 표준 어법이 됐다. 3단계를 4단계라고 부르면 한 번 더 설명해야 하고, “RAG 기반 워크플로우입니다”라고 정확히 말하면 그다음 질문으로 바로 넘어간다.</span></p>
   </div>
-</div>
 
-<div class="bar">
-  <div class="wrap">
-    <div class="row1">
-      <input id="q" type="search" placeholder="용어 검색 —  에이전트, RAG, MCP, harness, 하네스…" autocomplete="off" aria-label="용어 검색">
-      <span class="count"><b id="hits">—</b> / <span id="total">—</span></span>
+  <div class="howto">
+    <div>
+      <h4>정의 · 뉘앙스 · 현황</h4>
+      <p>각 용어는 세 층으로 되어 있다. 검은 줄이 정의, <b>분홍 줄</b>이 업계 뉘앙스, <b>노란 줄</b>이 관찰 날짜가 붙은 현황이다.</p>
     </div>
-    <div class="chips" id="chips" role="group" aria-label="분류 필터"></div>
+    <div>
+      <h4><span class="fl flag hot">지금 뜨는 말</span></h4>
+      <p>최근 1년 안에 확산됐고, 알면 흐름을 따라온 사람으로 읽히는 말.</p>
+    </div>
+    <div>
+      <h4><span class="fl flag care">잘못 쓰면 까임</span></h4>
+      <p>뜻이 자주 오용되거나, 뉘앙스를 모르고 쓰면 설명이 한 번 더 필요해지는 말.</p>
+    </div>
+    <div>
+      <h4><span class="fl flag old">쓰면 옛날 사람</span></h4>
+      <p>한때 유행했으나 지금 진지하게 꺼내면 시대에 뒤처져 보이는 말.</p>
+    </div>
   </div>
-</div>
+</section>
 
-<div class="wrap">
-  <main id="list" aria-live="polite"></main>
+<!-- ════════ 용어 사전 ════════ -->
+<section class="view" data-view="terms" hidden>
+  <div class="split">
+    <aside class="side">
+      <div id="chips"></div>
+    </aside>
+    <main id="list" aria-live="polite"></main>
+  </div>
+</section>
 
-  <section class="blk" id="now">
-    <h2>어디까지 왔나</h2>
-    <p class="sub">용어만 알고 지금 무슨 일이 벌어지는지 모르면 절반이다. 2026년 8월 말부터 9월 22일까지, Hacker News 인기 스토리 · GitHub 신규 저장소 · 각 발표 원문에서 확인된 것만 모았다. 소문과 유출은 뺐고, 회사 발표 수치는 그렇다고 표시했다.</p>
+<!-- ════════ 어디까지 왔나 ════════ -->
+<section class="view" data-view="now" hidden>
+  <h2>어디까지 왔나</h2>
+  <p class="sub">용어만 알고 지금 무슨 일이 벌어지는지 모르면 절반이다. 2026년 8월 말부터 9월 22일까지, Hacker News 인기 스토리 · GitHub 신규 저장소 · 각 발표 원문에서 확인된 것만 모았다. 소문과 유출은 뺐고, 회사 발표 수치는 그렇다고 표시했다.</p>
 
-    <div class="tl">
-      <div class="tl-h"><b>최근 4주</b><span>날짜는 공개일 기준</span></div>
+  <div class="tl">
+    <div class="tl-h"><b>최근 4주</b><span>날짜는 공개일 기준</span></div>
 
-      <div class="ev big">
-        <span class="d">09-08</span>
-        <div>
-          <h3>밀레니엄 문제 하나가 풀렸다</h3>
-          <p>OpenAI가 비공개 모델로 <b>자율 에이전트 약 1만 개</b>를 돌려 나비에–스토크스 방정식의 특이점을 찾았다고 발표했다. 첫 에이전트 투입에서 결과까지 <b>88시간</b>. 증명은 Lean으로 기계 검증됐다. 100만 달러가 걸린 밀레니엄 7대 난제 중 하나다.</p>
-          <p class="note">같은 문제를 비슷한 경로로 공략하던 연구자들과 발표 시점을 두고 분쟁이 있었다. 결과 자체와 별개로, 학계 관행과 충돌하는 방식이었다는 비판이 함께 나왔다.</p>
-        </div>
-      </div>
-
-      <div class="ev big">
-        <span class="d">09-18</span>
-        <div>
-          <h3>전문의급 영상 판독 모델이 오픈소스로 풀렸다</h3>
-          <p>Alibaba Damo Academy가 <b>Damo Radar</b>를 Apache 2.0으로 공개했다. 조영증강 복부 CT를 읽어 18개 장기, <b>146개 임상 소견</b>을 판정한다. 실제 검사 약 4만 건에서 평균 AUC <b>0.913</b>, 여러 병원 방사선의 26명 중 23명보다 높은 성적을 냈다. 논문은 하루 전 Science에 실렸다.</p>
-          <p class="note">위뉴가 있는 시장에 직접 걸리는 사건이다. 가중치가 공개됐고 라이선스가 상업적으로 열려 있다.</p>
-        </div>
-      </div>
-
-      <div class="ev">
-        <span class="d">09-15</span>
-        <div>
-          <h3>텍스트를 만들지 않는 모델이 나왔다</h3>
-          <p>TypeSafe AI의 <b>Jev</b>. 프로그램 상태를 받아 미리 정의된 타입의 결정과 확률을 한 번에 내놓는다. 회사 발표 기준 70~500ms, 입력 100만 토큰당 $0.042, 출력 무과금. 해커뉴스 1,948점으로 이 기간 최대 반응. 나흘 만에 오픈 웨이트 대응(Laya, 421M·33ms·100개 언어)이 나왔고, 파생 저장소가 일주일 만에 수만 스타를 모았다.</p>
-        </div>
-      </div>
-
-      <div class="ev">
-        <span class="d">09-15 → 09-21</span>
-        <div>
-          <h3>일주일에 프런티어·오픈 모델 발표 여덟 건</h3>
-          <p>Gemini 3.8 Live · MiMo 2.6 · Qwen 3.8 Omni Flash · DeepSeek v4.1 Flash · Qwen Image 2.1 · Grok 4.7 · Bonsai 2 27B · Jev. 한 주 안에 벌어진 일이다. <b>특정 모델 이름을 문서에 박으면 몇 주 만에 낡는다.</b></p>
-        </div>
-      </div>
-
-      <div class="ev">
-        <span class="d">09-16 → 09-18</span>
-        <div>
-          <h3>하네스가 측정 대상이 됐다</h3>
-          <p>같은 주에 코딩 에이전트 하네스 설계를 실증 연구한 글이 둘 올라왔다. 하나는 하네스 설계가 결과에 얼마나 영향을 주는지 재는 실험, 다른 하나는 관측 데이터로 하네스를 자동 진화시키는 연구다. <b>모델이 아니라 모델을 감싼 환경이 논문 주제가 됐다.</b></p>
-        </div>
-      </div>
-
-      <div class="ev">
-        <span class="d">09-21</span>
-        <div>
-          <h3>에이전트 산출량이 CI를 병목으로 만들었다</h3>
-          <p>"AI 코딩 때문에 CI가 병목이 돼서 파이프라인을 다시 짰다"는 글이 인기 상위에 올랐다. 에이전트가 만드는 변경량을 기존 검증 인프라가 못 따라간다는 얘기다. <b>도입 여부가 아니라 처리량이 문제인 단계.</b></p>
-        </div>
-      </div>
-
-      <div class="ev">
-        <span class="d">09-16 → 09-18</span>
-        <div>
-          <h3>작아지는 속도도 같이 빠르다</h3>
-          <p>27B 모델을 9배 압축해 거의 손실 없이 돌린 사례, 8~29MB 자동화 모델이 상용 플래시 모델에 필적한다는 발표, 8GB VRAM에서 도는 지속 학습 데모, 3진법 LLM의 1.58비트 장벽 돌파. 규모 경쟁과 소형화가 동시에 진행 중이다.</p>
-        </div>
-      </div>
-
-      <div class="ev">
-        <span class="d">09-16 → 09-18</span>
-        <div>
-          <h3>AI가 AI 아래 계층을 설계하기 시작했다</h3>
-          <p>OpenAI가 자사 LLM으로 자체 칩을 설계한 과정을 공개했고, 4B 모델을 훈련해 Postgres보다 81% 빠른 쿼리 플랜을 뽑아낸 연구가 인기 상위에 올랐다. 응용이 아니라 인프라 계층이다.</p>
-        </div>
-      </div>
-
-      <div class="ev warn">
-        <span class="d">09-18 → 09-20</span>
-        <div>
-          <h3>사고도 같은 속도로 나온다</h3>
-          <p>미군이 AI가 지어낸 내용이 섞인 정보 보고서를 쓸 뻔한 사건, 코딩 에이전트가 사용자 git 이력을 조용히 업로드하던 사례, OpenAI 내부 저장소 침해. 같은 기간에 일어난 일들이다. <b>속도와 사고 건수가 같이 오른다.</b></p>
-        </div>
-      </div>
-
-      <div class="ev warn">
-        <span class="d">기간 내내</span>
-        <div>
-          <h3>반대편도 같은 화력이다</h3>
-          <p>"당신이 쓰지 않은 글을 읽고 싶지 않다", "글쓰기에 AI를 거의 쓰지 말아야 한다", "AI 에이전트가 인터넷을 망치고 있다", "금융 질문에 챗봇은 대부분 틀린 답을 준다". 모두 같은 기간 인기 상위다. <b>과열만 있는 게 아니라 반작용도 같이 커지고 있다.</b> 한쪽만 보면 판단을 그르친다.</p>
-        </div>
+    <div class="ev big">
+      <span class="d">09-08</span>
+      <div>
+        <h3>밀레니엄 문제 하나가 풀렸다</h3>
+        <p>OpenAI가 비공개 모델로 <b>자율 에이전트 약 1만 개</b>를 돌려 나비에–스토크스 방정식의 특이점을 찾았다고 발표했다. 첫 에이전트 투입에서 결과까지 <b>88시간</b>. 증명은 Lean으로 기계 검증됐다. 100만 달러가 걸린 밀레니엄 7대 난제 중 하나다.</p>
+        <p class="note">같은 문제를 비슷한 경로로 공략하던 연구자들과 발표 시점을 두고 분쟁이 있었다. 결과 자체와 별개로, 학계 관행과 충돌하는 방식이었다는 비판이 함께 나왔다.</p>
       </div>
     </div>
 
-    <div class="debate">
-      <h3>지금 최전선이 다투는 주제</h3>
-      <p class="dsub">무엇이 화제인지보다 <b>어떤 수준에서 다투는지</b>가 현재 위치를 더 정확히 알려준다. 같은 기간 실제로 논쟁이 붙은 것들이다.</p>
-      <ul>
-        <li>하네스를 관측 데이터로 <b>자동 진화</b>시킬 수 있나, 사람이 설계해야 하나</li>
-        <li>MCP는 애초에 좋은 설계였나 — 표준이 굳는 와중에 근본 회의론이 상위 화제로</li>
-        <li>에이전트 컨텍스트 압축을 요약 대신 <b>결정 모델</b>로 대체할 수 있나</li>
-        <li>파이프라인의 LLM 호출 중 몇 %가 애초에 문장이 필요 없었나 (현장 추정 40~70%)</li>
-        <li>에이전트가 만든 증명·코드를 사람이 못 읽을 때, 기계 검증만으로 충분한가</li>
-        <li>에이전트 규약 파일을 도구별로 둘 것인가 하나로 합칠 것인가</li>
-        <li>모델을 키우는 것과 하네스를 고치는 것 중 어디에 예산을 쓸 것인가</li>
-      </ul>
+    <div class="ev big">
+      <span class="d">09-18</span>
+      <div>
+        <h3>전문의급 영상 판독 모델이 오픈소스로 풀렸다</h3>
+        <p>Alibaba Damo Academy가 <b>Damo Radar</b>를 Apache 2.0으로 공개했다. 조영증강 복부 CT를 읽어 18개 장기, <b>146개 임상 소견</b>을 판정한다. 실제 검사 약 4만 건에서 평균 AUC <b>0.913</b>, 여러 병원 방사선의 26명 중 23명보다 높은 성적을 냈다. 논문은 하루 전 Science에 실렸다.</p>
+        <p class="note">위뉴가 있는 시장에 직접 걸리는 사건이다. 가중치가 공개됐고 라이선스가 상업적으로 열려 있다.</p>
+      </div>
     </div>
 
-    <div class="pace">
-      <div><b>88시간</b><em>1만 개 에이전트가 밀레니엄 난제 하나를 공략하는 데 걸린 시간</em></div>
-      <div><b>4일</b><em>새 모델 범주에 오픈 웨이트 대응이 나오기까지</em></div>
-      <div><b>6일</b><em>파생 저장소 하나가 1만 6천 스타를 모으는 데 걸린 시간</em></div>
-      <div><b>8건</b><em>한 주에 겹친 프런티어·오픈 모델 발표</em></div>
-      <div><b>146개</b><em>오픈소스로 풀린 복부 CT 판독 모델이 다루는 임상 소견 수</em></div>
-      <div><b>23 / 26</b><em>그 모델이 성적으로 앞선 방사선의 수</em></div>
+    <div class="ev">
+      <span class="d">09-15</span>
+      <div>
+        <h3>텍스트를 만들지 않는 모델이 나왔다</h3>
+        <p>TypeSafe AI의 <b>Jev</b>. 프로그램 상태를 받아 미리 정의된 타입의 결정과 확률을 한 번에 내놓는다. 회사 발표 기준 70~500ms, 입력 100만 토큰당 $0.042, 출력 무과금. 해커뉴스 1,948점으로 이 기간 최대 반응. 나흘 만에 오픈 웨이트 대응(Laya, 421M·33ms·100개 언어)이 나왔고, 파생 저장소가 일주일 만에 수만 스타를 모았다.</p>
+      </div>
     </div>
 
-    <p class="caveat"><b>이 섹션의 유통기한이 문서에서 가장 짧다.</b> 용어의 뜻은 분기 단위로 바뀌지만 이 내용은 주 단위로 바뀐다. 2026년 9월 22일의 스냅샷으로만 읽고, 한 달이 지났으면 여기부터 다시 확인할 것. 수집 경로와 수록 기준은 저장소의 <code>CONTRIBUTING.md</code>에 적어뒀다.</p>
-  </section>
-
-  <section class="blk">
-    <h2>더 정확하게 말하는 법</h2>
-    <p class="sub">용어를 외우는 것보다 이 표가 실전에서 더 자주 쓰인다. 왼쪽이 틀린 말이라는 뜻은 아니고, 오른쪽이 상대에게 더 적은 설명으로 전달된다는 뜻이다.</p>
-    <div class="sheet">
-      <table>
-        <thead><tr><th>흔히 쓰는 말</th><th>실제 내용이 이렇다면</th><th>이렇게 말하면 더 빠르다</th></tr></thead>
-        <tbody>
-          <tr><td class="bad">“에이전트 만들었어요”</td><td>문서를 검색해서 답한다</td><td class="fix">RAG 기반 어시스턴트</td></tr>
-          <tr><td class="bad">“에이전트예요”</td><td>순서를 사람이 고정했다</td><td class="fix">LLM 워크플로우 · 파이프라인</td></tr>
-          <tr><td class="bad">“에이전트예요”</td><td>모델이 도구를 골라 루프를 돈다</td><td class="fix">에이전트 (맞음 — 루프·도구·종료조건 설명 준비)</td></tr>
-          <tr><td class="bad">“프롬프트 엔지니어링 해요”</td><td>검색·메모리·컨텍스트 구성을 설계한다</td><td class="fix">컨텍스트 엔지니어링</td></tr>
-          <tr><td class="bad">“오픈소스 모델 씁니다”</td><td>가중치만 공개된 모델이다</td><td class="fix">오픈 웨이트 모델</td></tr>
-          <tr><td class="bad">“벡터 검색으로 찾습니다”</td><td>약품명·코드가 자주 안 걸린다</td><td class="fix">하이브리드 검색 + 리랭킹</td></tr>
-          <tr><td class="bad">“정확도 높습니다”</td><td>근거가 없다</td><td class="fix">평가 세트·지표·표본 수로 말하기 (의료면 민감도·특이도·AUROC)</td></tr>
-          <tr><td class="bad">“AI로 자동화했어요”</td><td>검증과 롤백 체계가 있다</td><td class="fix">휴먼 인 더 루프 + 평가 기반 자동화</td></tr>
-          <tr><td class="bad">“계속 학습합니다”</td><td>실은 RAG나 메모리다</td><td class="fix">검색 기반 최신화 · 에이전트 메모리</td></tr>
-          <tr><td class="bad">“AX 하는 회사입니다”</td><td>해외 상대다</td><td class="fix">AI Transformation이라고 풀어 말하기 (AX는 Agent Experience로 읽힌다)</td></tr>
-        </tbody>
-      </table>
+    <div class="ev">
+      <span class="d">09-15 → 09-21</span>
+      <div>
+        <h3>일주일에 프런티어·오픈 모델 발표 여덟 건</h3>
+        <p>Gemini 3.8 Live · MiMo 2.6 · Qwen 3.8 Omni Flash · DeepSeek v4.1 Flash · Qwen Image 2.1 · Grok 4.7 · Bonsai 2 27B · Jev. 한 주 안에 벌어진 일이다. <b>특정 모델 이름을 문서에 박으면 몇 주 만에 낡는다.</b></p>
+      </div>
     </div>
-  </section>
 
-  <section class="blk">
-    <h2>변경 이력</h2>
-    <p class="sub">이 문서는 계속 갱신한다. 용어는 6개월이면 뉘앙스가 바뀌고, 1년이면 낡는다.</p>
-    <ul class="log">
-      <li>
-        <span class="v">v1.3</span><span class="dt">2026-09-22</span>
-        <p>“어디까지 왔나”를 특정 모델 소개에서 <b>최근 4주 전선 전체</b>로 확장. 한 사건이 아니라 여러 축에서 동시에 무엇이 움직이는지를 날짜와 숫자로 보여주는 구성으로 바꿨다.</p>
-        <ul>
-          <li>수학·의료·모델 발표 밀도·하네스 연구·소형화·인프라 설계·보안 사고·반작용까지 10개 축</li>
-          <li><b>지금 최전선이 다투는 주제</b> 추가 — 무엇이 화제인지보다 어떤 수준에서 논쟁하는지가 위치를 알려준다</li>
-          <li>속도 지표 6개 (88시간 · 4일 · 6일 · 8건 · 146개 · 23/26)</li>
-          <li>회의론·백래시를 같은 비중으로 수록 — 한쪽만 보면 판단을 그르친다</li>
-          <li>용어 3개 추가 — 형식 검증 · 에이전트 함대 · 재귀적 자기개선 (242 → 245개)</li>
-        </ul>
-      </li>
-      <li>
-        <span class="v">v1.2</span><span class="dt">2026-09-22</span>
-        <p><b>어디까지 왔나</b> 섹션 추가. 용어만 알고 지금 무슨 일이 벌어지는지 모르면 절반이라는 판단.</p>
-        <ul>
-          <li>System One 모델 계열 6개 용어 신규 — <b>System One 모델 · Jev · 비자기회귀 모델 · RLCD · 캘리브레이션 · System 1/System 2</b></li>
-          <li>Hacker News · GitHub · Reddit 실측 기반 현장 스냅샷 수록 (소문·유출 제외, 벤더 수치는 표시)</li>
-          <li>AX 충돌이 셋으로 늘어난 건(Google의 동명 제품) 반영, MCP 회의론 반영</li>
-          <li>수록 236 → 242개</li>
-        </ul>
-      </li>
-      <li>
-        <span class="v">v1.1</span><span class="dt">2026-09-22</span>
-        <p>서론을 다시 썼고, 시점에 따라 달라지는 설명에 관찰 날짜를 박았다.</p>
-        <ul>
-          <li>“왜 이 문서를 만들었나”를 서론으로 정리 — 특정 대상을 겨냥한 표현을 덜어내고 사실 위주로</li>
-          <li><b>관찰 시점 줄</b> 도입 — 44개 용어에 <code>2026-09-22 기준</code> 현황 추가. “2026년 기준”은 이 씬에서 너무 넓은 표현이라 날짜로 못박았다</li>
-          <li><b>시점 의존</b> 필터 추가 — 갱신할 때 가장 먼저 손봐야 할 항목만 모아 볼 수 있다</li>
-          <li>치트시트 문구를 “틀린 말 / 맞는 말”이 아니라 “더 적은 설명으로 전달되는 말”로 조정</li>
-        </ul>
-      </li>
-      <li>
-        <span class="v">v1.0</span><span class="dt">2026-09-22</span>
-        <p>최초 발행. 2022년 말 ChatGPT 이후 실제로 통용된 용어를 13개 분류로 정리했다.</p>
-        <ul>
-          <li>기초·모델 / 스케일링·추론 / 프롬프트·컨텍스트 / RAG·검색 / 에이전트 / 에이전틱 코딩 / 프로토콜 / 인프라·비용 / 평가·관측 / 보안·안전 / 멀티모달 / 비즈니스 버즈워드 / 의료 AI</li>
-          <li>자율성 6단 사다리와 “바꿔야 할 표현” 치트시트 수록</li>
-          <li>플래그 도입 — <b>지금 뜨는 말</b> / <b>잘못 쓰면 까임</b> / <b>쓰면 옛날 사람</b></li>
-          <li>236개 용어 수록</li>
-        </ul>
-      </li>
+    <div class="ev">
+      <span class="d">09-16 → 09-18</span>
+      <div>
+        <h3>하네스가 측정 대상이 됐다</h3>
+        <p>같은 주에 코딩 에이전트 하네스 설계를 실증 연구한 글이 둘 올라왔다. 하나는 하네스 설계가 결과에 얼마나 영향을 주는지 재는 실험, 다른 하나는 관측 데이터로 하네스를 자동 진화시키는 연구다. <b>모델이 아니라 모델을 감싼 환경이 논문 주제가 됐다.</b></p>
+      </div>
+    </div>
+
+    <div class="ev">
+      <span class="d">09-21</span>
+      <div>
+        <h3>에이전트 산출량이 CI를 병목으로 만들었다</h3>
+        <p>“AI 코딩 때문에 CI가 병목이 돼서 파이프라인을 다시 짰다”는 글이 인기 상위에 올랐다. 에이전트가 만드는 변경량을 기존 검증 인프라가 못 따라간다는 얘기다. <b>도입 여부가 아니라 처리량이 문제인 단계.</b></p>
+      </div>
+    </div>
+
+    <div class="ev">
+      <span class="d">09-16 → 09-18</span>
+      <div>
+        <h3>작아지는 속도도 같이 빠르다</h3>
+        <p>27B 모델을 9배 압축해 거의 손실 없이 돌린 사례, 8~29MB 자동화 모델이 상용 플래시 모델에 필적한다는 발표, 8GB VRAM에서 도는 지속 학습 데모, 3진법 LLM의 1.58비트 장벽 돌파. 규모 경쟁과 소형화가 동시에 진행 중이다.</p>
+      </div>
+    </div>
+
+    <div class="ev">
+      <span class="d">09-16 → 09-18</span>
+      <div>
+        <h3>AI가 AI 아래 계층을 설계하기 시작했다</h3>
+        <p>OpenAI가 자사 LLM으로 자체 칩을 설계한 과정을 공개했고, 4B 모델을 훈련해 Postgres보다 81% 빠른 쿼리 플랜을 뽑아낸 연구가 인기 상위에 올랐다. 응용이 아니라 인프라 계층이다.</p>
+      </div>
+    </div>
+
+    <div class="ev warn">
+      <span class="d">09-18 → 09-20</span>
+      <div>
+        <h3>사고도 같은 속도로 나온다</h3>
+        <p>미군이 AI가 지어낸 내용이 섞인 정보 보고서를 쓸 뻔한 사건, 코딩 에이전트가 사용자 git 이력을 조용히 업로드하던 사례, OpenAI 내부 저장소 침해. 같은 기간에 일어난 일들이다. <b>속도와 사고 건수가 같이 오른다.</b></p>
+      </div>
+    </div>
+
+    <div class="ev warn">
+      <span class="d">기간 내내</span>
+      <div>
+        <h3>반대편도 같은 화력이다</h3>
+        <p>“당신이 쓰지 않은 글을 읽고 싶지 않다”, “글쓰기에 AI를 거의 쓰지 말아야 한다”, “AI 에이전트가 인터넷을 망치고 있다”, “금융 질문에 챗봇은 대부분 틀린 답을 준다”. 모두 같은 기간 인기 상위다. <b>과열만 있는 게 아니라 반작용도 같이 커지고 있다.</b> 한쪽만 보면 판단을 그르친다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="debate">
+    <h3>지금 최전선이 다투는 주제</h3>
+    <p class="dsub">무엇이 화제인지보다 <b>어떤 수준에서 다투는지</b>가 현재 위치를 더 정확히 알려준다. 같은 기간 실제로 논쟁이 붙은 것들이다.</p>
+    <ul>
+      <li>하네스를 관측 데이터로 <b>자동 진화</b>시킬 수 있나, 사람이 설계해야 하나</li>
+      <li>MCP는 애초에 좋은 설계였나 — 표준이 굳는 와중에 근본 회의론이 상위 화제로</li>
+      <li>에이전트 컨텍스트 압축을 요약 대신 <b>결정 모델</b>로 대체할 수 있나</li>
+      <li>파이프라인의 LLM 호출 중 몇 %가 애초에 문장이 필요 없었나 (현장 추정 40~70%)</li>
+      <li>에이전트가 만든 증명·코드를 사람이 못 읽을 때, 기계 검증만으로 충분한가</li>
+      <li>에이전트 규약 파일을 도구별로 둘 것인가 하나로 합칠 것인가</li>
+      <li>모델을 키우는 것과 하네스를 고치는 것 중 어디에 예산을 쓸 것인가</li>
     </ul>
-    <div class="how">
-      <b>갱신 방법</b> — 용어 추가·수정은 <code>terms.js</code>만 건드리면 된다. 한 항목은
-      <code>{k:한글, e:원어, c:분류, y:시기, d:정의, n:뉘앙스, f:플래그}</code> 형태다.
-      <code>f</code>는 <code>hot</code>(지금 뜨는 말) / <code>care</code>(잘못 쓰면 까임) / <code>old</code>(쓰면 옛날 사람) 중 하나이며 생략할 수 있다.
-      시점에 따라 달라지는 설명은 <code>d</code>나 <code>n</code>이 아니라 <code>s</code>에 적고, 갱신할 때 <code>index.html</code>의 <code>ASOF</code> 값과 상단 배지 날짜를 같이 올린다.
-      본문 마크업은 그 외에는 건드릴 필요가 없다.
-    </div>
-  </section>
+  </div>
+
+  <div class="pace">
+    <div><b>88시간</b><em>1만 개 에이전트가 밀레니엄 난제 하나를 공략하는 데 걸린 시간</em></div>
+    <div><b>4일</b><em>새 모델 범주에 오픈 웨이트 대응이 나오기까지</em></div>
+    <div><b>6일</b><em>파생 저장소 하나가 1만 6천 스타를 모으는 데 걸린 시간</em></div>
+    <div><b>8건</b><em>한 주에 겹친 프런티어·오픈 모델 발표</em></div>
+    <div><b>146개</b><em>오픈소스로 풀린 복부 CT 판독 모델이 다루는 임상 소견 수</em></div>
+    <div><b>23 / 26</b><em>그 모델이 성적으로 앞선 방사선의 수</em></div>
+  </div>
+
+  <p class="caveat"><b>이 섹션의 유통기한이 문서에서 가장 짧다.</b> 용어의 뜻은 분기 단위로 바뀌지만 이 내용은 주 단위로 바뀐다. 2026년 9월 22일의 스냅샷으로만 읽고, 한 달이 지났으면 여기부터 다시 확인할 것. 수집 경로와 수록 기준은 저장소의 <code>CONTRIBUTING.md</code>에 적어뒀다.</p>
+</section>
+
+<!-- ════════ 더 정확하게 ════════ -->
+<section class="view" data-view="say" hidden>
+  <h2>더 정확하게 말하는 법</h2>
+  <p class="sub">용어를 외우는 것보다 이 표가 실전에서 더 자주 쓰인다. 왼쪽이 틀린 말이라는 뜻은 아니고, 오른쪽이 상대에게 더 적은 설명으로 전달된다는 뜻이다.</p>
+  <div class="sheet">
+    <table>
+      <thead><tr><th>흔히 쓰는 말</th><th>실제 내용이 이렇다면</th><th>이렇게 말하면 더 빠르다</th></tr></thead>
+      <tbody>
+        <tr><td class="bad">“에이전트 만들었어요”</td><td>문서를 검색해서 답한다</td><td class="fix">RAG 기반 어시스턴트</td></tr>
+        <tr><td class="bad">“에이전트예요”</td><td>순서를 사람이 고정했다</td><td class="fix">LLM 워크플로우 · 파이프라인</td></tr>
+        <tr><td class="bad">“에이전트예요”</td><td>모델이 도구를 골라 루프를 돈다</td><td class="fix">에이전트 (맞음 — 루프·도구·종료조건 설명 준비)</td></tr>
+        <tr><td class="bad">“프롬프트 엔지니어링 해요”</td><td>검색·메모리·컨텍스트 구성을 설계한다</td><td class="fix">컨텍스트 엔지니어링</td></tr>
+        <tr><td class="bad">“오픈소스 모델 씁니다”</td><td>가중치만 공개된 모델이다</td><td class="fix">오픈 웨이트 모델</td></tr>
+        <tr><td class="bad">“벡터 검색으로 찾습니다”</td><td>약품명·코드가 자주 안 걸린다</td><td class="fix">하이브리드 검색 + 리랭킹</td></tr>
+        <tr><td class="bad">“정확도 높습니다”</td><td>근거가 없다</td><td class="fix">평가 세트·지표·표본 수로 말하기 (의료면 민감도·특이도·AUROC)</td></tr>
+        <tr><td class="bad">“AI로 자동화했어요”</td><td>검증과 롤백 체계가 있다</td><td class="fix">휴먼 인 더 루프 + 평가 기반 자동화</td></tr>
+        <tr><td class="bad">“계속 학습합니다”</td><td>실은 RAG나 메모리다</td><td class="fix">검색 기반 최신화 · 에이전트 메모리</td></tr>
+        <tr><td class="bad">“AX 하는 회사입니다”</td><td>해외 상대다</td><td class="fix">AI Transformation이라고 풀어 말하기 (AX는 Agent Experience로도, Google 제품명으로도 읽힌다)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ════════ 갱신 ════════ -->
+<section class="view" data-view="log" hidden>
+  <h2>갱신 이력</h2>
+  <p class="sub">이 문서는 계속 갱신한다. 용어는 6개월이면 뉘앙스가 바뀌고, 1년이면 낡는다.</p>
+  <ul class="log">
+    <li>
+      <span class="v">v1.4</span><span class="dt">2026-09-22</span>
+      <p>문서가 길어져 <b>다섯 구역으로 나누고 상단 탭</b>을 달았다. 공유용 단일 파일 빌드를 추가했다.</p>
+      <ul>
+        <li>시작 · 용어 사전 · 어디까지 왔나 · 더 정확하게 · 갱신 다섯 탭. 주소에 <code>#terms</code> 같은 해시가 붙어 특정 구역 링크를 바로 공유할 수 있다</li>
+        <li>용어 사전에 <b>왼쪽 고정 사이드바</b> 도입 — 분류·플래그를 스크롤과 무관하게 항상 볼 수 있다 (좁은 화면에서는 기존 칩 줄로 접힌다)</li>
+        <li>읽는 법 안내를 시작 탭에 추가</li>
+        <li><code>build.py</code> 추가 — 의존 파일 없는 단일 HTML로 묶어 그대로 공유·배포할 수 있다</li>
+      </ul>
+    </li>
+    <li>
+      <span class="v">v1.3</span><span class="dt">2026-09-22</span>
+      <p>“어디까지 왔나”를 특정 모델 소개에서 <b>최근 4주 전선 전체</b>로 확장. 한 사건이 아니라 여러 축에서 동시에 무엇이 움직이는지를 날짜와 숫자로 보여주는 구성으로 바꿨다.</p>
+      <ul>
+        <li>수학·의료·모델 발표 밀도·하네스 연구·CI 병목·소형화·인프라 설계·보안 사고·반작용까지 10개 축</li>
+        <li><b>지금 최전선이 다투는 주제</b> 추가 — 무엇이 화제인지보다 어떤 수준에서 논쟁하는지가 위치를 알려준다</li>
+        <li>속도 지표 6개, 회의론·백래시를 같은 비중으로 수록</li>
+        <li>용어 3개 추가 — 형식 검증 · 에이전트 함대 · 재귀적 자기개선 (242 → 245개)</li>
+      </ul>
+    </li>
+    <li>
+      <span class="v">v1.2</span><span class="dt">2026-09-22</span>
+      <p>“어디까지 왔나” 섹션 신설.</p>
+      <ul>
+        <li>System One 모델 계열 6개 용어 신규 — <b>System One 모델 · Jev · 비자기회귀 모델 · RLCD · 캘리브레이션 · System 1/System 2</b></li>
+        <li>Hacker News · GitHub · Reddit 실측 기반 현장 스냅샷 (소문·유출 제외, 벤더 수치는 표시)</li>
+        <li>AX 충돌이 셋으로 늘어난 건 반영, MCP 회의론 반영 (236 → 242개)</li>
+      </ul>
+    </li>
+    <li>
+      <span class="v">v1.1</span><span class="dt">2026-09-22</span>
+      <p>서론을 다시 썼고, 시점에 따라 달라지는 설명에 관찰 날짜를 박았다.</p>
+      <ul>
+        <li>특정 대상을 겨냥한 표현을 덜어내고 사실 위주로</li>
+        <li><b>관찰 시점 줄</b> 도입 — “2026년 기준”은 이 씬에서 너무 넓은 표현이라 날짜로 못박았다</li>
+        <li><b>시점 의존</b> 필터 추가 — 갱신할 때 가장 먼저 손봐야 할 항목만 모아 볼 수 있다</li>
+      </ul>
+    </li>
+    <li>
+      <span class="v">v1.0</span><span class="dt">2026-09-22</span>
+      <p>최초 발행. 2022년 말 ChatGPT 이후 실제로 통용된 용어를 13개 분류로 정리했다.</p>
+      <ul>
+        <li>자율성 6단 사다리와 “더 정확하게 말하는 법” 치트시트 수록</li>
+        <li>플래그 도입 — 지금 뜨는 말 / 잘못 쓰면 까임 / 쓰면 옛날 사람</li>
+        <li>236개 용어 수록</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="how">
+    <b>갱신 방법</b> — 용어 추가·수정은 <code>terms.js</code>만 건드리면 된다. 한 항목은
+    <code>{k:한글, e:원어, c:분류, y:시기, d:정의, n:뉘앙스, s:현황, f:플래그}</code> 형태다.
+    시점에 따라 달라지는 설명은 <code>d</code>나 <code>n</code>이 아니라 <code>s</code>에 적고, 갱신할 때
+    <code>index.html</code>의 <code>ASOF</code> 값과 상단 배지 날짜를 같이 올린다.
+    공유용 단일 파일은 <code>python3 build.py</code>로 만든다. 자세한 규칙은 저장소의 <code>CONTRIBUTING.md</code>.
+  </div>
+</section>
 
   <footer>
-    <span>WEKNEWS · AI TERM DICTIONARY v1.3</span>
+    <span>WEKNEWS · AI TERM DICTIONARY v1.4</span>
     <span>내부 공유용 · 관찰 시점 2026-09-22</span>
   </footer>
 </div>
@@ -469,70 +523,119 @@ a{color:var(--pink)}
 <script>
 (function(){
   var CATS = window.CATS, TERMS = window.TERMS;
+  var ASOF = "2026-09-22";
   var FLAGS = {
     hot:  {label:"지금 뜨는 말", cls:"hot"},
     care: {label:"잘못 쓰면 까임", cls:"care"},
     old:  {label:"쓰면 옛날 사람", cls:"old"}
   };
+  var VIEWS = ["start","terms","now","say","log"];
   var activeCat = null, activeFlag = null, onlyAsof = false;
   var q = document.getElementById("q");
   var list = document.getElementById("list");
   var chips = document.getElementById("chips");
+  var withS = TERMS.filter(function(t){ return t.s; }).length;
 
   document.getElementById("tcount").textContent = TERMS.length;
-  document.getElementById("tcount2").textContent = TERMS.length + "개 용어";
-  document.getElementById("ccount").textContent = CATS.length;
+  document.getElementById("scount").textContent = withS;
   document.getElementById("total").textContent = TERMS.length;
-  document.getElementById("scount").textContent = TERMS.filter(function(t){ return t.s; }).length;
-  var ASOF = "2026-09-22";
+  document.getElementById("navcount").textContent = TERMS.length;
 
-  // 필터 칩
+  /* ── 탭 ── */
+  function show(v){
+    if (VIEWS.indexOf(v) < 0) v = "start";
+    document.body.setAttribute("data-view", v);
+    VIEWS.forEach(function(name){
+      document.querySelector('.view[data-view="' + name + '"]').hidden = (name !== v);
+    });
+    document.querySelectorAll(".tab").forEach(function(b){
+      b.setAttribute("aria-selected", String(b.dataset.go === v));
+    });
+    if (location.hash.slice(1) !== v) history.replaceState(null, "", "#" + v);
+    window.scrollTo(0, 0);
+    measure();
+    if (v === "terms") setTimeout(function(){ q.focus({preventScroll:true}); }, 0);
+  }
+  document.querySelectorAll(".tab").forEach(function(b){
+    b.addEventListener("click", function(){ show(b.dataset.go); });
+  });
+  window.addEventListener("hashchange", function(){ show(location.hash.slice(1)); });
+
+  /* 사이드바 상단 오프셋 = 스티키 바 높이 */
+  function measure(){
+    var h = document.querySelector(".topbar").offsetHeight;
+    document.documentElement.style.setProperty("--top", (h + 24) + "px");
+  }
+  window.addEventListener("resize", measure);
+
+  /* ── 필터 칩 ── */
+  function label(text, count){
+    return '<span>' + text + '</span>' + (count != null ? '<span class="c">' + count + "</span>" : "");
+  }
   function chip(text, count, on, cls){
     var b = document.createElement("button");
     b.type = "button"; b.className = "chip" + (cls ? " " + cls : "");
     b.setAttribute("aria-pressed", "false");
-    b.innerHTML = text + (count != null ? ' <span class="c">' + count + "</span>" : "");
+    b.innerHTML = label(text, count);
     b.addEventListener("click", on);
-    chips.appendChild(b);
     return b;
   }
-  var catBtns = {}, flagBtns = {};
-  chip("전체", TERMS.length, function(){ activeCat = null; activeFlag = null; onlyAsof = false; sync(); render(); });
+  function group(title){
+    var d = document.createElement("div");
+    d.className = "sidelabel"; d.textContent = title;
+    chips.appendChild(d);
+    var box = document.createElement("div");
+    box.className = "chips"; chips.appendChild(box);
+    return box;
+  }
+  var gAll = group("전체");
+  var allBtn = chip("모든 용어", TERMS.length, function(){
+    activeCat = null; activeFlag = null; onlyAsof = false; sync(); render();
+  });
+  gAll.appendChild(allBtn);
+
+  var gCat = group("분류");
+  var catBtns = {};
   CATS.forEach(function(c){
     var n = TERMS.filter(function(t){ return t.c === c.id; }).length;
     catBtns[c.id] = chip(c.ko, n, function(){
       activeCat = (activeCat === c.id) ? null : c.id; sync(); render();
     });
+    gCat.appendChild(catBtns[c.id]);
   });
+
+  var gFlag = group("표시");
+  var flagBtns = {};
   Object.keys(FLAGS).forEach(function(f){
     var n = TERMS.filter(function(t){ return t.f === f; }).length;
     flagBtns[f] = chip(FLAGS[f].label, n, function(){
       activeFlag = (activeFlag === f) ? null : f; sync(); render();
     }, "f-" + f);
+    gFlag.appendChild(flagBtns[f]);
   });
-  var asofBtn = chip("시점 의존", TERMS.filter(function(t){ return t.s; }).length, function(){
+  var asofBtn = chip("시점 의존", withS, function(){
     onlyAsof = !onlyAsof; sync(); render();
   }, "f-asof");
+  gFlag.appendChild(asofBtn);
 
   function sync(){
-    asofBtn.setAttribute("aria-pressed", String(onlyAsof));
     Object.keys(catBtns).forEach(function(k){
       catBtns[k].setAttribute("aria-pressed", String(activeCat === k)); });
     Object.keys(flagBtns).forEach(function(k){
       flagBtns[k].setAttribute("aria-pressed", String(activeFlag === k)); });
-    chips.firstChild.setAttribute("aria-pressed", String(!activeCat && !activeFlag && !onlyAsof));
+    asofBtn.setAttribute("aria-pressed", String(onlyAsof));
+    allBtn.setAttribute("aria-pressed", String(!activeCat && !activeFlag && !onlyAsof));
   }
 
+  /* ── 목록 ── */
   function esc(s){ return String(s).replace(/[&<>"]/g, function(ch){
     return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]; }); }
-
   function hi(s, needle){
     var safe = esc(s);
     if (!needle) return safe;
     var re = new RegExp("(" + needle.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "gi");
     return safe.replace(re, "<mark>$1</mark>");
   }
-
   function render(){
     var needle = q.value.trim();
     var low = needle.toLowerCase();
@@ -544,17 +647,16 @@ a{color:var(--pink)}
       return (t.k + " " + t.e + " " + t.d + " " + (t.n || "") + " " + (t.s || "")).toLowerCase().indexOf(low) > -1;
     });
     document.getElementById("hits").textContent = rows.length;
-
     if (!rows.length){
       list.innerHTML = '<p class="empty">일치하는 용어가 없습니다. 새로 알게 된 말이라면 terms.js에 추가해 주세요.</p>';
       return;
     }
     var html = "";
     CATS.forEach(function(c){
-      var group = rows.filter(function(t){ return t.c === c.id; });
-      if (!group.length) return;
-      html += '<section class="cat"><h2>' + esc(c.ko) + " <em>" + esc(c.en) + " · " + group.length + '</em></h2><div class="rule"></div>';
-      group.forEach(function(t){
+      var g = rows.filter(function(t){ return t.c === c.id; });
+      if (!g.length) return;
+      html += '<section class="cat"><h3>' + esc(c.ko) + " <em>" + esc(c.en) + " · " + g.length + '</em></h3><div class="rule"></div>';
+      g.forEach(function(t){
         html += '<article class="term"><div class="h">';
         html += '<span class="k">' + hi(t.k, needle) + "</span>";
         html += '<span class="e">' + hi(t.e, needle) + "</span>";
@@ -571,14 +673,15 @@ a{color:var(--pink)}
   }
 
   var timer;
-  q.addEventListener("input", function(){
-    clearTimeout(timer); timer = setTimeout(render, 90);
-  });
+  q.addEventListener("input", function(){ clearTimeout(timer); timer = setTimeout(render, 90); });
   document.addEventListener("keydown", function(e){
-    if (e.key === "/" && document.activeElement !== q){ e.preventDefault(); q.focus(); q.select(); }
+    if (e.key === "/" && document.activeElement !== q){
+      e.preventDefault(); show("terms"); q.focus(); q.select();
+    }
     if (e.key === "Escape" && document.activeElement === q){ q.value = ""; render(); q.blur(); }
   });
 
-  sync(); render();
+  sync(); render(); measure();
+  show(location.hash.slice(1) || "start");
 })();
 </script>
