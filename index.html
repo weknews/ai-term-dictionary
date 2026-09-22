@@ -51,6 +51,12 @@ h1{font-family:var(--display); font-weight:400; margin:0 0 18px;
   font-size:12px; color:var(--muted); margin-top:26px; padding-top:20px; border-top:2px solid var(--faint)}
 .meta b{color:var(--ink); font-weight:600}
 
+.asof{margin-top:28px; border-left:4px solid var(--pink); padding:2px 0 2px 18px}
+.asof > b{display:block; font-family:var(--mono); font-size:12px; font-weight:600;
+  letter-spacing:.1em; color:var(--pink); margin-bottom:6px}
+.asof > span{display:block; font-size:14.5px; color:var(--muted); max-width:64ch}
+.asof b{font-weight:600}
+
 /* ── 사다리 ── */
 .slab{border:3px solid var(--line); background:var(--card); padding:clamp(22px,3.4vw,34px); margin-bottom:56px}
 .slab h2{font-family:var(--display); font-weight:400; font-size:clamp(24px,4vw,38px);
@@ -127,6 +133,11 @@ h1{font-family:var(--display); font-weight:400; margin:0 0 18px;
 .term .d{margin:0; max-width:74ch}
 .term .n{margin:10px 0 0; max-width:74ch; font-size:14.5px; color:var(--muted);
   border-left:3px solid var(--pink); padding-left:14px}
+.term .s{margin:10px 0 0; max-width:74ch; font-size:14.5px; color:var(--ink);
+  background:var(--faint-2); padding:10px 14px; border-left:3px solid var(--yellow)}
+.term .s b{display:block; font-family:var(--mono); font-size:10.5px; font-weight:600;
+  letter-spacing:.1em; color:var(--muted); margin-bottom:3px}
+.chip.f-asof[aria-pressed="true"]{background:var(--yellow); border-color:var(--yellow); color:#16233F}
 .term mark{background:var(--yellow); color:#16233F; padding:0 1px}
 .empty{font-family:var(--mono); font-size:13px; color:var(--muted); padding:40px 0; text-align:center}
 
@@ -165,21 +176,26 @@ a{color:var(--pink)}
 
 <div class="wrap">
   <header class="mast">
-    <p class="badge"><b>v1.0</b> · 2026-09-22 · <span id="tcount">—</span>개 용어</p>
+    <p class="badge"><b>v1.1</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
     <h1>위뉴<br>AI 용어집</h1>
-    <p class="lede">몰라도 사는 데 지장은 없다. 문제는 <strong>그 단어를 쓰는 사람들을 상대로 장사할 때</strong> 생긴다. 패션 하는 사람이 발레코어를 모르면 안 되는 것과 같다. 절반은 실체 없는 유행어여도, 아는 것과 모르는 것은 천지 차이다.</p>
-    <p class="lede">정확한 학술적 정의가 아니라 <strong>업계가 이 단어를 실제로 어떤 뜻으로 쓰는지</strong>를 적었다. 그래서 정의 아래에 뉘앙스를 따로 붙였다.</p>
+    <p class="lede">AI 씬의 용어는 빠르게 생기고 빠르게 뜻이 바뀐다. 상당수는 기술 용어라기보다 유행어에 가깝고, 엄밀히 따지면 경계가 흐린 것도 많다. 그래도 업계에는 <strong>그 단어를 어떤 뜻으로 쓰는지에 관한 암묵적 합의</strong>가 있다. 합의를 공유하지 못하면 같은 단어로 서로 다른 얘기를 하게 되고, 설명이 한 번씩 더 필요해진다.</p>
+    <p class="lede">패션에서 발레코어를, 10대 대상 서비스에서 그들의 말을 알아야 하는 것과 같은 종류의 지식이다. 몰라도 일은 되지만, 그 단어를 쓰는 사람들과 일할 때는 아는 것과 모르는 것의 차이가 크다.</p>
+    <p class="lede">그래서 정확한 학술적 정의가 아니라 <strong>이 단어가 현장에서 실제로 어떤 뜻으로 오가는지</strong>를 적는 데 목적을 뒀다. 정의 아래에 뉘앙스를 따로 붙인 이유다.</p>
+    <div class="asof">
+      <b>관찰 시점 2026년 9월 22일</b>
+      <span>이 씬에서 “2026년 기준”은 이미 너무 넓은 표현이다. 분기 단위로 뜻과 위상이 바뀌기 때문에, 시점에 따라 달라지는 설명에는 관찰 날짜를 박아뒀다. 날짜가 붙은 줄은 그 날의 관찰이지 영구적인 사실이 아니다. 현재 <b id="scount">—</b>개 용어에 붙어 있고, 갱신할 때 가장 먼저 손봐야 할 부분이다.</span>
+    </div>
     <div class="meta">
-      <span>문서 버전 <b>v1.0</b></span>
-      <span>갱신 <b>2026-09-22</b></span>
+      <span>문서 버전 <b>v1.1</b></span>
+      <span>관찰 시점 <b>2026-09-22</b></span>
       <span>수록 <b id="tcount2">—</b></span>
       <span>분류 <b id="ccount">—</b>개</span>
     </div>
   </header>
 
   <div class="slab">
-    <h2>먼저: “그거 다 에이전트 아니에요?”</h2>
-    <p class="sub">기술적으로 따지면 맞는 말인데, 업계에서는 거의 항상 틀린 말로 취급된다. 자율성과 실행 권한의 정도를 구분하지 않고 전부 에이전트라 부르기 때문이다. 다들 아래 여섯 칸을 구분해서 쓴다.</p>
+    <h2>가장 자주 어긋나는 단어: 에이전트</h2>
+    <p class="sub">기술적으로 따지면 경계가 흐린 말이다. 다만 업계는 자율성과 실행 권한의 정도에 따라 아래 여섯 칸을 구분해 쓴다. 우리가 어느 칸에 있는지 정확히 말하면 대화가 빨라지고, 뭉뚱그리면 상대가 다시 물어야 한다.</p>
     <div class="ladder">
       <div class="rung ag"><span class="n">05</span><span class="t">멀티 에이전트<span>에이전트가 다른 에이전트를 만들고 위임·조율한다</span></span><span class="tag">에이전트 맞음</span></div>
       <div class="rung ag"><span class="n">04</span><span class="t">에이전트<span>다음 행동을 모델이 스스로 정하고, 도구를 쓰고, 결과를 보고 다시 판단한다</span></span><span class="tag">에이전트 맞음</span></div>
@@ -189,7 +205,7 @@ a{color:var(--pink)}
       <div class="rung"><span class="n">00</span><span class="t">프롬프트 · 컴플리션<span>1회 입출력. 상태가 없다</span></span><span class="tag">—</span></div>
     </div>
     <p class="cut">경계선은 3과 4 사이에 있다.
-      <span>“제어 흐름을 사람이 짰나, 모델이 짰나.” Anthropic이 2024년 말 <b>Building Effective Agents</b>에서 워크플로우와 에이전트를 나눈 뒤 이게 업계 표준 어법이 됐다. 3단계를 에이전트라고 부르면 그 자리에서 신뢰를 잃고, “저희는 RAG 기반 워크플로우입니다”라고 정확히 말하면 오히려 점수를 딴다.</span></p>
+      <span>“제어 흐름을 사람이 짰나, 모델이 짰나.” Anthropic이 2024년 말 <b>Building Effective Agents</b>에서 워크플로우와 에이전트를 나눈 뒤 이 구분이 업계 표준 어법이 됐다. 3단계를 4단계라고 부르면 한 번 더 설명해야 하고, “RAG 기반 워크플로우입니다”라고 정확히 말하면 그다음 질문으로 바로 넘어간다.</span></p>
   </div>
 </div>
 
@@ -207,11 +223,11 @@ a{color:var(--pink)}
   <main id="list" aria-live="polite"></main>
 
   <section class="blk">
-    <h2>밖에서 말할 때 바꿔야 할 표현</h2>
-    <p class="sub">용어를 외우는 것보다 이 표가 실전에서 더 자주 쓰인다.</p>
+    <h2>더 정확하게 말하는 법</h2>
+    <p class="sub">용어를 외우는 것보다 이 표가 실전에서 더 자주 쓰인다. 왼쪽이 틀린 말이라는 뜻은 아니고, 오른쪽이 상대에게 더 적은 설명으로 전달된다는 뜻이다.</p>
     <div class="sheet">
       <table>
-        <thead><tr><th>습관적으로 쓰는 말</th><th>실제로 그게 뭐라면</th><th>이렇게 말하자</th></tr></thead>
+        <thead><tr><th>흔히 쓰는 말</th><th>실제 내용이 이렇다면</th><th>이렇게 말하면 더 빠르다</th></tr></thead>
         <tbody>
           <tr><td class="bad">“에이전트 만들었어요”</td><td>문서를 검색해서 답한다</td><td class="fix">RAG 기반 어시스턴트</td></tr>
           <tr><td class="bad">“에이전트예요”</td><td>순서를 사람이 고정했다</td><td class="fix">LLM 워크플로우 · 파이프라인</td></tr>
@@ -233,6 +249,16 @@ a{color:var(--pink)}
     <p class="sub">이 문서는 계속 갱신한다. 용어는 6개월이면 뉘앙스가 바뀌고, 1년이면 낡는다.</p>
     <ul class="log">
       <li>
+        <span class="v">v1.1</span><span class="dt">2026-09-22</span>
+        <p>서론을 다시 썼고, 시점에 따라 달라지는 설명에 관찰 날짜를 박았다.</p>
+        <ul>
+          <li>“왜 이 문서를 만들었나”를 서론으로 정리 — 특정 대상을 겨냥한 표현을 덜어내고 사실 위주로</li>
+          <li><b>관찰 시점 줄</b> 도입 — 44개 용어에 <code>2026-09-22 기준</code> 현황 추가. “2026년 기준”은 이 씬에서 너무 넓은 표현이라 날짜로 못박았다</li>
+          <li><b>시점 의존</b> 필터 추가 — 갱신할 때 가장 먼저 손봐야 할 항목만 모아 볼 수 있다</li>
+          <li>치트시트 문구를 “틀린 말 / 맞는 말”이 아니라 “더 적은 설명으로 전달되는 말”로 조정</li>
+        </ul>
+      </li>
+      <li>
         <span class="v">v1.0</span><span class="dt">2026-09-22</span>
         <p>최초 발행. 2022년 말 ChatGPT 이후 실제로 통용된 용어를 13개 분류로 정리했다.</p>
         <ul>
@@ -246,13 +272,14 @@ a{color:var(--pink)}
       <b>갱신 방법</b> — 용어 추가·수정은 <code>terms.js</code>만 건드리면 된다. 한 항목은
       <code>{k:한글, e:원어, c:분류, y:시기, d:정의, n:뉘앙스, f:플래그}</code> 형태다.
       <code>f</code>는 <code>hot</code>(지금 뜨는 말) / <code>care</code>(잘못 쓰면 까임) / <code>old</code>(쓰면 옛날 사람) 중 하나이며 생략할 수 있다.
-      본문 마크업(<code>index.html</code>)은 건드릴 필요가 없다. 발행할 때 상단 배지와 이력 항목의 버전만 올린다.
+      시점에 따라 달라지는 설명은 <code>d</code>나 <code>n</code>이 아니라 <code>s</code>에 적고, 갱신할 때 <code>index.html</code>의 <code>ASOF</code> 값과 상단 배지 날짜를 같이 올린다.
+      본문 마크업은 그 외에는 건드릴 필요가 없다.
     </div>
   </section>
 
   <footer>
-    <span>WEKNEWS · AI TERM DICTIONARY v1.0</span>
-    <span>내부 공유용 · 외부 배포 전 확인 요망</span>
+    <span>WEKNEWS · AI TERM DICTIONARY v1.1</span>
+    <span>내부 공유용 · 관찰 시점 2026-09-22</span>
   </footer>
 </div>
 
@@ -265,7 +292,7 @@ a{color:var(--pink)}
     care: {label:"잘못 쓰면 까임", cls:"care"},
     old:  {label:"쓰면 옛날 사람", cls:"old"}
   };
-  var activeCat = null, activeFlag = null;
+  var activeCat = null, activeFlag = null, onlyAsof = false;
   var q = document.getElementById("q");
   var list = document.getElementById("list");
   var chips = document.getElementById("chips");
@@ -274,6 +301,8 @@ a{color:var(--pink)}
   document.getElementById("tcount2").textContent = TERMS.length + "개 용어";
   document.getElementById("ccount").textContent = CATS.length;
   document.getElementById("total").textContent = TERMS.length;
+  document.getElementById("scount").textContent = TERMS.filter(function(t){ return t.s; }).length;
+  var ASOF = "2026-09-22";
 
   // 필터 칩
   function chip(text, count, on, cls){
@@ -286,7 +315,7 @@ a{color:var(--pink)}
     return b;
   }
   var catBtns = {}, flagBtns = {};
-  chip("전체", TERMS.length, function(){ activeCat = null; activeFlag = null; sync(); render(); });
+  chip("전체", TERMS.length, function(){ activeCat = null; activeFlag = null; onlyAsof = false; sync(); render(); });
   CATS.forEach(function(c){
     var n = TERMS.filter(function(t){ return t.c === c.id; }).length;
     catBtns[c.id] = chip(c.ko, n, function(){
@@ -299,12 +328,17 @@ a{color:var(--pink)}
       activeFlag = (activeFlag === f) ? null : f; sync(); render();
     }, "f-" + f);
   });
+  var asofBtn = chip("시점 의존", TERMS.filter(function(t){ return t.s; }).length, function(){
+    onlyAsof = !onlyAsof; sync(); render();
+  }, "f-asof");
+
   function sync(){
+    asofBtn.setAttribute("aria-pressed", String(onlyAsof));
     Object.keys(catBtns).forEach(function(k){
       catBtns[k].setAttribute("aria-pressed", String(activeCat === k)); });
     Object.keys(flagBtns).forEach(function(k){
       flagBtns[k].setAttribute("aria-pressed", String(activeFlag === k)); });
-    chips.firstChild.setAttribute("aria-pressed", String(!activeCat && !activeFlag));
+    chips.firstChild.setAttribute("aria-pressed", String(!activeCat && !activeFlag && !onlyAsof));
   }
 
   function esc(s){ return String(s).replace(/[&<>"]/g, function(ch){
@@ -323,8 +357,9 @@ a{color:var(--pink)}
     var rows = TERMS.filter(function(t){
       if (activeCat && t.c !== activeCat) return false;
       if (activeFlag && t.f !== activeFlag) return false;
+      if (onlyAsof && !t.s) return false;
       if (!low) return true;
-      return (t.k + " " + t.e + " " + t.d + " " + (t.n || "")).toLowerCase().indexOf(low) > -1;
+      return (t.k + " " + t.e + " " + t.d + " " + (t.n || "") + " " + (t.s || "")).toLowerCase().indexOf(low) > -1;
     });
     document.getElementById("hits").textContent = rows.length;
 
@@ -345,6 +380,7 @@ a{color:var(--pink)}
         html += '<span class="y">' + esc(t.y) + "</span></div>";
         html += '<p class="d">' + hi(t.d, needle) + "</p>";
         if (t.n) html += '<p class="n">' + hi(t.n, needle) + "</p>";
+        if (t.s) html += '<p class="s"><b>' + ASOF + ' 기준</b>' + hi(t.s, needle) + "</p>";
         html += "</article>";
       });
       html += "</section>";
