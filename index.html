@@ -1,0 +1,366 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>위뉴 AI 용어집</title>
+<meta name="description" content="위뉴 내부 공유용 AI 용어집. 236개 용어의 정의와 업계에서 통하는 뉘앙스.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#F1EFE9; --paper-2:#E7E4DB; --card:#FBFAF7;
+  --ink:#16233F; --ink-soft:#53608022; --muted:#5A6580;
+  --pink:#E0234E; --yellow:#F0B400; --green:#1F7A5C;
+  --line:#16233F; --faint:rgba(22,35,63,.16); --faint-2:rgba(22,35,63,.07);
+  --display:"Black Han Sans","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1626; --paper-2:#172134; --card:#151F31;
+    --ink:#EFEDE5; --muted:#98A3BA;
+    --pink:#FF5C77; --yellow:#FFCA4A; --green:#4FC79B;
+    --line:#EFEDE5; --faint:rgba(239,237,229,.2); --faint-2:rgba(239,237,229,.07);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1626; --paper-2:#172134; --card:#151F31;
+  --ink:#EFEDE5; --muted:#98A3BA;
+  --pink:#FF5C77; --yellow:#FFCA4A; --green:#4FC79B;
+  --line:#EFEDE5; --faint:rgba(239,237,229,.2); --faint-2:rgba(239,237,229,.07);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:140px}
+body{margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--body); font-size:16px; line-height:1.68; -webkit-font-smoothing:antialiased}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none!important} }
+.wrap{max-width:1080px; margin:0 auto; padding-inline:20px}
+
+/* ── 머리말 ── */
+.mast{padding-block:clamp(44px,7vw,84px) 34px}
+.mast .badge{display:inline-flex; align-items:center; gap:10px; font-family:var(--mono);
+  font-size:11.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+  border:2px solid var(--line); padding:6px 12px; margin-bottom:22px}
+.mast .badge b{color:var(--pink); font-weight:600}
+h1{font-family:var(--display); font-weight:400; margin:0 0 18px;
+  font-size:clamp(40px,8vw,84px); line-height:1; letter-spacing:-.02em; text-wrap:balance}
+.mast .lede{font-size:clamp(17px,2.1vw,20px); color:var(--muted); max-width:58ch; margin:0 0 14px}
+.mast .lede strong{color:var(--ink); font-weight:600}
+.meta{display:flex; flex-wrap:wrap; gap:8px 22px; font-family:var(--mono);
+  font-size:12px; color:var(--muted); margin-top:26px; padding-top:20px; border-top:2px solid var(--faint)}
+.meta b{color:var(--ink); font-weight:600}
+
+/* ── 사다리 ── */
+.slab{border:3px solid var(--line); background:var(--card); padding:clamp(22px,3.4vw,34px); margin-bottom:56px}
+.slab h2{font-family:var(--display); font-weight:400; font-size:clamp(24px,4vw,38px);
+  line-height:1.14; margin:0 0 8px; text-wrap:balance}
+.slab .sub{color:var(--muted); margin:0 0 26px; max-width:62ch; font-size:15.5px}
+.ladder{display:flex; flex-direction:column-reverse}
+.rung{display:grid; grid-template-columns:52px 1fr auto; align-items:center; gap:16px;
+  padding:13px 0; border-top:2px solid var(--faint-2)}
+.ladder .rung:last-child{border-top:0}
+.rung .n{font-family:var(--mono); font-size:12px; font-weight:600; color:var(--muted);
+  border:2px solid var(--faint); width:40px; height:40px; display:grid; place-items:center; border-radius:999px}
+.rung .t{font-family:var(--display); font-size:20px; line-height:1.25}
+.rung .t span{display:block; font-family:var(--body); font-size:14px; font-weight:400;
+  color:var(--muted); line-height:1.55; margin-top:2px}
+.rung .tag{font-family:var(--mono); font-size:10.5px; font-weight:600; letter-spacing:.08em;
+  border:2px solid var(--faint); padding:4px 8px; color:var(--muted); white-space:nowrap}
+.rung.ag .n{border-color:var(--pink); color:var(--pink)}
+.rung.ag .t{color:var(--pink)}
+.rung.ag .tag{border-color:var(--pink); color:var(--pink)}
+.rung.us .n{border-color:var(--yellow); color:var(--ink); background:var(--yellow)}
+.rung.us .tag{border-color:var(--yellow)}
+.cut{margin-top:22px; border:2px dashed var(--pink); padding:16px 18px; color:var(--pink);
+  font-family:var(--display); font-size:clamp(17px,2.6vw,22px); line-height:1.35}
+.cut span{display:block; font-family:var(--body); font-size:14.5px; font-weight:400;
+  color:var(--muted); margin-top:8px; line-height:1.6}
+@media (max-width:600px){
+  .rung{grid-template-columns:40px 1fr; gap:12px}
+  .rung .tag{grid-column:2; justify-self:start; margin-top:6px}
+  .rung .n{width:34px; height:34px; font-size:11px}
+}
+
+/* ── 검색 바 ── */
+.bar{position:sticky; top:env(safe-area-inset-top, 0px); z-index:40;
+  background:var(--paper); border-bottom:3px solid var(--line); padding-block:12px}
+.bar .row1{display:flex; gap:10px; align-items:center}
+#q{flex:1; min-width:0; font-family:var(--body); font-size:16px; color:var(--ink);
+  background:var(--card); border:2px solid var(--line); padding:11px 14px; border-radius:0}
+#q::placeholder{color:var(--muted)}
+#q:focus{outline:3px solid var(--pink); outline-offset:1px}
+.count{font-family:var(--mono); font-size:12px; font-weight:600; color:var(--muted); white-space:nowrap}
+.count b{color:var(--pink)}
+.chips{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px}
+.chip{font-family:var(--mono); font-size:11.5px; font-weight:500; letter-spacing:.02em;
+  border:2px solid var(--faint); background:transparent; color:var(--muted);
+  padding:5px 10px; cursor:pointer; line-height:1.3}
+.chip:hover{border-color:var(--line); color:var(--ink)}
+.chip:focus-visible{outline:3px solid var(--pink); outline-offset:1px}
+.chip[aria-pressed="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.chip.f-hot[aria-pressed="true"]{background:var(--pink); border-color:var(--pink); color:#fff}
+.chip.f-care[aria-pressed="true"]{background:var(--yellow); border-color:var(--yellow); color:#16233F}
+.chip.f-old[aria-pressed="true"]{background:var(--muted); border-color:var(--muted); color:var(--paper)}
+.chip .c{opacity:.55; margin-left:5px}
+
+/* ── 용어 목록 ── */
+#list{padding-block:40px 20px}
+.cat{margin-bottom:46px}
+.cat h2{font-family:var(--display); font-weight:400; font-size:clamp(26px,4.2vw,40px);
+  line-height:1.1; margin:0; display:flex; align-items:baseline; gap:14px; flex-wrap:wrap}
+.cat h2 em{font-style:normal; font-family:var(--mono); font-size:12px; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+.cat .rule{height:3px; background:var(--line); margin:14px 0 4px}
+.term{padding:18px 0; border-bottom:2px solid var(--faint-2)}
+.term:last-child{border-bottom:0}
+.term .h{display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 12px; margin-bottom:8px}
+.term .k{font-family:var(--display); font-weight:400; font-size:21px; line-height:1.25}
+.term .e{font-family:var(--mono); font-size:12.5px; color:var(--muted)}
+.term .y{font-family:var(--mono); font-size:11px; color:var(--muted); border:2px solid var(--faint);
+  padding:2px 7px; margin-left:auto; white-space:nowrap}
+.flag{font-family:var(--mono); font-size:10px; font-weight:600; letter-spacing:.09em;
+  padding:3px 7px; white-space:nowrap; text-transform:uppercase}
+.flag.hot{background:var(--pink); color:#fff}
+.flag.care{background:var(--yellow); color:#16233F}
+.flag.old{background:var(--muted); color:var(--paper)}
+.term .d{margin:0; max-width:74ch}
+.term .n{margin:10px 0 0; max-width:74ch; font-size:14.5px; color:var(--muted);
+  border-left:3px solid var(--pink); padding-left:14px}
+.term mark{background:var(--yellow); color:#16233F; padding:0 1px}
+.empty{font-family:var(--mono); font-size:13px; color:var(--muted); padding:40px 0; text-align:center}
+
+/* ── 치트시트 ── */
+.sheet{margin-top:20px; overflow-x:auto; border:3px solid var(--line); background:var(--card)}
+table{border-collapse:collapse; width:100%; min-width:640px; font-size:14.5px}
+th,td{text-align:left; padding:12px 16px; border-bottom:2px solid var(--faint-2); vertical-align:top}
+th{font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); border-bottom:3px solid var(--line); white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+td.fix{color:var(--pink); font-weight:600}
+td.bad{color:var(--muted)}
+
+/* ── 이력 ── */
+.log{margin-top:20px}
+.log li{border-left:3px solid var(--faint); padding:0 0 18px 20px; list-style:none; position:relative}
+.log li:last-child{padding-bottom:0}
+.log li::before{content:""; position:absolute; left:-7px; top:9px; width:11px; height:11px;
+  background:var(--paper); border:3px solid var(--pink); border-radius:999px}
+.log .v{font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:.08em; color:var(--pink)}
+.log .dt{font-family:var(--mono); font-size:12px; color:var(--muted); margin-left:10px}
+.log p{margin:4px 0 0; font-size:15px; max-width:72ch}
+.log ul{margin:6px 0 0; padding-left:18px; font-size:14.5px; color:var(--muted)}
+.how{margin-top:26px; border:2px dashed var(--faint); padding:18px 20px; font-size:14.5px; color:var(--muted)}
+.how code{font-family:var(--mono); font-size:13px; background:var(--faint-2); padding:1px 5px}
+
+section.blk{padding-block:clamp(40px,6vw,70px); border-top:3px solid var(--line)}
+section.blk > h2{font-family:var(--display); font-weight:400; font-size:clamp(26px,4.6vw,44px);
+  line-height:1.1; margin:0 0 10px; text-wrap:balance}
+section.blk > .sub{color:var(--muted); max-width:64ch; margin:0}
+footer{padding-block:34px 56px; border-top:3px solid var(--line); font-family:var(--mono);
+  font-size:11.5px; letter-spacing:.08em; color:var(--muted);
+  display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap}
+a{color:var(--pink)}
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <p class="badge"><b>v1.0</b> · 2026-09-22 · <span id="tcount">—</span>개 용어</p>
+    <h1>위뉴<br>AI 용어집</h1>
+    <p class="lede">몰라도 사는 데 지장은 없다. 문제는 <strong>그 단어를 쓰는 사람들을 상대로 장사할 때</strong> 생긴다. 패션 하는 사람이 발레코어를 모르면 안 되는 것과 같다. 절반은 실체 없는 유행어여도, 아는 것과 모르는 것은 천지 차이다.</p>
+    <p class="lede">정확한 학술적 정의가 아니라 <strong>업계가 이 단어를 실제로 어떤 뜻으로 쓰는지</strong>를 적었다. 그래서 정의 아래에 뉘앙스를 따로 붙였다.</p>
+    <div class="meta">
+      <span>문서 버전 <b>v1.0</b></span>
+      <span>갱신 <b>2026-09-22</b></span>
+      <span>수록 <b id="tcount2">—</b></span>
+      <span>분류 <b id="ccount">—</b>개</span>
+    </div>
+  </header>
+
+  <div class="slab">
+    <h2>먼저: “그거 다 에이전트 아니에요?”</h2>
+    <p class="sub">기술적으로 따지면 맞는 말인데, 업계에서는 거의 항상 틀린 말로 취급된다. 자율성과 실행 권한의 정도를 구분하지 않고 전부 에이전트라 부르기 때문이다. 다들 아래 여섯 칸을 구분해서 쓴다.</p>
+    <div class="ladder">
+      <div class="rung ag"><span class="n">05</span><span class="t">멀티 에이전트<span>에이전트가 다른 에이전트를 만들고 위임·조율한다</span></span><span class="tag">에이전트 맞음</span></div>
+      <div class="rung ag"><span class="n">04</span><span class="t">에이전트<span>다음 행동을 모델이 스스로 정하고, 도구를 쓰고, 결과를 보고 다시 판단한다</span></span><span class="tag">에이전트 맞음</span></div>
+      <div class="rung us"><span class="n">03</span><span class="t">워크플로우<span>순서는 사람이 고정했다. 모델은 각 칸 안에서만 판단한다</span></span><span class="tag">우리 대부분 여기</span></div>
+      <div class="rung us"><span class="n">02</span><span class="t">RAG 시스템<span>문서를 검색해 근거로 답한다. 행동은 하지 않는다</span></span><span class="tag">우리 대부분 여기</span></div>
+      <div class="rung"><span class="n">01</span><span class="t">챗봇 · 어시스턴트<span>멀티턴 대화는 되지만 도구가 없다</span></span><span class="tag">—</span></div>
+      <div class="rung"><span class="n">00</span><span class="t">프롬프트 · 컴플리션<span>1회 입출력. 상태가 없다</span></span><span class="tag">—</span></div>
+    </div>
+    <p class="cut">경계선은 3과 4 사이에 있다.
+      <span>“제어 흐름을 사람이 짰나, 모델이 짰나.” Anthropic이 2024년 말 <b>Building Effective Agents</b>에서 워크플로우와 에이전트를 나눈 뒤 이게 업계 표준 어법이 됐다. 3단계를 에이전트라고 부르면 그 자리에서 신뢰를 잃고, “저희는 RAG 기반 워크플로우입니다”라고 정확히 말하면 오히려 점수를 딴다.</span></p>
+  </div>
+</div>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="row1">
+      <input id="q" type="search" placeholder="용어 검색 —  에이전트, RAG, MCP, harness, 하네스…" autocomplete="off" aria-label="용어 검색">
+      <span class="count"><b id="hits">—</b> / <span id="total">—</span></span>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="분류 필터"></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <main id="list" aria-live="polite"></main>
+
+  <section class="blk">
+    <h2>밖에서 말할 때 바꿔야 할 표현</h2>
+    <p class="sub">용어를 외우는 것보다 이 표가 실전에서 더 자주 쓰인다.</p>
+    <div class="sheet">
+      <table>
+        <thead><tr><th>습관적으로 쓰는 말</th><th>실제로 그게 뭐라면</th><th>이렇게 말하자</th></tr></thead>
+        <tbody>
+          <tr><td class="bad">“에이전트 만들었어요”</td><td>문서를 검색해서 답한다</td><td class="fix">RAG 기반 어시스턴트</td></tr>
+          <tr><td class="bad">“에이전트예요”</td><td>순서를 사람이 고정했다</td><td class="fix">LLM 워크플로우 · 파이프라인</td></tr>
+          <tr><td class="bad">“에이전트예요”</td><td>모델이 도구를 골라 루프를 돈다</td><td class="fix">에이전트 (맞음 — 루프·도구·종료조건 설명 준비)</td></tr>
+          <tr><td class="bad">“프롬프트 엔지니어링 해요”</td><td>검색·메모리·컨텍스트 구성을 설계한다</td><td class="fix">컨텍스트 엔지니어링</td></tr>
+          <tr><td class="bad">“오픈소스 모델 씁니다”</td><td>가중치만 공개된 모델이다</td><td class="fix">오픈 웨이트 모델</td></tr>
+          <tr><td class="bad">“벡터 검색으로 찾습니다”</td><td>약품명·코드가 자주 안 걸린다</td><td class="fix">하이브리드 검색 + 리랭킹</td></tr>
+          <tr><td class="bad">“정확도 높습니다”</td><td>근거가 없다</td><td class="fix">평가 세트·지표·표본 수로 말하기 (의료면 민감도·특이도·AUROC)</td></tr>
+          <tr><td class="bad">“AI로 자동화했어요”</td><td>검증과 롤백 체계가 있다</td><td class="fix">휴먼 인 더 루프 + 평가 기반 자동화</td></tr>
+          <tr><td class="bad">“계속 학습합니다”</td><td>실은 RAG나 메모리다</td><td class="fix">검색 기반 최신화 · 에이전트 메모리</td></tr>
+          <tr><td class="bad">“AX 하는 회사입니다”</td><td>해외 상대다</td><td class="fix">AI Transformation이라고 풀어 말하기 (AX는 Agent Experience로 읽힌다)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="blk">
+    <h2>변경 이력</h2>
+    <p class="sub">이 문서는 계속 갱신한다. 용어는 6개월이면 뉘앙스가 바뀌고, 1년이면 낡는다.</p>
+    <ul class="log">
+      <li>
+        <span class="v">v1.0</span><span class="dt">2026-09-22</span>
+        <p>최초 발행. 2022년 말 ChatGPT 이후 실제로 통용된 용어를 13개 분류로 정리했다.</p>
+        <ul>
+          <li>기초·모델 / 스케일링·추론 / 프롬프트·컨텍스트 / RAG·검색 / 에이전트 / 에이전틱 코딩 / 프로토콜 / 인프라·비용 / 평가·관측 / 보안·안전 / 멀티모달 / 비즈니스 버즈워드 / 의료 AI</li>
+          <li>자율성 6단 사다리와 “바꿔야 할 표현” 치트시트 수록</li>
+          <li>플래그 도입 — <b>지금 뜨는 말</b> / <b>잘못 쓰면 까임</b> / <b>쓰면 옛날 사람</b></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="how">
+      <b>갱신 방법</b> — 용어 추가·수정은 <code>terms.js</code>만 건드리면 된다. 한 항목은
+      <code>{k:한글, e:원어, c:분류, y:시기, d:정의, n:뉘앙스, f:플래그}</code> 형태다.
+      <code>f</code>는 <code>hot</code>(지금 뜨는 말) / <code>care</code>(잘못 쓰면 까임) / <code>old</code>(쓰면 옛날 사람) 중 하나이며 생략할 수 있다.
+      본문 마크업(<code>index.html</code>)은 건드릴 필요가 없다. 발행할 때 상단 배지와 이력 항목의 버전만 올린다.
+    </div>
+  </section>
+
+  <footer>
+    <span>WEKNEWS · AI TERM DICTIONARY v1.0</span>
+    <span>내부 공유용 · 외부 배포 전 확인 요망</span>
+  </footer>
+</div>
+
+<script src="terms.js" charset="utf-8"></script>
+<script>
+(function(){
+  var CATS = window.CATS, TERMS = window.TERMS;
+  var FLAGS = {
+    hot:  {label:"지금 뜨는 말", cls:"hot"},
+    care: {label:"잘못 쓰면 까임", cls:"care"},
+    old:  {label:"쓰면 옛날 사람", cls:"old"}
+  };
+  var activeCat = null, activeFlag = null;
+  var q = document.getElementById("q");
+  var list = document.getElementById("list");
+  var chips = document.getElementById("chips");
+
+  document.getElementById("tcount").textContent = TERMS.length;
+  document.getElementById("tcount2").textContent = TERMS.length + "개 용어";
+  document.getElementById("ccount").textContent = CATS.length;
+  document.getElementById("total").textContent = TERMS.length;
+
+  // 필터 칩
+  function chip(text, count, on, cls){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "chip" + (cls ? " " + cls : "");
+    b.setAttribute("aria-pressed", "false");
+    b.innerHTML = text + (count != null ? ' <span class="c">' + count + "</span>" : "");
+    b.addEventListener("click", on);
+    chips.appendChild(b);
+    return b;
+  }
+  var catBtns = {}, flagBtns = {};
+  chip("전체", TERMS.length, function(){ activeCat = null; activeFlag = null; sync(); render(); });
+  CATS.forEach(function(c){
+    var n = TERMS.filter(function(t){ return t.c === c.id; }).length;
+    catBtns[c.id] = chip(c.ko, n, function(){
+      activeCat = (activeCat === c.id) ? null : c.id; sync(); render();
+    });
+  });
+  Object.keys(FLAGS).forEach(function(f){
+    var n = TERMS.filter(function(t){ return t.f === f; }).length;
+    flagBtns[f] = chip(FLAGS[f].label, n, function(){
+      activeFlag = (activeFlag === f) ? null : f; sync(); render();
+    }, "f-" + f);
+  });
+  function sync(){
+    Object.keys(catBtns).forEach(function(k){
+      catBtns[k].setAttribute("aria-pressed", String(activeCat === k)); });
+    Object.keys(flagBtns).forEach(function(k){
+      flagBtns[k].setAttribute("aria-pressed", String(activeFlag === k)); });
+    chips.firstChild.setAttribute("aria-pressed", String(!activeCat && !activeFlag));
+  }
+
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(ch){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]; }); }
+
+  function hi(s, needle){
+    var safe = esc(s);
+    if (!needle) return safe;
+    var re = new RegExp("(" + needle.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "gi");
+    return safe.replace(re, "<mark>$1</mark>");
+  }
+
+  function render(){
+    var needle = q.value.trim();
+    var low = needle.toLowerCase();
+    var rows = TERMS.filter(function(t){
+      if (activeCat && t.c !== activeCat) return false;
+      if (activeFlag && t.f !== activeFlag) return false;
+      if (!low) return true;
+      return (t.k + " " + t.e + " " + t.d + " " + (t.n || "")).toLowerCase().indexOf(low) > -1;
+    });
+    document.getElementById("hits").textContent = rows.length;
+
+    if (!rows.length){
+      list.innerHTML = '<p class="empty">일치하는 용어가 없습니다. 새로 알게 된 말이라면 terms.js에 추가해 주세요.</p>';
+      return;
+    }
+    var html = "";
+    CATS.forEach(function(c){
+      var group = rows.filter(function(t){ return t.c === c.id; });
+      if (!group.length) return;
+      html += '<section class="cat"><h2>' + esc(c.ko) + " <em>" + esc(c.en) + " · " + group.length + '</em></h2><div class="rule"></div>';
+      group.forEach(function(t){
+        html += '<article class="term"><div class="h">';
+        html += '<span class="k">' + hi(t.k, needle) + "</span>";
+        html += '<span class="e">' + hi(t.e, needle) + "</span>";
+        if (t.f) html += '<span class="flag ' + FLAGS[t.f].cls + '">' + FLAGS[t.f].label + "</span>";
+        html += '<span class="y">' + esc(t.y) + "</span></div>";
+        html += '<p class="d">' + hi(t.d, needle) + "</p>";
+        if (t.n) html += '<p class="n">' + hi(t.n, needle) + "</p>";
+        html += "</article>";
+      });
+      html += "</section>";
+    });
+    list.innerHTML = html;
+  }
+
+  var timer;
+  q.addEventListener("input", function(){
+    clearTimeout(timer); timer = setTimeout(render, 90);
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "/" && document.activeElement !== q){ e.preventDefault(); q.focus(); q.select(); }
+    if (e.key === "Escape" && document.activeElement === q){ q.value = ""; render(); q.blur(); }
+  });
+
+  sync(); render();
+})();
+</script>
