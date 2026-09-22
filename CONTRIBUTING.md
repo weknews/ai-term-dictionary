@@ -123,3 +123,36 @@ python3 -c "from curl_cffi import requests as r; print(r.get('https://www.reddit
 - **벤더 발표 수치는 그렇다고 표시한다.** "회사 발표 기준"이라고 적고, 자체 검증 전에는 근거로 쓰지 말라고 덧붙인다.
 - **모델 이름은 최소한으로.** 주 단위로 낡는다. 구조적 서술("플래그십은 100만 토큰이 표준")로 바꿔 쓸 수 있으면 그렇게 한다.
 - 새 범주가 생겼으면 `terms.js`에도 용어로 넣는다. 섹션과 사전이 따로 놀면 안 된다.
+
+## 윤문 검증 (발행 전)
+새로 쓴 항목은 기존 본문과 **밀도로** 비교한다. 분량이 다르니 절대 개수는 의미가 없다.
+
+```bash
+# 신규분 vs 기존분 AI 티 밀도 비교 (1만자당)
+python3 - <<'EOF'
+import json, re, subprocess
+def load(p):
+    return json.loads(subprocess.check_output(["node","-e",
+      "global.window={};require('%s');process.stdout.write(JSON.stringify(window.TERMS))"%p]).decode())
+# 비교 기준이 될 이전 버전을 git에서 꺼내 쓴다
+# git show HEAD~1:terms.js > /tmp/prev.js
+cur = load("./terms.js"); prev = {t["k"] for t in load("/tmp/prev.js")}
+new = [t for t in cur if t["k"] not in prev]; base = [t for t in cur if t["k"] in prev]
+blob = lambda r: " ".join(" ".join(filter(None,[x.get("d"),x.get("n"),x.get("s")])) for x in r)
+C = {"연결어미+쉼표": r"(?:하고|하며|하지만|하면서|해서|이고|이며|되고|되며|있고|있지만),",
+     "hype": r"혁신적|획기적|압도적|전례 없는", "진행형": r"고 있다",
+     "AI 결산어": r"결론적으로|요약하면|정리하자면|이를 통해",
+     "분열문": r"관건은|중요한 것은|필요한 것은", "도치 결산": r"하는 이유다",
+     "사전 은유": r"잠식|청사진|적신호|발판", "의의 과장": r"시사하는 바|주목할 만"}
+A, B = blob(base), blob(new)
+for n, p in C.items():
+    a = len(re.findall(p,A))/len(A)*10000; b = len(re.findall(p,B))/len(B)*10000
+    print("%-14s 기존 %.1f  신규 %.1f %s" % (n, a, b, "← 손볼 것" if b > max(a*1.3, 1.0) else ""))
+EOF
+```
+
+**판정 기준**: 신규분 밀도가 기존분보다 30% 이상 높으면서 1만자당 1건을 넘으면 손본다.
+문장 길이 표준편차와 종결어미 상위 비율도 같이 본다 — 한 종결이 15%를 넘으면 리듬이 평평해진 것이다.
+
+**오탐 주의**: `-적` 패턴은 의료·법률 정식 용어(후향적 검증, 적응증, 법적 범위)를 잡는다.
+숫자만 보고 고치지 말고 실제 문장을 열어볼 것.
