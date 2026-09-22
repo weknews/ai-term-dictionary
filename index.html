@@ -235,6 +235,47 @@ body[data-view="terms"] .searchrow{display:flex}
 .term mark{background:var(--yellow); color:#16233F; padding:0 1px}
 .empty{font-family:var(--mono); font-size:13px; color:var(--muted); padding:50px 0; text-align:center}
 
+
+/* ── 유행의 역사 ── */
+.hyp{border:3px solid var(--line); background:var(--card); margin-top:26px}
+.hyp-h{display:grid; grid-template-columns:130px 130px 1fr; gap:18px; padding:12px 20px;
+  border-bottom:3px solid var(--line); font-family:var(--mono); font-size:10.5px;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+.era{display:grid; grid-template-columns:130px 130px 1fr; gap:18px; padding:20px;
+  border-bottom:2px solid var(--faint-2); align-items:start}
+.era:last-child{border-bottom:0}
+.era.now{background:var(--paper-2)}
+.when b{display:block; font-family:var(--display); font-weight:400; font-size:19px; line-height:1.2}
+.when em{font-style:normal; font-family:var(--mono); font-size:10.5px; color:var(--muted);
+  display:block; margin-top:4px; letter-spacing:.06em}
+.heat{display:flex; align-items:center; gap:8px; padding-top:4px}
+.heat i{flex:1; height:12px; background:var(--faint-2); display:block; position:relative}
+.heat i::after{content:""; position:absolute; inset:0 auto 0 0; width:var(--v); background:var(--pink)}
+.heat span{font-family:var(--mono); font-size:11px; font-weight:600; color:var(--muted)}
+.era.now .heat i::after{background:repeating-linear-gradient(45deg,var(--pink),var(--pink) 4px,transparent 4px,transparent 8px),var(--pink)}
+.chips-row{margin:0 0 12px; display:flex; flex-wrap:wrap; gap:6px}
+.w{font-family:var(--mono); font-size:11.5px; padding:4px 9px; border:2px solid var(--faint); color:var(--muted); white-space:nowrap}
+.w.live{border-color:var(--ink); color:var(--ink)}
+.w.hot{border-color:var(--pink); background:var(--pink); color:#fff}
+.w.care{border-color:var(--yellow); color:var(--ink); background:var(--yellow)}
+.w.abs{border-style:dashed; border-color:var(--ink); color:var(--muted)}
+.w.dead{opacity:.5}
+.then{margin:0; font-size:14.5px; color:var(--muted); line-height:1.7; max-width:74ch}
+.then b{color:var(--ink); font-family:var(--mono); font-size:10.5px; letter-spacing:.1em;
+  margin-right:7px; text-transform:uppercase}
+@media (max-width:760px){
+  .hyp-h{display:none}
+  .era{grid-template-columns:1fr; gap:10px; padding:18px}
+  .heat{padding-top:0; max-width:180px}
+}
+.fate{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:20px; margin-top:30px}
+.fate div{border-top:3px solid var(--line); padding-top:13px}
+.fate b{display:block; font-family:var(--display); font-weight:400; font-size:18px; margin-bottom:5px}
+.fate b.live{color:var(--ink)}
+.fate b.abs{color:var(--muted)}
+.fate b.dead{color:var(--muted); opacity:.65}
+.fate span{font-size:14px; color:var(--muted); line-height:1.6}
+
 /* ── 어디까지 왔나 ── */
 .tl{border:3px solid var(--line); background:var(--card); margin-top:26px}
 .tl-h{display:flex; align-items:baseline; gap:12px; padding:13px 20px; border-bottom:3px solid var(--line);
@@ -299,7 +340,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 
 <div class="wrap">
   <header class="mast">
-    <p class="badge"><b>v2.8</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
+    <p class="badge"><b>v2.9</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
     <h1>위뉴 AI 용어집</h1>
     <p class="tagline">업계가 이 단어를 <b>실제로 어떤 뜻으로 쓰는지</b> 적은 문서. 학술적 정의가 아니라 현장 어법이 기준이다.</p>
   </header>
@@ -311,6 +352,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
       <button class="tab" role="tab" data-go="start" aria-selected="true">시작</button>
       <button class="tab" role="tab" data-go="core" aria-selected="false">상황별<em>42</em></button>
       <button class="tab" role="tab" data-go="terms" aria-selected="false">용어 사전<em id="navcount"></em></button>
+      <button class="tab" role="tab" data-go="hype" aria-selected="false">유행의 역사</button>
       <button class="tab" role="tab" data-go="now" aria-selected="false">어디까지 왔나</button>
       <button class="tab" role="tab" data-go="say" aria-selected="false">더 정확하게</button>
       <button class="tab" role="tab" data-go="log" aria-selected="false">갱신</button>
@@ -434,6 +476,87 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
     </aside>
     <main id="list" aria-live="polite"></main>
   </div>
+</section>
+
+<!-- ════════ 유행의 역사 ════════ -->
+<section class="view" data-view="hype" hidden>
+  <h2>유행의 역사</h2>
+  <p class="sub">ChatGPT 이후 무엇이 얼마나 뜨거웠고, 그래서 어떻게 됐는지. 당시에 돌던 말과 지금을 나란히 놓았다. <b>열기 막대는 측정값이 아니라 관찰자 판단이다.</b></p>
+
+  <div class="hyp">
+    <div class="hyp-h"><span>시기</span><span>당시 열기</span><span>그때 터진 말</span></div>
+
+    <div class="era">
+      <div class="when"><b>2022 말</b><em>ChatGPT 등장</em></div>
+      <div class="heat"><i style="--v:100%"></i><span>10</span></div>
+      <div class="what">
+        <p class="chips-row"><span class="w live">LLM</span><span class="w live">할루시네이션</span><span class="w live">토큰</span><span class="w abs">프롬프트</span></p>
+        <p class="then"><b>그때</b> “이걸로 검색이 끝난다”<br><b>지금</b> 검색은 안 끝났고 대신 검색에 붙었다</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="when"><b>2023 상반기</b><em>광풍</em></div>
+      <div class="heat"><i style="--v:95%"></i><span>9.5</span></div>
+      <div class="what">
+        <p class="chips-row"><span class="w dead">AutoGPT</span><span class="w dead">BabyAGI</span><span class="w abs">프롬프트 엔지니어링</span><span class="w abs">사고 사슬</span><span class="w dead">세컨드 브레인</span></p>
+        <p class="then"><b>그때</b> “프롬프트 엔지니어 연봉 3억”, “목표만 주면 알아서 다 한다”<br><b>지금</b> 프롬프트는 기본 소양이 됐고, 자율 에이전트는 3년 뒤에야 쓸 만해졌다</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="when"><b>2023 하반기<br>~ 2024 상반기</b><em>RAG 시대</em></div>
+      <div class="heat"><i style="--v:80%"></i><span>8</span></div>
+      <div class="what">
+        <p class="chips-row"><span class="w live">RAG</span><span class="w live">벡터 DB</span><span class="w live">청킹</span><span class="w live">임베딩</span><span class="w live">리랭킹</span></p>
+        <p class="then"><b>그때</b> “사내 문서만 넣으면 우리 회사 AI 완성”<br><b>지금</b> 넣는 것보다 자르고 고르는 게 일이라는 걸 다들 알게 됐다</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="when"><b>2024</b><em>도구와 연결</em></div>
+      <div class="heat"><i style="--v:60%"></i><span>6</span></div>
+      <div class="what">
+        <p class="chips-row"><span class="w live">함수 호출</span><span class="w live">멀티모달</span><span class="w live">컨텍스트 윈도우</span><span class="w live">GraphRAG</span></p>
+        <p class="then"><b>그때</b> “컨텍스트가 100만이면 RAG는 죽는다”<br><b>지금</b> 둘 다 쓴다. 다 넣으면 비싸고 느리고 가운데를 놓친다</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="when"><b>2024 말<br>~ 2025 상반기</b><em>생각하는 모델</em></div>
+      <div class="heat"><i style="--v:85%"></i><span>8.5</span></div>
+      <div class="what">
+        <p class="chips-row"><span class="w live">추론 모델</span><span class="w live">추론 시간 스케일링</span><span class="w live">MCP</span><span class="w live">컴퓨터 유즈</span></p>
+        <p class="then"><b>그때</b> “스케일링 법칙은 끝났다, AI 겨울이 온다”<br><b>지금</b> 끝난 게 아니라 축이 하나 더 생겼다. 학습이 아니라 답할 때 연산을 더 쓴다</p>
+      </div>
+    </div>
+
+    <div class="era">
+      <div class="when"><b>2025</b><em>에이전트 원년</em></div>
+      <div class="heat"><i style="--v:100%"></i><span>10</span></div>
+      <div class="what">
+        <p class="chips-row"><span class="w live">에이전트</span><span class="w live">컨텍스트 엔지니어링</span><span class="w care">바이브 코딩</span><span class="w live">서브에이전트</span><span class="w live">Ralph 루프</span><span class="w live">A2A</span></p>
+        <p class="then"><b>그때</b> “올해가 에이전트 원년”, “곧 사람이 필요 없어진다”<br><b>지금</b> 원년은 맞았는데, 에이전트라 불리는 것의 상당수는 아직 사람이 순서를 짜둔 워크플로우다</p>
+      </div>
+    </div>
+
+    <div class="era now">
+      <div class="when"><b>2026</b><em>지금</em></div>
+      <div class="heat"><i style="--v:90%"></i><span>9</span></div>
+      <div class="what">
+        <p class="chips-row"><span class="w hot">하네스 엔지니어링</span><span class="w hot">루프 엔지니어링</span><span class="w hot">그래프 엔지니어링</span><span class="w hot">System One 모델</span><span class="w hot">에이전틱 커머스</span><span class="w hot">토크노믹스</span></p>
+        <p class="then"><b>지금 도는 말</b> “모델이 아니라 하네스가 결과를 가른다”, “LLM 호출의 절반은 애초에 문장이 필요 없었다”<br><b>결과</b> 아직 모른다. 이 줄은 1년 뒤에 채워진다</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="fate">
+    <div><b class="live">살아남았다</b><span>RAG · 에이전트 · MCP · 컨텍스트 엔지니어링 · 추론 모델. 뜻이 좁아지거나 정확해지면서 자리를 잡았다.</span></div>
+    <div><b class="abs">말이 사라졌다</b><span>프롬프트 엔지니어링 · 사고 사슬. 기술이 죽은 게 아니라 <b>너무 당연해져서</b> 따로 부를 일이 없어졌다.</span></div>
+    <div><b class="dead">식었다</b><span>AutoGPT · BabyAGI · 세컨드 브레인. 하려던 일이 3년 뒤 다른 이름으로 돌아왔다는 게 얄궂다.</span></div>
+  </div>
+
+  <p class="caveat"><b>여기서 건질 것.</b> 네 번 중 세 번은 “이걸로 끝난다”는 예측이 틀렸고, 대신 <b>기존 것 옆에 하나가 더 붙는</b> 식으로 갔다. 검색은 RAG를 낳았고, 스케일링은 죽은 게 아니라 축이 하나 늘었고, 롱 컨텍스트는 RAG를 죽이지 않았다. 지금 “하네스가 전부”라는 말도 같은 할인율을 적용해 듣는 게 맞다. 그리고 유행어의 수명은 대체로 <b>18개월</b>이다 — 그 안에 정확한 뜻을 얻고 살아남거나, 너무 당연해져 사라지거나, 잊힌다.</p>
 </section>
 
 <!-- ════════ 어디까지 왔나 ════════ -->
@@ -581,6 +704,16 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   <h2>갱신 이력</h2>
   <p class="sub">이 문서는 계속 갱신한다. 용어는 6개월이면 뉘앙스가 바뀌고, 1년이면 낡는다.</p>
   <ul class="log">
+    <li>
+      <span class="v">v2.9</span><span class="dt">2026-09-22</span>
+      <p><b>유행의 역사</b> 탭 추가. ChatGPT 이후 무엇이 얼마나 뜨거웠고 그래서 어떻게 됐는지를 시기별로 놓았다.</p>
+      <ul>
+        <li>시기마다 <b>그때 돌던 말과 지금</b>을 나란히 뒀다. “프롬프트 엔지니어 연봉 3억” → 기본 소양, “컨텍스트 100만이면 RAG는 죽는다” → 둘 다 쓴다, “스케일링은 끝났다” → 축이 하나 늘었다</li>
+        <li>용어를 <b>살아남음 · 너무 당연해져 사라짐 · 식음</b> 셋으로 색을 나눠 표시했다. 프롬프트 엔지니어링은 기술이 죽은 게 아니라 당연해져서 말이 사라진 쪽이다</li>
+        <li>열기 막대는 <b>측정값이 아니라 관찰자 판단</b>이라고 명시했다</li>
+        <li>지금 유행에도 같은 할인율을 적용하자는 것이 이 탭의 목적이다. 2026년 줄의 “결과”는 비워뒀다</li>
+      </ul>
+    </li>
     <li>
       <span class="v">v2.8</span><span class="dt">2026-09-22</span>
       <p>의료 규제·데이터 분류를 없앴다. <b>AI 용어집인데 AI와 무관한 의료 일반 용어가 한 분류를 차지하고 있었다.</b></p>
@@ -773,7 +906,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 </section>
 
   <footer>
-    <span>WEKNEWS · AI TERM DICTIONARY v2.8</span>
+    <span>WEKNEWS · AI TERM DICTIONARY v2.9</span>
     <span>내부 공유용 · 관찰 시점 2026-09-22</span>
   </footer>
 </div>
@@ -788,7 +921,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
     care: {label:"쓸 때 주의", cls:"care"},
     old:  {label:"한물간 말", cls:"old"}
   };
-  var VIEWS = ["start","core","terms","now","say","log"];
+  var VIEWS = ["start","core","terms","hype","now","say","log"];
   var activeCat = null, activeFlag = null, onlyAsof = false;
   var q = document.getElementById("q");
   var list = document.getElementById("list");
