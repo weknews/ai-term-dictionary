@@ -1,0 +1,33 @@
+# main에 push하면 발행 전 점검을 돌리고, 통과해야 GitHub Pages에 올린다.
+# index.html + terms.js를 그대로 서빙한다 (빌드 불필요).
+name: pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 check.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploy
+        uses: actions/deploy-pages@v4

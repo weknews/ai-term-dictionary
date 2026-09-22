@@ -15,8 +15,10 @@ README.md    파일 구조·빌드법
 dist/위뉴-AI-용어집.html   공유용 단일 파일 (git 미추적)
 ```
 
-아티팩트: https://claude.ai/artifact/XE7BjovdzdW6YDB4HvGMAa (비공개, Share 필요)
-**팀 공유는 `dist/` 단일 파일 쪽이 확실하다.** 데이터가 안에 들어 있어 로딩 실패가 구조적으로 불가능하다.
+공개 주소: https://weknews.github.io/ai-term-dictionary/ (저장소 weknews/ai-term-dictionary, public)
+main에 push하면 `.github/workflows/pages.yml`이 `check.py`를 돌리고 통과할 때만 배포한다.
+점검에 실패하면 이전 버전이 그대로 떠 있다 — Actions 탭에서 확인.
+아티팩트(https://claude.ai/artifact/XE7BjovdzdW6YDB4HvGMAa)는 예전 공유 경로다. 새 링크는 Pages 쪽을 돌린다.
 
 ## 탭 구성
 
