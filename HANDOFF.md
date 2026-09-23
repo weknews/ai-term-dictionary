@@ -8,11 +8,9 @@
 ```
 index.html   문서 본체 (마크업·스타일·JS). 첫 탭이 오늘의 뉴스  ← 구조는 거의 안 건드림
 terms.js     용어 데이터                  ← 용어 추가·수정은 여기만
-check.py     발행 전 점검                 ← build.py가 자동 호출
-build.py     dist/ 단일 파일 빌드 (점검 통과해야 진행)
+check.py     발행 전 점검                 ← 배포(Actions)가 자동 호출
 CONTRIBUTING.md  집필 원칙 전부. 새 세션은 이것부터 읽을 것
-README.md    파일 구조·빌드법
-dist/위뉴-AI-용어집.html   공유용 단일 파일 (git 미추적)
+README.md    파일 구조·로컬에서 보기
 ```
 
 공개 주소: https://weknews.github.io/ai-term-dictionary/ (저장소 weknews/ai-term-dictionary, public)
@@ -83,7 +81,7 @@ PR           news/DATE 브랜치 → 로컬 검토(news/review.sh)에서 승인 
 
 ### 확인 방법
 ```bash
-python3 build.py && cd dist && python3 -m http.server 8750
+python3 check.py && python3 -m http.server 8750
 ```
 Chrome 도구로 창을 390×844로 리사이즈해 확인한다. 리사이즈가 안 먹는 경우가 잦다(innerWidth가 110 같은 값으로 나옴).
 그럴 땐 같은 출처 iframe을 원하는 폭으로 만들어 재면 된다. 단 iframe은 첫 로드 때
@@ -106,7 +104,7 @@ matchMedia가 크기 반영 전에 평가되니 한 번 reload한 뒤 값을 볼
    `그래프 엔지니어링`을 특정 도구 얘기로 좁혀 쓴 것, `에이전트 함대`를 스웜 개념으로 쓴 것이
    모두 확인 없이 아는 대로 써서 난 사고다. 이걸로 크게 지적받았다.
 2. **새 내용을 쓰면 `python3 check.py`를 돌린다.** 규칙을 문서에 적어두고 정작 안 돌려서 지적받았다.
-   지금은 build.py가 강제하지만, 문구만 고칠 때도 돌려야 한다.
+   지금은 배포가 강제하지만, 문구만 고칠 때도 올리기 전에 돌린다.
 3. **사람을 깎아내리지 않는다.** "까인다", "촌스럽다", "아마추어" 전부 걷어냈다.
    문서 구조도 표현이다 — "핵심만"이라는 탭 이름이 읽는 사람을 낮춰 본다고 지적받아 "상황별"로 바꿨다.
 4. **같은 말을 버릇처럼 쓰지 않는다.** "자리"를 41번 썼다가 지적받았다. `check.py`가 빈도를 센다.

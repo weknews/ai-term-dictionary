@@ -1065,8 +1065,8 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
     <b>갱신 방법</b> — 용어 추가·수정은 <code>terms.js</code>만 건드리면 된다. 한 항목은
     <code>{k:한글, e:원어, c:분류, y:시기, d:정의, n:뉘앙스, s:현황, f:플래그}</code> 형태다.
     시점에 따라 달라지는 설명은 <code>d</code>나 <code>n</code>이 아니라 <code>s</code>에 적고, 갱신할 때
-    <code>glossary.html</code>의 <code>ASOF</code> 값과 상단 배지 날짜를 같이 올린다.
-    공유용 단일 파일은 <code>python3 build.py</code>로 만든다. 자세한 규칙은 저장소의 <code>CONTRIBUTING.md</code>.
+    <code>index.html</code>의 <code>ASOF</code> 값과 상단 배지 날짜를 같이 올린다.
+    고친 뒤에는 <code>python3 check.py</code>로 점검한다. main에 올리면 같은 점검을 통과해야 배포된다. 자세한 규칙은 저장소의 <code>CONTRIBUTING.md</code>.
   </div>
 </section>
 
@@ -1114,7 +1114,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   showView(location.hash.slice(1) || "now");
 
   /* 오늘의 뉴스 — 첫 탭. news/index.json(배포 때 생성)으로 최신 호를 찾아 그린다.
-     단일 파일(dist)로 열면 fetch가 안 되니 "아직 발행된 호가 없다"로 둔다.
+     file://로 열면 fetch가 안 되니 "아직 발행된 호가 없다"로 둔다.
      ?d=날짜 는 지난 호, ?review=날짜 는 news/review.sh가 띄우는 발행 전 초안(news/work/, 배포되지 않음) */
   (function(){
     function e(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){
@@ -1174,8 +1174,8 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   if (!CATS || !TERMS || !TERMS.length){
     var box = document.getElementById("list");
     if (box) box.innerHTML = '<p class="empty">용어 데이터를 불러오지 못했습니다.<br><br>' +
-      'terms.js가 glossary.html과 같은 폴더에 있어야 합니다. 파일 하나만 받으셨다면 ' +
-      'dist 폴더의 단일 파일 버전을 여세요. 그 파일은 데이터가 안에 들어 있어 따로 필요한 것이 없습니다.</p>';
+      'terms.js가 index.html과 같은 폴더에 있어야 합니다. ' +
+      'https://weknews.github.io/ai-term-dictionary/ 에서 여세요.</p>';
     var cnt = document.getElementById("navcount"); if (cnt) cnt.textContent = "";
     return;
   }
