@@ -49,6 +49,8 @@ code{font-family:var(--mono); font-size:.88em; background:var(--faint-2); paddin
 h1{margin:0 0 14px; font-size:clamp(38px,7.4vw,74px); line-height:1; letter-spacing:-.02em}
 .tagline{font-size:clamp(16px,2vw,19px); color:var(--muted); max-width:60ch; margin:0}
 .tagline b{color:var(--ink); font-weight:600}
+.newslink{display:inline-block; margin-top:14px; font-family:var(--mono); font-size:12px; font-weight:600;
+  letter-spacing:.08em; text-decoration:none; border:2px solid var(--pink); padding:5px 11px}
 
 /* ── 탭 ── */
 .topbar{position:sticky; top:env(safe-area-inset-top, 0px); z-index:50;
@@ -412,6 +414,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
     <p class="badge"><b>v4.0</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
     <h1>위뉴 AI 용어집</h1>
     <p class="tagline">업계가 이 단어를 <b>실제로 어떤 뜻으로 쓰는지</b> 적은 문서. 학술적 정의가 아니라 현장 어법이 기준이다.</p>
+    <a class="newslink" href="news.html">오늘의 늬우스 →</a>
   </header>
 </div>
 
@@ -1279,6 +1282,9 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
     });
   })();
 
+  // 늬우스의 용어 칩이 ?q=용어#terms로 들어온다
+  var q0 = new URLSearchParams(location.search).get("q");
+  if (q0) { q.value = q0; showView("terms"); }
   sync(); render(); measureTop();
   if (document.body.getAttribute("data-view") === "terms") q.focus({preventScroll:true});
 })();

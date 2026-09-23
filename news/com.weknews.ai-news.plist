@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- 평일 07:30 오늘의 늬우스. 설치: news/install.sh -->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.weknews.ai-news</string>
+  <key>ProgramArguments</key>
+  <array><string>/bin/zsh</string><string>__REPO__/news/run.sh</string></array>
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>7</integer><key>Minute</key><integer>30</integer></dict>
+    <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>7</integer><key>Minute</key><integer>30</integer></dict>
+    <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>7</integer><key>Minute</key><integer>30</integer></dict>
+    <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>7</integer><key>Minute</key><integer>30</integer></dict>
+    <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>7</integer><key>Minute</key><integer>30</integer></dict>
+  </array>
+  <key>StandardErrorPath</key><string>__REPO__/news/work/launchd.err</string>
+  <key>StandardOutPath</key><string>__REPO__/news/work/launchd.out</string>
+</dict>
+</plist>

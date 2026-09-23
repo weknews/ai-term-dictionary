@@ -25,6 +25,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 check.py
+      # 늬우스 목록 — 날짜 파일을 최신순으로. 저장소에 두면 날마다 PR끼리 충돌한다
+      - run: python3 -c "import glob,json,os;json.dump(sorted((os.path.basename(f)[:10] for f in glob.glob('news/20*.json')),reverse=True),open('news/index.json','w'))"
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

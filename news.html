@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>오늘의 늬우스</title>
+<meta name="description" content="위뉴 AI 용어집의 평일 AI 뉴스 한 장. 수집한 원문만 근거로 쓰고 숫자는 원문과 대조한다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* 색·서체는 index.html과 같은 값. 한쪽을 바꾸면 같이 바꾼다 */
+:root{
+  --paper:#F1EFE9; --paper-2:#E7E4DB; --card:#FBFAF7;
+  --ink:#16233F; --muted:#5A6580;
+  --pink:#E0234E; --yellow:#F0B400;
+  --line:#16233F; --faint:rgba(22,35,63,.16); --faint-2:rgba(22,35,63,.07);
+  --display:"Black Han Sans","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1626; --paper-2:#172134; --card:#151F31;
+    --ink:#EFEDE5; --muted:#98A3BA; --pink:#FF5C77; --yellow:#FFCA4A;
+    --line:#EFEDE5; --faint:rgba(239,237,229,.2); --faint-2:rgba(239,237,229,.07);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1626; --paper-2:#172134; --card:#151F31;
+  --ink:#EFEDE5; --muted:#98A3BA; --pink:#FF5C77; --yellow:#FFCA4A;
+  --line:#EFEDE5; --faint:rgba(239,237,229,.2); --faint-2:rgba(239,237,229,.07);
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--body);
+  font-size:16px; line-height:1.68; -webkit-font-smoothing:antialiased}
+.wrap{max-width:820px; margin:0 auto; padding-inline:20px}
+a{color:var(--pink)}
+h1,h2,h3{font-family:var(--display); font-weight:400; text-wrap:balance}
+
+.mast{padding-block:clamp(30px,5vw,54px) 22px; border-bottom:3px solid var(--line)}
+.top{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  font-family:var(--mono); font-size:11.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase}
+.top a{text-decoration:none}
+.top b{color:var(--pink); font-weight:600}
+h1{margin:14px 0 0; font-size:clamp(34px,7vw,60px); line-height:1.05; letter-spacing:-.02em}
+
+.head{padding-block:26px 6px}
+.head h2{margin:0 0 10px; font-size:clamp(22px,4vw,32px); line-height:1.25}
+.lede{margin:0; color:var(--muted); font-size:clamp(15.5px,2vw,17.5px); max-width:64ch}
+
+.item{border-top:2px solid var(--faint); padding-block:20px}
+.item:first-of-type{border-top:3px solid var(--line); margin-top:22px}
+.meta{display:flex; flex-wrap:wrap; gap:8px 12px; align-items:center; margin-bottom:6px;
+  font-family:var(--mono); font-size:11px; color:var(--muted)}
+.kind{font-weight:600; letter-spacing:.08em; padding:2px 7px; border:2px solid var(--faint); color:var(--ink)}
+.kind.출시{border-color:var(--pink); color:var(--pink)}
+.kind.사고{background:var(--yellow); border-color:var(--yellow); color:#16233F}
+.item h3{margin:0 0 7px; font-size:21px; line-height:1.3}
+.item p{margin:0; max-width:70ch}
+.why{margin-top:9px!important; font-size:14.5px; color:var(--muted); border-left:3px solid var(--pink); padding-left:13px}
+.terms{display:flex; flex-wrap:wrap; gap:6px; margin-top:11px}
+.terms a{font-family:var(--mono); font-size:11.5px; text-decoration:none; color:var(--ink);
+  border:2px solid var(--faint); padding:3px 9px}
+.terms a:hover{border-color:var(--line)}
+
+.note{margin-top:30px; border:2px dashed var(--faint); padding:15px 17px; font-size:13.5px; color:var(--muted)}
+.note b{color:var(--ink)}
+.archive{margin-top:28px; font-family:var(--mono); font-size:12px}
+.archive h4{font-family:var(--mono); font-weight:600; letter-spacing:.12em; color:var(--muted); margin:0 0 8px; font-size:11px}
+.archive a{display:inline-block; margin:0 10px 6px 0}
+.archive a[aria-current]{color:var(--ink); font-weight:600; text-decoration:none}
+.empty{font-family:var(--mono); font-size:13px; color:var(--muted); padding:48px 0; text-align:center}
+footer{margin-top:40px; border-top:3px solid var(--line); padding-block:22px 44px;
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <div class="top"><span><b>평일 발행</b> · <span id="date">—</span></span><a href="./">← 위뉴 AI 용어집</a></div>
+    <h1>오늘의 늬우스</h1>
+  </header>
+  <main id="main"><p class="empty">불러오는 중…</p></main>
+  <p class="note"><b>어떻게 만드나.</b> 매일 아침 연구소 발표와 커뮤니티에서 AI 소식을 모아 원문을 받아 두고, 그 원문만 근거로 한 장을 쓴다. 본문에 나온 숫자는 원문과 글자 단위로 대조하고, 해석이 원문과 맞는지는 사람이 확인한 뒤 발행한다. 회사가 발표한 수치는 그렇다고 적었다. 용어를 누르면 용어집의 설명으로 넘어간다.</p>
+  <nav class="archive" id="archive"></nav>
+  <footer>WEKNEWS · 오늘의 늬우스</footer>
+</div>
+<script>
+(function(){
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  var main = document.getElementById("main");
+  var want = new URLSearchParams(location.search).get("d");
+
+  function render(d){
+    document.getElementById("date").textContent = d.date;
+    document.title = "오늘의 늬우스 — " + d.date;
+    var h = '<section class="head"><h2>' + esc(d.headline) + '</h2><p class="lede">' + esc(d.lede) + "</p></section>";
+    (d.items || []).forEach(function(i){
+      h += '<article class="item"><div class="meta"><span class="kind ' + esc(i.kind) + '">' + esc(i.kind) + "</span>" +
+           '<a href="' + esc(i.url) + '" rel="noopener">' + esc(i.source) + " ↗</a></div>" +
+           "<h3>" + esc(i.title) + "</h3><p>" + esc(i.summary) + '</p><p class="why">' + esc(i.why) + "</p>";
+      if (i.terms && i.terms.length) {
+        h += '<div class="terms">' + i.terms.map(function(t){
+          return '<a href="./?q=' + encodeURIComponent(t) + '#terms">' + esc(t) + "</a>"; }).join("") + "</div>";
+      }
+      h += "</article>";
+    });
+    main.innerHTML = h;
+  }
+
+  // news/index.json은 배포할 때 Actions가 만든다 (날짜 파일 목록). 저장소에는 없다
+  fetch("news/index.json").then(function(r){ return r.json(); }).then(function(dates){
+    if (!dates.length) throw new Error("empty");
+    var d = (want && dates.indexOf(want) > -1) ? want : dates[0];
+    document.getElementById("archive").innerHTML = "<h4>지난 호</h4>" + dates.slice(0, 60).map(function(x){
+      return '<a href="?d=' + x + '"' + (x === d ? ' aria-current="page"' : "") + ">" + x + "</a>"; }).join("");
+    return fetch("news/" + d + ".json").then(function(r){ return r.json(); }).then(render);
+  }).catch(function(){
+    main.innerHTML = '<p class="empty">아직 발행된 호가 없다.</p>';
+  });
+})();
+</script>
+</body>
+</html>

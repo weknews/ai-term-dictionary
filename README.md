@@ -1,6 +1,7 @@
 # 위뉴 AI 용어집
 
 https://weknews.github.io/ai-term-dictionary/ — main에 push하면 점검(`check.py`) 통과 후 자동 배포된다.
+평일 아침에는 [오늘의 늬우스](https://weknews.github.io/ai-term-dictionary/news.html)가 나온다. 만드는 방식은 `HANDOFF.md`의 늬우스 절.
 
 AI 씬 용어 242개를 정의 · 업계 뉘앙스 · 관찰 시점 현황 세 층으로 정리한 문서. 구성원이 AI 용어를 같은 뜻으로 쓰고 흐름을 따라가도록 만들었다.
 

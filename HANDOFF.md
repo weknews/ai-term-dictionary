@@ -20,6 +20,30 @@ main에 push하면 `.github/workflows/pages.yml`이 `check.py`를 돌리고 통�
 점검에 실패하면 이전 버전이 그대로 떠 있다 — Actions 탭에서 확인.
 아티팩트(https://claude.ai/artifact/XE7BjovdzdW6YDB4HvGMAa)는 예전 공유 경로다. 새 링크는 Pages 쪽을 돌린다.
 
+## 오늘의 늬우스 (2026-09-23 추가)
+
+평일 07:30 이 맥의 launchd가 `news/run.sh`를 부른다. API 비용 없이 구독 `claude -p`로 돈다.
+hn-researcher(`~/myworks/hn-researcher`, 06:44)가 받아 둔 HN·Lobsters·GeekNews 목록과
+`fetch_pages.py`·`gen_report.sh`를 그대로 가져다 쓴다. 모델 턴은 선별·작문 두 번뿐이고 둘 다 도구 없이 1턴이다.
+
+```
+collect.py   목록 재사용 + 연구소 피드(OpenAI·DeepMind·HF·Simon Willison·Anthropic) → 코드로 1차 거르기
+선별 1턴      prompts/select.md
+fetch_pages   원문 확보 (hn-researcher)
+작문 1턴      prompts/write.md — 확보한 원문만 근거
+verify.py    항목이 수집된 원문을 가리키는지 · 숫자가 원문에 있는지 · 금지 표현 · 원문/댓글 표기
+             실패하면 사유를 붙여 고쳐 쓰기 1회, 그래도 실패면 그날은 쉰다
+PR           news/DATE 브랜치 → 사람이 검토해 병합 → Actions가 check.py 후 Pages 반영
+```
+
+- 설치: `news/install.sh` (launchd 등록). 수동 실행: `news/run.sh [날짜]`, 시험: `DRY=1 news/run.sh 날짜`
+- 로그와 중간 산물: `news/work/` (git 미추적, 14일 뒤 삭제). `anthropic-seen.json`은 지우지 말 것 — Anthropic 새 글 판정 기준이다
+- **PR 검토에서 볼 것.** 코드는 숫자와 링크만 대조한다. 첫 시험에서 코드가 못 잡은 오류는 전부 해석이었다.
+  "같은 모델, 안전장치 수준만 다름"을 "안전장치를 완화한"으로, "프로모션 가격 대비"를 "이전 모델 대비"로,
+  기사 속 한 사람의 말을 집단의 일로, 원문에 없는 "위험이 커진다"를 why에 붙였다. 이 넷을 먼저 본다.
+- PR의 "용어집 후보"는 `terms.js`에 넣을지 검토할 목록이다. 넣을 때는 CONTRIBUTING 출처 규칙을 따른다.
+- 맥이 꺼져 있거나 hn-researcher가 바뀌면 그날은 쉰다. 매일 발행이 보장돼야 하면 Actions + API(월 약 $3.5, Sonnet 5)로 옮긴다.
+
 ## 탭 구성
 
 | 탭 | 내용 |
