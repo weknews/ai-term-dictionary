@@ -127,20 +127,20 @@ def main():
 
     errs, terms = [], load_terms()
     items = d.get("items") or []
-    if not 4 <= len(items) <= 7:
-        errs.append(f"항목 수 {len(items)}개 — 4~7개여야 한다")
-    big = sum(1 for it in items if it.get("size") == "big")
-    if not 1 <= big <= 2:
-        errs.append(f"큰 소식(size=big)이 {big}개 — 1~2개여야 한다")
-    s3 = d.get("summary3") or []
-    if len(s3) != 3:
-        errs.append(f"summary3가 {len(s3)}줄 — 세 줄이어야 한다")
+    picks = [it for it in items if it.get("role") != "known"]
+    known = [it for it in items if it.get("role") == "known"]
+    if not 3 <= len(picks) <= 6:
+        errs.append(f"눈여겨볼 일(role=pick)이 {len(picks)}개 — 3~6개여야 한다")
+    if len(known) > 3:
+        errs.append(f"다들 아는 소식이 {len(known)}개 — 3개까지")
+    for it in picks:
+        if not str(it.get("check", "")).strip():
+            errs.append(f"[{it.get('title', '')[:30]}] 눈여겨볼 일인데 '확인해 볼 것'(check)이 비었다")
 
     # 헤드라인·세 줄 요약·오늘의 용어 설명은 특정 항목에 묶이지 않으니 그날 원문 전체와 대조한다
     all_src = "\n".join(bodies.values())
     tod = d.get("term_of_day") or {}
-    for label, text in [("headline", d.get("headline", "")), ("summary3", " ".join(s3)),
-                        ("오늘의 용어", tod.get("context", ""))]:
+    for label, text in [("headline", d.get("headline", "")), ("오늘의 용어", tod.get("context", ""))]:
         for n in stray_numbers(text, all_src):
             errs.append(f"{label}: 숫자 '{n}'이 어느 원문에도 없다")
     if tod and tod.get("term") not in terms:
@@ -154,7 +154,7 @@ def main():
         if not body:
             errs.append(f"[{label}] 후보 {cid}의 원문이 수집되지 않았다 — 근거 없는 항목")
             continue
-        text = " ".join(str(it.get(k, "")) for k in ("title", "summary", "why"))
+        text = " ".join(str(it.get(k, "")) for k in ("title", "summary", "check", "why"))
         # 원문을 읽은 항목에 "댓글 기준"을 붙이면 출처를 거꾸로 적은 것이다 (반대도 마찬가지)
         comments = bool(re.search(r"^- HN 댓글 \|", body, re.M))
         if "댓글 기준" in text and not comments:
@@ -163,9 +163,9 @@ def main():
             errs.append(f"[{label}] 댓글만 읽은 항목인데 '댓글 기준'이라고 밝히지 않았다")
         for n in stray_numbers(text, body):
             errs.append(f"[{label}] 숫자 '{n}'이 원문에 없다")
-        limit = 450 if it.get("size") == "big" else 220
+        limit = 160 if it.get("role") == "known" else 380
         if len(it.get("summary", "")) > limit:
-            errs.append(f"[{label}] 요약이 너무 길다 ({len(it['summary'])}자, {it.get('size')}는 {limit}자까지)")
+            errs.append(f"[{label}] 요약이 너무 길다 ({len(it['summary'])}자, {it.get('role')}는 {limit}자까지)")
         it["id"], it["url"] = cid, url
         it["source"] = urlparse(url).netloc.removeprefix("www.")
         it["terms"] = [t for t in it.get("terms") or [] if t in terms]
@@ -200,7 +200,7 @@ def main():
         print("\n".join(f"- {e}" for e in errs))
         return 1
 
-    d = {"date": DATE, **{k: d.get(k) for k in ("headline", "summary3", "items", "lens", "term_of_day", "new_terms", "dropped")}}
+    d = {"date": DATE, **{k: d.get(k) for k in ("headline", "items", "lens", "term_of_day", "new_terms", "dropped")}}
     json.dump(d, open(OUT, "w"), ensure_ascii=False, indent=1)
     print(f"통과: {len(items)}개 항목 → {OUT}")
     return 0

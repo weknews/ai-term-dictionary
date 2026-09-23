@@ -76,6 +76,20 @@ h1{margin:12px 0 4px; font-size:clamp(36px,8vw,56px); line-height:1.05; letter-s
   border:1.5px solid var(--faint); padding:2px 8px}
 .chip:hover{color:var(--ink); border-color:var(--line)}
 
+/* 눈여겨볼 일 */
+.pick{padding-block:22px 8px; border-top:2px solid var(--faint)}
+.pick:first-of-type{border-top:0}
+.pick h3{margin:4px 0 10px; font-size:clamp(20px,3.6vw,24px); line-height:1.35}
+.pick p{margin:0}
+.check{margin-top:14px!important; padding:13px 16px; background:var(--card); border:2px solid var(--faint); border-left:4px solid var(--yellow); font-size:15.5px}
+.check b{display:block; font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.1em; color:var(--muted); margin-bottom:3px}
+/* 다들 아는 소식 */
+.known{margin:10px 0 0; padding:0; list-style:none; font-size:15.5px}
+.known li{padding:9px 0; border-bottom:2px solid var(--faint-2)}
+.known li:last-child{border-bottom:0}
+.known b{font-weight:600}
+.known a{font-family:var(--mono); font-size:12px; text-decoration:none; margin-left:6px}
+
 /* 짧게 */
 .shorts{margin:8px 0 0; padding:0; list-style:none}
 .shorts li{padding-block:16px; border-bottom:2px solid var(--faint-2)}
@@ -148,10 +162,45 @@ footer{margin-top:28px; border-top:3px solid var(--line); padding-block:18px 44p
     return h + "</div>";
   }
 
+  function lensHtml(d){
+    if (!d.lens || !d.lens.length) return "";
+    return '<h2 class="sec">스타트업 렌즈</h2><p class="lens-intro">PMF를 찾는 작은 팀의 눈으로 다시 읽는다. 답 대신 질문을 남긴다.</p>' +
+      d.lens.map(function(l){
+        return '<section class="lens"><span class="kind">' + esc(l.angle) + "</span><h3>" + esc(l.title) + "</h3><p>" + esc(l.what) +
+               '</p><p class="who">' + esc(l.who) + '</p><p class="q">' + esc(l.question) + "</p>" +
+               '<a href="' + esc(l.url) + '" rel="noopener">원문 · ' + esc(l.source) + " ↗</a></section>";
+      }).join("");
+  }
+  function termHtml(d){
+    var tod = d.term_of_day, t = tod && TERMS[tod.term];
+    if (!t) return "";
+    return '<h2 class="sec">오늘의 용어</h2><section class="term"><span class="k">' + esc(t.k) + '</span><span class="e">' +
+           esc(t.e) + '</span><p class="def">' + esc(t.d) + '</p><p class="ctx">' + esc(tod.context) + "</p>" +
+           '<a href="./?q=' + encodeURIComponent(t.k) + '#terms">용어집에서 더 보기 →</a></section>';
+  }
+  // 지금 형식: 눈여겨볼 일(확인해 볼 것) → 다들 아는 소식 → 스타트업 렌즈 → 오늘의 용어
+  function renderPicks(d, items){
+    var picks = items.filter(function(i){ return i.role !== "known"; });
+    var known = items.filter(function(i){ return i.role === "known"; });
+    var h = '<h2 class="headline">' + esc(d.headline) + "</h2>";
+    h += '<h2 class="sec">오늘 눈여겨볼 일</h2>';
+    picks.forEach(function(i){
+      h += '<article class="pick"><span class="kind">' + esc(i.kind) + "</span><h3>" + esc(i.title) + "</h3><p>" + esc(i.summary) +
+           '</p><p class="check"><b>이 부분을 확인해 보면 좋다</b>' + esc(i.check) + "</p>" + more(i) + "</article>";
+    });
+    if (known.length) {
+      h += '<h2 class="sec">다들 아는 소식</h2><ul class="known">' + known.map(function(i){
+        return "<li><b>" + esc(i.title) + "</b> — " + esc(i.summary) + '<a href="' + esc(i.url) + '" rel="noopener">' + esc(i.source) + " ↗</a></li>";
+      }).join("") + "</ul>";
+    }
+    return h + lensHtml(d) + termHtml(d);
+  }
+
   function render(d){
     document.getElementById("date").textContent = kdate(d.date);
     document.title = "오늘의 늬우스 — " + d.date;
     var items = d.items || [];
+    if (items.some(function(i){ return i.role; })) { main.innerHTML = renderPicks(d, items); return; }
     // 예전 형식(size 없음)은 첫 항목을 큰 소식으로 본다
     var big = items.filter(function(i){ return i.size === "big"; });
     if (!big.length) big = items.slice(0, 1);

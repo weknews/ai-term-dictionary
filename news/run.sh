@@ -49,6 +49,8 @@ git worktree add -q -B "news/$DATE" "$WT" origin/main
 # 스크립트·프롬프트는 이 체크아웃 것을 쓰고, 데이터(최근 발행분·terms.js)는 origin/main worktree에서 읽는다
 export NEWS_ROOT=$WT
 
+# FROM=write 이면 수집·선별·원문을 건너뛰고 work에 있는 것으로 작문부터 다시 한다 (지시문을 고쳐 볼 때)
+if [ "$FROM" != write ]; then
 # 1 수집
 python3 "$REPO/news/collect.py" "$DATE" "$W" "$HNR" || fail "수집 실패"
 
@@ -65,7 +67,7 @@ titles = dict(re.findall(r"#(\S+) (.*)", lst))
 # fetch_pages.py가 쓰는 형식으로 맞춘다 (title·project·why)
 # 제목 앞에 #ID를 붙인다 — 원문 파일의 제목 줄에 ID가 찍혀야 작문 턴이 항목마다 ID를 정확히 단다
 json.dump([{"id": c["id"].lstrip("#"), "title": "#%s %s" % (c["id"].lstrip("#"), titles.get(c["id"].lstrip("#"), "")),
-            "project": "늬우스", "why": ("[렌즈] " if c.get("lens") else "") + c.get("why", "")}
+            "project": "늬우스", "why": "[%s] %s" % (c.get("role", "pick"), c.get("why", ""))}
            for c in cands], open(out, "w"), ensure_ascii=False)
 print(f"선별 {len(cands)}건")
 PY
@@ -74,6 +76,7 @@ PY
 python3 "$HNR/fetch_pages.py" "$W/candidates-$DATE.json" "$W/urls-$DATE.json" > "$W/pages-$DATE.md" \
   || fail "원문 수집 실패"
 echo "원문: $(head -1 "$W/pages-$DATE.md")"
+fi
 
 TERMS=$(node -e "global.window={};require('$WT/terms.js');console.log(window.TERMS.map(t=>t.k).join(', '))")
 write_turn() {  # $1 출력 경로, $2 덧붙일 지시(고쳐 쓰기일 때)
@@ -124,13 +127,16 @@ python3 - "$WT/news/$DATE.json" "$W/dead-$DATE.txt" "${RETRIED:-1회 통과}" > 
 import json, sys
 d, dead = json.load(open(sys.argv[1])), open(sys.argv[2]).read().split("\n")
 dead = [x for x in dead if x]
-print(f"**{d['headline']}**\n")
-for x in d.get("summary3") or []:
-    print(f"1. {x}")
-print("\n## 항목")
+print(f"**{d['headline']}**\n\n## 눈여겨볼 일")
 for i in d["items"]:
-    tag = "큰 소식" if i.get("size") == "big" else "짧게"
-    print(f"- ({tag}·{i['kind']}) **{i['title']}** — [{i['source']}]({i['url']})")
+    if i.get("role") == "known":
+        continue
+    print(f"- ({i['kind']}) **{i['title']}** — [{i['source']}]({i['url']})\n  - 확인해 볼 것: {i.get('check', '')}")
+known = [i for i in d["items"] if i.get("role") == "known"]
+if known:
+    print("\n## 다들 아는 소식")
+    for i in known:
+        print(f"- {i['title']} — [{i['source']}]({i['url']})")
 for l in d.get("lens") or []:
     print(f"\n스타트업 렌즈 ({l.get('angle','')}): **{l['title']}** — {l['question']}")
 if d.get("term_of_day"):
