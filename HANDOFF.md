@@ -33,9 +33,12 @@ fetch_pages   원문 확보 (hn-researcher)
 작문 1턴      prompts/write.md — 확보한 원문만 근거
 verify.py    항목이 수집된 원문을 가리키는지 · 숫자가 원문에 있는지 · 금지 표현 · 원문/댓글 표기
              실패하면 사유를 붙여 고쳐 쓰기 1회, 그래도 실패면 그날은 쉰다
-PR           news/DATE 브랜치 → 사람이 검토해 병합 → Actions가 check.py 후 Pages 반영
+PR           news/DATE 브랜치 → 로컬 검토(news/review.sh)에서 승인 → 병합 → Actions가 check.py 후 Pages 반영
 ```
 
+- **발행 전 로컬 검토: `news/review.sh [날짜]`** (터미널에서 직접 실행 — 입력을 기다린다). 초안을 발행 화면 그대로 띄우고
+  항목마다 원문 발췌를 붙인다. 초안에 쓰인 숫자는 원문에서 노랗게 칠해진다. `a` 승인(PR 병합=발행) · `e` 편집기로 수정
+  (verify.py를 다시 통과해야 PR에 반영) · `q` 보류. 07:30 초안이 올라오면 맥 알림이 뜬다
 - 설치: `news/install.sh` (launchd 등록). 수동 실행: `news/run.sh [날짜]`, 시험: `DRY=1 news/run.sh 날짜`
 - 로그와 중간 산물: `news/work/` (git 미추적, 14일 뒤 삭제). `anthropic-seen.json`은 지우지 말 것 — Anthropic 새 글 판정 기준이다
 - **PR 검토에서 볼 것.** 코드는 숫자와 링크만 대조한다. 첫 시험에서 코드가 못 잡은 오류는 전부 해석이었다.

@@ -112,8 +112,10 @@ $(cat "$W/verify-$DATE.txt")" || fail "고쳐 쓰기 턴 실패"
 fi
 cat "$W/verify"*"-$DATE.txt" | tail -1
 
-# DRY=1이면 여기서 멈추고 결과만 work에 남긴다 (시험용)
-if [ -n "$DRY" ]; then cp "$WT/news/$DATE.json" "$W/final-$DATE.json"; echo "DRY — PR 생략: $W/final-$DATE.json"; exit 0; fi
+# 로컬 검토(news/review.sh)가 이 사본과 원문(pages)을 나란히 띄운다
+cp "$WT/news/$DATE.json" "$W/final-$DATE.json"
+# DRY=1이면 여기서 멈춘다 (시험용)
+[ -n "$DRY" ] && { echo "DRY — PR 생략: $W/final-$DATE.json"; exit 0; }
 
 # 6 PR
 HEAD=$(python3 -c "import json;print(json.load(open('$WT/news/$DATE.json'))['headline'])")
@@ -137,7 +139,7 @@ git -C "$WT" commit -qm "늬우스 $DATE — $HEAD"
 git -C "$WT" push -q -u origin "news/$DATE"
 gh pr create -R weknews/ai-term-dictionary --base main --head "news/$DATE" \
   --title "늬우스 $DATE — $HEAD" --body-file "$W/pr-$DATE.md"
-osascript -e "display notification \"$HEAD\" with title \"오늘의 늬우스 $DATE — PR 올라감\"" 2>/dev/null || true
+osascript -e "display notification \"검토: news/review.sh — $HEAD\" with title \"오늘의 늬우스 $DATE 초안\" sound name \"Glass\"" 2>/dev/null || true
 
 find "$W" -maxdepth 1 -type f -name '*-20*' -mtime +14 -delete 2>/dev/null || true
 echo "== $(date +'%F %T') 완료"
