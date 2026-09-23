@@ -123,9 +123,16 @@ python3 - "$WT/news/$DATE.json" "$W/dead-$DATE.txt" "${RETRIED:-1회 통과}" > 
 import json, sys
 d, dead = json.load(open(sys.argv[1])), open(sys.argv[2]).read().split("\n")
 dead = [x for x in dead if x]
-print(f"**{d['headline']}**\n\n{d['lede']}\n\n## 항목")
+print(f"**{d['headline']}**\n")
+for x in d.get("summary3") or []:
+    print(f"1. {x}")
+print("\n## 항목")
 for i in d["items"]:
-    print(f"- [{i['kind']}] **{i['title']}** — [{i['source']}]({i['url']})")
+    tag = "큰 소식" if i.get("size") == "big" else "짧게"
+    print(f"- ({tag}·{i['kind']}) **{i['title']}** — [{i['source']}]({i['url']})")
+if d.get("term_of_day"):
+    print(f"\n오늘의 용어: **{d['term_of_day']['term']}**")
+print("\n로컬 검토: `news/review.sh` → a 승인 / e 수정")
 if d.get("new_terms"):
     print("\n## 용어집 후보 (검토 필요)")
     for t in d["new_terms"]:

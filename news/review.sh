@@ -1,7 +1,7 @@
 #!/bin/zsh
 # 발행 전 로컬 검토. 사용법: news/review.sh [YYYY-MM-DD]  (기본: 오늘)
 #
-# 1. 초안을 실제 발행 화면 그대로 띄우고, 항목마다 원문 발췌를 붙인다 (news.html?review=날짜)
+# 1. 초안을 실제 발행 화면 그대로 띄운다 (news.html?review=날짜). 원문은 각 항목의 링크로 연다
 # 2. 터미널에서 고른다
 #      a  승인 — PR을 병합해 발행 (Actions가 check.py 후 Pages 반영)
 #      e  수정 — 편집기로 JSON을 고치고, verify.py를 통과해야 PR에 반영. 반영 뒤 다시 보여 준다
@@ -21,7 +21,7 @@ PR=$(gh pr list -R $R --head "news/$DATE" --state open --json number -q '.[0].nu
 # 원격 PR 브랜치가 정본이다 — 웹에서 고쳤어도 그걸 본다
 git fetch -q origin "news/$DATE"
 git show "origin/news/$DATE:news/$DATE.json" > "$W/final-$DATE.json"
-[ -f "$W/pages-$DATE.md" ] || echo "경고: 원문 파일이 없다 — 원문 발췌 없이 본다"
+[ -f "$W/pages-$DATE.md" ] || echo "경고: 원문 파일이 없다 — 수정(e) 시 검증을 못 한다"
 
 python3 -m http.server $PORT -d "$REPO" >/dev/null 2>&1 &
 SRV=$!

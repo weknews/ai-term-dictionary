@@ -97,13 +97,24 @@ def main():
 
     errs, terms = [], load_terms()
     items = d.get("items") or []
-    if not 3 <= len(items) <= 8:
-        errs.append(f"항목 수 {len(items)}개 — 3~8개여야 한다")
+    if not 4 <= len(items) <= 7:
+        errs.append(f"항목 수 {len(items)}개 — 4~7개여야 한다")
+    big = sum(1 for it in items if it.get("size") == "big")
+    if not 1 <= big <= 2:
+        errs.append(f"큰 소식(size=big)이 {big}개 — 1~2개여야 한다")
+    s3 = d.get("summary3") or []
+    if len(s3) != 3:
+        errs.append(f"summary3가 {len(s3)}줄 — 세 줄이어야 한다")
 
+    # 헤드라인·세 줄 요약·오늘의 용어 설명은 특정 항목에 묶이지 않으니 그날 원문 전체와 대조한다
     all_src = "\n".join(bodies.values())
-    for field in ("headline", "lede"):
-        for n in stray_numbers(d.get(field, ""), all_src):
-            errs.append(f"{field}: 숫자 '{n}'이 어느 원문에도 없다")
+    tod = d.get("term_of_day") or {}
+    for label, text in [("headline", d.get("headline", "")), ("summary3", " ".join(s3)),
+                        ("오늘의 용어", tod.get("context", ""))]:
+        for n in stray_numbers(text, all_src):
+            errs.append(f"{label}: 숫자 '{n}'이 어느 원문에도 없다")
+    if tod and tod.get("term") not in terms:
+        d["term_of_day"] = None   # 표제어가 아니면 칸만 비운다 — 발행을 막을 일은 아니다
 
     for it in items:
         cid = str(it.get("id", "")).lstrip("#")
@@ -122,8 +133,9 @@ def main():
             errs.append(f"[{label}] 댓글만 읽은 항목인데 '댓글 기준'이라고 밝히지 않았다")
         for n in stray_numbers(text, body):
             errs.append(f"[{label}] 숫자 '{n}'이 원문에 없다")
-        if len(it.get("summary", "")) > 450:
-            errs.append(f"[{label}] 요약이 너무 길다 ({len(it['summary'])}자)")
+        limit = 450 if it.get("size") == "big" else 220
+        if len(it.get("summary", "")) > limit:
+            errs.append(f"[{label}] 요약이 너무 길다 ({len(it['summary'])}자, {it.get('size')}는 {limit}자까지)")
         it["id"], it["url"] = cid, url
         it["source"] = urlparse(url).netloc.removeprefix("www.")
         it["terms"] = [t for t in it.get("terms") or [] if t in terms]
@@ -137,7 +149,7 @@ def main():
         print("\n".join(f"- {e}" for e in errs))
         return 1
 
-    d = {"date": DATE, **{k: d.get(k) for k in ("headline", "lede", "items", "new_terms", "dropped")}}
+    d = {"date": DATE, **{k: d.get(k) for k in ("headline", "summary3", "items", "term_of_day", "new_terms", "dropped")}}
     json.dump(d, open(OUT, "w"), ensure_ascii=False, indent=1)
     print(f"통과: {len(items)}개 항목 → {OUT}")
     return 0
