@@ -35,7 +35,7 @@ BAN = {
     "결산어": r"결론적으로|요약하면|정리하자면|이를 통해|관건은|중요한 것은|하는 이유다|라고 할 수 있다",
     "깎아내림": r"촌스럽|아마추어|까인다|한심|무식|따위|녀석",
     "위치 참조": r"아래 표|위 표|앞서 본|위에서 본|아래 항목",
-    "회사 관점": r"위뉴가|위뉴의|우리 회사|우리 제품",
+    "회사 관점": r"위뉴가|위뉴의|우리 회사",   # "우리 제품"은 스타트업 렌즈 질문에서 자연스러운 말이라 뺐다
     # 원문에 없는 전망을 덧붙이는 버릇. 첫 시험(2026-09-23)에서 두 번 연속 나왔다
     "원문 밖 전망": r"위험을 (?:오히려 )?키울|위험이 커진|본격화|경쟁이 (?:붙었|시작됐)|불붙|재점화|판도가|새 시대|만에 해낸",
     "반복 버릇": r"대목|지점|참고할 만하다",
@@ -127,12 +127,12 @@ def main():
 
     errs, terms = [], load_terms()
     items = d.get("items") or []
-    picks = [it for it in items if it.get("role") != "known"]
-    known = [it for it in items if it.get("role") == "known"]
+    picks = [it for it in items if it.get("role") not in ("launch", "known")]
+    known = [it for it in items if it.get("role") in ("launch", "known")]   # known은 2026-09-23 호의 옛 이름
     if not 3 <= len(picks) <= 6:
         errs.append(f"눈여겨볼 일(role=pick)이 {len(picks)}개 — 3~6개여야 한다")
     if len(known) > 3:
-        errs.append(f"다들 아는 소식이 {len(known)}개 — 3개까지")
+        errs.append(f"새로 나온 모델·제품이 {len(known)}개 — 3개까지")
     for it in picks:
         if not str(it.get("check", "")).strip():
             errs.append(f"[{it.get('title', '')[:30]}] 눈여겨볼 일인데 '확인해 볼 것'(check)이 비었다")
@@ -163,7 +163,7 @@ def main():
             errs.append(f"[{label}] 댓글만 읽은 항목인데 '댓글 기준'이라고 밝히지 않았다")
         for n in stray_numbers(text, body):
             errs.append(f"[{label}] 숫자 '{n}'이 원문에 없다")
-        limit = 160 if it.get("role") == "known" else 380
+        limit = 300 if it.get("role") in ("launch", "known") else 380
         if len(it.get("summary", "")) > limit:
             errs.append(f"[{label}] 요약이 너무 길다 ({len(it['summary'])}자, {it.get('role')}는 {limit}자까지)")
         it["id"], it["url"] = cid, url

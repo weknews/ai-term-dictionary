@@ -129,12 +129,12 @@ d, dead = json.load(open(sys.argv[1])), open(sys.argv[2]).read().split("\n")
 dead = [x for x in dead if x]
 print(f"**{d['headline']}**\n\n## 눈여겨볼 일")
 for i in d["items"]:
-    if i.get("role") == "known":
+    if i.get("role") in ("launch", "known"):
         continue
     print(f"- ({i['kind']}) **{i['title']}** — [{i['source']}]({i['url']})\n  - 확인해 볼 것: {i.get('check', '')}")
-known = [i for i in d["items"] if i.get("role") == "known"]
+known = [i for i in d["items"] if i.get("role") in ("launch", "known")]
 if known:
-    print("\n## 다들 아는 소식")
+    print("\n## 새로 나온 모델·제품")
     for i in known:
         print(f"- {i['title']} — [{i['source']}]({i['url']})")
 for l in d.get("lens") or []:

@@ -68,10 +68,12 @@ h1{margin:0 0 14px; font-size:clamp(38px,7.4vw,74px); line-height:1; letter-spac
 .nw-src{font-family:var(--mono); font-size:12.5px; text-decoration:none}
 .nw-chip{font-family:var(--mono); font-size:11.5px; text-decoration:none; color:var(--muted); border:1.5px solid var(--faint); padding:2px 8px}
 .nw-chip:hover{color:var(--ink); border-color:var(--line)}
-.nw-known{margin:10px 0 0; padding:0; list-style:none; font-size:15.5px}
-.nw-known li{padding:9px 0; border-bottom:2px solid var(--faint-2)}
-.nw-known li:last-child{border-bottom:0}
-.nw-known a{font-family:var(--mono); font-size:12px; text-decoration:none; margin-left:6px}
+/* 새로 나온 모델·제품 — 헤드라인 바로 아래. 처음 듣는 사람이 많아 한 줄이 아니라 짧은 카드로 */
+.nw-launch{margin:12px 0 0; display:grid; gap:10px}
+.nw-launch article{padding:14px 16px; background:var(--card); border:2px solid var(--faint); border-left:4px solid var(--pink)}
+.nw-launch h3{margin:2px 0 6px; font-size:18.5px; line-height:1.4}
+.nw-launch p{margin:0; font-size:15.5px}
+.nw-launch .nw-src{display:inline-block; margin-top:8px}
 .nw-lens-intro{margin:6px 0 0; font-size:14.5px; color:var(--muted)}
 /* 렌즈 상자는 두 모드 모두 어둡게 — --ink를 쓰면 다크 모드에서 뒤집혀 노란 글씨가 안 보인다 */
 .nw-lens{margin-top:14px; padding:20px 22px; background:#16233F; color:#F1EFE9}
@@ -1130,17 +1132,18 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
       return '<a class="nw-chip" href="?q=' + encodeURIComponent(t) + '#terms">' + e(t) + "</a>"; }).join(""); }
     function render(d){
       var items = d.items || [];
-      var picks = items.filter(function(i){ return i.role !== "known"; });
-      var known = items.filter(function(i){ return i.role === "known"; });
+      function isLaunch(i){ return i.role === "launch" || i.role === "known"; }   // known은 2026-09-23 호의 옛 이름
+      var picks = items.filter(function(i){ return !isLaunch(i); });
+      var known = items.filter(isLaunch);
       var h = '<p class="nw-date">오늘의 뉴스 · ' + e(kdate(d.date)) + '</p><h2 class="nw-headline">' + e(d.headline) + "</h2>";
+      if (known.length) h += '<h3 class="nw-sec">새로 나온 모델·제품</h3><div class="nw-launch">' + known.map(function(i){
+        return '<article><span class="nw-kind">' + e(i.kind) + "</span><h3>" + e(i.title) + "</h3><p>" + e(i.summary) + "</p>" + src(i, "nw-src") + "</article>"; }).join("") + "</div>";
       h += '<h3 class="nw-sec">오늘 눈여겨볼 일</h3>';
       picks.forEach(function(i){
         h += '<article class="nw-pick"><span class="nw-kind">' + e(i.kind) + "</span><h3>" + e(i.title) + "</h3><p>" + e(i.summary) + "</p>" +
              (i.check ? '<p class="nw-check"><b>이 부분을 확인해 보면 좋다</b>' + e(i.check) + "</p>" : "") +
              '<div class="nw-more">' + src(i, "nw-src") + chips(i) + "</div></article>";
       });
-      if (known.length) h += '<h3 class="nw-sec">다들 아는 소식</h3><ul class="nw-known">' + known.map(function(i){
-        return "<li><b>" + e(i.title) + "</b> — " + e(i.summary) + '<a href="' + e(i.url) + '" rel="noopener">' + e(i.source) + " ↗</a></li>"; }).join("") + "</ul>";
       if (d.lens && d.lens.length) {
         h += '<h3 class="nw-sec">스타트업 렌즈</h3><p class="nw-lens-intro">PMF를 찾는 작은 팀의 눈으로 다시 읽는다. 답 대신 질문을 남긴다.</p>';
         d.lens.forEach(function(l){
