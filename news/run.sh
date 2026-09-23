@@ -155,7 +155,17 @@ git -C "$WT" commit -qm "뉴스 $DATE — $HEAD"
 git -C "$WT" push -q -u origin "news/$DATE"
 gh pr create -R weknews/ai-term-dictionary --base main --head "news/$DATE" \
   --title "뉴스 $DATE — $HEAD" --body-file "$W/pr-$DATE.md"
-osascript -e "display notification \"검토: news/review.sh — $HEAD\" with title \"오늘의 뉴스 $DATE 초안\" sound name \"Glass\"" 2>/dev/null || true
+# 자동 발행 — news/work/auto-publish-until 에 날짜(YYYY-MM-DD)가 있으면 그날까지는 검토 없이 병합한다.
+# 사람이 볼 수 없는 기간(연휴 등)용. 날짜가 지나면 저절로 PR 검토로 돌아간다 — 되돌리는 걸 잊을 일이 없게.
+# 검증(verify.py)을 통과한 초안만 여기까지 오므로 출처·숫자·금지 표현 기준은 그대로 적용된다.
+AUTO=$(cat "$W/auto-publish-until" 2>/dev/null | tr -d '[:space:]' || true)
+if [[ -n "$AUTO" && ! "$DATE" > "$AUTO" ]]; then
+  gh pr merge "news/$DATE" -R weknews/ai-term-dictionary --squash --delete-branch \
+    && { echo "자동 발행 ($AUTO까지)"; osascript -e "display notification \"$HEAD\" with title \"오늘의 뉴스 $DATE 자동 발행\"" 2>/dev/null || true; } \
+    || fail "자동 병합 실패 — PR은 열려 있다"
+else
+  osascript -e "display notification \"검토: news/review.sh — $HEAD\" with title \"오늘의 뉴스 $DATE 초안\" sound name \"Glass\"" 2>/dev/null || true
+fi
 
 find "$W" -maxdepth 1 -type f -name '*-20*' -mtime +14 -delete 2>/dev/null || true
 echo "== $(date +'%F %T') 완료"
