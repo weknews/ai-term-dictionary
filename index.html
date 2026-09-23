@@ -49,8 +49,52 @@ code{font-family:var(--mono); font-size:.88em; background:var(--faint-2); paddin
 h1{margin:0 0 14px; font-size:clamp(38px,7.4vw,74px); line-height:1; letter-spacing:-.02em}
 .tagline{font-size:clamp(16px,2vw,19px); color:var(--muted); max-width:60ch; margin:0}
 .tagline b{color:var(--ink); font-weight:600}
-.newslink{display:inline-block; margin-top:14px; font-family:var(--mono); font-size:12px; font-weight:600;
-  letter-spacing:.08em; text-decoration:none; border:2px solid var(--pink); padding:5px 11px}
+/* 오늘의 뉴스 — 첫 탭. 데이터는 news/날짜.json (배포 때 news/index.json 생성). 글 폭은 읽기 좋게 좁힌다 */
+.nw{max-width:700px; font-size:17px; line-height:1.78; word-break:keep-all}
+.nw-date{margin:0; font-family:var(--mono); font-size:12.5px; color:var(--muted)}
+.nw-headline{margin:10px 0 0; font-size:clamp(24px,4.4vw,34px); line-height:1.3}
+.nw-sec{display:flex; align-items:center; gap:10px; margin:40px 0 0; font-family:var(--mono); font-size:11.5px;
+  font-weight:600; letter-spacing:.14em; color:var(--muted)}
+.nw-sec::after{content:""; flex:1; height:2px; background:var(--faint)}
+.nw-kind{font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.08em; color:var(--pink)}
+.nw-pick{padding-block:20px 6px; border-top:2px solid var(--faint)}
+.nw-pick:first-of-type{border-top:0}
+.nw-pick h3{margin:4px 0 10px; font-size:clamp(20px,3.4vw,24px); line-height:1.35}
+.nw-pick p, .nw-lens p{margin:0}
+.nw-check{margin-top:14px!important; padding:13px 16px; background:var(--card); border:2px solid var(--faint);
+  border-left:4px solid var(--yellow); font-size:15.5px}
+.nw-check b{display:block; font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.1em; color:var(--muted); margin-bottom:3px}
+.nw-more{display:flex; flex-wrap:wrap; align-items:center; gap:8px 14px; margin-top:12px}
+.nw-src{font-family:var(--mono); font-size:12.5px; text-decoration:none}
+.nw-chip{font-family:var(--mono); font-size:11.5px; text-decoration:none; color:var(--muted); border:1.5px solid var(--faint); padding:2px 8px}
+.nw-chip:hover{color:var(--ink); border-color:var(--line)}
+.nw-known{margin:10px 0 0; padding:0; list-style:none; font-size:15.5px}
+.nw-known li{padding:9px 0; border-bottom:2px solid var(--faint-2)}
+.nw-known li:last-child{border-bottom:0}
+.nw-known a{font-family:var(--mono); font-size:12px; text-decoration:none; margin-left:6px}
+.nw-lens-intro{margin:6px 0 0; font-size:14.5px; color:var(--muted)}
+/* 렌즈 상자는 두 모드 모두 어둡게 — --ink를 쓰면 다크 모드에서 뒤집혀 노란 글씨가 안 보인다 */
+.nw-lens{margin-top:14px; padding:20px 22px; background:#16233F; color:#F1EFE9}
+.nw-lens .nw-kind{color:#FFCA4A}
+.nw-lens h3{margin:4px 0 10px; font-size:21px; line-height:1.35}
+.nw-lens .who{margin-top:10px; font-size:15.5px; opacity:.85}
+.nw-lens .q{margin-top:14px; padding-top:12px; border-top:2px solid rgba(255,255,255,.18); font-weight:600}
+.nw-lens .q::before{content:"우리 팀에 던질 질문 — "; font-family:var(--mono); font-size:11.5px; color:#FFCA4A}
+.nw-lens a{display:inline-block; margin-top:12px; color:#FFCA4A; font-family:var(--mono); font-size:12.5px; text-decoration:none}
+.nw-term{margin-top:14px; padding:22px; border:3px solid var(--line); background:var(--card)}
+.nw-term .k{font-family:var(--display); font-size:26px; line-height:1.2}
+.nw-term .e{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-left:8px}
+.nw-term .def{margin:10px 0 0}
+.nw-term .ctx{margin:12px 0 0; font-size:15.5px; color:var(--muted)}
+.nw-term a{display:inline-block; margin-top:12px; font-family:var(--mono); font-size:12.5px; text-decoration:none}
+.nw-banner{margin:0 0 18px; background:var(--yellow); color:#16233F; padding:10px 14px; font-family:var(--mono); font-size:12.5px; font-weight:600}
+.nw-empty{font-family:var(--mono); font-size:13px; color:var(--muted); padding:36px 0}
+.nw-arch{margin-top:36px; font-family:var(--mono); font-size:12.5px}
+.nw-arch a{display:inline-block; margin:0 12px 8px 0}
+.nw-arch a[aria-current]{color:var(--ink); font-weight:600; text-decoration:none}
+.archived{margin-top:44px; border-top:3px solid var(--line); padding-top:14px}
+.archived > summary{cursor:pointer; font-family:var(--mono); font-size:12.5px; font-weight:600; letter-spacing:.06em; color:var(--muted)}
+.archived[open] > summary{margin-bottom:18px}
 
 /* ── 탭 ── */
 .topbar{position:sticky; top:env(safe-area-inset-top, 0px); z-index:50;
@@ -411,21 +455,20 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 
 <div class="wrap">
   <header class="mast">
-    <p class="badge"><b>v4.0</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
+    <p class="badge"><b>v5.0</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
     <h1>위뉴 AI 용어집</h1>
     <p class="tagline">업계가 이 단어를 <b>실제로 어떤 뜻으로 쓰는지</b> 적은 문서. 학술적 정의가 아니라 현장 어법이 기준이다.</p>
-    <a class="newslink" href="news.html">오늘의 늬우스 →</a>
   </header>
 </div>
 
 <div class="topbar">
   <div class="wrap">
     <div class="tabs" role="tablist" aria-label="문서 구역">
-      <button class="tab" role="tab" data-go="start" aria-selected="true"><span class="full">시작</span><span class="short" aria-hidden="true">시작</span></button>
+      <button class="tab" role="tab" data-go="now" aria-selected="true"><span class="full">오늘의 뉴스</span><span class="short" aria-hidden="true">뉴스</span></button>
+      <button class="tab" role="tab" data-go="start" aria-selected="false"><span class="full">시작</span><span class="short" aria-hidden="true">시작</span></button>
       <button class="tab" role="tab" data-go="core" aria-selected="false"><span class="full">상황별</span><span class="short" aria-hidden="true">상황</span><em id="corecount"></em></button>
       <button class="tab" role="tab" data-go="terms" aria-selected="false"><span class="full">용어 사전</span><span class="short" aria-hidden="true">사전</span><em id="navcount"></em></button>
       <button class="tab" role="tab" data-go="hype" aria-selected="false"><span class="full">유행의 역사</span><span class="short" aria-hidden="true">역사</span></button>
-      <button class="tab" role="tab" data-go="now" aria-selected="false"><span class="full">어디까지 왔나</span><span class="short" aria-hidden="true">현황</span></button>
       <button class="tab" role="tab" data-go="say" aria-selected="false"><span class="full">더 정확하게</span><span class="short" aria-hidden="true">표현</span></button>
       <button class="tab" role="tab" data-go="log" aria-selected="false"><span class="full">갱신</span><span class="short" aria-hidden="true">갱신</span></button>
     </div>
@@ -439,7 +482,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 <div class="wrap">
 
 <!-- ════════ 시작 ════════ -->
-<section class="view" data-view="start">
+<section class="view" data-view="start" hidden>
   <p class="lede">AI 씬의 용어는 빠르게 생기고 빠르게 뜻이 바뀐다. 상당수는 기술 용어라기보다 유행어에 가깝고, 엄밀히 따지면 경계가 흐린 것도 많다. 그래도 업계에는 <b>그 단어를 어떤 뜻으로 쓰는지에 관한 암묵적 합의</b>가 있다. 합의를 공유하지 못하면 같은 단어로 서로 다른 얘기를 하게 되고, 설명이 한 번씩 더 필요해진다.</p>
   <p class="lede">몰라도 일은 돌아간다. 다만 그 단어를 쓰는 사람들과 일할 때는 얘기가 다르다. 뜻을 알면 한 문장으로 끝날 설명이, 모르면 매번 배경부터 다시 시작된다.</p>
   <p class="lede">그래서 정확한 학술적 정의가 아니라 <b>이 단어가 현장에서 실제로 어떤 뜻으로 오가는지</b>를 적는 데 목적을 뒀다. 정의 다음에 뉘앙스를 따로 붙인 이유다.</p>
@@ -633,8 +676,12 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   <p class="caveat"><b>여기서 건질 것.</b> 네 번 중 세 번은 “이걸로 끝난다”는 예측이 틀렸고, 대신 <b>기존 것 옆에 하나가 더 붙는</b> 식으로 갔다. 검색은 RAG를 낳았고, 스케일링은 죽은 게 아니라 축이 하나 늘었고, 롱 컨텍스트는 RAG를 죽이지 않았다. 지금 “하네스가 전부”라는 말도 같은 할인율을 적용해 듣는 게 맞다. 그리고 유행어의 수명은 대체로 <b>18개월</b>이다 — 그 안에 정확한 뜻을 얻고 살아남거나, 너무 당연해져 사라지거나, 잊힌다.</p>
 </section>
 
-<!-- ════════ 어디까지 왔나 ════════ -->
-<section class="view" data-view="now" hidden>
+<!-- ════════ 뉴스 ════════ -->
+<section class="view" data-view="now">
+  <div class="nw" id="nw"><p class="nw-empty">아직 발행된 호가 없다.</p></div>
+  <p class="nw nw-arch" id="nwarch"></p>
+
+  <details class="archived"><summary>2026-09-22 현장 스냅샷 (지난 자료) — 뉴스가 생기기 전에 손으로 모은 4주치</summary>
   <h2>어디까지 왔나</h2>
   <p class="sub">용어만 알고 지금 무슨 일이 벌어지는지 모르면 절반이다. 2026년 8월 말부터 9월 22일까지, Hacker News 인기 스토리 · GitHub 신규 저장소 · 각 발표 원문에서 확인된 것만 모았다. 소문과 유출은 뺐고, 회사 발표 수치는 그렇다고 표시했다.</p>
 
@@ -747,6 +794,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   </div>
 
   <p class="caveat"><b>이 섹션의 유통기한이 문서에서 가장 짧다.</b> 용어의 뜻은 분기 단위로 바뀌지만 이 내용은 주 단위로 바뀐다. 2026년 9월 22일의 스냅샷으로만 읽고, 한 달이 지났으면 여기부터 다시 확인할 것. 수집 경로와 수록 기준은 저장소의 <code>CONTRIBUTING.md</code>에 적어뒀다.</p>
+  </details>
 </section>
 
 <!-- ════════ 더 정확하게 ════════ -->
@@ -777,6 +825,17 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   <h2>갱신 이력</h2>
   <p class="sub">이 문서는 계속 갱신한다. 용어는 6개월이면 뉘앙스가 바뀌고, 1년이면 낡는다.</p>
   <ul class="log">
+    <li>
+      <span class="v">v5.0</span><span class="dt">2026-09-23</span>
+      <p><b>첫 탭을 오늘의 뉴스로 바꿨다.</b> 들어오면 오늘 AI 씬에서 눈여겨볼 일이 먼저 보이고, 모르는 말은 옆 탭의 용어집에서 찾는다.</p>
+      <ul>
+        <li>“어디까지 왔나” 탭을 “오늘의 뉴스” 탭으로 바꿔 맨 앞에 뒀다. 손으로 모은 스냅샷은 한 달이면 낡는데, 오늘의 뉴스가 같은 일을 평일마다 한다</li>
+        <li>9월 22일 현장 스냅샷은 지우지 않고 오늘의 뉴스 아래 “지난 자료”로 접어 뒀다</li>
+        <li>시작 탭은 두 번째로 옮겼다. 주소 끝에 #start를 붙이면 바로 열린다</li>
+        <li>뉴스의 용어를 누르면 같은 페이지의 용어 사전에서 그 말이 검색된다</li>
+        <li>탭 수는 일곱 그대로다. 좁은 화면의 두 글자 라벨은 “현황”에서 “뉴스”로 바꿨다</li>
+      </ul>
+    </li>
     <li>
       <span class="v">v4.0</span><span class="dt">2026-09-23</span>
       <p><b>의료 AI 분류를 없애고 회사 관점 서술을 걷어냈다.</b> 이 문서는 AI 용어와 흐름을 설명하는 문서이고, 특정 산업이나 회사의 사업 자료가 아니다.</p>
@@ -1006,13 +1065,13 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
     <b>갱신 방법</b> — 용어 추가·수정은 <code>terms.js</code>만 건드리면 된다. 한 항목은
     <code>{k:한글, e:원어, c:분류, y:시기, d:정의, n:뉘앙스, s:현황, f:플래그}</code> 형태다.
     시점에 따라 달라지는 설명은 <code>d</code>나 <code>n</code>이 아니라 <code>s</code>에 적고, 갱신할 때
-    <code>index.html</code>의 <code>ASOF</code> 값과 상단 배지 날짜를 같이 올린다.
+    <code>glossary.html</code>의 <code>ASOF</code> 값과 상단 배지 날짜를 같이 올린다.
     공유용 단일 파일은 <code>python3 build.py</code>로 만든다. 자세한 규칙은 저장소의 <code>CONTRIBUTING.md</code>.
   </div>
 </section>
 
   <footer>
-    <span>WEKNEWS · AI TERM DICTIONARY v4.0</span>
+    <span>WEKNEWS · AI TERM DICTIONARY v5.0</span>
     <span>관찰 시점 2026-09-22</span>
   </footer>
 </div>
@@ -1024,7 +1083,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
      첫 줄에서 죽어 탭까지 멈췄다. */
   var VIEWS0 = ["start","core","terms","hype","now","say","log"];
   function showView(v){
-    if (VIEWS0.indexOf(v) < 0) v = "start";
+    if (VIEWS0.indexOf(v) < 0) v = "now";
     document.body.setAttribute("data-view", v);
     VIEWS0.forEach(function(name){
       var el = document.querySelector('.view[data-view="' + name + '"]');
@@ -1052,13 +1111,70 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   var _f = document.querySelector(".filters");
   if (_f && window.matchMedia("(max-width:900px)").matches) _f.open = false;
   if (window.matchMedia("(max-width:620px)").matches) document.getElementById("q").placeholder = "용어 검색 — RAG, MCP…";
-  showView(location.hash.slice(1) || "start");
+  showView(location.hash.slice(1) || "now");
+
+  /* 오늘의 뉴스 — 첫 탭. news/index.json(배포 때 생성)으로 최신 호를 찾아 그린다.
+     단일 파일(dist)로 열면 fetch가 안 되니 "아직 발행된 호가 없다"로 둔다.
+     ?d=날짜 는 지난 호, ?review=날짜 는 news/review.sh가 띄우는 발행 전 초안(news/work/, 배포되지 않음) */
+  (function(){
+    function e(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+    var box = document.getElementById("nw"), arch = document.getElementById("nwarch");
+    if (!window.fetch || location.protocol === "file:") return;
+    var P = new URLSearchParams(location.search), want = P.get("d"), review = P.get("review");
+    var TM = {}; (window.TERMS || []).forEach(function(t){ TM[t.k] = t; });
+    var DAYS = ["일", "월", "화", "수", "목", "금", "토"];
+    function kdate(x){ var d = new Date(x + "T00:00:00"); return (d.getMonth() + 1) + "월 " + d.getDate() + "일 " + DAYS[d.getDay()] + "요일"; }
+    function src(i, cls){ return '<a class="' + cls + '" href="' + e(i.url) + '" rel="noopener">원문 · ' + e(i.source) + " ↗</a>"; }
+    function chips(i){ return (i.terms || []).map(function(t){
+      return '<a class="nw-chip" href="?q=' + encodeURIComponent(t) + '#terms">' + e(t) + "</a>"; }).join(""); }
+    function render(d){
+      var items = d.items || [];
+      var picks = items.filter(function(i){ return i.role !== "known"; });
+      var known = items.filter(function(i){ return i.role === "known"; });
+      var h = '<p class="nw-date">오늘의 뉴스 · ' + e(kdate(d.date)) + '</p><h2 class="nw-headline">' + e(d.headline) + "</h2>";
+      h += '<h3 class="nw-sec">오늘 눈여겨볼 일</h3>';
+      picks.forEach(function(i){
+        h += '<article class="nw-pick"><span class="nw-kind">' + e(i.kind) + "</span><h3>" + e(i.title) + "</h3><p>" + e(i.summary) + "</p>" +
+             (i.check ? '<p class="nw-check"><b>이 부분을 확인해 보면 좋다</b>' + e(i.check) + "</p>" : "") +
+             '<div class="nw-more">' + src(i, "nw-src") + chips(i) + "</div></article>";
+      });
+      if (known.length) h += '<h3 class="nw-sec">다들 아는 소식</h3><ul class="nw-known">' + known.map(function(i){
+        return "<li><b>" + e(i.title) + "</b> — " + e(i.summary) + '<a href="' + e(i.url) + '" rel="noopener">' + e(i.source) + " ↗</a></li>"; }).join("") + "</ul>";
+      if (d.lens && d.lens.length) {
+        h += '<h3 class="nw-sec">스타트업 렌즈</h3><p class="nw-lens-intro">PMF를 찾는 작은 팀의 눈으로 다시 읽는다. 답 대신 질문을 남긴다.</p>';
+        d.lens.forEach(function(l){
+          h += '<section class="nw-lens"><span class="nw-kind">' + e(l.angle) + "</span><h3>" + e(l.title) + "</h3><p>" + e(l.what) +
+               '</p><p class="who">' + e(l.who) + '</p><p class="q">' + e(l.question) + "</p>" + src(l, "") + "</section>";
+        });
+      }
+      var tod = d.term_of_day, t = tod && TM[tod.term];
+      if (t) h += '<h3 class="nw-sec">오늘의 용어</h3><section class="nw-term"><span class="k">' + e(t.k) + '</span><span class="e">' + e(t.e) +
+                  '</span><p class="def">' + e(t.d) + '</p><p class="ctx">' + e(tod.context) + '</p><a href="?q=' + encodeURIComponent(t.k) + '#terms">용어집에서 더 보기 →</a></section>';
+      box.innerHTML = h;
+    }
+    if (review) {
+      fetch("news/work/final-" + review + ".json").then(function(r){ return r.json(); }).then(function(d){
+        render(d);
+        box.insertAdjacentHTML("afterbegin", '<p class="nw-banner">검토용 초안 — 아직 발행 전이다. 원문 링크를 열어 해석이 맞는지 본다.</p>');
+        showView("now");
+      }).catch(function(){ box.innerHTML = '<p class="nw-empty">검토할 초안이 없다 (news/work/final-' + e(review) + ".json)</p>"; });
+      return;
+    }
+    fetch("news/index.json").then(function(r){ return r.json(); }).then(function(dates){
+      if (!dates.length) return;
+      var d = (want && dates.indexOf(want) > -1) ? want : dates[0];
+      arch.innerHTML = "지난 호 · " + dates.slice(0, 30).map(function(x){
+        return '<a href="?d=' + x + '#now"' + (x === d ? ' aria-current="page"' : "") + ">" + x + "</a>"; }).join("");
+      return fetch("news/" + d + ".json").then(function(r){ return r.json(); }).then(render);
+    }).catch(function(){});
+  })();
 
   var CATS = window.CATS, TERMS = window.TERMS;
   if (!CATS || !TERMS || !TERMS.length){
     var box = document.getElementById("list");
     if (box) box.innerHTML = '<p class="empty">용어 데이터를 불러오지 못했습니다.<br><br>' +
-      'terms.js가 index.html과 같은 폴더에 있어야 합니다. 파일 하나만 받으셨다면 ' +
+      'terms.js가 glossary.html과 같은 폴더에 있어야 합니다. 파일 하나만 받으셨다면 ' +
       'dist 폴더의 단일 파일 버전을 여세요. 그 파일은 데이터가 안에 들어 있어 따로 필요한 것이 없습니다.</p>';
     var cnt = document.getElementById("navcount"); if (cnt) cnt.textContent = "";
     return;
@@ -1282,7 +1398,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
     });
   })();
 
-  // 늬우스의 용어 칩이 ?q=용어#terms로 들어온다
+  // 뉴스의 용어 칩이 ?q=용어#terms로 들어온다
   var q0 = new URLSearchParams(location.search).get("q");
   if (q0) { q.value = q0; showView("terms"); }
   sync(); render(); measureTop();

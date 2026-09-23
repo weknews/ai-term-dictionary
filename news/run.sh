@@ -1,5 +1,5 @@
 #!/bin/zsh
-# 오늘의 늬우스 — launchd가 평일 07:30에 부른다. 수동: news/run.sh [YYYY-MM-DD]
+# 오늘의 뉴스 — launchd가 평일 07:30에 부른다. 수동: news/run.sh [YYYY-MM-DD]
 #
 # 돈 드는 일은 모델 두 턴뿐이고, 둘 다 도구 없이 1턴이다 (hn-researcher gen_report.sh 재사용).
 #   1 수집   collect.py — hn-researcher가 06:44에 받아 둔 목록 + 연구소 피드 → 코드로 1차 거르기   0 토큰
@@ -34,7 +34,7 @@ cleanup() { git -C "$REPO" worktree remove --force "$WT" 2>/dev/null || true; rm
 trap cleanup EXIT
 fail() {
   echo "실패: $1"
-  osascript -e "display notification \"$1\" with title \"오늘의 늬우스 $DATE 실패\"" 2>/dev/null || true
+  osascript -e "display notification \"$1\" with title \"오늘의 뉴스 $DATE 실패\"" 2>/dev/null || true
   exit 1
 }
 
@@ -67,7 +67,7 @@ titles = dict(re.findall(r"#(\S+) (.*)", lst))
 # fetch_pages.py가 쓰는 형식으로 맞춘다 (title·project·why)
 # 제목 앞에 #ID를 붙인다 — 원문 파일의 제목 줄에 ID가 찍혀야 작문 턴이 항목마다 ID를 정확히 단다
 json.dump([{"id": c["id"].lstrip("#"), "title": "#%s %s" % (c["id"].lstrip("#"), titles.get(c["id"].lstrip("#"), "")),
-            "project": "늬우스", "why": "[%s] %s" % (c.get("role", "pick"), c.get("why", ""))}
+            "project": "뉴스", "why": "[%s] %s" % (c.get("role", "pick"), c.get("why", ""))}
            for c in cands], open(out, "w"), ensure_ascii=False)
 print(f"선별 {len(cands)}건")
 PY
@@ -151,11 +151,11 @@ if dead:
     print(f"- 오늘 실패한 소스: {', '.join(dead)}")
 PY
 git -C "$WT" add "news/$DATE.json"
-git -C "$WT" commit -qm "늬우스 $DATE — $HEAD"
+git -C "$WT" commit -qm "뉴스 $DATE — $HEAD"
 git -C "$WT" push -q -u origin "news/$DATE"
 gh pr create -R weknews/ai-term-dictionary --base main --head "news/$DATE" \
-  --title "늬우스 $DATE — $HEAD" --body-file "$W/pr-$DATE.md"
-osascript -e "display notification \"검토: news/review.sh — $HEAD\" with title \"오늘의 늬우스 $DATE 초안\" sound name \"Glass\"" 2>/dev/null || true
+  --title "뉴스 $DATE — $HEAD" --body-file "$W/pr-$DATE.md"
+osascript -e "display notification \"검토: news/review.sh — $HEAD\" with title \"오늘의 뉴스 $DATE 초안\" sound name \"Glass\"" 2>/dev/null || true
 
 find "$W" -maxdepth 1 -type f -name '*-20*' -mtime +14 -delete 2>/dev/null || true
 echo "== $(date +'%F %T') 완료"

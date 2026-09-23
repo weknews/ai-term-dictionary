@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""늬우스 1단계: 후보 목록 만들기. LLM을 쓰지 않는다.
+"""뉴스 1단계: 후보 목록 만들기. LLM을 쓰지 않는다.
 
 HN·Lobsters·GeekNews 하루치는 hn-researcher가 매일 06:44에 이미 받아 둔다.
 그걸 그대로 읽고(없으면 hn-researcher의 수집기를 직접 부른다), 연구소 블로그 피드만 더한다.

@@ -1,7 +1,7 @@
 #!/bin/zsh
 # 발행 전 로컬 검토. 사용법: news/review.sh [YYYY-MM-DD]  (기본: 오늘)
 #
-# 1. 초안을 실제 발행 화면 그대로 띄운다 (news.html?review=날짜). 원문은 각 항목의 링크로 연다
+# 1. 초안을 실제 발행 화면 그대로 띄운다 (index.html?review=날짜). 원문은 각 항목의 링크로 연다
 # 2. 터미널에서 고른다
 #      a  승인 — PR을 병합해 발행 (Actions가 check.py 후 Pages 반영)
 #      e  수정 — 편집기로 JSON을 고치고, verify.py를 통과해야 PR에 반영. 반영 뒤 다시 보여 준다
@@ -27,7 +27,7 @@ python3 -m http.server $PORT -d "$REPO" >/dev/null 2>&1 &
 SRV=$!
 trap 'kill $SRV 2>/dev/null' EXIT
 sleep 1
-open "http://localhost:$PORT/news.html?review=$DATE"
+open "http://localhost:$PORT/?review=$DATE"
 
 echo "PR #$PR — https://github.com/$R/pull/$PR"
 echo "먼저 볼 것: 원문보다 센 해석어 · 누가 한 말인지 · 비교 기준 · why에 원문 밖 전망이 붙었는지"
@@ -36,7 +36,7 @@ while true; do
   case $k in
     a)
       gh pr merge $PR -R $R --squash --delete-branch
-      echo "병합했다. 1분쯤 뒤 https://weknews.github.io/ai-term-dictionary/news.html 에 뜬다."
+      echo "병합했다. 1분쯤 뒤 https://weknews.github.io/ai-term-dictionary/ 에 뜬다."
       exit 0 ;;
     e)
       cp "$W/final-$DATE.json" "$W/edit-$DATE.json"
@@ -50,7 +50,7 @@ while true; do
       WT=$W/wt-review-$DATE
       git worktree add -q -f "$WT" "origin/news/$DATE" 2>/dev/null
       cp "$W/final-$DATE.json" "$WT/news/$DATE.json"
-      git -C "$WT" commit -qam "늬우스 $DATE — 로컬 검토 반영"
+      git -C "$WT" commit -qam "뉴스 $DATE — 로컬 검토 반영"
       git -C "$WT" push -q origin "HEAD:news/$DATE"
       git worktree remove --force "$WT"
       echo "PR에 반영했다. 브라우저를 새로고침해 다시 본다." ;;
