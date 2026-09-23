@@ -39,6 +39,15 @@ LAB_FEEDS = [
     ("Hugging Face", "https://huggingface.co/blog/feed.xml"),
     ("Simon Willison", "https://simonwillison.net/atom/everything/"),
 ]
+# 스타트업 렌즈용 — 투자·가격·제품·플랫폼 전략. AI 관련만 남긴다(키워드 필터).
+# Lenny's·Stratechery는 유료 글이 섞여 있다. 본문을 못 받으면 원문 수집 단계에서 자연히 빠진다.
+BIZ_FEEDS = [
+    ("TechCrunch", "https://techcrunch.com/category/artificial-intelligence/feed/"),
+    ("Lenny's Newsletter", "https://www.lennysnewsletter.com/feed"),
+    ("Stratechery", "https://stratechery.com/feed/"),
+    ("Latent Space", "https://www.latent.space/feed"),
+    ("YC", "https://www.ycombinator.com/blog/rss/"),
+]
 # Anthropic 뉴스는 RSS가 없고, sitemap의 lastmod도 믿을 수 없다(모델 출시 페이지는 /news/ 밖에
 # 있고 수정 시각이 발행 시각과 따로 논다). 목록 페이지가 최신순이라 거기 링크를 읽고,
 # 처음 본 날을 WORK에 적어 둔다 — 처음 본 지 이틀 안 된 것만 후보로 낸다.
@@ -167,18 +176,27 @@ if __name__ == "__main__":
             labs += [i for i in got if i["url"] not in seen]
         except Exception as e:  # 한 소스가 죽어도 나머지로 발행한다
             dead.append(f"{label}: {type(e).__name__}")
-    for i in labs:
+    biz = []
+    for label, url in BIZ_FEEDS:
+        try:
+            got = feed_items(label, get(url), since)
+            biz += [i for i in got if i["url"] not in seen and AI.search(i["title"])]
+        except Exception as e:
+            dead.append(f"{label}: {type(e).__name__}")
+    for i in labs + biz:
         urls[i["id"]] = i["url"]
 
     with open(os.path.join(WORK, f"list-{DATE}.md"), "w") as f:
         # 연구소 발표를 먼저 둔다. 긴 목록 끝에 붙이면 선별이 집어가지 않는다 (hn-researcher 실측)
         f.write(f"# 연구소·기업 발표 원문 — {len(labs)}건\n\n")
         f.writelines(f"- #{i['id']} {i['title']}\n" for i in labs)
+        f.write(f"\n# 비즈니스·제품 (스타트업 렌즈 후보) — {len(biz)}건\n\n")
+        f.writelines(f"- #{i['id']} {i['title']}\n" for i in biz)
         f.write(f"\n# 커뮤니티 반응 (HN·Lobsters·GeekNews, AI 관련만) — {len(lines)}건\n\n")
         f.writelines(ln + "\n" for ln in lines)
     json.dump(urls, open(os.path.join(WORK, f"urls-{DATE}.json"), "w"), ensure_ascii=False)
     # 실패한 소스는 경고로만 남긴다 — PR 본문에 실려 사람이 본다
     with open(os.path.join(WORK, f"dead-{DATE}.txt"), "w") as f:
         f.writelines(d + "\n" for d in dead)
-    print(f"후보 목록: 발표 {len(labs)}건 + 커뮤니티 {len(lines)}건"
+    print(f"후보 목록: 발표 {len(labs)}건 + 비즈니스 {len(biz)}건 + 커뮤니티 {len(lines)}건"
           + (f" (실패: {', '.join(dead)})" if dead else ""), file=sys.stderr)

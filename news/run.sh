@@ -42,7 +42,7 @@ fail() {
 for i in {1..30}; do [ -d "$HNR/logs/.lock" ] || break; sleep 60; done
 
 git fetch -q origin main
-git ls-remote --exit-code origin "refs/heads/news/$DATE" >/dev/null 2>&1 && { echo "이미 PR 브랜치 있음"; exit 0; }
+[ -z "$REDO" ] && git ls-remote --exit-code origin "refs/heads/news/$DATE" >/dev/null 2>&1 && { echo "이미 PR 브랜치 있음"; exit 0; }
 git worktree add -q -B "news/$DATE" "$WT" origin/main
 [ -f "$WT/news/$DATE.json" ] && { echo "이미 발행됨"; exit 0; }
 
@@ -65,7 +65,8 @@ titles = dict(re.findall(r"#(\S+) (.*)", lst))
 # fetch_pages.py가 쓰는 형식으로 맞춘다 (title·project·why)
 # 제목 앞에 #ID를 붙인다 — 원문 파일의 제목 줄에 ID가 찍혀야 작문 턴이 항목마다 ID를 정확히 단다
 json.dump([{"id": c["id"].lstrip("#"), "title": "#%s %s" % (c["id"].lstrip("#"), titles.get(c["id"].lstrip("#"), "")),
-            "project": "늬우스", "why": c.get("why", "")} for c in cands], open(out, "w"), ensure_ascii=False)
+            "project": "늬우스", "why": ("[렌즈] " if c.get("lens") else "") + c.get("why", "")}
+           for c in cands], open(out, "w"), ensure_ascii=False)
 print(f"선별 {len(cands)}건")
 PY
 
@@ -130,6 +131,8 @@ print("\n## 항목")
 for i in d["items"]:
     tag = "큰 소식" if i.get("size") == "big" else "짧게"
     print(f"- ({tag}·{i['kind']}) **{i['title']}** — [{i['source']}]({i['url']})")
+for l in d.get("lens") or []:
+    print(f"\n스타트업 렌즈 ({l.get('angle','')}): **{l['title']}** — {l['question']}")
 if d.get("term_of_day"):
     print(f"\n오늘의 용어: **{d['term_of_day']['term']}**")
 print("\n로컬 검토: `news/review.sh` → a 승인 / e 수정")

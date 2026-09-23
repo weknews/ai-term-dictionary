@@ -63,11 +63,41 @@ def norm(s):
     return s.replace(",", "")
 
 
+# "3억 5천만", "3억 7천5백만", "1.3억" 같은 한국어 단위 금액
+KOR_UNIT = re.compile(r"(?:(\d+(?:\.\d+)?)\s*억)?\s*(?:(\d+)\s*천)?\s*(?:(\d+)\s*백)?\s*(?:(\d+)\s*)?만|(\d+(?:\.\d+)?)\s*억")
+EN_UNIT = re.compile(r"(\d+(?:\.\d+)?)\s*(billion|million|bn|[BM])\b", re.I)
+
+
+def kor_value(m):
+    if m.group(5):
+        return round(float(m.group(5)) * 1e8)
+    eok, cheon, baek, rest = (float(g) if g else 0 for g in m.groups()[:4])
+    return round(eok * 1e8 + (cheon * 1000 + baek * 100 + rest) * 1e4)
+
+
+def source_values(source):
+    vals = {round(float(n) * (1e9 if u.lower() in ("billion", "bn", "b") else 1e6)) for n, u in EN_UNIT.findall(source)}
+    vals |= {int(norm(n)) for n in re.findall(r"\d{1,3}(?:,\d{3})+|\d{5,}", source)}
+    if re.search(r"\bmillion\b|\b1M\b", source, re.I):   # "per million tokens" → "100만 토큰당"
+        vals.add(10**6)
+    if re.search(r"\bbillion\b", source, re.I):
+        vals.add(10**9)
+    return vals
+
+
 def stray_numbers(text, source):
+    """원문에 없는 숫자.
+    한국어 단위 금액("3억 5천만")은 값으로 환산해 원문의 "350 million"과 맞춰 본다. 쪼개서 보면
+    한 자리 수 예외에 걸려 대조를 빠져나가기 때문이다(2026-09-23 실제로 그렇게 빠져나갔다)."""
     src = norm(source)
-    # 토큰 단가의 "100만 토큰당"은 원문 "per million"의 번역이다. 숫자 변환 금지의 유일한 예외
-    if re.search(r"per million|per 1M|/1M|1M tokens|million tokens", source, re.I):
-        text = re.sub(r"100만(?=\s*(?:(?:입력|출력)?\s*토큰)?\s*개?\s*당)", "", text)
+    kor, vals = [], None
+    for m in KOR_UNIT.finditer(text):
+        if not m.group(0).strip() or m.group(0).strip() == "만":
+            continue
+        vals = vals if vals is not None else source_values(source)
+        if kor_value(m) not in vals:
+            kor.append(m.group(0).strip())
+    text = KOR_UNIT.sub(" ", text)   # 환산을 통과한 금액은 개별 숫자 대조에서 뺀다
     bad = []
     for n in NUM.findall(text):
         k = norm(n)
@@ -78,7 +108,7 @@ def stray_numbers(text, source):
         # 숫자 경계를 본다 — "95"가 "1995" 안에 들어 있다고 통과시키지 않는다
         if not re.search(r"(?<![\d.])" + re.escape(k) + r"(?![\d])", src):
             bad.append(n)
-    return bad
+    return bad + [f"{k}(환산하면 원문 어느 금액과도 맞지 않는다)" for k in kor]
 
 
 def main():
@@ -140,6 +170,27 @@ def main():
         it["source"] = urlparse(url).netloc.removeprefix("www.")
         it["terms"] = [t for t in it.get("terms") or [] if t in terms]
 
+    # 스타트업 렌즈 — 항목과 같은 기준에 더해, 결론 대신 질문으로 끝나는지 본다
+    lens = d.get("lens") or []
+    if len(lens) > 2:
+        errs.append(f"스타트업 렌즈가 {len(lens)}개 — 2개까지")
+    for l in lens:
+        cid = str(l.get("id", "")).lstrip("#")
+        url = urls.get(cid, "")
+        body = bodies.get(url)
+        label = "렌즈 " + l.get("title", cid)[:24]
+        if not body:
+            errs.append(f"[{label}] 후보 {cid}의 원문이 수집되지 않았다 — 근거 없는 항목")
+            continue
+        for n in stray_numbers(" ".join(str(l.get(k, "")) for k in ("title", "what", "who", "question")), body):
+            errs.append(f"[{label}] 숫자 '{n}'이 원문에 없다")
+        if not str(l.get("question", "")).strip().endswith("?"):
+            errs.append(f"[{label}] question이 물음표로 끝나지 않는다 — 결론이 아니라 질문이어야 한다")
+        if re.search(r"위뉴", json.dumps(l, ensure_ascii=False)):
+            errs.append(f"[{label}] 특정 회사 이름을 썼다")
+        l["id"], l["url"] = cid, url
+        l["source"] = urlparse(url).netloc.removeprefix("www.")
+
     blob = json.dumps(d, ensure_ascii=False)
     for name, pat in BAN.items():
         for hit in re.findall(pat, blob):
@@ -149,7 +200,7 @@ def main():
         print("\n".join(f"- {e}" for e in errs))
         return 1
 
-    d = {"date": DATE, **{k: d.get(k) for k in ("headline", "summary3", "items", "term_of_day", "new_terms", "dropped")}}
+    d = {"date": DATE, **{k: d.get(k) for k in ("headline", "summary3", "items", "lens", "term_of_day", "new_terms", "dropped")}}
     json.dump(d, open(OUT, "w"), ensure_ascii=False, indent=1)
     print(f"통과: {len(items)}개 항목 → {OUT}")
     return 0

@@ -84,6 +84,18 @@ h1{margin:12px 0 4px; font-size:clamp(36px,8vw,56px); line-height:1.05; letter-s
 .shorts p{margin:0; font-size:16px}
 .shorts .why{background:none; padding:0 0 0 12px; border-left-width:3px; margin-top:6px!important; font-size:14.5px; color:var(--muted)}
 
+/* 스타트업 렌즈 */
+.lens{margin-top:14px; padding:20px 22px; background:#16233F; color:#F1EFE9}   /* 두 모드 모두 어두운 상자 — --ink를 쓰면 다크 모드에서 뒤집혀 노란 글씨가 안 보인다 */
+.lens + .lens{margin-top:12px}
+.lens .kind{color:#FFCA4A}
+.lens h3{margin:4px 0 10px; font-size:21px; line-height:1.35}
+.lens p{margin:0}
+.lens .who{margin-top:10px; font-size:15.5px; opacity:.85}
+.lens .q{margin-top:14px; padding-top:12px; border-top:2px solid rgba(255,255,255,.18); font-weight:600}
+.lens .q::before{content:"우리 팀에 던질 질문 — "; font-family:var(--mono); font-size:11.5px; font-weight:600; letter-spacing:.06em; color:#FFCA4A}
+.lens a{color:#FFCA4A; font-family:var(--mono); font-size:12.5px; text-decoration:none; display:inline-block; margin-top:12px}
+.lens-intro{margin:6px 0 0; font-size:14.5px; color:var(--muted)}
+
 /* 오늘의 용어 */
 .term{margin-top:14px; padding:22px; border:3px solid var(--line); background:var(--card)}
 .term .k{font-family:var(--display); font-size:26px; line-height:1.2}
@@ -166,6 +178,15 @@ footer{margin-top:28px; border-top:3px solid var(--line); padding-block:18px 44p
              '</p><p class="why">' + esc(i.why) + "</p>" + more(i) + "</li>";
       });
       h += "</ul>";
+    }
+
+    if (d.lens && d.lens.length) {
+      h += '<h2 class="sec">스타트업 렌즈</h2><p class="lens-intro">PMF를 찾는 작은 팀의 눈으로 다시 읽는다. 답 대신 질문을 남긴다.</p>';
+      d.lens.forEach(function(l){
+        h += '<section class="lens"><span class="kind">' + esc(l.angle) + "</span><h3>" + esc(l.title) + "</h3><p>" + esc(l.what) +
+             '</p><p class="who">' + esc(l.who) + '</p><p class="q">' + esc(l.question) + "</p>" +
+             '<a href="' + esc(l.url) + '" rel="noopener">원문 · ' + esc(l.source) + " ↗</a></section>";
+      });
     }
 
     var tod = d.term_of_day, t = tod && TERMS[tod.term];
