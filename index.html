@@ -1164,12 +1164,13 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
       }).catch(function(){ box.innerHTML = '<p class="nw-empty">검토할 초안이 없다 (news/work/final-' + e(review) + ".json)</p>"; });
       return;
     }
-    fetch("news/index.json").then(function(r){ return r.json(); }).then(function(dates){
+    // Pages는 파일을 최대 10분 캐시한다 — 새 호가 병합 직후에도 바로 보이게 매번 서버에 확인한다
+    fetch("news/index.json", {cache: "no-cache"}).then(function(r){ return r.json(); }).then(function(dates){
       if (!dates.length) return;
       var d = (want && dates.indexOf(want) > -1) ? want : dates[0];
       arch.innerHTML = "지난 호 · " + dates.slice(0, 30).map(function(x){
         return '<a href="?d=' + x + '#now"' + (x === d ? ' aria-current="page"' : "") + ">" + x + "</a>"; }).join("");
-      return fetch("news/" + d + ".json").then(function(r){ return r.json(); }).then(render);
+      return fetch("news/" + d + ".json", {cache: "no-cache"}).then(function(r){ return r.json(); }).then(render);
     }).catch(function(){});
   })();
 
