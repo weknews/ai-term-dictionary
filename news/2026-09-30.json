@@ -1,0 +1,132 @@
+{
+ "date": "2026-09-30",
+ "headline": "Anthropic이 Claude Sonnet 5.5를 내놓았다.",
+ "items": [
+  {
+   "id": "lab50e18c54",
+   "role": "launch",
+   "kind": "모델",
+   "title": "Anthropic, Claude Sonnet 5.5 출시",
+   "summary": "Anthropic이 Claude Sonnet 5.5를 내놓았다. 일상적인 업무와 문서·슬라이드·스프레드시트 작성에 강한, 빠르고 값이 낮은 AI 모델이다. 회사 발표 기준으로 이전 모델인 Sonnet 5보다 30% 이상 빠르고, 같은 작업에 드는 비용은 최대 30% 적다.",
+   "url": "https://www.anthropic.com/claude-sonnet-5-5",
+   "source": "anthropic.com",
+   "terms": []
+  },
+  {
+   "id": "lab6421ca85",
+   "role": "pick",
+   "kind": "제품",
+   "title": "OpenAI, ChatGPT 안에서 앱을 찾고 쓰게 하는 기능 발표",
+   "summary": "OpenAI가 개발자 행사에서 ChatGPT가 대화 중에 알맞은 앱을 제안하고, 사용자가 그 자리에서 앱을 연결해 쓰는 기능을 발표했다. 'Sign in with ChatGPT'로 사용자는 자기 AI 이용 한도를 다른 회사의 앱에서도 쓸 수 있다. Dots(자기 클라우드 컴퓨터와 브라우저로 일을 대신 해 주는 AI 에이전트)도 함께 나왔다.",
+   "check": "회의 앱, Figma·Adobe 같은 디자인 앱이 ChatGPT 안에서 쓰이는 데모 예시가 나와 있다. OpenAI가 결제나 수익 분배 계획은 발표하지 않았다는 부분도 나와 있다.",
+   "terms": [
+    "에이전트"
+   ],
+   "url": "https://techcrunch.com/2026/09/29/openais-latest-features-take-direct-aim-at-the-app-store-model/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab984223f1",
+   "role": "pick",
+   "kind": "연구",
+   "title": "AI 답변이 '맞는 출처'를 댔는지 검사하는 ProvenanceGuard",
+   "summary": "연구팀이 AI 에이전트의 답변을 검사하는 ProvenanceGuard를 소개했다. 사실은 맞지만 엉뚱한 출처의 내용인 것처럼 말하는 오류를 잡는다. 전문가가 통과시키면 안 된다고 본 139개 주장 중 138개를 잡았고, 1개는 놓쳤다.",
+   "check": "고객 지원 에이전트가 환불 기간 30일을 '계정 기록에 따르면'이라고 말했지만 실제로는 정책 문서에 있던 내용인 예시가 나와 있다. 출처가 비슷한 경우에는 정확한 출처를 맞힌 비율이 50.3%에 그쳤다고 한계를 밝힌 부분도 나와 있다.",
+   "terms": [
+    "출처 표기"
+   ],
+   "url": "https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "gn34472",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "AI가 참고하는 자료 저장소를 Git처럼 버전 관리하기",
+   "summary": "LambdaDB가 RAG(AI가 답하기 전에 자료를 찾아 읽게 하는 방식)에 쓰는 자료 저장소를 Git처럼 변경 이력이 남게 관리하는 방법을 소개했다. 운영 중인 자료를 건드리지 않고 새 문서를 따로 넣어 검증한 뒤 공개할 수 있다. 과거 시점의 상태를 다시 만들어 그때 무엇이 검색됐는지도 볼 수 있다.",
+   "check": "기존 방법 각각의 한계가 나와 있다. 3일 전 상태에서 갈래를 만들어 같은 질문을 다시 던져 보는 예시와, 이 방식을 써볼 만한 곳이 나와 있다.",
+   "terms": [
+    "RAG",
+    "에이전트 메모리"
+   ],
+   "url": "https://news.hada.io/topic?id=34472",
+   "source": "news.hada.io"
+  },
+  {
+   "id": "gn34496",
+   "role": "pick",
+   "kind": "연구",
+   "title": "판단하기 전에 먼저 추론하는 Jeeves 공개",
+   "summary": "PostHog가 Jeeves를 공개했다. Jev(텍스트 대신 선택지별 확률로 답하는 모델) 방식에 판단 전 추론 과정을 더한 모델이다. 자체 평가에서 정확도가 93.5%로 Jev의 86.6%를 앞섰다. 모델과 학습 코드, 학습 데이터를 모두 공개했다.",
+   "check": "추론을 늘릴수록 정확도는 오르지만 응답 시간이 길어지는 비교표가 나와 있다. 지식 질문에서는 Jev가 더 높았다고 밝힌 부분도 나와 있다.",
+   "terms": [
+    "Jev",
+    "오픈 웨이트"
+   ],
+   "url": "https://news.hada.io/topic?id=34496",
+   "source": "news.hada.io"
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab6421ca85",
+   "angle": "플랫폼",
+   "title": "ChatGPT가 앱을 찾고 실행하는 자리가 된다",
+   "what": "OpenAI가 ChatGPT 안에서 앱을 제안하고 실행하는 기능을 발표했다. 결제나 수익 분배 계획은 발표하지 않았다고 기사는 전한다.",
+   "who": "기사는 앱 만드는 회사들이 애플·구글 앱스토어 밖에서 고객을 만날 또 하나의 길이 될 수 있다고 쓴다. 사용자는 자기 AI 이용 한도를 다른 앱에서 쓸 수 있다.",
+   "question": "우리 서비스가 ChatGPT 안의 앱으로 들어간다면, 고객은 우리를 어떻게 찾고 어디서 결제하게 될까?",
+   "url": "https://techcrunch.com/2026/09/29/openais-latest-features-take-direct-aim-at-the-app-store-model/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab7880523c",
+   "angle": "반대편",
+   "title": "Wabi, 대화만 하는 에이전트에서 앱이 함께 나오는 메신저로",
+   "what": "프롬프트로 앱을 만들어 주던 Wabi가 Wabi 2.0으로 방향을 조금 바꿨다. 창업자 Eugenia Kuyda는 대화만 하는 에이전트는 쓸수록 경험이 나빠진다고 썼다.",
+   "who": "기사에 따르면 Wabi 2.0은 바이브 코딩 도구가 아니라 대화와 작업을 한 화면에서 하는 AI 에이전트와 직접 경쟁하려 한다. 지금은 초대 코드로만 쓸 수 있다.",
+   "question": "우리 고객에게는 대화창만으로 충분할까, 눌러 보고 스크롤할 화면도 필요할까?",
+   "url": "https://techcrunch.com/2026/09/29/ai-powered-app-maker-wabi-pivots-to-a-messaging-experience/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "출처 표기",
+  "context": "ProvenanceGuard 소식에서 나왔다. AI 답변이 사실은 맞아도 엉뚱한 출처를 댈 수 있어, 어느 출처가 뒷받침하는지 함께 확인하는 방법이 소개됐다."
+ },
+ "new_terms": [
+  {
+   "term": "교차 출처 혼동",
+   "note": "ProvenanceGuard 글에서 쓰인 말(원문 표기 cross-source conflation). 어딘가에는 있는 사실을 엉뚱한 출처의 것으로 말하는 오류."
+  },
+  {
+   "term": "Dots",
+   "note": "OpenAI가 발표한 자율형 AI 에이전트. 각자 클라우드 컴퓨터와 브라우저를 가진다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "lab1cbe862e",
+   "reason": "본문이 중간에서 잘려 있어 결론을 확인할 수 없다."
+  },
+  {
+   "id": "labdd66acae",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못했다."
+  },
+  {
+   "id": "lab884977ec",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못했다."
+  },
+  {
+   "id": "labbf0fe8cc",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못했다."
+  },
+  {
+   "id": "labcfe8e900",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못했다."
+  },
+  {
+   "id": "labcf468ec3",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못했다."
+  }
+ ]
+}
