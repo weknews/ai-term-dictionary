@@ -1,0 +1,79 @@
+{
+ "date": "2026-10-02",
+ "headline": "Ai2가 대형 MoE(입력마다 모델의 일부만 쓰는 방식의 AI 모델)를 학습하는 도구 Olmo-core 3를 공개했다.",
+ "items": [
+  {
+   "id": "lab0bf00b70",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "Ai2, 대형 MoE 학습 도구 Olmo-core 3 공개",
+   "summary": "Ai2가 대규모 언어모델을 만드는 도구 Olmo-core 3를 공개했다. MoE는 모델 안에 전문 부분을 많이 두고 입력마다 일부만 쓰는 방식이다. Ai2는 이전 구현보다 처리 속도가 약 2.7배라고 밝혔다. 8개의 GPU(AI 계산용 반도체)로 한 예비 시험 결과다.",
+   "check": "전문 부분을 늘려도 학습 속도가 크게 떨어지지 않았다는 시험 결과가 나와 있다. 다음 세대 Olmo도 MoE 방식으로 만들 계획이라는 설명도 나와 있다.",
+   "terms": [
+    "MoE",
+    "토큰"
+   ],
+   "url": "https://huggingface.co/blog/allenai/olmocore3",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "lab0bf00b70",
+   "role": "pick",
+   "kind": "연구",
+   "title": "Olmo-core 3 기술 보고서, 학습 중 겪은 실패와 채택하지 않은 방식을 함께 정리",
+   "summary": "Ai2는 기술 보고서에 시스템 속도만이 아니라 학습 방식을 정하는 데 쓴 실험도 실었다. 균형 있게 일을 나누도록 만든 점수는 좋아졌는데 실제 작업량은 오히려 덜 균형해진 경우가 있었다. Ai2는 이 실패를 토큰 게리맨더링이라고 불렀다. 계산과 통신을 겹쳐 돌려도 항상 빨라지지는 않았고, 일부 시험에서는 오히려 느려졌다.",
+   "check": "시험해 보고 채택하지 않은 방식을 보고서가 함께 설명한다고 나와 있다. 겹쳐 돌리면 빨라질 것 같지만 실제로는 느려진 시험 결과도 나와 있다.",
+   "terms": [
+    "토큰"
+   ],
+   "url": "https://huggingface.co/blog/allenai/olmocore3",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "lab581ab311",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "Hugging Face, 다국어 음성 합성 모델을 자동 지표로 평가하는 공개 리더보드 공개",
+   "summary": "Hugging Face가 음성 합성(글을 음성으로 바꾸는 기술) 모델을 평가하는 Open TTS Leaderboard를 공개했다. 받아쓰기 오류율, 처리 속도, 목소리 유사도 같은 객관 지표를 쓴다. 글쓴이들은 이 방식으로 모델 하나를 평가하는 시간이 몇 주에서 몇 시간으로 줄어든다고 밝혔다.",
+   "check": "사람 투표 방식 리더보드의 한계를 짚은 부분이 나와 있다. 이 리더보드가 사람의 선호 평가를 대체하지 않는다고 밝힌 부분과, 평가에 쓴 음성을 직접 들어볼 수 있는 'Listen' 탭도 나와 있다.",
+   "terms": [
+    "아레나 / Elo",
+    "TTS / STT"
+   ],
+   "url": "https://huggingface.co/blog/open-tts-leaderboard",
+   "source": "huggingface.co"
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab581ab311",
+   "angle": "만든 방식",
+   "title": "사람 투표 대신 자동 지표로 음성 모델을 평가한다",
+   "what": "Hugging Face가 사람 투표 대신 객관 지표로 음성 합성 모델을 평가하는 리더보드를 만들었다. 글쓴이들은 투표 방식이 새 모델이 나오는 속도를 따라가지 못한다고 봤다.",
+   "who": "원문은 아티피셜 애널리시스(Artificial Analysis)에 오른 92개 모델 중 오픈 웨이트(모델 내부 값을 공개한 방식)는 16개라고 적었다. 상용 제공사가 등재할 동기가 더 크다는 것이 글쓴이들의 추정이다.",
+   "question": "우리 제품의 품질을 지금 사람의 평가와 자동 지표 중 무엇으로 재고 있고, 새 버전이 나올 때마다 얼마나 걸리는가?",
+   "url": "https://huggingface.co/blog/open-tts-leaderboard",
+   "source": "huggingface.co"
+  }
+ ],
+ "term_of_day": {
+  "term": "아레나 / Elo",
+  "context": "Open TTS Leaderboard 소식에서 나왔다. 글쓴이들은 두 모델의 음성을 사람에게 보여 주고 고르게 하는 아레나 방식이 새 모델 출시 속도를 따라가기 어렵다고 짚었다."
+ },
+ "new_terms": [
+  {
+   "term": "토큰 게리맨더링",
+   "note": "Olmo-core 3 기술 보고서에서 쓰인 말이다. 전문 부분에 일을 고르게 나누도록 만든 점수는 좋아지는데 실제 작업량은 오히려 쏠리는 실패를 가리킨다."
+  },
+  {
+   "term": "리더보드",
+   "note": "Open TTS Leaderboard 소식에서 쓰였다. 모델을 같은 기준으로 평가해 순위를 매겨 보여 주는 공개 표를 뜻한다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "lab0a622a33",
+   "reason": "SynthID Bio 원문이 깨져 읽히지 않아 확인된 사실이 없다. 근거 없이 쓰지 않았다."
+  }
+ ]
+}
