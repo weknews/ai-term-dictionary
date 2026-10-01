@@ -1,0 +1,119 @@
+{
+ "date": "2026-10-01",
+ "headline": "구글 딥마인드가 새 모델 Gemini 4 Argon을 공개했고, 먼저 신뢰할 수 있는 사이버 방어 담당자들에게 제공한다.",
+ "items": [
+  {
+   "id": "lab15e70ee5",
+   "role": "launch",
+   "kind": "모델",
+   "title": "구글 딥마인드, Gemini 4 Argon 공개",
+   "summary": "구글 딥마인드가 Gemini 4 Argon(구글의 새 AI 모델)을 내놓았다. 소프트웨어 개발, 법률·금융 같은 업무, 보안 방어에서 높은 성능을 보인다고 회사가 밝혔다(회사 발표 기준). 지금은 Fairwind Program을 통해 신뢰할 수 있는 사이버 방어 담당자들에게 제공하고 있다. 개발자·기업·일반 사용자에게는 가능한 한 빨리 공개하겠다고 했다.",
+   "url": "https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/",
+   "source": "deepmind.google",
+   "terms": []
+  },
+  {
+   "id": "lab984223f1",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "AI 에이전트의 답이 사실인지뿐 아니라 '출처가 맞는지'까지 확인하는 검증 방법",
+   "summary": "Hugging Face 블로그에 Multiverse Computing 연구진이 ProvenanceGuard(AI 답변의 출처를 확인하는 검증 도구)를 소개했다. 사실은 맞는데 엉뚱한 출처에 붙인 답을 잡아내는 것이 목표다. 의료 AI 답변에서 전문가들이 통과시키면 안 된다고 본 139개 주장 중 138개를 막았다.",
+   "check": "고객 지원 AI가 환불 규정을 '계정 기록에 따르면'이라고 답하는 예가 나와 있다. 규정은 실제로 있지만 정책 문서에 적힌 내용이라 출처가 틀린 경우다. 비슷한 출처가 여럿일 때 정확한 출처를 맞힌 비율이 50.3%에 그쳤다고 한계를 밝힌 부분도 있다.",
+   "terms": [
+    "출처 표기",
+    "MCP"
+   ],
+   "url": "https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "49903713",
+   "role": "pick",
+   "kind": "정책",
+   "title": "AI가 만든 수학 결과를 어떻게 공개해야 하는지, 수학계가 권고문을 냈다",
+   "summary": "agmai.org가 AI 연구소를 향한 권고문을 공개했다. 수학자 커뮤니티에 의견을 물어 600건이 넘는 회신을 받았고, 이를 바탕으로 썼다고 한다. 사람이 이해하지 못한 결과를 내놓는 연구소는 사람의 이해가 뒤따르도록 책임지고 지원해야 한다는 내용이다.",
+   "check": "결과를 낼 때 모델 이름, 입력한 지시문, 걸린 시간, 계산 비용을 함께 공개하라는 항목이 나와 있다. 여러 결과를 한꺼번에 낼 때는 풀지 못한 비슷한 난도의 문제가 몇 개였는지, 문제를 어떻게 골랐는지도 밝히라고 적혀 있다.",
+   "terms": [],
+   "url": "https://agmai.org/general-sep29/",
+   "source": "agmai.org"
+  },
+  {
+   "id": "lab581ab311",
+   "role": "pick",
+   "kind": "제품",
+   "title": "Hugging Face, 음성 합성 모델을 비교하는 공개 리더보드 Open TTS Leaderboard 공개",
+   "summary": "Hugging Face가 TTS(글자를 음성으로 바꾸는 기술) 모델을 비교하는 Open TTS Leaderboard(모델 순위표)를 만들었다. 기존 순위표는 사람이 두 음성 중 하나를 고르는 투표 방식이다. 이 순위표는 발음이 얼마나 정확한지, 얼마나 빠른지, 기준 목소리와 얼마나 비슷한지를 수치로 잰다.",
+   "check": "투표 방식은 평가에 몇 주가 걸리는데 수치 방식은 몇 시간으로 줄어든다고 나와 있다. 수치가 자연스러움이나 듣는 사람의 선호를 직접 재지는 못한다고 밝힌 부분도 있다. 기존 순위표에 공개 모델이 적게 들어 있는 이유도 설명한다.",
+   "terms": [
+    "아레나 / Elo"
+   ],
+   "url": "https://huggingface.co/blog/open-tts-leaderboard",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "49902354",
+   "role": "pick",
+   "kind": "논쟁",
+   "title": "쓰레기 수거 트럭 카메라가 집마다 '낙후 점수'를 매기자 댈러스 주민과 시의원이 반발했다",
+   "summary": "미국 댈러스 시 쓰레기 수거 트럭에 달린 AI 카메라가 주택을 찍어 '낙후 점수'를 매긴다. NBC 5가 시 기록을 확인한 결과 4월 이후 약 21,000곳이 점수를 받았다. 시의원 Chad West는 저소득 지역에 부담이 갈 수 있다며 250만 달러 규모 카메라 계약의 예산을 끊자고 제안했다.",
+   "check": "시와 업체의 해명이 나와 있다. 시는 사람이 이미지를 검토하고 점수는 내부에서 점검 순서를 정하는 데만 쓴다고 했다. 카메라 운영사 City Detect는 얼굴과 번호판을 흐리게 처리한다고 했다. 이미 1,800건의 '자발적 수리 요청 통지'가 나갔다는 내용과, 시 관리자가 청문회를 열기로 하자 West가 예산 삭감 요청을 보류했다는 내용도 있다.",
+   "terms": [],
+   "url": "https://www.nbcdfw.com/investigations/dallas-councilmember-residents-push-back-on-ai-blight-scores-assigned-to-thousands-of-homes/4071874/",
+   "source": "nbcdfw.com"
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab6421ca85",
+   "angle": "플랫폼",
+   "title": "OpenAI, ChatGPT 안에서 앱을 찾고 쓰게 하는 기능 발표",
+   "what": "OpenAI가 개발자 행사에서 ChatGPT가 대화 중 앱을 추천하고 ChatGPT 안에서 바로 쓰게 하는 기능을 내놓았다. 'Sign in with ChatGPT'로 사용자가 쓰던 AI 이용량을 제3자 앱에서도 쓸 수 있다.",
+   "who": "앱을 만드는 회사는 애플·구글 앱스토어 밖에서 고객을 만날 길이 하나 더 생긴다고 TechCrunch는 썼다. 다만 OpenAI는 이 기능으로 별도 구독이나 다른 요금이 필요 없어진다고 말하지는 않았다.",
+   "question": "우리 같은 팀의 서비스가 ChatGPT 안에서 추천되고 쓰인다면, 고객과 결제 관계는 누구와 맺게 될까?",
+   "url": "https://techcrunch.com/2026/09/29/openais-latest-features-take-direct-aim-at-the-app-store-model/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab04acd56a",
+   "angle": "돈",
+   "title": "소비자용 AI는 돈을 내는 사람이 적고 운영비가 크다",
+   "what": "TechCrunch는 앤드리슨 호로위츠 보고서가 PNC 조사를 바탕으로 정리한 수치를 전했다. 5월 기준 소비자의 2.2%가 AI 서비스에 돈을 내고 있고 월평균 지출은 31달러다. 모델 성능이 크게 좋아져도 유료 고객 수와 지출액은 크게 움직이지 않았다고 짚었다.",
+   "who": "기사는 OpenAI가 기업 쪽으로 방향을 틀어 대체로 성공했고, 7월 이후 기업 계약이 두 배로 늘었다는 보도를 전했다. 에이전트 비서 Instinct는 에이전트를 거친 구매에서 일정 몫을 받는 계획이 있다고 썼다.",
+   "question": "우리 제품을 쓰는 사람이 직접 돈을 낼지, 그 사람이 속한 회사가 낼지 중 어느 쪽이 더 현실적일까?",
+   "url": "https://techcrunch.com/2026/09/30/the-ugly-economics-of-consumer-ai/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "출처 표기",
+  "context": "ProvenanceGuard 소식에서 나왔다. AI 답변이 '계정 기록에 따르면'처럼 출처를 밝힐 때 그 출처가 실제로 맞는지가 검증 대상이 됐다."
+ },
+ "new_terms": [
+  {
+   "term": "교차 출처 혼동",
+   "note": "Hugging Face 블로그에서 쓰인 말(cross-source conflation). 주장 자체는 근거 어딘가에 있지만 엉뚱한 출처의 것으로 밝히는 오류를 뜻한다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "lab7880523c",
+   "reason": "스타트업 렌즈 후보 중 플랫폼·돈 관점의 두 건을 우선해 뺐다."
+  },
+  {
+   "id": "labdd66acae",
+   "reason": "원문 수집 실패(HTTP 403)로 쓸 수 있는 근거가 없다."
+  },
+  {
+   "id": "lab884977ec",
+   "reason": "원문 수집 실패(HTTP 403)로 쓸 수 있는 근거가 없다."
+  },
+  {
+   "id": "lab6a91381a",
+   "reason": "원문 수집 실패(HTTP 403)로 쓸 수 있는 근거가 없다."
+  },
+  {
+   "id": "49904221",
+   "reason": "원문 수집 실패(HTTP 401)로 쓸 수 있는 근거가 없다."
+  }
+ ]
+}
