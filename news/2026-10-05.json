@@ -1,0 +1,155 @@
+{
+ "date": "2026-10-05",
+ "headline": "구글이 AI로 만든 제출물이 크게 늘었다며 오픈소스 버그 바운티를 10월 1일부터 멈췄다.",
+ "items": [
+  {
+   "id": "lab00aaae66",
+   "role": "pick",
+   "kind": "사고",
+   "title": "구글, AI 제출물 급증으로 오픈소스 버그 바운티 중단",
+   "summary": "구글이 오픈소스 소프트웨어의 보안 취약점을 찾아 알리면 보상하는 프로그램을 10월 1일부터 멈췄다. 구글은 자동으로 만들어진 제출물이 크게 늘었고 대부분 유효하지 않다고 밝혔다. 2027년 첫 분기에 소식을 알리겠다고 했다.",
+   "check": "구글이 중단 이유를 직접 밝힌 문장이 나와 있다. 중단 기간에 참가자에게 구글의 다른 버그 바운티 프로그램을 권한 안내도 나와 있다.",
+   "terms": [
+    "AI 슬롭",
+    "할루시네이션"
+   ],
+   "url": "https://techcrunch.com/2026/10/04/google-froze-its-open-source-bug-bounty-program-due-to-a-significant-rise-in-ai-submissions/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab89764eae",
+   "role": "pick",
+   "kind": "연구",
+   "title": "AI 에이전트를 말이 아니라 남긴 기록으로 채점한다: 마이크로소프트 ThinkingBox",
+   "summary": "마이크로소프트와 허깅페이스가 AI 에이전트를 업무가 끝난 뒤 데이터베이스에 남은 기록으로 채점하는 시험 ThinkingBox를 공개했다. 507개 업무를 각각 20번씩 돌렸다. 실패한 시도의 67.24%는 정상 종료했고 최종 오류도 보고하지 않았다고 한다(글쓴이 집계 기준).",
+   "check": "배송이 늦어진 745달러짜리 주문을 에이전트가 '해결'로 닫았지만 필요한 상태는 '보류'였던 사례가 나와 있다. 한 번 성공한 것과 20번 모두 성공한 것을 따로 세는 방식도 나와 있다.",
+   "terms": [
+    "평가",
+    "에이전트"
+   ],
+   "url": "https://huggingface.co/blog/microsoft/thinkingbox",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "lab5a3f1f4a",
+   "role": "pick",
+   "kind": "논쟁",
+   "title": "사용량 과금 서비스는 기본으로 '하드 예산 상한'을 두자는 제안",
+   "summary": "사이먼 윌리슨이 사용량만큼 요금을 내는 서비스에 기본값으로 하드 상한을 두자고 썼다. 하드 상한은 정해 둔 금액을 넘으면 서비스를 끊고 오류를 돌려주는 방식이다. 코딩 에이전트가 돈이 드는 코드를 쉽게 만들어 내기 때문이라고 설명했다.",
+   "check": "경고 메일만 보내는 상한과 실제로 끊는 상한을 구분한 부분이 나와 있다. 상한을 끄려면 책임을 인정하는 체크박스를 직접 선택하게 하자는 예시 문구도 나와 있다.",
+   "terms": [
+    "코딩 에이전트"
+   ],
+   "url": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/",
+   "source": "simonwillison.net"
+  },
+  {
+   "id": "lab91b1f786",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "바클레이즈, Claude를 직원 검색과 이메일 분류에 쓴다",
+   "summary": "영국 은행 바클레이즈가 Anthropic과 협력을 넓힌다. 은행은 Claude Code(코드를 대신 짜 주는 도구)를 쓰는 개발자 비율이 2026년 말까지 50%에 이를 것으로 예상한다. 직원용 지식 도우미는 1만 6천 명이 쓰며 100만 건 넘게 검색했다(Anthropic 발표 기준).",
+   "check": "글로벌 마켓 부서에서 하루 약 12만 통의 이메일을 분류하고 처리 경로를 정하는 사례가 나와 있다. 은행이 거버넌스와 사람의 감독을 어떻게 적용한다고 밝혔는지도 나와 있다.",
+   "terms": [
+    "RAG",
+    "휴먼 인 더 루프"
+   ],
+   "url": "https://www.anthropic.com/news/barclays-scales-claude",
+   "source": "anthropic.com"
+  },
+  {
+   "id": "49952111",
+   "role": "pick",
+   "kind": "제품",
+   "title": "맥 안의 사진과 영상 장면을 말로 찾는 앱 SCM",
+   "summary": "SCM은 맥의 폴더에 있는 사진과 영상의 모든 장면을 AI로 찾아 주는 앱이다. 계정도 클라우드도 업로드도 없고 처리는 사용자의 맥에서 돌아간다고 소개한다. 처음 쓸 때 모델을 내려받으면 이후에는 오프라인으로 쓴다.",
+   "check": "파일, 장면, 화면 속 글자, 영상 속 대사, 대화형 질문까지 다섯 가지 검색 방식이 표로 나와 있다. 검색 결과에 '왜 이 결과가 나왔는지' 표시가 붙는 방식도 나와 있다.",
+   "terms": [
+    "온디바이스 AI",
+    "임베딩"
+   ],
+   "url": "https://github.com/allenv0/SCM",
+   "source": "github.com"
+  },
+  {
+   "id": "49956148",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "코드를 뜻으로 검색하는 시스템을 만들며 겪은 시행착오: 젯브레인스",
+   "summary": "젯브레인스가 AI 에이전트가 코드를 뜻으로 찾게 하는 검색 시스템 Air Context를 만든 과정을 연재로 공개했다. 첫 편은 코드를 알맞은 크기로 나누는 단계를 다룬다. 지원하는 언어는 아홉 가지이고 나머지 언어는 단순한 줄 단위 분할을 쓴다고 한다.",
+   "check": "고정된 줄 수로 자르면 import 문과 함수 내용이 한 묶음이 되어 검색이 틀어진다는 설명이 나와 있다. 너무 크게 자르는 경우와 한 줄씩 자르는 경우의 문제도 각각 나와 있다.",
+   "terms": [
+    "RAG",
+    "청킹"
+   ],
+   "url": "https://blog.jetbrains.com/ai/2026/09/building-a-rag-pipeline-for-semantic-code-search-a-developer-diary-and-field-notes/",
+   "source": "blog.jetbrains.com"
+  },
+  {
+   "id": "lab41a7e440",
+   "role": "launch",
+   "kind": "제품",
+   "title": "앱 설치 없이 문자로 일을 맡기는 AI 에이전트들",
+   "summary": "TechCrunch가 문자 메시지로 말을 걸어 일을 맡기는 AI 에이전트 여러 개를 정리했다. 예를 들어 가족용 Fambot(학교 소식과 일정을 모아 계획으로 만드는 서비스)은 2026년 9월 초 베타로 시작했고 베타 기간에는 무료다. Fambot은 iOS, 안드로이드, 웹, 문자 메시지에서 쓸 수 있다.",
+   "url": "https://techcrunch.com/2026/10/03/all-the-ai-agents-that-can-live-in-your-text-messages/",
+   "source": "techcrunch.com",
+   "terms": []
+  },
+  {
+   "id": "gn34738",
+   "role": "launch",
+   "kind": "모델",
+   "title": "업스테이지, GPU 한 장으로 배포하는 소형 모델 Solar Mini 4",
+   "summary": "업스테이지가 계약서 항목 추출이나 고객 문의 분류 같은 반복 업무를 적은 연산과 비용으로 처리하는 언어 모델 Solar Mini 4를 발표했다. 양자화(모델을 가볍게 줄이는 방법) 모델은 최소 GPU 한 장으로 배포할 수 있다는 것이 회사 발표다. Upstage Console API, Solar Chat, OpenRouter에서 쓸 수 있고 회사 내부 서버 배포도 지원한다.",
+   "url": "https://news.hada.io/topic?id=34738",
+   "source": "news.hada.io",
+   "terms": []
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab5a3f1f4a",
+   "angle": "돈",
+   "title": "쓰다가 요금이 끝없이 나오지 않게 하는 상한",
+   "what": "사이먼 윌리슨은 사용량 과금 서비스가 정해 둔 금액에서 서비스를 끊는 하드 상한을 기본으로 제공해야 한다고 썼다. 그는 AWS가 9월 16일 발표에서 월 지출 한도를 소개했고 구글 클라우드는 7월에 Spend Caps를 냈다고 적었다.",
+   "who": "원문은 상한이 없으면 자는 사이 수천 달러가 더 나올 수 있다고 쓴다. 상한을 끄는 사람이 이후 요금을 책임지게 하자는 것이 제안이다.",
+   "question": "우리가 쓰는 유료 서비스 중 사용량 상한이 없는 것은 무엇이며, 한도에 닿으면 어떻게 되길 원하는가?",
+   "url": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/",
+   "source": "simonwillison.net"
+  },
+  {
+   "id": "lab41a7e440",
+   "angle": "플랫폼",
+   "title": "앱 대신 문자 메시지가 입구가 되는 에이전트",
+   "what": "TechCrunch는 문자 메시지로 쓰는 AI 에이전트가 늘고 있다고 정리했다. 그중 Instinct는 9월에 10억 달러를 투자받아 기업가치 100억 달러로 평가됐다.",
+   "who": "원문에 따르면 Fambot은 베타 기간에 무료이고 나중에 넷플릭스 구독료 정도를 받을 계획이다. Folk은 무료로 시작해 월 8.33달러 Pro 요금제를 둔다.",
+   "question": "우리 고객이 일을 맡기는 곳이 앱에서 문자 메시지로 옮겨 가면, 우리 제품은 고객을 어디에서 만나야 하는가?",
+   "url": "https://techcrunch.com/2026/10/03/all-the-ai-agents-that-can-live-in-your-text-messages/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "AI 슬롭",
+  "context": "구글 오픈소스 버그 바운티 중단 소식에서 나왔다. TechCrunch는 지난해 보안 전문가들이 AI 슬롭이 버그 바운티에 위험이 된다고 경고했다고 전했다."
+ },
+ "new_terms": [
+  {
+   "term": "하드 예산 상한",
+   "note": "사용량 과금 서비스에서 정해 둔 금액을 넘으면 서비스를 끊고 오류를 돌려주는 기능. 경고 메일만 보내는 소프트 상한과 구분해 쓰였다."
+  },
+  {
+   "term": "관찰 20/20",
+   "note": "ThinkingBox에서 같은 업무를 20번 시도해 20번 모두 통과한 업무 수를 세는 지표."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "lab11bbfc60",
+   "reason": "유료 구독자 전용이라 본문이 없고 목차만 있어 사실을 확인할 수 없다."
+  },
+  {
+   "id": "lab3e343729",
+   "reason": "유료 구독자 전용이고 수집된 본문에 내용이 없다."
+  }
+ ]
+}
