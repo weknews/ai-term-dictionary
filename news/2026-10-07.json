@@ -1,0 +1,117 @@
+{
+ "date": "2026-10-07",
+ "headline": "OpenAI가 유럽연합에서 ChatGPT와 Codex가 쓴 글에 보이지 않는 워터마크를 넣기 시작한다.",
+ "items": [
+  {
+   "id": "lab549ccc4a",
+   "role": "pick",
+   "kind": "정책",
+   "title": "OpenAI, 유럽연합에서 ChatGPT 글에 보이지 않는 워터마크를 넣는다",
+   "summary": "OpenAI는 유럽연합 AI 규정(EU AI Act)을 지키기 위해 ChatGPT와 OpenAI의 서비스 Codex가 만든 글에 보이지 않는 워터마크를 넣는다고 밝혔다. 워터마크는 모델이 고르는 단어에 미세한 패턴을 남기는 방식이어서, 글을 복사해 붙여 넣어도 따라간다. 몇 주에 걸쳐 모든 요금제의 유럽연합 이용자에게 적용하고, 개발자는 전 세계 어디서든 일부 모델에 직접 켤 수 있다. 기본값은 꺼짐이다.",
+   "check": "워터마크가 지워지는지 OpenAI가 시험한 결과가 나와 있다. 단어의 10%를 동의어로 바꾸자 탐지율이 약 92%에서 66%로 떨어졌다. 워터마크가 없다고 사람이 쓴 글이라는 증거는 아니라고 OpenAI가 밝힌 부분도 있다.",
+   "terms": [
+    "EU AI Act"
+   ],
+   "url": "https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "laba9ee6e88",
+   "role": "pick",
+   "kind": "제품",
+   "title": "개인용 AI 에이전트가 웹사이트에서 접속을 거부당한다",
+   "summary": "사용자를 대신해 항공권 예약이나 장보기를 하는 개인용 AI 에이전트가 웹사이트에서 막히는 일이 이어진다. Amazon은 Meta의 에이전트 Muse가 자사 쇼핑 사이트를 이용하지 못하게 막기 시작했다. 월마트는 의도한 차단이 아니라고 밝혔다. 사람인지 확인하는 버튼이 중간에 끊기면 검사에 실패하기 때문이라고 한다.",
+   "check": "월마트, 델타항공, 유나이티드항공, Yelp, eBay가 에이전트를 어떻게 대하는지 회사마다 다르게 답한 내용이 나와 있다. Yelp는 데이터 이용 계약을 맺고 비용을 낸 에이전트가 아니면 받지 않는다고 했다. Meta, 월마트, Stripe 등이 에이전트와 기업 사이의 소통 방식을 정하는 공개 표준을 만들기 시작했다는 내용도 있다.",
+   "terms": [
+    "에이전트",
+    "에이전틱 커머스"
+   ],
+   "url": "https://techcrunch.com/2026/10/06/the-next-hurdle-for-ai-agents-getting-websites-to-let-them-in/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab126d97f7",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "Jev 활용 사례 8가지와 OpenAI 제품팀의 ChatGPT Sites 사용기",
+   "summary": "Lenny's Newsletter의 How I AI 팟캐스트가 두 편을 소개했다. 첫 편에서 John Lindquist는 글 대신 판단 결과를 내놓는 모델 Jev의 활용 사례 8가지를 보여 준다. 둘째 편에서는 OpenAI 제품팀의 Kath Korevec이 Slack·Notion·일정 데이터를 엮어 내부 도구를 만드는 ChatGPT Sites를 어떻게 쓰는지 설명한다.",
+   "check": "Jev 편에는 개발 과정 23번을 돌리는 데 73센트가 들었다는 기록이 나와 있다. 창작이나 열린 분석에는 기존 언어모델이 낫다는 구분도 있다. Kath 편에는 일주일 쓰고 버릴 사이트를 만든다는 이야기가 나온다. 메시지와 이메일은 AI가 초안만 쓰고 보내기는 본인이 한다는 원칙도 밝혔다.",
+   "terms": [
+    "Jev",
+    "승인 게이트"
+   ],
+   "url": "https://www.lennysnewsletter.com/p/how-i-ai-8-real-jev-use-cases-how",
+   "source": "lennysnewsletter.com"
+  },
+  {
+   "id": "laba651b0ec",
+   "role": "launch",
+   "kind": "모델",
+   "title": "Mistral Large 4 프리뷰 공개",
+   "summary": "Mistral이 대규모 언어모델(글을 읽고 쓰는 AI) Mistral Large 4의 프리뷰를 내놓았다. Simon Willison은 블로그에서 지난해 나온 Mistral Large 3보다 크게 좋아졌다고 적었다. 프리뷰는 Mistral의 API로 쓸 수 있고, Mistral은 오픈 웨이트(누구나 내려받아 쓸 수 있게 공개한 모델) 버전을 이달 말에 내겠다고 약속했다.",
+   "url": "https://simonwillison.net/2026/Oct/6/le-chonk/",
+   "source": "simonwillison.net",
+   "terms": []
+  },
+  {
+   "id": "lab34171419",
+   "role": "launch",
+   "kind": "제품",
+   "title": "Anthropic, 스타트업에 Claude Team 1년 무료와 크레딧 1,000달러 제공",
+   "summary": "Anthropic이 스타트업 지원 프로그램 Claude for Startups를 넓혔다. 단체용 유료 요금제인 Claude Team을 최대 5석까지 1년 동안 무료로 주고, 개발용 크레딧(쓴 만큼 차감되는 이용권) 1,000달러도 준다. 설립 5년 이내이거나 최근 2년 안에 투자를 받은 회사가 프로그램 페이지에서 신청할 수 있다.",
+   "url": "https://techcrunch.com/2026/10/06/anthropic-gives-startups-a-free-year-of-enterprise-service-and-1000-in-token-credits/",
+   "source": "techcrunch.com",
+   "terms": []
+  }
+ ],
+ "lens": [
+  {
+   "id": "labf37dd1b5",
+   "angle": "반대편",
+   "title": "LibreOffice, 'AI 없음'을 설계 방침으로 내세우다",
+   "what": "문서 편집기 LibreOffice를 만드는 비영리 단체 The Document Foundation은 당분간 AI를 넣지 않겠다고 밝혔다. 문서가 서버로 올라가지 않고 네트워크 연결 없이도 쓸 수 있게 하려는 설계 방침이라고 설명했다.",
+   "who": "기밀이나 개인정보를 다루는 조직은 데이터가 어디로 가는지 알아야 한다는 것이 이 단체의 설명이다. AI를 쓰고 싶은 사용자는 확장 프로그램으로 직접 연결할 수 있다.",
+   "question": "우리 고객 중에 자료가 밖으로 나가지 않는다는 점을 선택 이유로 삼는 사람이 있을까?",
+   "url": "https://techcrunch.com/2026/10/06/libreoffice-says-no-ai-is-now-a-software-feature/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "labe5d1b198",
+   "angle": "플랫폼",
+   "title": "Hark, 'Meta나 OpenAI와 다르다'며 AI 비서를 내놓다",
+   "what": "창업한 지 1년이 안 된 Hark가 컴퓨터를 대신 쓰도록 훈련한 모델 기반의 AI 비서 Hark Pro를 널리 공개했다. 무료로 쓸 수 있고, 많이 쓰는 사용자용 유료 요금제가 있다.",
+   "who": "Hark의 디자인 책임자 Abidur Chowdhury는 광고를 팔거나 데이터를 가져가려는 회사가 아니라는 점을 내세웠다. 기사는 이 모델이 폭넓은 지식을 얼마나 포기했는지는 분명하지 않다고 적었다.",
+   "question": "큰 회사가 아니라는 점이 우리 고객에게 우리를 고르는 이유가 될 수 있을까?",
+   "url": "https://techcrunch.com/2026/10/06/hark-releases-an-ai-personal-assistant-with-a-focus-on-privacy/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "에이전트",
+  "context": "개인용 AI 에이전트가 웹사이트에서 접속을 거부당한다는 소식에서 나온 말이다. 사용자를 대신해 예약하고 주문하는 AI가 늘면서 사이트와 부딪히는 일이 생겼다."
+ },
+ "new_terms": [
+  {
+   "term": "텍스트 워터마크",
+   "note": "OpenAI 소식에서 AI가 쓴 글에 보이지 않는 패턴을 남겨 나중에 탐지하는 방식이라는 뜻으로 쓰였다."
+  },
+  {
+   "term": "결정 모델",
+   "note": "Jev 소식에서 글 대신 점수·분류·함수 호출 같은 판단 결과를 내놓는 모델이라는 뜻으로 쓰였다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "gn34868",
+   "reason": "역전파 없이 학습하는 방법은 모델 학습 내부 구조 연구여서 비개발자에게 설명하기 어렵다."
+  },
+  {
+   "id": "lab9964af80",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못했다."
+  },
+  {
+   "id": "lab49981197",
+   "reason": "수집 실패(주소가 비어 있음)로 원문을 읽지 못했다."
+  }
+ ]
+}
