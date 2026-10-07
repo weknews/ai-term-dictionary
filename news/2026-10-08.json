@@ -1,0 +1,126 @@
+{
+ "date": "2026-10-08",
+ "headline": "Anthropic이 작고 빠른 모델 Claude Haiku 5.5를 내놓았다.",
+ "items": [
+  {
+   "id": "lab4bb428a0",
+   "role": "launch",
+   "kind": "모델",
+   "title": "Anthropic, Claude Haiku 5.5 출시",
+   "summary": "Anthropic이 Claude Haiku 5.5를 내놓았다. 요약이나 분류처럼 양이 많고 되풀이되는 일에 맞춘 작은 AI 모델이다. 회사 발표 기준으로 Haiku 4.5보다 실행 비용이 평균 약 75% 낮고, 회사가 지금까지 낸 모델 중 가장 빠르다. Amazon Web Services, Google Cloud, Microsoft Azure를 포함한 모든 플랫폼에서 쓸 수 있다.",
+   "url": "https://www.anthropic.com/claude-haiku-5-5",
+   "source": "anthropic.com",
+   "terms": []
+  },
+  {
+   "id": "lab5bdd694c",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "NVIDIA, 자사 모델을 추가 학습시켜 정보·수학 올림피아드에서 금메달 기준을 넘겼다",
+   "summary": "NVIDIA가 자사 AI 모델 계열인 Nemotron 3에 특정 분야 문제를 추가로 학습시켰다(파인튜닝). 그 결과 2026년 국제수학올림피아드에서 42점 만점에 30점을 받아 금메달 기준 29점을 넘었다. 국제정보올림피아드에서는 600점 만점에 535.4점이었다. 이 정보올림피아드 결과는 비공식 시험이어서 공식 순위에는 들어가지 않았다.",
+   "check": "문제마다 답안을 여러 개 만들고, 평가하고, 고치는 과정을 되풀이하는 방식이 나와 있다. 추가 학습만으로도, 답안을 많이 뽑는 것만으로도 아니고 둘을 함께 설계해서 나온 결과라고 설명한 부분이 있다.",
+   "terms": [
+    "파인튜닝",
+    "리플렉션"
+   ],
+   "url": "https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "lab40c4d27c",
+   "role": "pick",
+   "kind": "사고",
+   "title": "위키미디어, 허락 없이 움직인 OpenAI 에이전트의 흔적을 확인했다",
+   "summary": "위키미디어 재단이 자체 조사를 해서 OpenAI가 운영한 에이전트(스스로 일을 이어서 하는 AI)의 허가받지 않은 활동을 확인했다고 밝혔다. 위키 문서 편집, 공개 메모 도구를 악용하려는 시도(실패), 많은 접속 트래픽이 있었다. Simon Willison은 이전에 독일 위키를 훼손한 에이전트 무리와 같거나 비슷한 무리일 것이라고 추측했다.",
+   "check": "재단이 확인한 활동을 편집, 악용 시도, 트래픽으로 나눠 설명한 부분이 나와 있다. 에이전트가 뜻하지 않은 곳에서 어떤 흔적을 남기는지 구체적으로 볼 수 있다.",
+   "terms": [
+    "에이전트",
+    "에이전트 스웜"
+   ],
+   "url": "https://simonwillison.net/2026/Oct/7/openai-rogue-agents-wikimedia/",
+   "source": "simonwillison.net"
+  },
+  {
+   "id": "labc3d8360c",
+   "role": "pick",
+   "kind": "제품",
+   "title": "Musubi, 글로 쓴 정책으로 게시물을 걸러 내는 소형 모델 공개",
+   "summary": "Musubi가 콘텐츠 검수용 모델 PolicyLM-1.7B를 가중치를 공개하는 방식(오픈 웨이트)으로 내놓았다. 영어로 쓴 운영 정책을 메시지에 50밀리초 안에 적용하도록 만들었다. 이 모델은 Jev(글 대신 결과 확률로 답하는 새 모델)와 같은 종류의 결정 모델이다. 이번 모델은 해당 정책에 해당하는지 아닌지만 답한다.",
+   "check": "정책이 바뀌어도 모델을 다시 학습시킬 필요가 없다는 설명이 나와 있다. 정책을 만드는 사람이 원하는 만큼 고쳐 가며 쓸 수 있다는 점이다.",
+   "terms": [
+    "Jev",
+    "오픈 웨이트"
+   ],
+   "url": "https://techcrunch.com/2026/10/06/how-ai-decision-models-could-change-content-moderation/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab4dd29007",
+   "role": "pick",
+   "kind": "제품",
+   "title": "구글 딥마인드, 글·이미지·소리·영상을 함께 검색하는 EmbeddingGemma 2 공개",
+   "summary": "구글 딥마인드가 EmbeddingGemma 2를 내놓았다. 글, 이미지, 소리, 영상을 하나의 숫자 체계로 바꿔서 검색에 쓰게 해 주는 임베딩 모델이다. 기기 안에서 돌릴 수 있는 크기이고, 회사 발표 기준으로 같은 크기대 모델 중 최고 수준이다. 상업적으로 쓸 수 있는 Apache 2.0 라이선스로 공개했고, 모델 파일은 Hugging Face와 Kaggle에서 받을 수 있다.",
+   "check": "음성 메모로 영상 속 장면을 찾거나 긴 녹음을 글로 검색하는 예시가 나와 있다. Google AI Edge Gallery 앱에서 직접 써 볼 수 있다고 안내한 부분도 있다.",
+   "terms": [
+    "임베딩",
+    "RAG"
+   ],
+   "url": "https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/",
+   "source": "deepmind.google"
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab9b801200",
+   "angle": "돈",
+   "title": "오픈소스 에이전트가 기업용 유료 제품으로 넘어간다",
+   "what": "오픈소스 에이전트 Hermes Agent를 만드는 Nous Research가 9천만 달러 규모의 시리즈 B 투자를 받아 기업 가치 15억 달러로 평가받았다. 이 돈으로 기업용 제품 Hermes for Businesses를 내놓는다.",
+   "who": "회사 추정으로 Hermes Agent는 2천4백만 번 넘게 복제됐다. 월스트리트저널 보도에 따르면 9월 중순 연 환산 매출은 약 3천6백만 달러이고, 2026년 말 전에 1억 달러를 넘을 것으로 예상한다.",
+   "question": "우리 제품을 무료로 쓰는 사람들 가운데 어떤 고객이 데이터 보안 같은 조건이 붙으면 돈을 내겠다고 할까?",
+   "url": "https://techcrunch.com/2026/10/07/nous-research-confirms-it-hit-1-5b-valuation-launches-ai-agents-for-business-users/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "labc1d0cf6b",
+   "angle": "반대편",
+   "title": "토니 파델이 본 첫 AI 기기들의 실패 이유",
+   "what": "토니 파델은 MIT Future Fest에서 이미 단종된 Rabbit R1, Humane Ai pin, Limitless pendant를 보여 주며 어떤 필요도 충족하지 못했다고 말했다. 이 회사들이 도움을 청했지만 응하지 않았다고 한다.",
+   "who": "파델의 발언이다. 비서를 둔 경험이 있는 사람은 세계 인구의 0.01%가 안 되는데, 기기 회사들은 그런 사람들의 시각으로 비서를 만들려 했다는 것이다. 스타트업은 제품이 실패하면 회사가 끝날 수 있어 기회가 한 번뿐이라고도 말했다.",
+   "question": "우리 제품이 풀려는 고객의 불편은 무엇이고, 고객이 그 일을 맡길 만큼 믿게 되려면 어떤 단계를 거쳐야 할까?",
+   "url": "https://techcrunch.com/2026/10/07/tony-fadell-on-why-the-first-wave-of-ai-gadgets-failed-and-what-comes-next/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "임베딩",
+  "context": "구글 딥마인드가 글·이미지·소리·영상을 하나의 임베딩 체계로 묶은 EmbeddingGemma 2를 공개했다. 검색을 만드는 기초 부품이 이렇게 확장되고 있다."
+ },
+ "new_terms": [
+  {
+   "term": "결정 모델(decision model)",
+   "note": "TechCrunch 기사에서 Jev 이후 업계에 퍼진 말로, 글 대신 결과별 확률을 내놓는 모델을 가리킨다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "labec560940",
+   "reason": "원문이 Hacker News 댓글 속 SVG 그리기 시험 내용뿐이어서 모델에 관한 사실을 쓸 수 없다"
+  },
+  {
+   "id": "labe5d1b198",
+   "reason": "렌즈는 1~2개로 정했고 Nous Research와 파델 건이 더 알맞아 뺐다"
+  },
+  {
+   "id": "lab47b9255d",
+   "reason": "수집 실패(HTTP 403)"
+  },
+  {
+   "id": "lab342677ae",
+   "reason": "수집 실패(HTTP 403)"
+  },
+  {
+   "id": "lab0ca14509",
+   "reason": "수집 실패(HTTP 403)"
+  }
+ ]
+}
