@@ -1,0 +1,135 @@
+{
+ "date": "2026-10-14",
+ "headline": "Anthropic이 하루 코드 병합 건수가 열 배 넘게 늘자 소스 관리 도구를 직접 만들어 다섯 달 만에 옮겼다.",
+ "items": [
+  {
+   "id": "lab550c4c02",
+   "role": "launch",
+   "kind": "모델",
+   "title": "LiquidAI, 기기 안에서 돌리는 추론 모델 LFM2.5-24B-A2B 공개",
+   "summary": "LiquidAI가 LFM2.5-24B-A2B(답하기 전에 먼저 생각하고, 도구를 불러 여러 단계 작업을 하는 모델)를 공개했다. 회사 발표 기준으로 도구를 불러 쓰는 작업 시험에서 비교한 세 모델과 견줄 만했고, 비교한 모델 가운데 가장 빠르면서 메모리도 가장 적게 쓴다. 지식과 코딩 시험에서는 더 큰 모델이 앞선다고 밝혔다. 모델 내용을 공개하는 오픈 웨이트 방식으로 허깅페이스에서 내려받을 수 있다.",
+   "terms": [
+    "온디바이스 AI",
+    "오픈 웨이트"
+   ],
+   "url": "https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "50073633",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "Anthropic, 늘어난 코드 변경량에 맞춰 자체 소스 관리 시스템을 만들었다",
+   "summary": "Anthropic은 2026년 5월에 하루 평균 약 2,500건이던 코드 변경 병합이 9월에는 하루 3만 건을 넘었다고 밝혔다. 코드를 쓰는 일보다 소스 관리(코드 변경 이력을 관리하는 일), 빌드 같은 개발 기반 도구가 병목이 됐다는 설명이다. 그래서 자체 시스템 Scion을 만들어 다섯 달 만에 기존 도구인 git에서 옮겼다.",
+   "check": "클라이언트가 대부분 에이전트와 자동 작업이라 항상 온라인이라는 전제에서 설계를 다시 시작했다는 부분이 나와 있다. 사람 규모에 맞춰진 도구가 어떻게 한계에 닿았는지 설명한 부분도 있다.",
+   "terms": [
+    "코딩 에이전트"
+   ],
+   "url": "https://www.anthropic.com/engineering/redesigning-source-control",
+   "source": "anthropic.com"
+  },
+  {
+   "id": "50065692",
+   "role": "pick",
+   "kind": "연구",
+   "title": "AI 모델 안에 능력을 숨길 수 있고, 시험으로 끌어내기 어렵다는 연구",
+   "summary": "연구진은 암호화한 신경망을 모델 안에 심어 두고 비밀 신호를 받을 때만 풀어 실행하게 하는 방식을 만들었다. 암호학 가정 아래에서 이 숨은 부분은 모델 내용 전체를 볼 수 있어도 끌어내거나 해석하기 어렵다고 증명했다고 한다. 작은 화학 반응 예측 과제에서 추가 학습 등 여러 방법으로 시험했고 숨은 능력이 드러나지 않았다. 논문은 NeurIPS 2026에 채택됐다.",
+   "check": "배포 전 위험한 능력을 시험으로 찾아내는 감사가 어떤 가정 위에 서 있는지 초록에 나와 있다. 연구진이 방어 연구를 돕기 위해 만든 모델을 공개했다는 부분도 있다.",
+   "terms": [
+    "평가",
+    "레드팀"
+   ],
+   "url": "https://arxiv.org/abs/2610.13928",
+   "source": "arxiv.org"
+  },
+  {
+   "id": "50072120",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "게임 개발자가 정리한, 매일 쓰는 AI 개발 방식",
+   "summary": "게임 프로그래머 Kyle Kukshtel이 인디 개발자 행사에서 한 강연을 글로 옮겼다. 한 번에 만든 시연이 아니라 하루 여덟 시간, 주 5일 하는 실제 개발에서 LLM(대규모 언어모델)을 쓰는 이야기다. 글쓴이는 웹 개발에서는 LLM이 거의 다 해낸다고 느끼지만, 게임에서는 번번이 막혔다고 말한다. 게임에는 코드가 아닌 것이 많아 LLM이 읽기 어렵다는 이유를 든다.",
+   "check": "글쓴이가 챗GPT에 코드를 복사해 붙여 사이트를 만들던 첫 경험이 나와 있다. 대화가 쌓이며 나쁜 내용이 계속 영향을 주는 문제를 설명한 부분도 있다.",
+   "terms": [
+    "컨텍스트 엔지니어링",
+    "하네스 엔지니어링"
+   ],
+   "url": "https://kylekukshtel.com/ai-harness-engineering-game-development-claude-code",
+   "source": "kylekukshtel.com"
+  },
+  {
+   "id": "lab87e22abf",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "에이전트가 말을 안 들으면 문서 대신 커밋 검사로 막는다",
+   "summary": "개발자 Geoffrey Huntley의 글을 Simon Willison이 인용했다. 에이전트가 자기가 만든 진단 도구를 쓰지 않을 때 안내 문서(AGENTS.md)를 고쳐도 어긋남이 남는다고 한다. 그래서 변경 내용에 우회 호출이 있으면 커밋을 실패시키고, 진단 도구를 쓰라는 지시를 에이전트에게 넣는 검사를 만들었다. 그 뒤로 열 번 중 열 번이 됐다고 쓴다.",
+   "check": "부탁을 문서에 적는 방식과 어기면 막고 되돌려 보내는 방식의 차이가 짧은 인용에 나와 있다. 같은 일을 하는 우리 업무 절차에도 대입해 볼 수 있다.",
+   "terms": [
+    "에이전트 규약 파일",
+    "하네스 엔지니어링"
+   ],
+   "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/",
+   "source": "simonwillison.net"
+  },
+  {
+   "id": "50073221",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "해커뉴스에 글을 올린 뒤 AI 봇 트래픽이 몰린 개인 사이트 이야기",
+   "summary": "개발자 Sammy Straus가 피드 리더 sprinklz.io를 개발자 커뮤니티 해커뉴스에 올린 뒤 사이트가 몹시 느려졌다. 요청 기록을 보니 대부분이 페이지를 그리는 자바스크립트조차 실행하지 않았고, 트래픽의 거의 절반이 한 사용자에게서 왔다. 그는 웹사이트 변경을 감시해 요약 뉴스레터를 만드는 서비스라고 밝혔다. 그 사용자를 차단하고 robots.txt와 속도 제한을 추가했다.",
+   "check": "접속 경로별 기록을 새로 남겨 원인을 좁혀 간 순서가 나와 있다. 자신을 밝히는 크롤러와 취약점 탐색 요청이 섞여 있었다는 점, Claude에게 취약점 경로를 직접 조회시켜 점검한 방법도 나와 있다.",
+   "url": "https://www.sammystraus.com/#i-posted-to-hn-and-then-my-website-was-flooded-with-ai-bot-traffic",
+   "source": "sammystraus.com",
+   "terms": []
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab6ecbcc7a",
+   "angle": "만든 방식",
+   "title": "허가용 건축 도면을 몇 분 만에 만든다는 Blueprints AI",
+   "what": "Blueprints AI는 2D 스케치나 PDF에서 법규에 맞는 허가용 건축 도면을 몇 분 만에 만든다고 밝힌 스타트업이다. 창업자가 운영하는 설계·시공 회사의 승인된 도면 세트 8년치로 모델을 학습시켰다.",
+   "who": "고객은 건축·엔지니어링·설계 회사와 개발업자, 부동산 소유주다. 첫 버전은 플랜에 따라 월 3,200달러에서 8,500달러를 받는 구독이고, 면허 건축사가 검토하고 날인한다고 회사는 말한다.",
+   "question": "우리 팀에 오래 쌓인 '승인된 결과물'이 있다면, 그것으로 어떤 반복 작업을 맡길 수 있을까?",
+   "url": "https://techcrunch.com/2026/10/12/this-ai-startup-says-it-can-generate-permit-ready-blueprints-in-minutes/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab54d9c64a",
+   "angle": "반대편",
+   "title": "창업 5년 만에 파산 신청한 Character.AI",
+   "what": "AI 캐릭터와 대화하는 플랫폼 Character.AI가 챕터 11 파산을 신청했다. 일부 자산을 디즈니에 2천만 달러에 팔기로 했고, 나머지 자산은 아직 인수자가 없다.",
+   "who": "기사는 이용 시간이 많아도 쓰는 사람이 늘수록 AI 비용이 오르고 수익을 내야 하는 압박도 커진다고 쓴다. 투자자 쪽에서는 이 회사에 1억 9천 3백만 달러가 넘게 들어갔다고 PitchBook 기준으로 전한다.",
+   "question": "쓰는 사람이 늘수록 비용도 느는 구조라면, 우리는 그 사용량에서 어떻게 수익을 낼까?",
+   "url": "https://techcrunch.com/2026/10/13/just-5-years-in-interactive-chatbot-platform-character-ai-files-for-bankruptcy/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "하네스 엔지니어링",
+  "context": "에이전트가 지시를 어기지 않도록 커밋 전에 검사하고 되돌려 보내는 방법이 Huntley의 글에 나왔다. 게임 개발 글에서도 AI가 일할 환경을 어떻게 설계하는지가 다뤄졌다."
+ },
+ "new_terms": [
+  {
+   "term": "버전 관리 시스템(소스 관리)",
+   "note": "Anthropic 글에서 코드 변경 이력을 관리하는 도구(git, Scion)를 가리키는 말로 쓰였다."
+  },
+  {
+   "term": "커밋 전 검사(pre-commit hook)",
+   "note": "Huntley 인용에서 코드 변경을 저장하기 전에 규칙을 검사하고, 어기면 막는 장치로 쓰였다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "lab131f4132",
+   "reason": "프로파일링 결과 수치 중심의 기술 기록이라 비개발자에게 풀어 설명하기 어렵다"
+  },
+  {
+   "id": "lababa4e200",
+   "reason": "스타트업 렌즈 두 개 한도를 채워 뺐다"
+  },
+  {
+   "id": "lab3ea17d5e",
+   "reason": "스타트업 렌즈 두 개 한도를 채워 뺐다"
+  }
+ ]
+}
