@@ -1,0 +1,142 @@
+{
+ "date": "2026-10-16",
+ "headline": "Meta가 누구나 내려받아 쓸 수 있는 오픈 웨이트 모델 Muse Spark Open을 공개했다.",
+ "items": [
+  {
+   "id": "50104310",
+   "role": "pick",
+   "kind": "연구",
+   "title": "웹 서버가 AI에게만 보내는 '숨은 메시지'를 웹 응답 217,097,223건에서 찾았다",
+   "summary": "Signals Corps가 공개 웹 수집 데이터(Common Crawl) 9월 수집분의 10%에 해당하는 웹 응답 217,097,223건의 헤더(사람 눈에는 보이지 않는 웹 응답의 부가 정보)를 살폈다. AI를 향해 쓴 헤더를 보낸 사이트는 7,959곳이었다. 대부분은 다른 자료로 안내하는 내용이었고, 명령을 내리려는 시도는 30곳이었다.",
+   "check": "Claude Code에서 한 시험이 나와 있다. 기본 설정에서는 헤더를 발견하고도 따르지 않았지만, 사용자 지시에 사이트의 안내를 따르라는 말이 들어가자 9번 중 7번 따랐다. AI에게 어디까지 권한을 주느냐에 따라 결과가 달라진다는 점이 그대로 드러난다.",
+   "terms": [
+    "간접 프롬프트 인젝션",
+    "에이전트"
+   ],
+   "url": "https://www.signalscorps.com/blog/prompt-injection-in-http-headers/",
+   "source": "signalscorps.com"
+  },
+  {
+   "id": "lab996b33c0",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "Google DeepMind, 에이전트 도구로 항균 펩타이드 후보를 찾은 과정을 공개했다",
+   "summary": "Google DeepMind가 에이전트 개발 플랫폼 Antigravity로 생물학자가 새 항균 펩타이드(기존 항생제의 대안으로 꼽히는 물질) 후보를 찾은 과정을 공개했다. 여러 데이터베이스를 따로 뒤지던 일을 한 번의 대화로 줄였다는 것이 회사 설명이다. 찾은 후보는 호흡기 감염 병원균에 활성이 있을 것으로 예측됐고, 지금 실험실 검증을 받고 있다.",
+   "check": "연구자는 방향과 질문을 정하고, 에이전트는 데이터베이스 조회·구조 분석·문헌 정리를 맡는 역할 분담이 단계별로 나와 있다. 마지막에 실험 계획서로 옮기는 단계와, 실험실 검증이 아직 필요하다고 밝힌 부분도 나와 있다.",
+   "terms": [
+    "에이전트",
+    "휴먼 인 더 루프"
+   ],
+   "url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/",
+   "source": "deepmind.google"
+  },
+  {
+   "id": "lab672ebf75",
+   "role": "pick",
+   "kind": "연구",
+   "title": "Ai2, 극한 기상을 3km 해상도로 훨씬 싸게 모의하는 HiRO-ACEv2를 내놓았다",
+   "summary": "Ai2가 AI로 기후를 모의하는 HiRO-ACEv2를 공개했다. 전 세계를 3km 단위로 그린 기후 자료를 X-SHiELD(폭풍 같은 작은 기상까지 직접 모의하는 고해상도 대기 모델)의 약 300분의 1 비용으로 만든다는 것이 Ai2 발표다. 아주 드문 폭우·강풍 같은 극한 사건도 비슷하게 재현한다고 한다.",
+   "check": "허리케인 사례 그림과, 기존 모의 결과와 나란히 볼 수 있는 웹 데모가 나와 있다. 한계도 적혀 있다. 지금은 X-SHiELD에 맞춘 버전에서만 작동해서 더 따뜻한 미래 기후 자료는 아직 못 만든다고 밝혔다.",
+   "url": "https://huggingface.co/blog/allenai/hiro-acev2",
+   "source": "huggingface.co",
+   "terms": []
+  },
+  {
+   "id": "lab8560636e",
+   "role": "pick",
+   "kind": "논쟁",
+   "title": "AI가 게임을 대량으로 디컴파일한다는 글, 좋은 면과 무서운 면을 함께 짚었다",
+   "summary": "Simon Willison이 인디 게임 개발자 Popcar의 글을 소개했다. 디컴파일은 완성된 프로그램을 거꾸로 풀어 코드로 되돌리는 일이다. 글은 최근 AI로 기존 게임을 디컴파일하는 일이 늘면서 게임끼리 섞는 시도와 옛 게임 보존 프로젝트가 나오고 있다고 말한다.",
+   "check": "Popcar가 든 부정적인 면이 인용돼 있다. 경쟁사가 베낄 수 있고, 유료 게임이 뜻과 달리 오픈소스가 될 수 있다는 내용이다. 같은 글에 보존이라는 긍정적인 면도 함께 적혀 있다. 옛 게임을 새 기기와 브라우저에서 돌릴 수 있게 된다는 내용이다.",
+   "url": "https://simonwillison.net/2026/Oct/14/ai-is-mass-decompiling-games/",
+   "source": "simonwillison.net",
+   "terms": []
+  },
+  {
+   "id": "lab9d251ac6",
+   "role": "launch",
+   "kind": "모델",
+   "title": "Meta, 오픈 웨이트 모델 Muse Spark Open 공개",
+   "summary": "Meta가 Muse Spark Open(글·이미지·소리·영상을 받아 글로 답하는 모델)을 내놓았다. 모델 내부 값을 공개하는 오픈 웨이트 방식이다. Meta는 코드를 읽고 고치고 도구를 부리는 에이전트 코딩 작업용으로 훈련했다고 설명한다. 모델 파일은 Hugging Face에 올라와 있다.",
+   "terms": [
+    "오픈 웨이트",
+    "멀티모달"
+   ],
+   "url": "https://huggingface.co/blog/meta-muse-spark-open",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "laba3fa54bb",
+   "role": "launch",
+   "kind": "제품",
+   "title": "Amazon의 Bee, 개인용 AI 기기 두 종 출시",
+   "summary": "Amazon이 인수한 Bee가 대화를 듣고 메모·할 일·요약으로 정리해 주는 기기 두 종을 내놓았다. 손목이나 옷에 다는 Bee Frontier는 74.99달러, 휴대폰 뒷면에 붙는 카드 크기의 Bee Eclipse는 99.99달러다. 요약은 모든 기기에서 무료이고, 월 11.99달러 Bee Pro에는 Amazon.com·Alexa+ 연동이 들어 있다. Frontier는 Amazon에서 지금 살 수 있고 Eclipse는 곧 나온다.",
+   "url": "https://techcrunch.com/2026/10/15/amazons-bee-launches-two-new-personal-ai-devices-starting-at-75/",
+   "source": "techcrunch.com",
+   "terms": []
+  },
+  {
+   "id": "lab00b9e408",
+   "role": "launch",
+   "kind": "기능",
+   "title": "Bluesky의 Attie, 누구나 웹사이트와 게임을 만드는 도구로 확대",
+   "summary": "Bluesky의 실험 플랫폼 Attie(원래 AI로 맞춤 피드를 만드는 서비스)가 웹사이트·퀴즈·게임·투표를 만드는 기능을 더했다. 개발자만 만들 수 있던 것을 일반 사용자도 만들게 한다는 취지다. 사용자는 자기 AI 모델을 가져오거나 오픈 웨이트 모델을 쓸 수 있다. Bluesky는 15일 TechCrunch Disrupt에서 발표했다.",
+   "terms": [
+    "바이브 코딩",
+    "오픈 웨이트"
+   ],
+   "url": "https://techcrunch.com/2026/10/15/bluesky-expands-its-ai-powered-attie-app-to-let-anyone-build-websites-games-and-more/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab619d87b0",
+   "angle": "만든 방식",
+   "title": "사기범에게 일부러 속아 주는 AI 에이전트가 사업이 됐다",
+   "what": "호주 스타트업 Apate가 피해자인 척하는 AI 에이전트로 사기범과 대화해, 계좌·지갑·전화번호 같은 사기 정보를 모은다. 회사는 지금까지 250만 건의 대화에서 사기범의 시간을 17년어치 썼다고 말한다.",
+   "who": "고객은 은행·통신사·정부기관·공공서비스 기업이고, 받은 정보를 사기 방지에 쓴다. Apate는 Commonwealth Bank of Australia에서 공개된 사기 피해액이 76% 줄었다고 말한다.",
+   "question": "우리 일 중에 사람이 하기엔 지루해서 아무도 하지 않지만, AI가 대신 오래 하면 쓸 만한 정보가 쌓이는 일이 있을까?",
+   "url": "https://techcrunch.com/2026/10/14/apate-sends-ai-agents-undercover-to-get-scammed-so-they-can-gather-fraud-intelligence/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab134069d4",
+   "angle": "플랫폼",
+   "title": "Figma가 에이전트에게 브랜드 규칙을 알려 주는 문서를 내놓았다",
+   "what": "Figma가 디자인 규칙을 간단한 문서 서식으로 적는 Figma Specs를 공개했다. 자사와 타사 에이전트가 브랜드의 디자인 규칙을 더 잘 따르게 하려는 기능이다.",
+   "who": "Figma의 최고디자인책임자는 코드 생산량은 17배 늘었는데 출시는 1.3배만 늘었다고 말했다. 원문은 팀이 규칙을 한곳에 모으면 에이전트가 이를 참조한다고 설명한다.",
+   "question": "에이전트에게 일을 맡길 때 우리 팀의 규칙과 기준을 한곳에 글로 적어 두었는가?",
+   "url": "https://techcrunch.com/2026/10/14/figma-announces-new-features-to-define-how-agents-work-on-its-platform/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "간접 프롬프트 인젝션",
+  "context": "AI가 읽는 웹 응답의 헤더에 AI를 향한 명령이 숨어 있는 사례가 웹 응답 조사에서 나왔다. 사용자가 쓰지 않은 지시가 AI가 읽는 자료를 통해 들어올 수 있다는 점이 이 조사에 나온다."
+ },
+ "new_terms": [
+  {
+   "term": "디컴파일",
+   "note": "게임 디컴파일 소식에서 완성된 프로그램을 거꾸로 풀어 코드로 되돌리는 일이라는 뜻으로 쓰였다."
+  },
+  {
+   "term": "llms.txt",
+   "note": "헤더 조사에서 사이트가 AI 에이전트에게 다른 자료의 위치를 알려 주는 파일로 나왔다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "lab55222f29",
+   "reason": "lens는 2개까지라서 더 직접 대입하기 쉬운 두 건을 골랐다."
+  },
+  {
+   "id": "labe1815470",
+   "reason": "원문 수집 실패(HTTP 403)로 내용을 확인하지 못했다."
+  },
+  {
+   "id": "lab24cc989c",
+   "reason": "원문 수집 실패(HTTP 403)로 내용을 확인하지 못했다."
+  }
+ ]
+}
