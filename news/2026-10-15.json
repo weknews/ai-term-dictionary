@@ -1,0 +1,112 @@
+{
+ "date": "2026-10-15",
+ "headline": "Anthropic이 하루에 병합하는 코드 변경이 약 2,500건에서 3만 건 넘게 늘자, 코드 변경 이력을 관리하는 도구를 Git 대신 직접 만들었다.",
+ "items": [
+  {
+   "id": "labfd83ae3d",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "Anthropic, 코드 관리 도구를 Git 대신 직접 만들었다",
+   "summary": "Anthropic이 코드 변경 이력을 보관하는 도구(소스 관리 시스템)를 직접 만든 이유와 과정을 글로 밝혔다. 하루에 병합되는 코드 변경이 5월에 평균 약 2,500건이었고, 9월에는 3만 건을 넘었다고 한다. 새 시스템 Scion은 일곱 명의 팀이 만들었고, Git에서 옮기는 일은 다섯 달 만에 끝났다. 이 내용은 Simon Willison이 글을 소개하며 옮긴 것이다.",
+   "check": "Scion에 오프라인 기능이 없는 이유가 나와 있다. 가장 많이 쓰는 이용자가 Claude이고 Claude는 늘 온라인이라 중요하지 않았다고 한다. 모델에게 결함을 찾게 하는 검토가 지나치게 앞서 걱정하는 쪽으로 흐를 수 있어 숙련된 엔지니어가 방향을 잡아야 했다는 설명도 있다.",
+   "terms": [],
+   "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/",
+   "source": "simonwillison.net"
+  },
+  {
+   "id": "lab8560636e",
+   "role": "pick",
+   "kind": "논쟁",
+   "title": "AI로 게임을 대량으로 디컴파일하는 흐름이 생겼다",
+   "summary": "인디 게임 개발자 Popcar가 AI로 기존 게임을 디컴파일(완성된 게임에서 만든 방식을 거꾸로 풀어내는 일)하는 흐름이 최근 늘었다고 썼다. 게임끼리 섞는 시도와 옛 게임을 새 기기에서 돌리는 보존 작업이 늘었다고 한다. Popcar는 같은 방식으로 경쟁사의 소프트웨어를 가져다 쓸 수 있다는 점도 위험으로 꼽았다. Simon Willison이 이 글을 소개했다.",
+   "check": "좋은 점과 나쁜 점이 한 글에 함께 나와 있다. 옛 게임을 브라우저에서 돌리게 만드는 보존 사례와, 유료 게임이나 앱이 뜻과 달리 공개될 수 있다는 걱정이 나란히 적혀 있다.",
+   "terms": [],
+   "url": "https://simonwillison.net/2026/Oct/14/ai-is-mass-decompiling-games/",
+   "source": "simonwillison.net"
+  },
+  {
+   "id": "lab672ebf75",
+   "role": "pick",
+   "kind": "연구",
+   "title": "Ai2, 극한 기상을 3km 해상도로 싸게 시뮬레이션한다",
+   "summary": "Ai2가 기후 시뮬레이션 시스템 HiRO-ACEv2를 내놓았다. 100km 단위로 계산한 결과를 3km 단위의 세밀한 자료로 바꾸는 방식이다. 회사 발표 기준으로 지구 전체의 3km 자료를 만드는 비용이 기존 고해상도 모델(X-SHiELD)의 약 300분의 1이다. 비, 바람, 기압의 극단적인 값도 기존 모델의 통계와 3% 이내로 맞는다고 한다.",
+   "check": "한계를 밝힌 부분이 나와 있다. 지금은 따뜻해진 미래나 과거 관측 기록 같은 다른 기후에는 쓸 수 없고, 앞으로 학습을 넓힐 계획이라고 한다. 웹 데모에서 기존 시뮬레이션과 나란히 비교하고 내 지역을 확대해 볼 수 있다는 설명도 있다.",
+   "terms": [],
+   "url": "https://huggingface.co/blog/allenai/hiro-acev2",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "lab55222f29",
+   "role": "pick",
+   "kind": "정책",
+   "title": "YouTube Music, AI로 만든 곡에 라벨을 붙인다",
+   "summary": "YouTube Music이 생성형 AI가 관여한 곡을 알아볼 수 있는 라벨을 도입했다. 라벨은 플레이어 페이지에 나오고, 누르면 AI가 어떤 역할을 했는지 볼 수 있다. 파트너는 곡을 전부 생성, 일부 생성, 생성 없음 중 하나로 신고한다. AI가 관여했다는 이유만으로 수익 창출 자격이 사라지지는 않는다.",
+   "check": "다른 서비스의 대응이 함께 나와 있다. Deezer와 TIDAL은 AI 곡을 추천이나 사용료 지급에서 제외하고, YouTube는 제한 대신 공개를 택했다. 오토튠으로 보정한 곡은 생성 없음으로 분류한다는 기준도 적혀 있다.",
+   "terms": [],
+   "url": "https://techcrunch.com/2026/10/14/youtube-music-launches-new-labels-as-ai-generated-music-floods-streaming-platforms/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab619d87b0",
+   "angle": "돈",
+   "title": "사기꾼에게 일부러 속아 주고 정보를 파는 에이전트",
+   "what": "호주 스타트업 Apate는 피해자인 척하는 AI 에이전트 수천 개로 사기범과 대화하며 계좌, 전화번호, 사칭 브랜드 같은 정보를 모은다. 이 정보를 은행, 통신사, 정부기관 같은 고객에게 제공한다.",
+   "who": "정보를 받는 은행·통신사·정부기관은 사기 대응에 쓴다. Apate는 8월에 815만 달러의 시드 투자를 받았다고 한다.",
+   "question": "우리 일에서도 문제가 터진 뒤에 대응하는 대신, 먼저 다가가야 얻을 수 있는 정보가 있는가?",
+   "url": "https://techcrunch.com/2026/10/14/apate-sends-ai-agents-undercover-to-get-scammed-so-they-can-gather-fraud-intelligence/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab40dbf46b",
+   "angle": "만든 방식",
+   "title": "크롬 확장으로 시작해 영업 조사 에이전트가 된 팀",
+   "what": "Floqer는 영업팀이 하던 잠재 고객 조사를 AI 에이전트가 대신하게 하는 서비스다. 처음에는 크롬 확장 프로그램이었는데, 고객사가 고객 정보 정리에 쓰는 것을 보고 방향을 바꿨다.",
+   "who": "영업·마케팅 팀이 조사 시간을 아낀다. 고객들이 최대 70%까지 줄었다고 말했다는 것이 회사 설명이다. 회사는 연간 반복 매출이 120만 달러를 넘었다고 밝혔다.",
+   "question": "우리 제품을 쓰는 사람 중에 우리가 의도하지 않은 용도로 쓰는 사람은 없는가?",
+   "url": "https://techcrunch.com/2026/10/14/floqers-ai-agents-help-b2b-revenue-teams-research-customers/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "에이전트",
+  "context": "Apate는 사기범과 대화하는 에이전트를, Floqer는 잠재 고객을 조사하는 에이전트를 사업의 중심에 두었다."
+ },
+ "new_terms": [
+  {
+   "term": "디컴파일",
+   "note": "완성된 게임이나 소프트웨어에서 만든 방식을 거꾸로 풀어내는 일. Simon Willison이 소개한 글에서 AI로 하는 사례로 나왔다."
+  },
+  {
+   "term": "소스 관리 시스템",
+   "note": "코드 변경 이력을 보관하는 도구. Anthropic이 Git 대신 Scion을 만든 소식에서 나왔다."
+  },
+  {
+   "term": "적대적 검토",
+   "note": "모델 하나가 다른 결과물의 결함을 찾게 하는 검토 방식. Anthropic 글과 Simon Willison의 경험에서 나왔다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "labe1815470",
+   "reason": "원문 수집 실패(HTTP 403)로 내용을 확인할 수 없다"
+  },
+  {
+   "id": "lab24cc989c",
+   "reason": "원문 수집 실패(HTTP 403)로 내용을 확인할 수 없다"
+  },
+  {
+   "id": "lab50091788",
+   "reason": "주소가 비어 있어 수집하지 못했다"
+  },
+  {
+   "id": "lab0a0e0fec2",
+   "reason": "주소가 비어 있어 수집하지 못했다"
+  },
+  {
+   "id": "labffc748cb",
+   "reason": "원문 수집 실패(HTTP 403)로 내용을 확인할 수 없다"
+  }
+ ]
+}
