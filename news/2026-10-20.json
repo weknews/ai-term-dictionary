@@ -1,0 +1,151 @@
+{
+ "date": "2026-10-20",
+ "headline": "Microsoft가 회사가 쓰는 AI 에이전트를 감시하는 보안 기능 Guardian Agents를 내놨다.",
+ "items": [
+  {
+   "id": "lab0cffae2f",
+   "role": "pick",
+   "kind": "정책",
+   "title": "Microsoft, AI 에이전트를 내부자 위협에 빗대며 감시 기능 공개",
+   "summary": "Microsoft가 19일 기업용 보안 기능을 새로 내놨다. 그중 Guardian Agents는 회사가 쓰는 AI 에이전트(사람 대신 일을 처리하는 AI)를 지켜보는 기능이다. 보안 사업 총괄 Hayete Gallot는 \"최신 모델은 출처와 상관없이 믿을 수 없다\"고 썼다. 모델이 악의적이어서가 아니라 예측할 수 없어서라고 했다.",
+   "check": "Satya Nadella CEO가 블로그에 쓴 \"지능의 공급과 그에 대한 권한을 분리해야 한다\"는 말이 나와 있다. 기사가 Microsoft의 이해관계를 함께 짚은 부분과, 감시하는 쪽은 감사를 받는 쪽과 독립이어야 한다는 비유도 나와 있다.",
+   "terms": [
+    "에이전트",
+    "휴먼 인 더 루프"
+   ],
+   "url": "https://techcrunch.com/2026/10/19/microsoft-says-ai-agents-are-like-insider-threats-as-frontier-models-cant-be-trusted/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab039a8485",
+   "role": "pick",
+   "kind": "사고",
+   "title": "AI 코딩 도구 OpenCode 해킹, 사용자 AI 계정에 요금 쌓여",
+   "summary": "오픈소스 AI 코딩 도구 OpenCode가 오래된 시스템이 뚫렸다고 밝혔다. 온라인 플랫폼 OpenCode Console 사용자의 1.4%가 영향을 받았다. 사용자가 맡겨 둔 API 키(AI 서비스에 접속하는 디지털 비밀번호)가 노출돼, 계정에 수백 달러의 요금이 붙은 사람도 있고 1,000달러를 넘긴 사람도 있다. OpenAI는 환불에 협력했고, OpenCode도 환불을 진행 중이라고 했다.",
+   "check": "방어 작업에 쓰던 AI 모델이 악성 코드를 분석해 달라는 요청을 거부한 일이 나와 있다. 이후 검증된 사용자에게 주는 모델에 접근하자 조사가 나아졌다는 내용도 나와 있다. 회사는 증류 공격이라 불렀지만 일부는 과장이라 본다는 내용도 있다.",
+   "terms": [
+    "가드레일",
+    "증류"
+   ],
+   "url": "https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "labf93d8085",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "스마트 TV의 광고와 군더더기 앱을 AI로 지우는 사람들",
+   "summary": "한 개발자가 부모님 TV에서 광고가 먼저 뜨는 데 지쳐 Claude Code에 TV 모델명을 알려 줬다. AI가 와이파이로 TV를 찾아 앱 패키지 25개를 지우고 새 홈 화면을 만들었다. 그가 올린 방법을 이틀 새 수천 명이 자기 TV에 따라 했다고 한다.",
+   "check": "잘 안 된 경우도 나와 있다. \"TV를 해킹해 줘\"라는 단순한 요청은 AI가 응하지 않았고, TV가 먹통이 됐다는 사람도 있다. 공장 초기 상태로 되돌릴 수 있다는 설명과, 기존 홈 화면 교체 앱이 대안으로 소개된 부분도 있다.",
+   "terms": [
+    "바이브 코딩",
+    "코딩 에이전트"
+   ],
+   "url": "https://techcrunch.com/2026/10/19/people-are-using-ai-to-make-their-smart-tvs-dumb-again/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "50154060",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "로봇 학습용 영상을 얻으려고 집수리를 무료로 해 주는 AI 연구소",
+   "summary": "AI 연구소 HUMXN이 배관, 전기, 냉난방, 환기구 청소, 카펫 청소 비용을 보조한다. 대신 기술자가 몸에 다는 촬영 장비로 집 안에서 작업하는 모습을 기록한다. 미니애폴리스, 시카고, 마이애미 세 도시에서 시작하며, 기후가 서로 다른 곳의 데이터를 모으려는 것이다.",
+   "check": "기술자가 상황을 살피고, 도구를 고르고, 일이 끝났는지 판단하는 과정까지 담으려 한다는 설명이 나와 있다. 집주인은 무료로 수리를 받고 기술자는 보수를 받는 구조도 나와 있다.",
+   "terms": [],
+   "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-lab-offers-free-plumbing-and-hvac-repairs-across-three-cities-to-train-ai-robots-wearable-sensors-record-video-of-repair-work-for-robotics-training-free-services-also-include-electrical-work-air-duct-cleaning-and-carpet-cleaning",
+   "source": "tomshardware.com"
+  },
+  {
+   "id": "labaf02b0ba",
+   "role": "pick",
+   "kind": "논쟁",
+   "title": "코딩 에이전트가 프로그래머에게서 가져간 것을 쓴 글",
+   "summary": "Simon Willison이 Jeremy Scheff의 글 '프로그래밍의 부고'를 소개했다. Willison은 코딩 에이전트가 퍼즐 풀듯 코드를 짜는 일을 좋아한 프로그래머에게 남긴 상실을 이 글이 잘 담았다고 했다. 반대로 동작하는 시스템을 만드는 일을 좋아하는 사람에게 LLM(대규모 언어모델)은 계속 주는 선물이라는 문장도 있다.",
+   "check": "예전에는 프로그래머가 전략, 일정, 가능한 범위를 직접 정했다고 돌아보는 부분이 나와 있다. 같은 직업 안에서도 일의 어떤 면을 좋아했느냐에 따라 변화가 다르게 다가온다는 점이 나와 있다.",
+   "terms": [
+    "코딩 에이전트"
+   ],
+   "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/",
+   "source": "simonwillison.net"
+  },
+  {
+   "id": "50150434",
+   "role": "launch",
+   "kind": "모델",
+   "title": "Mistral, 시간에 따른 숫자 변화를 예측하는 모델 Timestral 공개",
+   "summary": "Mistral이 Timestral(센서 값처럼 시간에 따라 쌓이는 숫자를 예측하는 모델군)을 공개했다. 회사 발표 기준으로 공개 평가 세 곳에서 모두 1위이고, 이전 최고 모델의 3분의 2 크기다. 크기는 네 가지이고, 그래픽 처리 장치(GPU) 없이 일반 서버 CPU에서 돌아간다고 한다.",
+   "url": "https://mistral.ai/news/timestral/",
+   "source": "mistral.ai",
+   "terms": []
+  },
+  {
+   "id": "labd8832058",
+   "role": "launch",
+   "kind": "모델",
+   "title": "Nvidia, 기업용 에이전트와 PC에서 돌리는 오픈 모델 공개",
+   "summary": "Nvidia가 Nemotron 3.5 Super VL(기업에서 에이전트를 돌리는 오픈 웨이트 모델)과 PC에서 직접 돌리는 가벼운 Bolt 모델 둘을 내놨다. 회사 발표 기준으로 Super VL은 더 큰 Nemotron 3 Ultra와 비슷한 정확도를 낸다. Super VL과 Bolt 74B-A9B는 지금 쓸 수 있고, Bolt E4B는 이달 말에 나온다.",
+   "terms": [
+    "오픈 웨이트",
+    "온디바이스 AI"
+   ],
+   "url": "https://techcrunch.com/2026/10/19/nvidia-launches-new-open-models-to-run-agents-in-the-enterprise-and-on-pcs/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "50155245",
+   "role": "launch",
+   "kind": "모델",
+   "title": "Inception, 확산 방식 언어모델 Mercury 3 공개",
+   "summary": "Inception이 Mercury 3(글을 만드는 방식이 기존과 다른 확산 방식 언어모델)을 내놨다. 회사 발표 기준으로 GPT-6 Luna, Claude Haiku 5.5보다 4~8배 빠르면서 여러 시험에서 대등하거나 앞섰다. Inception API Platform과 OpenRouter, Baseten, Vercel에서 쓸 수 있고, 출시 기간에는 값이 50% 할인된다.",
+   "url": "https://www.inceptionlabs.ai/blog/introducing-mercury-3",
+   "source": "inceptionlabs.ai",
+   "terms": []
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab6a083a36",
+   "angle": "돈",
+   "title": "이용자가 많았던 챗봇 스타트업 Character.AI, 파산 뒤 Disney로",
+   "what": "챗봇 스타트업 Character.AI가 파산을 신청했고, Disney가 일부 자산을 2천만 달러에 인수하기로 했다. Disney는 직원 최소 60명에게 채용을 제안했고, 연 보수는 약 6천만 달러로 추산된다.",
+   "who": "법원 서류는 이용자 기반이 크고 활발했는데도 높은 비용과 소송·규제 부담이 이 회사를 짓눌렀다고 적었다. 채용 제안을 받은 직원 대부분은 Disney행을 받아들였다.",
+   "question": "이용자가 늘어도 비용과 법적 부담이 함께 늘어난다면, 우리 제품에서 그 부담은 어디서 생기는가?",
+   "url": "https://techcrunch.com/2026/10/18/disney-agrees-to-hire-the-majority-of-character-ais-workforce/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab71c2d726",
+   "angle": "만든 방식",
+   "title": "Wabi, 사용자가 앱을 만들게 하던 방식을 에이전트가 정하는 방식으로 바꿔",
+   "what": "Replika 창업자 Eugenia Kuyda가 개인 AI 비서 Wabi를 전체 공개했다. 지난 1년 사이 사람들이 개인용 소프트웨어를 좋아하면서도 직접 만드는 데는 시간을 쓰고 싶어 하지 않는다는 점을 알게 돼, 이제는 에이전트가 만들 앱을 정한다.",
+   "who": "Kuyda는 대화가 하나로 이어지는 방식은 시간이 갈수록 나빠진다고 말하며, Wabi는 주제별 대화방으로 나눴다. Wabi는 지금 무료이고 사업 모델은 정하지 않았다.",
+   "question": "우리 고객이 직접 만들어 쓰고 싶다고 말하는 것과 실제로 그 일에 시간을 쓰는 것은 같은가?",
+   "url": "https://techcrunch.com/2026/10/19/replikas-founder-built-the-ai-assistant-she-pitched-at-disrupt-12-years-ago/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "가드레일",
+  "context": "OpenCode 사고에서 방어용 AI 모델이 악성 코드 분석을 거부한 일을 두고, David Sacks가 \"가드레일이 역효과를 냈다\"고 썼다."
+ },
+ "new_terms": [
+  {
+   "term": "ACR(자동 콘텐츠 인식)",
+   "note": "스마트 TV 기사에서 화면 캡처나 음성 조각 등으로 지금 재생 중인 것을 알아내는 기술로 쓰였다."
+  },
+  {
+   "term": "시계열 파운데이션 모델",
+   "note": "Timestral 기사에서 시간에 따라 쌓이는 숫자를 미리 학습해 처음 보는 데이터도 예측하는 모델로 쓰였다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "labcef1d05c",
+   "reason": "렌즈는 2개까지라 제외했다. 펀드 운영 구조는 원문에 아직 공개되지 않았다."
+  },
+  {
+   "id": "lab7a364f35",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못해 쓰지 않았다."
+  }
+ ]
+}
