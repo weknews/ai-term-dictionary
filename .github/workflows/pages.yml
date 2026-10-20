@@ -25,8 +25,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 check.py
-      # 뉴스 목록 — 날짜 파일을 최신순으로. 저장소에 두면 날마다 PR끼리 충돌한다
-      - run: python3 -c "import glob,json,os;json.dump(sorted((os.path.basename(f)[:10] for f in glob.glob('news/20*.json')),reverse=True),open('news/index.json','w'))"
+      # 뉴스 목록(날짜 최신순)과 용어별 뉴스 색인(용어 카드의 "뉴스에 나온 일"). 저장소에 두면 날마다 PR끼리 충돌한다
+      - run: |
+          python3 - <<'EOF'
+          import glob, json, os
+          fs = sorted(glob.glob('news/20*.json'), reverse=True)
+          json.dump([os.path.basename(f)[:10] for f in fs], open('news/index.json', 'w'))
+          by = {}
+          for f in fs:
+              d = json.load(open(f))
+              for i in d.get('items', []):
+                  for t in i.get('terms') or []:
+                      by.setdefault(t, []).append({'d': d['date'], 't': i['title']})
+          json.dump(by, open('news/terms.json', 'w'), ensure_ascii=False)
+          EOF
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
