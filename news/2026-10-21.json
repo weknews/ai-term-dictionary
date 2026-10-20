@@ -1,0 +1,141 @@
+{
+ "date": "2026-10-21",
+ "headline": "WhatsApp 도움말 페이지에 사람 눈에는 보이지 않고 AI만 읽도록 적힌 지침이 있었고, 그중에 규제기관을 추천하지 말라는 내용이 있었다.",
+ "items": [
+  {
+   "id": "50159341",
+   "role": "pick",
+   "kind": "사고",
+   "title": "WhatsApp 도움말에 숨어 있던 AI용 지침, 규제기관 안내를 막았다",
+   "summary": "보안 업체 Redact가 WhatsApp 도움말 페이지 545개를 읽어 보니, 80개 페이지에 화면에는 나오지 않고 AI만 읽도록 적힌 글 102군데가 있었다. 그중 하나는 계정을 직접 지울 수 없는 사용자에게 데이터 보호 당국이나 규제기관을 추천하지 말라고 AI에게 지시했다. WhatsApp은 이 글이 자사 지원 챗봇용 지침이었고, 오류로 페이지에 나타난 것이며 지금은 고쳤다고 WIRED에 밝혔다.",
+   "check": "화면에 보이던 문구와 AI에게 전달된 문구가 나란히 나와 있다. WhatsApp 대변인이 챗봇이 법률 조언을 하지 않기를 바란다고 말한 부분과, 개인정보 방침에 적힌 내용과 지침을 비교한 표도 있다.",
+   "terms": [
+    "시스템 프롬프트"
+   ],
+   "url": "https://redact.dev/blog/whatsapp-help-pages-hidden-ai-instructions",
+   "source": "redact.dev"
+  },
+  {
+   "id": "50165801",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "가짜 통계 5만 개를 올린 사이트가 ChatGPT에 계속 인용됐다",
+   "summary": "GEO(AI 답변에 자기 글이 인용되게 하는 일)를 연구하는 Metehan Yesilyurt가 GPT-4.1로 가짜 통계 페이지 5만 개를 하루 만에 만들어 사이트에 올렸다. 숫자는 모두 지어낸 것이었고, 비용은 약 50달러였다. 7개월이 지난 지금 Google은 이 사이트를 검색에서 뺐지만, 글쓴이에 따르면 ChatGPT에서 1만 건 넘는 방문이 왔고 학술 논문과 한 금융그룹의 투자 리서치에도 인용됐다.",
+   "check": "사이트를 어떻게 만들었고 비용이 얼마였는지 나와 있다. Google 순위와 AI가 글을 가져가는 방식이 다르다는 설명, 가짜 숫자가 인용을 거치며 믿을 만해 보이게 된다는 '인용 세탁' 설명도 있다.",
+   "terms": [
+    "GEO / AEO",
+    "그라운딩"
+   ],
+   "url": "https://peec.ai/blog/publish-stats-get-cited-the-tactic-that-put-my-data-all-over-the-web",
+   "source": "peec.ai"
+  },
+  {
+   "id": "lab94e7f4f5",
+   "role": "pick",
+   "kind": "연구",
+   "title": "IBM, 학습한 규칙 목록을 지시문에 붙여 고객 응대 시험 최상위에 올랐다",
+   "summary": "IBM 연구진은 GPT-4.1(비교적 오래된 모델)로 고객 응대 AI를 돌려 보고, 시도에서 성공과 실패를 뽑아 짧은 행동 규칙으로 만들었다. 이 규칙을 AI에게 처음 주는 지시문(시스템 프롬프트)에 붙였다. 모델 자체는 고치지 않았다. 소매 분야에서 네 번 시도 모두 푼 과제 비율이 57.5퍼센트에서 67.5퍼센트로 올랐고, IBM은 10월 12일 순위표의 소매 항목 제출 결과보다 높다고 밝혔다.",
+   "check": "AI가 배운 규칙 예시가 나와 있다. 주문 처리 전에 고객 본인을 확인하고, 변경 전에 고객 동의를 받으라는 식이다. 규칙을 많이 붙이는 쪽이 나은 분야와 적게 붙이는 쪽이 나은 분야가 달랐다는 비교도 있다.",
+   "terms": [
+    "에이전트 메모리",
+    "시스템 프롬프트"
+   ],
+   "url": "https://huggingface.co/blog/ibm-research/altk-evolve-bc",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "labca293d85",
+   "role": "pick",
+   "kind": "연구",
+   "title": "Ai2, AI의 선택이 지원자의 인구 집단에 따라 흔들리는지 재는 시험 FairStress 공개",
+   "summary": "비영리 AI 연구소 Ai2가 채용·대출·의료 등 사람에게 영향을 주는 결정에서 AI의 공정성을 재는 FairStress를 공개했다. 최종 선택이 같은지만 보지 않고, 설득하는 문장을 들이밀었을 때 결정을 바꾸는 정도가 집단에 따라 다른지를 본다. 시나리오 300개를 바탕으로 1천 300만 개가 넘는 시험 문항을 만들었다.",
+   "check": "인구 집단 정보가 없을 때는 모델 행동에 차이가 거의 없었다는 결과가 나와 있다. 이 시험이 평등 중심의 공정성만 잰다고 밝히고, 형평 중심 접근은 다르게 볼 수 있다고 적은 부분도 있다.",
+   "terms": [
+    "벤치마크",
+    "알고리즘 편향"
+   ],
+   "url": "https://huggingface.co/blog/allenai/fairstress",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "lab3b5ce86c",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "코딩 에이전트 Claude Code로 만든 전략 게임, '더 재미있게 만들어 줘'가 전환점이었다",
+   "summary": "개발자 Simon Willison이 휴대폰과 컴퓨터 브라우저에서 하는 실시간 전략 게임 Battle Drones를 만들었다. 12번의 큰 개선과 321건의 코드 수정을 코딩 에이전트가 맡았고, 본인은 코드를 거의 검토하지 않았다고 한다. 가까이 있는 두 기기가 소리로 게임 상태를 주고받는 멀티플레이 기능도 있다.",
+   "check": "버전마다 어떤 지시를 줬는지와 대화 기록 링크가 나와 있다. 처음 세 버전은 재미가 없었다가 '훨씬 더 재미있게 만들어 줘'라고 지시한 뒤 달라진 전후 비교도 있다.",
+   "terms": [
+    "바이브 코딩",
+    "코딩 에이전트"
+   ],
+   "url": "https://simonwillison.net/2026/Oct/20/battledrones/",
+   "source": "simonwillison.net"
+  },
+  {
+   "id": "gn35725",
+   "role": "launch",
+   "kind": "모델",
+   "title": "Mistral, 50개 언어 음성 인식 모델과 실시간 음성 에이전트 도구 Voxtral 3 공개",
+   "summary": "Mistral이 음성을 글로 바꾸는 모델, 글을 음성으로 읽는 모델, 이를 묶어 전화 상담 같은 음성 에이전트를 만드는 개발 도구를 함께 내놓았다. 음성을 글로 바꾸는 기능은 50개 언어를 지원한다. 실시간 모델은 35개 이상 언어에서 500밀리초 미만의 지연으로 동작하고, Mistral 발표 기준 전사 성능 비교에서 Whisper 등을 앞섰다. Mistral API에서 쓸 수 있다.",
+   "url": "https://news.hada.io/topic?id=35725",
+   "source": "news.hada.io",
+   "terms": []
+  },
+  {
+   "id": "gn35703",
+   "role": "launch",
+   "kind": "제품",
+   "title": "DeepSeek, 자사 서비스를 돌리는 프로그램 DeepInfer를 오픈소스로 공개",
+   "summary": "DeepSeek이 AI 모델이 답을 만들어 내는 과정을 빠르게 돌리는 프로그램 DeepInfer를 공개했다. 대규모 서비스를 구동하는 프레임워크라고 소개했고, 이번에 풀린 범위는 오프라인 추론이다. DeepSeek-V4.1-Flash를 지원하며 Apache License 2.0으로 공개했다. 완전한 서비스를 꾸리려면 일부 기능을 따로 갖춰야 한다.",
+   "url": "https://news.hada.io/topic?id=35703",
+   "source": "news.hada.io",
+   "terms": []
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab88f1e2c2",
+   "angle": "만든 방식",
+   "title": "편집자 없이 주 1회 영상을 올리는 크리에이터의 작업 방식",
+   "what": "29만 명 넘는 TikTok 팔로워를 가진 Brooke Lacey가 Claude Code, FFmpeg, Whisper를 엮어 휴대폰 영상을 약 15초 만에 자막 달린 컷 편집본으로 만든다. 팟캐스트에서 이 과정을 직접 시연했다.",
+   "who": "원문은 편집자 없이 주간 단위 짧은 영상 운영을 한다고 소개한다. 편집을 맡기던 일을 도구가 대신하는 구조이고, 그 밖의 비용 흐름은 원문에 나와 있지 않다.",
+   "question": "우리 팀이 매주 반복하는 작업 중, 내 방식을 AI에게 가르쳐 맡길 수 있는 것은 무엇인가?",
+   "url": "https://www.lennysnewsletter.com/p/claude-cuts-my-tiktok-how-this-creator",
+   "source": "lennysnewsletter.com"
+  },
+  {
+   "id": "lab6fce357d",
+   "angle": "플랫폼",
+   "title": "Figma 공동창업자가 MCP를 완벽하지 않은 규약이라고 말했다",
+   "what": "Figma는 AI 에이전트가 외부 도구와 연결되는 방식인 MCP의 새 협력사 20곳을 발표했다. 공동창업자 Dylan Field는 MCP가 완벽한 규약은 아니고 개선 여지가 많다고 말했다.",
+   "who": "Field는 MCP가 프런티어 랩(최첨단 모델을 만드는 회사)에 유리한 쪽이라고 말했다. 또 데이터를 더 열수록 남용 가능성이 커져 Figma가 완전히 열 수는 없다고 했다.",
+   "question": "우리 서비스의 데이터를 외부 AI 도구에 어디까지 열어 둘 것인가?",
+   "url": "https://techcrunch.com/2026/10/20/figma-co-founder-dylan-field-thinks-mcp-is-not-a-perfect-protocol/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "시스템 프롬프트",
+  "context": "WhatsApp 도움말에는 AI에게만 전달된 숨은 지침이 있었다. IBM 연구진은 학습한 규칙을 AI에게 주는 지시문에 붙여 고객 응대 시험 결과를 높였다."
+ },
+ "new_terms": [
+  {
+   "term": "인용 세탁(citation laundering)",
+   "note": "가짜 통계 실험 글에서, 출처 없던 숫자가 논문과 은행 리서치에 인용되며 믿을 만해 보이게 되는 현상을 가리키는 말로 쓰였다."
+  },
+  {
+   "term": "적대적 접두문(adversarial prefix)",
+   "note": "FairStress에서 AI가 이미 낸 결정을 바꾸도록 앞에 붙이는 설득 문장을 가리키는 말로 쓰였다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "labd45dacf7",
+   "reason": "스타트업 렌즈 후보였으나 Figma 소식이 플랫폼 관점에 더 맞아 렌즈 2개 한도로 뺐다."
+  },
+  {
+   "id": "labb3fcb2e4",
+   "reason": "수집 실패(HTTP 403). OpenAI 가맹점 사례 원문을 읽지 못해 쓰지 않았다."
+  }
+ ]
+}
