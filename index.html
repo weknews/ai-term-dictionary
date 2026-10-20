@@ -281,6 +281,12 @@ body[data-view="terms"] .searchrow{display:flex}
   background:var(--faint-2); padding:10px 14px; border-left:3px solid var(--yellow)}
 .term .s b{display:block; font-family:var(--mono); font-size:10.5px; font-weight:600;
   letter-spacing:.1em; color:var(--muted); margin-bottom:3px}
+.term .nw-in{margin:9px 0 0; max-width:74ch; font-size:14px}
+.term .nw-in b{display:block; font-family:var(--mono); font-size:10.5px; font-weight:600;
+  letter-spacing:.1em; color:var(--muted); margin-bottom:3px}
+.term .nw-in a{display:block; color:var(--ink); text-decoration:none; padding:2px 0}
+.term .nw-in a:hover{text-decoration:underline}
+.term .nw-in a span{font-family:var(--mono); font-size:11.5px; color:var(--muted); margin-right:8px}
 .term mark{background:var(--yellow); color:#16233F; padding:0 1px}
 .empty{font-family:var(--mono); font-size:13px; color:var(--muted); padding:50px 0; text-align:center}
 
@@ -1184,6 +1190,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
     return;
   }
   var ASOF = "2026-09-22";
+  var INNEWS = {};
   var FLAGS = {
     hot:  {label:"지금 뜨는 말", cls:"hot"},
     care: {label:"쓸 때 주의", cls:"care"},
@@ -1300,6 +1307,9 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
         html += '<p class="d">' + hi(t.d, needle) + "</p>";
         if (t.n) html += '<p class="n">' + hi(t.n, needle) + "</p>";
         if (t.s) html += '<p class="s"><b>' + ASOF + ' 기준</b>' + hi(t.s, needle) + "</p>";
+        var nw = INNEWS[t.k];
+        if (nw) html += '<p class="nw-in"><b>뉴스에 나온 일 · ' + nw.length + "건</b>" + nw.slice(0, 3).map(function(x){
+          return '<a href="?d=' + esc(x.d) + '#now"><span>' + esc(x.d.slice(5).replace("-", "/")) + "</span>" + esc(x.t) + "</a>"; }).join("") + "</p>";
         html += "</article>";
       });
       html += "</section>";
@@ -1406,6 +1416,10 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   var q0 = new URLSearchParams(location.search).get("q");
   if (q0) { q.value = q0; showView("terms"); }
   sync(); render(); measureTop();
+  // 용어별 뉴스 색인 — 배포 때 news/terms.json으로 만든다. 받으면 목록을 다시 그린다
+  if (window.fetch && location.protocol !== "file:")
+    fetch("news/terms.json", {cache: "no-cache"}).then(function(r){ return r.json(); })
+      .then(function(m){ INNEWS = m; render(); }).catch(function(){});
   if (document.body.getAttribute("data-view") === "terms") q.focus({preventScroll:true});
 })();
 </script>

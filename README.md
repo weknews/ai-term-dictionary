@@ -30,7 +30,7 @@ python3 -m http.server 8000
 ```
 
 `file://`로 직접 열면 브라우저 보안 정책 때문에 `terms.js`와 뉴스가 로드되지 않는다. 로컬 서버로 연다.
-오늘의 뉴스 탭은 배포 때 만드는 `news/index.json`이 있어야 채워진다. 발행 전 초안은 `news/review.sh`로 본다.
+오늘의 뉴스 탭은 배포 때 만드는 `news/index.json`이 있어야 채워진다. 용어 카드의 "뉴스에 나온 일"도 배포 때 만드는 `news/terms.json`에서 온다. 발행 전 초안은 `news/review.sh`로 본다.
 
 ## 구성
 
