@@ -1,0 +1,120 @@
+{
+ "date": "2026-10-22",
+ "headline": "DeepSeek이 자사 모델을 돌리는 데 쓰는 추론 엔진 DeepInfer를 오픈소스로 공개했다.",
+ "items": [
+  {
+   "id": "lab7dadac6a",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "DeepSeek, 실제 서비스에 쓰는 추론 엔진과 운영 수치 공개",
+   "summary": "DeepSeek이 DeepSeek-V4.1-Flash를 돌리는 추론 엔진 DeepInfer를 오픈소스로 공개했다. 추론 엔진은 학습을 마친 모델로 답을 만들어 내는 소프트웨어다. DeepSeek이 밝힌 운영 수치는 클러스터 하나가 하루 155조 토큰(글자 조각 단위)을 처리하고, 입력의 96%가 이미 처리해 둔 결과를 다시 쓰는 캐시 적중이라는 것이다. 이 수치는 회사 발표 기준이며 외부 검증을 받지 않았다. 아래 내용은 Latent Space 정리 기준이다.",
+   "check": "다른 오픈소스 추론 엔진 vLLM 팀이 같은 조건에서 답을 만드는 속도가 DeepInfer 공개 결과의 6% 이내라고 밝힌 부분이 나와 있다. 캐시 관리와 부하 분산 부분은 아직 전부 공개되지 않았다는 설명도 있다.",
+   "terms": [
+    "추론",
+    "프롬프트 캐싱"
+   ],
+   "url": "https://www.latent.space/p/ainews-deepseek-deepinfer-open-source",
+   "source": "latent.space"
+  },
+  {
+   "id": "lab4c6c987b",
+   "role": "pick",
+   "kind": "정책",
+   "title": "Anthropic, 지분 일부를 공익 기금에 배정",
+   "summary": "Anthropic이 새 기금 Anthropic Public Benefit Fund에 회사 지분의 5%를 배정한다고 밝혔다. 주주 승인을 받는다는 조건이 붙는다. 회사 가치가 정해 둔 기준에서 50% 오를 때마다 이사회 재량으로 2%를 더 넣을 수 있다. 창업자와 직원이 이미 약속한 분을 합치면 회사 지분의 약 20%가 공익에 쓰이게 된다고 한다.",
+   "check": "기금을 비영리 법인이 아니라 LLC로 만든 이유가 나와 있다. 여러 형태의 기부 사이에서 조정할 여지를 두기 위해서다. 일자리 영향 연구에 이미 2억 달러를 약속했다는 예시도 있다.",
+   "terms": [],
+   "url": "https://www.anthropic.com/news/public-benefit-fund",
+   "source": "anthropic.com"
+  },
+  {
+   "id": "lab0fff4705",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "Claude Code를 사용자가 직접 고쳐 쓰는 'Claude Mods'",
+   "summary": "Claude Mods는 코딩 에이전트 Claude Code에 붙이는 플러그인이다. 화면 표시와 동작을 사용자가 바꿀 수 있다. 글쓴이 Dan McAteer는 에이전트가 사람에게 언제 말을 걸고 무엇을 보여 줄지 정하는 층이라고 설명한다. Anthropic이 기본으로 넣은 mod는 여섯 개다.",
+   "check": "별도 에이전트가 작업을 지켜보다가 놓치기 쉬운 점을 알려 준 사례가 나와 있다. 글쓴이의 파일 수십 개에 아직 기록을 남기지 않은 작업이 있다는 내용이다. ChatGPT와 Cursor가 사람의 주의를 다루는 방식과 비교한 부분도 있다.",
+   "terms": [
+    "하네스 엔지니어링"
+   ],
+   "url": "https://www.latent.space/p/claude-mods",
+   "source": "latent.space"
+  },
+  {
+   "id": "lab354f89a6",
+   "role": "pick",
+   "kind": "연구",
+   "title": "소형 모델의 어휘를 용도에 맞게 줄여 추론 비용 77% 절감",
+   "summary": "Dharma-AI 팀이 포르투갈어 에세이 채점 모델에서 글자 조각 목록(어휘)을 용도에 맞게 다시 만들었다. 모델은 그대로 두고 측정한 추론 비용을 77% 줄였다고 밝혔다. 회사 발표 기준이며, 논문은 심사 중이라 수치가 바뀔 수 있다고 적혀 있다.",
+   "check": "읽을 때보다 쓸 때 비용이 더 든다는 설명이 나와 있다. 이 채점 모델에서는 응답 토큰 하나가 입력 토큰 하나의 7.4배였다. 입력 상자보다 출력 상자가 일곱 배 비싼 배송 회사 비유도 있다.",
+   "terms": [
+    "토크나이저",
+    "SLM / 소형 모델"
+   ],
+   "url": "https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization",
+   "source": "huggingface.co"
+  }
+ ],
+ "lens": [
+  {
+   "id": "laba9cc4be8",
+   "angle": "플랫폼",
+   "title": "Walmart, AI 에이전트용 접속 창구를 열다",
+   "what": "Walmart가 승인된 AI 에이전트가 재고를 검색하고 구매까지 할 수 있는 Agent Gateway를 내놓았다. 같은 기사에 따르면 Amazon은 최근 AI 에이전트의 구매 대행을 막기 시작했다.",
+   "who": "Walmart 설명에 따르면 고객은 에이전트별 프로필로 에이전트의 구매를 따로 보고, 건별 승인이나 지출 한도를 정할 수 있다. 에이전트가 의도와 다르게 움직여도 반품 절차가 적용된다. 약관을 어기는 에이전트는 접속이 막힌다.",
+   "question": "우리 서비스를 AI 에이전트가 대신 쓰러 온다면, 열어 줄지 막을지, 연다면 어떤 한도와 조건을 걸겠는가?",
+   "url": "https://techcrunch.com/2026/10/21/while-amazon-blocks-ai-agents-walmart-rolls-out-the-welcome-mat/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "laba6e1fb4e",
+   "angle": "돈",
+   "title": "시간이 아니라 결과물로 값을 매기는 AI 개발 회사 Tenex",
+   "what": "AI 개발 회사 Tenex는 AI 엔지니어에게 일한 시간이 아니라 내놓은 결과물에 따라 보수를 준다. AI가 엔지니어를 빠르게 하면 시간당 요금은 같은 일에 더 적은 돈을 받게 만들 수 있다는 이유다.",
+   "who": "Alex Lieberman은 시간당으로 고객에게 청구하던 때 결과물은 좋아지고 빨라지는데 보수는 줄었다고 말한다. 고객 문제를 이해하고 설계하는 일처럼 작업 목록에 담기지 않는 일을 어떻게 보상할지는 아직 어려운 질문으로 남아 있다.",
+   "question": "AI로 일이 빨라질 때 우리는 일의 값을 시간 대신 무엇을 기준으로 매기고 있는가?",
+   "url": "https://www.latent.space/p/tenex",
+   "source": "latent.space"
+  }
+ ],
+ "term_of_day": {
+  "term": "프롬프트 캐싱",
+  "context": "DeepSeek이 DeepInfer 운영 수치로 입력의 96%가 캐시 적중이라고 밝혔고, 소식을 전한 글은 최대 72시간 캐싱을 OpenAI가 막 발표한 12시간과 견주었다."
+ },
+ "new_terms": [
+  {
+   "term": "Attention Interface",
+   "note": "Claude Mods 글에서 에이전트가 사람에게 언제 끼어들고 무엇을 보여 줄지 정하는 층이라는 뜻으로 쓰였다."
+  },
+  {
+   "term": "Agent Profiles",
+   "note": "Walmart 기사에서 고객이 AI 에이전트별로 만드는 전용 프로필을 뜻한다. 에이전트의 구매를 따로 보고 한도를 정하는 데 쓰인다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "lab94cadd3b",
+   "reason": "Anthropic 기능 글 목록 페이지로, 오늘 새로 나온 소식이 없다."
+  },
+  {
+   "id": "lab0b138e9a",
+   "reason": "렌즈는 2개까지라 Walmart와 Tenex를 우선했다."
+  },
+  {
+   "id": "lab1de8e62f",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못했다."
+  },
+  {
+   "id": "labedef63b5",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못했다."
+  },
+  {
+   "id": "labb3fcb2e4",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못했다."
+  },
+  {
+   "id": "lab61f4d014",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못했다."
+  }
+ ]
+}
