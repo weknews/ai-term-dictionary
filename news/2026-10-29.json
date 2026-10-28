@@ -1,0 +1,151 @@
+{
+ "date": "2026-10-29",
+ "headline": "구글 딥마인드가 Gemini 4 Carbon을 공개하고, 이번 주부터 일부 보안 방어 담당자에게 먼저 제공하기 시작했다.",
+ "items": [
+  {
+   "id": "labb0da25ea",
+   "role": "launch",
+   "kind": "모델",
+   "title": "구글 딥마인드, Gemini 4 Carbon 공개",
+   "summary": "구글 딥마인드가 Gemini 4 Carbon(구글의 최신 대형 AI 모델)을 공개했다. 회사는 보안 취약점을 찾고 고치는 능력에서 가장 앞섰다고 밝혔다(회사 발표 기준). 이번 주부터 일부 보안 방어 담당자에게 먼저 제공하고, 개발자·기업·일반 사용자에게는 이후에 내놓을 계획이다.",
+   "terms": [
+    "프런티어 모델 / 프런티어 랩"
+   ],
+   "url": "https://deepmind.google/blog/gemini-4-carbon-our-next-frontier-model/",
+   "source": "deepmind.google"
+  },
+  {
+   "id": "labd17d13a0",
+   "role": "launch",
+   "kind": "모델",
+   "title": "구글 딥마인드, 가상 세계를 실시간으로 만드는 Genie 4 발표",
+   "summary": "구글 딥마인드가 Genie 4(글로 지시하면 소리까지 갖춘 가상 세계를 실시간으로 만들어 주는 월드 모델)를 발표했다. 회사는 이전보다 실제에 가까운 영상과 움직임을 낸다고 밝혔다(회사 발표 기준). 지금은 신뢰할 수 있는 테스터에게 연구 미리보기로 내놓았고, 이후 Google AI Ultra 구독자와 Gemini API 초기 접근 파트너부터 제공할 계획이다.",
+   "terms": [
+    "월드 모델"
+   ],
+   "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+   "source": "deepmind.google"
+  },
+  {
+   "id": "lab51b6dc02",
+   "role": "launch",
+   "kind": "모델",
+   "title": "OpenAI, 화면을 읽고 컴퓨터를 조작하는 GPT-6.1 Terra 출시",
+   "summary": "OpenAI가 GPT-6.1 Terra(빠르고 효율적인 모델)를 냈다. OpenAI 발표문에 따르면 그림을 자세히 읽고 컴퓨터를 정확히 조작하며, 글이 더 또렷하다. Simon Willison의 글 기준으로 값은 GPT-5.6 Terra와 GPT-6.1 Sol의 거의 절반이다.",
+   "url": "https://simonwillison.net/2026/Oct/26/gpt-61-terra/",
+   "source": "simonwillison.net",
+   "terms": []
+  },
+  {
+   "id": "50275626",
+   "role": "pick",
+   "kind": "연구",
+   "title": "AI 에이전트에게 세무 과제 50개를 맡겼더니 가장 높은 통과율이 10.8%였다",
+   "summary": "Surge AI가 AI 에이전트를 실제 세무 업무에 가깝게 만든 과제 50개로 시험했다. 과제 기준의 95% 이상을 채워야 통과로 쳤고, 가장 높은 Claude Sonnet 5.5의 통과율이 10.8%였다. 고객이 묻지 않은 중요한 문제를 스스로 찾아내는지도 평가했다.",
+   "check": "콘도를 파는 시기를 묻는 사례가 나와 있다. 같은 질문을 다섯 번 시켰을 때 Astra는 한 번도 짚지 않은 기한을 Opus는 다섯 번 모두 짚었다. 별거 부부의 퇴직연금 사례에서는 반대로 Opus가 확인하지 않은 가정 위에서 답한 과정이 나와 있다.",
+   "terms": [
+    "벤치마크",
+    "평가"
+   ],
+   "url": "https://surgehq.ai/blog/dayjob-tax",
+   "source": "surgehq.ai"
+  },
+  {
+   "id": "gn36150",
+   "role": "pick",
+   "kind": "사고",
+   "title": "Cloudflare AI 서비스에서 다른 고객의 입력 내용이 응답에 섞였다",
+   "summary": "Cloudflare Workers AI(Cloudflare의 AI 모델 제공 서비스)의 GLM-5.3 모델에서 다른 고객의 프롬프트와 생성 내용이 응답에 섞였다. 8월 27일부터 9월 9일까지 응답 155건이 영향을 받았고, 모두 매우 긴 입력에 대한 응답이었다. Cloudflare는 모델을 중단하고 고쳐서 9월 9일 복구했으며, 의도적 악용의 증거는 찾지 못했다고 밝혔다. 이 글은 GeekNews가 Cloudflare 발표를 정리한 것이다.",
+   "check": "원인이 둘로 나뉘어 있다. 처리 공간이 입력 한도보다 작았다는 점, 거부된 요청이 오류 없이 정상 처리된 소프트웨어 버그다. 출시 전 시험에서 응답 코드만 확인하고 답변 내용은 확인하지 않았다는 반성과 시간대별 대응 일정도 나와 있다.",
+   "terms": [
+    "KV 캐시",
+    "데이터 유출"
+   ],
+   "url": "https://news.hada.io/topic?id=36150",
+   "source": "news.hada.io"
+  },
+  {
+   "id": "lab93b9dc1d",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "Simon Willison, 10월이 AI로 게임을 만드는 분기점이라고 썼다",
+   "summary": "Simon Willison이 최근 몇 주 사이 코드를 전혀 보지 않고 즐길 만한 게임 네 개를 AI로 만들었다고 썼다. 그는 Claude Opus 5.5(Anthropic의 AI 모델)가 게임 설계에서도 나아졌다고 본다. 한 게임은 '더 재미있게 만들어 줘'라는 요청 뒤에 크게 달라졌다고 한다.",
+   "check": "각 게임을 만들 때 쓴 프롬프트가 그대로 나와 있다. 한 번에 끝난 게임과, 이야기 진행상의 오류를 잡느라 시험 플레이와 추가 요청을 거듭한 게임이 대비된다.",
+   "terms": [
+    "바이브 코딩"
+   ],
+   "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/",
+   "source": "simonwillison.net"
+  },
+  {
+   "id": "lab34370e88",
+   "role": "pick",
+   "kind": "연구",
+   "title": "AI가 연구 아이디어의 참신성을 판단할 수 있는지 시험했더니 질문 문구에 따라 결과가 뒤집혔다",
+   "summary": "Ai2가 AI에게 연구 아이디어가 새로운지 판정시키는 방식이 믿을 만한지 조사했다. 한 모델에 질문 문구만 바꾸자 두 아이디어 중 참신한 쪽을 맞히는 정확도가 93.5%에서 40.9%로 떨어졌다. 참신성 판정용으로 따로 만든 시스템 두 가지도 단순한 질문만 쓴 Claude Opus 4.6보다 못했다.",
+   "check": "같은 쌍에 문구만 다른 질문 두 가지를 던져 결과를 비교한 실험이 나와 있다. 전문가가 30쌍을 직접 검토해 확인한 과정도 있다. AI에게 판정을 맡기는 방식을 어떻게 검증했는지 볼 수 있다.",
+   "terms": [
+    "LLM-as-a-judge",
+    "평가"
+   ],
+   "url": "https://huggingface.co/blog/allenai/novelty-bench",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "labde0ff86e",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "Anthropic, AI 에이전트의 '뇌'와 '손'을 분리해 설계했다",
+   "summary": "Latent Space 인터뷰에서 Anthropic의 엔지니어링·제품 책임자가 Managed Agents의 설계를 설명했다. 작업 기록과 진행 방식을 맡는 부분(뇌)을, 코드를 실행하는 격리 공간(손)과 나눴다. 실행 공간이 망가져도 에이전트 작업 전체가 함께 사라지지 않는다고 한다.",
+   "check": "인증 정보를 코드 실행 공간 밖에 따로 두면 코드가 읽어 갈 정보가 없다는 설명이 나와 있다. 오래 남겨야 할 부분, 믿을 수 없는 작업을 실행하는 부분, 비밀 정보가 필요한 위치를 나눠 묻는 세 가지 질문도 있다.",
+   "terms": [
+    "샌드박스",
+    "에이전트"
+   ],
+   "url": "https://latent.space/p/opus55/",
+   "source": "latent.space"
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab2ad8f77a",
+   "angle": "플랫폼",
+   "title": "AI 에이전트가 앱 백엔드로 Supabase를 가장 먼저 고른다",
+   "what": "swyx가 자체 추적기로 확인했더니 최신 모델 대부분이 앱 백엔드의 첫 선택으로 Supabase를 골랐다. Supabase 창업자들은 AI 사용이 늘면서 가입에서 실제 사용까지 이어지는 비율이 좋아졌다고 말한다.",
+   "who": "창업자들은 에이전트가 가입부터 작동하는 설정까지 한 흐름으로 끌고 가 준다고 설명한다. 원문은 이 효과를 Supabase의 경우로만 말한다.",
+   "question": "우리 제품은 AI 에이전트가 처음 써 보면서 설정을 끝까지 마칠 수 있는 형태인가?",
+   "url": "https://latent.space/p/supabase/",
+   "source": "latent.space"
+  },
+  {
+   "id": "50273623",
+   "angle": "반대편",
+   "title": "법률 AI를 오픈소스로 만들어 사무소 서버에서 돌리게 한 개발자",
+   "what": "한 개발자가 Harvey와 같은 법률 AI를 만들어 오픈소스로 공개했다. 문서와 검색 색인, 대화 기록은 사용자 서버에 저장되고, 질문과 관련 문서 내용은 사용자가 정한 AI 제공사로 전송된다.",
+   "who": "무료로 자기 서버에 설치해 쓸 수 있고, 수정해서 팔 수도 있다고 라이선스에 적혀 있다. 유료 지원과 비공개 설치는 유지관리자가 제공한다.",
+   "question": "고객이 자료를 밖에 두기 꺼린다면, 우리 제품을 고객의 서버에서 돌리는 방식도 가능한가?",
+   "url": "https://github.com/thomasunise/casecite",
+   "source": "github.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "월드 모델",
+  "context": "구글 딥마인드가 Genie 4를 글이 아니라 가상 세계를 만들어 내는 월드 모델로 소개했다."
+ },
+ "new_terms": [
+  {
+   "term": "뇌와 손의 분리",
+   "note": "Anthropic 인터뷰에서 에이전트의 작업 기록·진행 부분(뇌)과 코드를 실행하는 격리 공간(손)을 나누는 설계를 가리키는 말로 쓰였다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "50266910",
+   "reason": "Qwen 뉴런 연구는 모델 내부를 다루는 기술적 내용이라 비개발자에게 설명하기 어렵다."
+  },
+  {
+   "id": "labba8e4466",
+   "reason": "Stratechery 글은 구독자 전용이라 수집된 원문에 본문이 없다."
+  }
+ ]
+}
