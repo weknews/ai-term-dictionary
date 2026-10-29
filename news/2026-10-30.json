@@ -1,0 +1,143 @@
+{
+ "date": "2026-10-30",
+ "headline": "Mistral이 누구나 내려받아 쓸 수 있는 대형 모델 Mistral Large 4의 가중치(모델의 학습 결과물)를 공개했다.",
+ "items": [
+  {
+   "id": "lab672400a4",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "AI 에이전트 무리가 매시간 서비스를 고치는 게임 회사",
+   "summary": "Jacob Sansbury가 멀티플레이 게임 Spawn(프롬프트로 게임 세계를 바꾸는 게임)을 만드는 방식을 글로 썼다. Fable이라는 AI 모델 기반 에이전트(스스로 일을 처리하는 AI) 무리가 개발하고, 이들이 쓰는 토큰 비용이 한 달에 300만 달러가 넘는다고 한다. 운영 중인 서비스 코드를 매시간 직접 고쳐 올리고, 한 시간 동안 배포가 없으면 가장 심각한 사고로 취급한다고 한다.",
+   "check": "사용자나 게임 속 AI가 낸 버그 신고가 에이전트에게 바로 넘어가고, 보통 한 시간 안에 같은 대화창으로 수정 결과가 돌아오는 흐름이 나와 있다. 모델마다 결과가 달랐다는 이야기도 있다. 보안 수정을 맡겼더니 위험한 기능을 모두 꺼 버린 사례다. 이 글을 소개한 Simon Willison은 이 방식이 사고 때 피해가 큰 소프트웨어에도 통할지 상상하기 어렵다고 덧붙였다.",
+   "terms": [
+    "에이전트 스웜"
+   ],
+   "url": "https://simonwillison.net/2026/Oct/29/how-i-built-the-most-ai-pilled-company-in-the-world/",
+   "source": "simonwillison.net"
+  },
+  {
+   "id": "lab93b9dc1d",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "코드를 한 줄도 보지 않고 재미있는 게임 네 개를 만들었다",
+   "summary": "개발자 Simon Willison은 지금이 바이브 코딩(코드를 직접 보지 않고 말로 시켜 만드는 방식)으로 게임을 만들기에 변곡점이라고 썼다. 지난 몇 주 동안 이 방식으로 직접 즐긴 게임 네 개를 만들었다고 한다. 전환점은 Claude Opus 5.5에게 \"더 훨씬 재미있게 만들어\"라고 요청한 것이었다고 한다.",
+   "check": "각 게임을 만든 실제 프롬프트와 대화 기록이 공개돼 있다. 한 번의 요청으로 끝난 작은 게임과 여러 차례 시험 플레이와 수정이 필요했던 이야기 게임이 나란히 나온다. 같은 요청을 다른 모델에 넣어 비교한 부분도 있다.",
+   "terms": [
+    "바이브 코딩"
+   ],
+   "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/",
+   "source": "simonwillison.net"
+  },
+  {
+   "id": "50290283",
+   "role": "pick",
+   "kind": "연구",
+   "title": "AI가 인용한 통계 1285개의 출처를 끝까지 따라가 봤다",
+   "summary": "Trakkr가 AI 비서 다섯 종에 숫자가 필요한 질문 200개를 던지고, 인용된 통계 1285개의 출처를 최대 다섯 단계까지 따라갔다. 같은 내용을 말하는 연구에 닿은 것은 40%였다. 40%는 확인할 수 없는 출처에서 멈췄고, 11%는 연구 없이 서로 숫자만 되풀이했다.",
+   "check": "\"영업사원 44%가 후속 연락 한 번에 포기한다\"는 숫자의 추적 경로가 단계별로 나와 있다. 다섯 비서가 같은 답을 했지만 끝에는 연구가 없었다. 인용된 페이지 종류별로 출처에 닿은 비율을 비교한 부분도 있다.",
+   "terms": [
+    "출처 표기"
+   ],
+   "url": "https://trakkr.ai/trakkr-research/zombie-stats",
+   "source": "trakkr.ai"
+  },
+  {
+   "id": "50282766",
+   "role": "pick",
+   "kind": "논쟁",
+   "title": "뉴욕타임스 요리 앱에 AI 기능이 붙자 이용자 반응이 차가웠다",
+   "summary": "뉴욕타임스 쿠킹 앱이 재료 대체 기능을 새로 내놨다. 이미 있던 단위 변환, 분량 조절 기능에 더한 것이다. Nieman Lab이 공지에 달린 독자 댓글을 AI로 분석했더니 약 77%가 부정적이었고 14%가 긍정적이었다.",
+   "check": "담당 편집자가 직원들이 답변을 요리 전문가의 기준에 맞추려고 샘플을 하나하나 평가했다고 쓴 부분이 나와 있다. 편집자가 예상되는 반대 의견을 직접 다룬 점도 있다. 끌 수 있느냐는 요청에 \"지금은 없다\"고 답한 부분과, 긍정 댓글이 글루텐 프리 변환 같은 쓰임을 든 부분이 함께 나온다.",
+   "url": "https://www.niemanlab.org/2026/10/the-new-york-times-is-adding-more-ai-features-to-its-cooking-app-and-users-arent-thrilled/",
+   "source": "niemanlab.org",
+   "terms": []
+  },
+  {
+   "id": "labf3538b6f",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "모델 본체는 두고 부품만 바꿔 업데이트하는 IBM의 방식",
+   "summary": "IBM이 Granite Switch 4.1.1을 내놨다. 한 모델에 전문 기능 부품(어댑터)을 붙여 쓰는 구조에서 나온 작은 수정판이다. 10개 언어를 글로 옮기는 음성 인식 모델과 판단 기능 부품을 새로 학습시켰고, 모델 본체는 그대로라고 한다.",
+   "check": "새로 만든 부분 말고는 아무것도 다시 계산하지 않았다는 설명이 나와 있다. 소프트웨어 버전 번호처럼 이전 4.1과 완전히 호환된다는 점도 적혀 있다. 외부 개발자가 직접 부품을 만들 수 있게 준비 중이라는 계획도 나온다.",
+   "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1",
+   "source": "huggingface.co",
+   "terms": []
+  },
+  {
+   "id": "laba1765f44",
+   "role": "launch",
+   "kind": "모델",
+   "title": "Mistral Large 4, 가중치를 공개한 대형 모델",
+   "summary": "Mistral이 Mistral Large 4(글과 이미지를 읽고 글로 답하는 대형 모델)를 공개했다. 누구나 내려받아 쓸 수 있는 오픈 웨이트 모델이다. 보안 취약점을 재현하고 고치는 시험에서 82%를 기록했다고 한다. 모델을 서비스로 제공하는 데 제한을 둔 라이선스로 배포된다.",
+   "url": "https://huggingface.co/blog/mistral-large4",
+   "source": "huggingface.co",
+   "terms": []
+  },
+  {
+   "id": "lab765a5a74",
+   "role": "launch",
+   "kind": "기능",
+   "title": "Chrome 자동 완성이 Gmail에서 정보를 찾아 채운다",
+   "summary": "Google이 Chrome 자동 완성에 AI를 더했다. 항공편 확인 번호, 회원 번호, 주문 번호, 주소 같은 정보를 Gmail에서 찾아 양식에 제안한다. 사용자가 Chrome 설정에서 켜고 끌 수 있고, 민감한 정보는 암호화한다고 Google은 밝혔다. 미국 사용자의 데스크톱과 iOS, Android의 Chrome 속 Gemini 앱에 단계적으로 제공된다.",
+   "url": "https://techcrunch.com/2026/10/28/chromes-ai-powered-autofill-can-now-dig-through-your-gmail-to-fill-out-forms/",
+   "source": "techcrunch.com",
+   "terms": []
+  },
+  {
+   "id": "lab2ede9b7f",
+   "role": "launch",
+   "kind": "제품",
+   "title": "Anthropic, AI에 쓴 돈의 결과를 보여 주는 보고 도구 공개",
+   "summary": "Anthropic이 기업 고객용 보고 도구를 내놨다. 관리자는 팀이 정한 기간에 무엇을 만들었는지, 비용이 얼마였는지, 작업이 어디서 막혔는지 볼 수 있다. 개선 방법도 추천해 준다. 이 데이터는 기본적으로 모델 학습에 쓰지 않는다고 Anthropic은 밝혔다. 팀별로 토큰 비용을 묶어 관리하는 공동 예산 기능도 만든다.",
+   "url": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/",
+   "source": "techcrunch.com",
+   "terms": []
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab2ad8f77a",
+   "angle": "플랫폼",
+   "title": "에이전트가 앱 백엔드로 가장 먼저 고르는 Supabase",
+   "what": "Latent Space의 swyx가 직접 돌린 추적 도구에서, 주요 AI 모델들이 앱 백엔드(서비스 뒤편의 데이터 저장 담당)로 거의 다 Supabase를 첫 선택으로 골랐다. Supabase 창업자들은 AI 사용이 늘면서 가입 후 실제 사용까지의 전환이 좋아졌다고 말한다.",
+   "who": "창업자들은 에이전트가 가입부터 작동하는 설정까지 한 흐름으로 이끌어 주기 때문이라고 설명한다.",
+   "question": "우리 서비스는 AI 에이전트가 처음 써 보고도 가입부터 작동까지 한 흐름으로 갈 수 있게 되어 있나?",
+   "url": "https://latent.space/p/supabase/",
+   "source": "latent.space"
+  },
+  {
+   "id": "lab88294416",
+   "angle": "만든 방식",
+   "title": "한 업종의 전문 데이터로 만드는 건설용 월드 모델",
+   "what": "전 Palantir 임원 두 명이 건축·건설 설계를 자동화하는 월드 모델(현실 세계의 규칙을 배운 AI) 스타트업 Dream을 공개했다. Andreessen Horowitz가 주도한 시드 투자 1700만 달러를 받았고, 미국 허가 문서에서 모은 1억 제곱피트가 넘는 건물 데이터로 학습했다고 한다.",
+   "who": "창업자들은 설계사와 개발사가 건물 구상과 비용 추정에 쓰고 있고, 텍사스와 캘리포니아의 10개 프로젝트에 적용됐다고 말한다. 기존 설계 도구를 대체하는 것이 목표라고 밝혔다.",
+   "question": "우리 분야에서 일반 AI는 못 하지만 우리만 가진 전문 데이터로는 풀 수 있는 일이 있을까?",
+   "url": "https://techcrunch.com/2026/10/29/ex-palantir-execs-launch-dream-with-17m-from-a16z-to-build-ai-world-models-for-construction/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "오픈 웨이트",
+  "context": "Mistral이 Mistral Large 4의 가중치를 공개했다. 보안 작업처럼 입력이 공격처럼 보여 막히기 쉬운 일에서, 쓰는 쪽이 사용 규칙과 운영 환경을 직접 정할 수 있다고 글은 설명한다."
+ },
+ "new_terms": [
+  {
+   "term": "어댑터",
+   "note": "IBM Granite Switch 소식에서 모델 본체는 두고 전문 기능을 더하는 부품이라는 뜻으로 쓰였다."
+  },
+  {
+   "term": "좀비 통계",
+   "note": "Trakkr 연구에서 연구 근거 없이 계속 되풀이되는 숫자라는 뜻으로 쓰였다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "labd28967fc",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못했다."
+  },
+  {
+   "id": "lab41c97fe8",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못했다."
+  }
+ ]
+}
