@@ -1,0 +1,124 @@
+{
+ "date": "2026-11-02",
+ "headline": "Parameter Labs가 ChatGPT 공유 링크 하나로 다른 사용자의 개인 정보를 빼낼 수 있는 방법을 공개했고, OpenAI는 이 구멍을 막았다.",
+ "items": [
+  {
+   "id": "lab0def4a2f",
+   "role": "pick",
+   "kind": "사고",
+   "title": "ChatGPT 공유 링크로 다른 사용자의 계정 정보를 빼낼 수 있었다",
+   "summary": "Parameter Labs가 ChatGPT의 계정 탈취 과정을 공개했다. 사용자가 만든 맞춤 HTML 앱을 격리된 공간(샌드박스)에서 보여 주는 기능이 대상이었다. 공격자가 만든 공유 링크를 로그인한 다른 사용자가 열면 개인 데이터를 빼내거나 그 사용자 대신 행동할 수 있었다. OpenAI는 구멍을 막고 5천 달러의 버그 보상금을 지급했다.",
+   "check": "격리된 공간을 뚫기 위해 여러 단계를 차례로 이어 붙인 공격 과정이 순서대로 나와 있다. Simon Willison이 이 정도 심각한 취약점에 5천 달러는 싼 편이라고 평가한 부분도 있다.",
+   "terms": [
+    "데이터 유출",
+    "샌드박스"
+   ],
+   "url": "https://simonwillison.net/2026/Oct/31/how-we-took-over-chatgpt-accounts/",
+   "source": "simonwillison.net"
+  },
+  {
+   "id": "50322173",
+   "role": "pick",
+   "kind": "정책",
+   "title": "브라질 법원, 소송 서류에 AI용 숨은 지시를 넣은 로펌 두 곳에 벌금",
+   "summary": "브라질 노동법원이 소송 서류에 AI에게 내리는 숨은 지시를 넣은 두 로펌에 벌금을 물렸다. 판사가 법원의 생성형 AI 도구 Galileu로 서류를 검토하다가, 흰 바탕에 흰 글씨로 적힌 문구를 찾아냈다. 문구는 AI가 서류를 피상적으로 답하고 증거 문서에 이의를 달지 않게 하라는 내용이었다. 벌금은 청구액의 10%다.",
+   "check": "법원이 어떤 의무를 근거로 제재했는지가 나와 있다. Galileu가 의심스러운 내용을 발견하고 경고를 낸 뒤 처리를 자동으로 막았다는 G1 보도도 실려 있다.",
+   "terms": [
+    "프롬프트 인젝션",
+    "가드레일"
+   ],
+   "url": "https://jetstream.security/insights/brazilian-court-sanctions-prompt-injection-filing/",
+   "source": "jetstream.security"
+  },
+  {
+   "id": "gn36373",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "작은 오픈 모델 다섯 개가 역할을 나눠 코딩 문제를 풀었다",
+   "summary": "Memdoor 워크플로로 만든 팀이 코딩 시험 LiveCodeBench Hard의 첫 10문제를 5회씩 풀어 50회 중 49회 성공했다. 계획자, 아이디어 제안자 2명, 해결자, 관리자가 각자 새로 시작해 디스크의 파일로만 소통했다. 평균은 9.8점으로, 원 연구진의 하네스 9.6점과 Fable 5 단독 실행 8.0점보다 높았다. 다만 평가는 10문제뿐이고, 학습 데이터 오염을 배제할 수 없다고 글쓴이가 밝혔다.",
+   "check": "성공 여부를 모델의 선언이 아니라 샘플을 실행하는 스크립트가 정한다는 방식이 나와 있다. 관리자의 잘못된 판단으로 정답 코드가 덮어써진 실패 사례와, 50회 실행에 든 비용 35.79달러도 공개되어 있다.",
+   "terms": [
+    "멀티 에이전트",
+    "벤치마크 오염"
+   ],
+   "url": "https://news.hada.io/topic?id=36373&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+   "source": "news.hada.io"
+  },
+  {
+   "id": "50325662",
+   "role": "pick",
+   "kind": "연구",
+   "title": "마인크래프트 AI 50명 팀, 문명을 세우지 못하고 절차에 빠졌다",
+   "summary": "ycombinator와 Olam Labs 연구진이 마인크래프트에서 AI 에이전트 무리를 시험했다. 50개 에이전트에게 세 시간 안에 번성하는 문명을 세우라고 했지만 끝내 번성하지 못했다. 첫날 밤 좀비에게 많은 에이전트가 당한 뒤 야심 찬 과제는 버려졌다. 네 에이전트가 11분 동안 밀가루 블록 하나에 쓸 뼛가루 담당자를 정한 일도 있었다.",
+   "check": "GPT 에이전트와 Claude 에이전트를 맞붙인 결과가 나와 있다. 한쪽은 공격적이었고 다른 쪽은 방어적이었으며, Mindustry에서는 7판 중 GPT가 6대 1로 이겼다.",
+   "terms": [
+    "멀티 에이전트",
+    "에이전트 스웜"
+   ],
+   "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-agent-swarms-unleashed-in-minecraft-to-build-a-thriving-civilization-50-agent-teams-fail-after-falling-into-paralyzing-bureaucracy",
+   "source": "tomshardware.com"
+  },
+  {
+   "id": "50323088",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "웹 개발 틀마다 AI가 앱을 만드는 비용을 직접 재 봤다",
+   "summary": "Nolan Lawson이 같은 포켓몬 앱을 여러 웹 개발 틀(프레임워크)로 AI 에이전트에게 만들게 하고 비용을 쟀다. 틀마다 5번씩 만들어 중앙값을 냈다. Hono+htmx가 한 번에 2.67달러로 가장 낮았고, Angular가 4.97달러로 가장 높았다. 이 금액은 Claude Code의 API 가격 기준이며 실제로 쓴 돈이 아니라고 글쓴이가 밝혔다.",
+   "check": "한 가지 앱만 만들었다는 한계와, 실행마다 결과가 크게 흔들린다는 설명이 나와 있다. 틀마다 에이전트가 안내 도구를 쓴 횟수가 달랐다는 표도 있다.",
+   "terms": [
+    "코딩 에이전트"
+   ],
+   "url": "https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/",
+   "source": "nolanlawson.com"
+  },
+  {
+   "id": "lab835fd140",
+   "role": "pick",
+   "kind": "논쟁",
+   "title": "Kyle Kingsbury, LLM 사용이 문서와 소프트웨어에 대한 신뢰를 깎는다고 썼다",
+   "summary": "Kyle Kingsbury가 ParticleDB 1.1.4 검증 결과 글에서 LLM 사용이 문서, 소프트웨어, 이를 만드는 조직에 대한 신뢰를 깎는다고 썼다. 성숙한 시스템의 표지로 믿던 신호를 이제는 위조하기 쉬워졌다는 것이다. 엔지니어들이 새 소프트웨어 프로젝트를 의심하게 될지도 모른다고 했다.",
+   "check": "글 끝에 유지보수자에게 던진 두 질문이 나와 있다. 정확한 소프트웨어와 문서를 어떻게 보장하고, 그 품질을 사용자에게 어떻게 보여 줄 것이냐는 질문이다.",
+   "terms": [],
+   "url": "https://simonwillison.net/2026/Nov/1/kyle-kingsbury/",
+   "source": "simonwillison.net"
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab9350ae34",
+   "angle": "만든 방식",
+   "title": "AI는 제안하고 사람이 결정한다: 자산관리 회사 Arca의 방식",
+   "what": "AI 기반 자산관리 회사 Arca에서는 에이전트가 배경 업무 대부분을 한다. 거래와 돈의 이동은 사람 자문가가 맡고, 에이전트 작업은 최대 10일까지 이어진다.",
+   "who": "Arca의 AI 엔지니어 Aman Singh은 에이전트의 역할이 분석과 해법 제안으로 제한된다고 말했다. 직접 만든 에이전트 운영 틀을 쓰기 때문에 필요하면 모델 제공사를 바꿀 수 있다고도 했다.",
+   "question": "우리 서비스에서 AI는 제안만 하고 사람이 최종 결정을 맡아야 하는 일은 어디까지인가?",
+   "url": "https://latent.space/p/arca/",
+   "source": "latent.space"
+  },
+  {
+   "id": "lab43523836",
+   "angle": "반대편",
+   "title": "프라이버시 중심 AI 비서 Ollie, 서비스를 종료한다",
+   "what": "가족의 일정과 생활을 챙겨 주는 구독형 AI 비서 Ollie가 서비스를 종료한다. 750만 달러 시드 투자를 받았다고 밝힌 회사다.",
+   "who": "공동창업자 Bill Lennon은 Muse, Instinct 같은 서비스가 들어오면서 눈에 띄고, 성장하고, 필요한 자금을 모으기 어려워졌다고 말했다. 고객은 데이터를 내려받는 방법과 환불 안내를 받게 된다.",
+   "question": "큰 회사의 비서 서비스가 같은 시장에 들어와도 우리 제품을 골라야 할 이유를 한 문장으로 말할 수 있는가?",
+   "url": "https://techcrunch.com/2026/10/30/ollie-a-privacy-focused-ai-assistant-is-shutting-down/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "프롬프트 인젝션",
+  "context": "브라질 법원 사건에서 변호사들이 법원의 AI 검토 도구가 서류를 피상적으로 처리하도록 흰 글씨로 숨은 지시를 넣었다가 제재를 받았다."
+ },
+ "new_terms": [
+  {
+   "term": "아티팩트",
+   "note": "ChatGPT 취약점 기사에서 AI 대화창 옆에 사용자가 만든 HTML 앱을 격리된 공간으로 보여 주는 기능을 가리키는 말로 쓰였다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "labd0139d32",
+   "reason": "본문이 유료 구독자 전용이라 원문에서 확인되는 내용이 소개 글뿐이다."
+  }
+ ]
+}
