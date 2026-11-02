@@ -1,0 +1,124 @@
+{
+ "date": "2026-11-03",
+ "headline": "미국 인구조사국이 기업 설문에서 'AI'라는 말을 '초지능(Super Intelligence)'으로 바꿔 묻기 시작했다.",
+ "items": [
+  {
+   "id": "lab869219a7",
+   "role": "launch",
+   "kind": "기능",
+   "title": "ChatGPT 데스크톱 앱, Chat 탭과 Work 탭을 하나로 합친다",
+   "summary": "OpenAI가 ChatGPT 데스크톱 앱(컴퓨터에 설치해 쓰는 ChatGPT)의 Chat 탭과 Work 탭을 합친다. 사용자에게 보낸 이메일에 따르면 파일과 플러그인을 가져와 웹사이트나 발표 자료 만들기를 맡기고, 작업을 보면서 이끌 수 있다. 처음에는 일부 사용자에게만 제공한다. ChatGPT와 Codex(OpenAI의 코딩 도구)는 같은 사용량 한도를 나눠 쓴다.",
+   "url": "https://techcrunch.com/2026/11/02/openai-is-finally-merging-chatgpts-chat-and-work-tabs/",
+   "source": "techcrunch.com",
+   "terms": []
+  },
+  {
+   "id": "50337503",
+   "role": "launch",
+   "kind": "모델",
+   "title": "OpenAI, 생명과학 연구용 모델 GPT-Rosalind-6 공개",
+   "summary": "GPT-Rosalind-6은 OpenAI가 만든 생물학·신약 개발·의학 연구용 추론 모델(답을 내기 전에 단계를 밟아 생각하는 모델)이다. GPT-6 Astra와 같은 가중치(모델의 학습 결과물)를 쓰고, 추가 학습은 하지 않았다. 생명과학 시험 세 가지에서 이전 모델 GPT-Rosalind-5.5보다 점수가 높았다(OpenAI 발표 기준). 생물학 질문 중 오남용 우려가 있는 일부에 대한 거절이 적지만, 생물학 무기 관련 요청은 계속 거절한다. 자격을 갖춘 과학자·연구기관·기업·정부 파트너에게만 신청을 심사해 제공한다.",
+   "url": "https://deploymentsafety.openai.com/gpt-rosalind-6",
+   "source": "deploymentsafety.openai.com",
+   "terms": []
+  },
+  {
+   "id": "lab6bf0704c",
+   "role": "pick",
+   "kind": "정책",
+   "title": "인구조사국 기업 설문, 행정명령에 따라 'AI'를 'Super Intelligence'로 바꿔 묻는다",
+   "summary": "미국 인구조사국은 2주마다 기업 20만 곳에 AI 사용 여부를 묻는 설문을 한다. 2026년 10월 19일 조사부터 행정명령 14434에 따라 문항의 'AI'가 'Super Intelligence 또는 SI(이전에는 인공지능 또는 AI로 불렸음)'로 바뀌었다. 새 표현으로 받은 첫 결과는 이번 주 목요일에 공개될 예정이다.",
+   "check": "바뀐 문항이 이전 문항과 나란히 인용돼 있다. 2025년에도 질문이 '제품·서비스를 만드는 데 썼는가'에서 '업무 기능 어디든 썼는가'로 바뀌어, 그 전후 답은 바로 비교할 수 없다는 설명이 나와 있다.",
+   "terms": [],
+   "url": "https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/",
+   "source": "simonwillison.net"
+  },
+  {
+   "id": "50341334",
+   "role": "pick",
+   "kind": "연구",
+   "title": "학습 데이터 0.1%만 오염시켜도 AI 에이전트에 백도어를 심을 수 있다는 연구",
+   "summary": "연구진은 AI가 인터넷에서 긁어모은 방대한 글로 사전학습(처음 배우는 단계)을 한다는 점에 주목했다. 이 데이터에 오염된 글을 심으면 에이전트(스스로 작업을 이어 가는 AI)가 사용자 컴퓨터에서 공격자가 정한 명령을 실행하게 만들 수 있다고 보였다. 학습 데이터의 0.1%만 오염시켰을 때 가장 큰 모델의 공격 성공률이 약 92%였다. 오염 비율을 0.0005%까지 낮춰도 성공률이 0보다 컸다.",
+   "check": "작은 모델을 처음부터 직접 학습시켜 에이전트로 만들고 끝까지 측정한 실험 방식이 나와 있다. 특정 신호가 있을 때만 악성 명령을 실행하고 평소에는 정상으로 동작했다는 설명도 있다.",
+   "terms": [
+    "사전학습"
+   ],
+   "url": "https://arxiv.org/abs/2610.37741",
+   "source": "arxiv.org"
+  },
+  {
+   "id": "lab81161cac",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "Figma PM들이 매일 AI를 쓰는 방법",
+   "summary": "Figma의 성장 PM 에즈라 메차버는 개인이 쓰던 Claude Code(AI 코딩 도구) 설정을 동료 PM 몇 명과 함께 'PM OS'로 만들었다. PM OS는 스킬(AI에게 시킬 일을 묶어 둔 단위) 31개가 든 공용 저장소이고, 지금 PM 60명 넘게가 쓴다. 성장 실험을 돌리는 에이전트 AutoXP는 사람이 한 번만 확인하는 구조로 소개돼 있다.",
+   "check": "PM OS가 제품이 아니라 저장소인 이유, 스킬을 만들고 걸러 낸 과정, AutoXP가 첫 실험에서 낸 성과가 에피소드 안내에 목차로 나와 있다. 이 글은 안내문이라 본편 내용은 확인하지 못했다.",
+   "terms": [
+    "에이전트 스킬"
+   ],
+   "url": "https://www.lennysnewsletter.com/p/how-figmas-pms-actually-use-ai-every",
+   "source": "lennysnewsletter.com"
+  },
+  {
+   "id": "labffb30fef",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "\"헷갈리면 uv.lock 파일을 지워라\"",
+   "summary": "개발자 사이먼 윌리슨은 Python 3.15로 옮긴 뒤 의존성(프로그램이 가져다 쓰는 부품) 오류를 가끔 겪는다. uv.lock(부품의 버전을 고정해 두는 파일)이 3.15용 부품이 아직 없는 버전을 가리키고 있을 때 생긴다. 이 파일을 지우고 다시 실행하면 대개 해결된다고 적었다.",
+   "check": "실제로 난 오류 메시지가 예시로 실려 있다. 원인이 무엇이고 어떻게 풀었는지가 짧게 정리돼 있어 개발자가 문제를 다루는 방식을 볼 수 있다.",
+   "terms": [],
+   "url": "https://simonwillison.net/2026/Nov/1/delete-uv-lock-first/",
+   "source": "simonwillison.net"
+  }
+ ],
+ "lens": [
+  {
+   "id": "50339494",
+   "angle": "돈",
+   "title": "Anthropic의 내부 AI 사용액이 직원 급여를 넘었다",
+   "what": "Anthropic은 상장 신청서에서, 내부에서 쓴 Claude를 고객에게 받는 가격으로 환산한 값이 4월에 직원 월 보수(주식 보상 제외)를 넘었다고 밝혔다. 그 내부 사용량은 1월 이후 9월까지 250배 넘게 늘었다.",
+   "who": "기사는 이것이 실제 현금 지출이 아니라 소매 가격으로 환산한 값이라고 구분했다. 기사 필자는 3월에 기술 기업들이 AI 토큰(사용량을 재는 기본 단위)을 직원 보상의 네 번째 요소로 다루기 시작했다고 썼다.",
+   "question": "우리 팀이 AI에 쓰는 양을 가격으로 환산하면 사람에게 드는 비용과 견줘 어느 정도일까?",
+   "url": "https://www.businessinsider.com/anthropic-claude-internal-ai-use-exceeds-employee-pay-tokens-2026-11",
+   "source": "businessinsider.com"
+  },
+  {
+   "id": "labd0139d32",
+   "angle": "만든 방식",
+   "title": "Wispr Flow, 크리에이터에게 광고비 일부를 주는 유료 UGC 광고",
+   "what": "음성을 글로 바꿔 주는 AI 도구 Wispr Flow의 콘텐츠 총괄 헥터 세라노는 크리에이터 50명이 매달 유료 UGC(이용자가 만든 콘텐츠) 광고 500~600개를 만든다고 밝혔다. 이 회사는 지난 1년간 매출이 30배 늘었고 20억 달러 가치로 투자를 받았다.",
+   "who": "크리에이터는 광고비의 일정 몫을 받는다. 이 글은 유료 구독자용이라 소개 부분만 확인했다.",
+   "question": "우리 같은 팀이 광고 제작을 외부 크리에이터에게 맡기고 성과에 따라 몫을 나눈다면 어떤 모습일까?",
+   "url": "https://www.lennysnewsletter.com/p/how-a-19-year-old-intern-built-the",
+   "source": "lennysnewsletter.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "사전학습",
+  "context": "오늘 소개된 연구가 AI의 사전학습 데이터에 오염된 글을 심어 에이전트에 백도어를 만드는 방법을 보였다."
+ },
+ "new_terms": [
+  {
+   "term": "사전학습 오염(pretraining poisoning)",
+   "note": "arXiv 연구에서, AI가 처음 배우는 데이터에 공격자가 만든 글을 심어 나중에 특정 신호가 있을 때만 악성 동작을 하게 만드는 공격을 가리킨다."
+  },
+  {
+   "term": "백도어",
+   "note": "같은 연구에서, 평소에는 정상으로 동작하다가 특정 신호가 있을 때만 공격자가 정한 명령을 실행하게 만드는 숨은 장치라는 뜻으로 쓰였다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "50339913",
+   "reason": "Momentic 제품 소개 페이지로, 렌즈 후보 둘을 다른 글로 채워 이번 호에서는 쓰지 않음"
+  },
+  {
+   "id": "lab598c6194",
+   "reason": "수집 실패(HTTP 403): Qodo가 Codex로 코드 리뷰에 맥락을 넣는 방법"
+  },
+  {
+   "id": "lab19244c7a",
+   "reason": "수집 실패(HTTP 403): OpenAI Grid Protectors Program"
+  }
+ ]
+}
