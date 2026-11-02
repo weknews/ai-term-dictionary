@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>위뉴 AI 용어집</title>
-<meta name="description" content="위뉴 AI 용어집. 242개 용어의 정의와 업계 뉘앙스, 그리고 2026-09-22 현장 동향.">
+<meta name="description" content="위뉴 AI 용어집. AI 용어의 정의와 업계 뉘앙스, 관찰 날짜가 붙은 현황, 평일 아침 오늘의 뉴스.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -89,6 +89,15 @@ h1{margin:0 0 14px; font-size:clamp(38px,7.4vw,74px); line-height:1; letter-spac
 .nw-term .def{margin:10px 0 0}
 .nw-term .ctx{margin:12px 0 0; font-size:15.5px; color:var(--muted)}
 .nw-term a{display:inline-block; margin-top:12px; font-family:var(--mono); font-size:12.5px; text-decoration:none}
+/* 이번 주 용어집에서 바뀐 것 — 주간 갱신(terms.js의 CHANGES)이 붙은 호에만 나온다 */
+.nw-ch article{padding-block:16px 4px; border-top:2px solid var(--faint)}
+.nw-ch article:first-child{border-top:0}
+.nw-ch h3{margin:4px 0 8px; font-size:19px; line-height:1.4}
+.nw-ch h3 a{color:var(--ink); text-decoration:none}
+.nw-ch p{margin:0; font-size:15.5px}
+.nw-ch .was{color:var(--muted); margin-bottom:6px}
+.nw-ch p b{font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.08em; color:var(--muted); margin-right:8px}
+.nw-ch .from{margin-top:8px; font-family:var(--mono); font-size:12px}
 .nw-banner{margin:0 0 18px; background:var(--yellow); color:#16233F; padding:10px 14px; font-family:var(--mono); font-size:12.5px; font-weight:600}
 .nw-empty{font-family:var(--mono); font-size:13px; color:var(--muted); padding:36px 0}
 .nw-arch{margin-top:36px; font-family:var(--mono); font-size:12.5px}
@@ -463,7 +472,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 
 <div class="wrap">
   <header class="mast">
-    <p class="badge"><b>v5.0</b> · 관찰 시점 2026-09-22 · <span id="tcount">—</span>개 용어</p>
+    <p class="badge"><b>v5.0</b> · 최근 관찰 <span id="asof">2026-09-22</span> · <span id="tcount">—</span>개 용어</p>
     <h1>위뉴 AI 용어집</h1>
     <p class="tagline">업계가 이 단어를 <b>실제로 어떤 뜻으로 쓰는지</b> 적은 문서. 학술적 정의가 아니라 현장 어법이 기준이다.</p>
   </header>
@@ -578,7 +587,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
     </div>
     <div>
       <h4><span class="fl flag asof">시점 의존</span></h4>
-      <p>노란 줄, 곧 <b>관찰 날짜가 붙은 현황</b>이 달린 항목. 242개 중 52개다. 앞의 셋과 달리 단어의 성격이 아니라 <b>설명의 수명</b>을 가리킨다. 여기 적힌 내용은 그날의 관찰이라 시간이 지나면 틀려지고, 그래서 갱신할 때 이 항목들부터 본다.</p>
+      <p>노란 줄, 곧 <b>관찰 날짜가 붙은 현황</b>이 달린 항목. <span class="n-all">—</span>개 중 <span class="n-s">—</span>개다. 앞의 셋과 달리 단어의 성격이 아니라 <b>설명의 수명</b>을 가리킨다. 여기 적힌 내용은 그날의 관찰이라 시간이 지나면 틀려지고, 그래서 갱신할 때 이 항목들부터 본다.</p>
     </div>
   </div>
 </section>
@@ -588,7 +597,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   <h2>상황별로 찾기</h2>
   <p class="sub">사전은 단어로 찾는다. 여기는 <b>상황으로 찾는다.</b> 같은 용어를 어떤 얘기를 할 때 쓰는지에 따라 여섯 묶음으로 나눠 놨다. 회의 들어가기 전에 해당하는 묶음만 펼쳐 보면 된다. 용어를 누르면 사전의 전체 설명으로 넘어간다.</p>
   <div id="corelist"></div>
-  <p class="caveat"><b>무엇을 어디에 넣었나.</b> 중요도 순위가 아니다. 여기 없는 용어가 덜 중요한 것도 아니다. <b>그 얘기를 할 때 실제로 입에 오르는가</b>만 기준으로 묶었다. 그래서 유명하지만 거기서는 안 나오는 말은 빠졌고, 수수해 보여도 매번 등장하는 말은 들어갔다. 사전 탭에 242개가 그대로 있다. 이 탭은 그중 자주 쓰는 묶음을 미리 펼쳐둔 것뿐이다.</p>
+  <p class="caveat"><b>무엇을 어디에 넣었나.</b> 중요도 순위가 아니다. 여기 없는 용어가 덜 중요한 것도 아니다. <b>그 얘기를 할 때 실제로 입에 오르는가</b>만 기준으로 묶었다. 그래서 유명하지만 거기서는 안 나오는 말은 빠졌고, 수수해 보여도 매번 등장하는 말은 들어갔다. 사전 탭에 <span class="n-all">—</span>개가 그대로 있다. 이 탭은 그중 자주 쓰는 묶음을 미리 펼쳐둔 것뿐이다.</p>
 </section>
 
 <!-- ════════ 용어 사전 ════════ -->
@@ -1072,8 +1081,8 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   <div class="how">
     <b>갱신 방법</b> — 용어 추가·수정은 <code>terms.js</code>만 건드리면 된다. 한 항목은
     <code>{k:한글, e:원어, c:분류, y:시기, d:정의, n:뉘앙스, s:현황, f:플래그}</code> 형태다.
-    시점에 따라 달라지는 설명은 <code>d</code>나 <code>n</code>이 아니라 <code>s</code>에 적고, 갱신할 때
-    <code>index.html</code>의 <code>ASOF</code> 값과 상단 배지 날짜를 같이 올린다.
+    시점에 따라 달라지는 설명은 <code>d</code>나 <code>n</code>이 아니라 <code>s</code>에 적고, 그 항목의
+    <code>a</code>에 관찰 날짜를 적는다. 주간 갱신은 <code>news/weekly.sh</code>가 금요일마다 PR로 낸다.
     고친 뒤에는 <code>python3 check.py</code>로 점검한다. main에 올리면 같은 점검을 통과해야 배포된다. 자세한 규칙은 저장소의 <code>CONTRIBUTING.md</code>.
   </div>
 </section>
@@ -1128,6 +1137,24 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
     function e(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){
       return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
     var box = document.getElementById("nw"), arch = document.getElementById("nwarch");
+    // 주간 용어집 갱신(terms.js의 CHANGES) — 해당 호에는 "이번 주 용어집에서 바뀐 것"으로, 갱신 탭에는 이력으로
+    var CH = window.CHANGES || [], DATES = [];
+    function changes(list){
+      return '<div class="nw-ch">' + list.map(function(x){
+        return '<article><span class="nw-kind">' + (x.op === "추가" ? "새 용어" : "현황 수정") + '</span><h3><a href="?q=' +
+          encodeURIComponent(x.k) + '#terms">' + e(x.k) + "</a></h3>" +
+          (x.op === "추가" ? "<p>" + e(x.after) + "</p>" :
+            '<p class="was"><b>전</b>' + e(x.before || "현황 줄 없음") + '</p><p><b>후</b>' + e(x.after) + "</p>") +
+          '<p class="from">근거 · ' + (x.from || []).map(function(f){
+            return '<a href="?d=' + e(f.d) + '#now">' + e(f.d.slice(5).replace("-", "/")) + " " + e(f.t) + "</a>"; }).join(" · ") +
+          "</p></article>"; }).join("") + "</div>";
+    }
+    var log = document.querySelector(".log");
+    if (log) CH.forEach(function(c){
+      log.insertAdjacentHTML("afterbegin", '<li><span class="v">주간 갱신</span><span class="dt">' + e(c.date) +
+        "</span><p>" + e(c.upto) + "까지 나온 뉴스를 근거로 고쳤다.</p><ul>" + c.items.map(function(x){
+          return "<li>" + (x.op === "추가" ? "새 용어 — " : "현황 수정 — ") + '<a href="?q=' + encodeURIComponent(x.k) + '#terms">' + e(x.k) + "</a></li>"; }).join("") + "</ul></li>");
+    });
     if (!window.fetch || location.protocol === "file:") return;
     var P = new URLSearchParams(location.search), want = P.get("d"), review = P.get("review");
     var TM = {}; (window.TERMS || []).forEach(function(t){ TM[t.k] = t; });
@@ -1160,6 +1187,11 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
       var tod = d.term_of_day, t = tod && TM[tod.term];
       if (t) h += '<h3 class="nw-sec">오늘의 용어</h3><section class="nw-term"><span class="k">' + e(t.k) + '</span><span class="e">' + e(t.e) +
                   '</span><p class="def">' + e(t.d) + '</p><p class="ctx">' + e(tod.context) + '</p><a href="?q=' + encodeURIComponent(t.k) + '#terms">용어집에서 더 보기 →</a></section>';
+      // 이 호와 바로 앞 호 사이에 갱신된 것. 금요일 호가 없는 주는 다음 호에 붙는다
+      var at = DATES.indexOf(d.date), prev = DATES[at + 1] || "";
+      if (at > -1) CH.forEach(function(c){
+        if (c.date > prev && c.date <= d.date) h += '<h3 class="nw-sec">이번 주 용어집에서 바뀐 것</h3>' + changes(c.items);
+      });
       box.innerHTML = h;
     }
     if (review) {
@@ -1173,6 +1205,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
     // Pages는 파일을 최대 10분 캐시한다 — 새 호가 병합 직후에도 바로 보이게 매번 서버에 확인한다
     fetch("news/index.json", {cache: "no-cache"}).then(function(r){ return r.json(); }).then(function(dates){
       if (!dates.length) return;
+      DATES = dates;
       var d = (want && dates.indexOf(want) > -1) ? want : dates[0];
       arch.innerHTML = "지난 호 · " + dates.slice(0, 30).map(function(x){
         return '<a href="?d=' + x + '#now"' + (x === d ? ' aria-current="page"' : "") + ">" + x + "</a>"; }).join("");
@@ -1189,8 +1222,17 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
     var cnt = document.getElementById("navcount"); if (cnt) cnt.textContent = "";
     return;
   }
-  var ASOF = "2026-09-22";
-  var INNEWS = {};
+  // 용어별 뉴스 색인. 주간 갱신의 근거 호도 합친다 — 새로 넣은 말은 지난 호의 용어 칩에 없기 때문이다
+  function withChanges(m){
+    (window.CHANGES || []).forEach(function(c){ c.items.forEach(function(x){
+      var l = m[x.k] = m[x.k] || [];
+      (x.from || []).forEach(function(f){
+        if (!l.some(function(y){ return y.d === f.d && y.t === f.t; })) l.push(f); });
+      l.sort(function(a, b){ return a.d < b.d ? 1 : -1; });
+    }); });
+    return m;
+  }
+  var INNEWS = withChanges({});
   var FLAGS = {
     hot:  {label:"지금 뜨는 말", cls:"hot"},
     care: {label:"쓸 때 주의", cls:"care"},
@@ -1204,6 +1246,9 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
 
   document.getElementById("tcount").textContent = TERMS.length;
   document.getElementById("scount").textContent = withS;
+  [].forEach.call(document.querySelectorAll(".n-all"), function(el){ el.textContent = TERMS.length; });
+  [].forEach.call(document.querySelectorAll(".n-s"), function(el){ el.textContent = withS; });
+  document.getElementById("asof").textContent = TERMS.reduce(function(m, t){ return t.a > m ? t.a : m; }, "");
   document.getElementById("total").textContent = TERMS.length;
   document.getElementById("navcount").textContent = TERMS.length;
 
@@ -1306,7 +1351,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
         html += '<span class="y">' + esc(t.y) + "</span></div>";
         html += '<p class="d">' + hi(t.d, needle) + "</p>";
         if (t.n) html += '<p class="n">' + hi(t.n, needle) + "</p>";
-        if (t.s) html += '<p class="s"><b>' + ASOF + ' 기준</b>' + hi(t.s, needle) + "</p>";
+        if (t.s) html += '<p class="s"><b>' + esc(t.a) + ' 기준</b>' + hi(t.s, needle) + "</p>";
         var nw = INNEWS[t.k];
         if (nw) html += '<p class="nw-in"><b>뉴스에 나온 일 · ' + nw.length + "건</b>" + nw.slice(0, 3).map(function(x){
           return '<a href="?d=' + esc(x.d) + '#now"><span>' + esc(x.d.slice(5).replace("-", "/")) + "</span>" + esc(x.t) + "</a>"; }).join("") + "</p>";
@@ -1419,7 +1464,7 @@ footer{border-top:3px solid var(--line); padding-block:28px 50px; font-family:va
   // 용어별 뉴스 색인 — 배포 때 news/terms.json으로 만든다. 받으면 목록을 다시 그린다
   if (window.fetch && location.protocol !== "file:")
     fetch("news/terms.json", {cache: "no-cache"}).then(function(r){ return r.json(); })
-      .then(function(m){ INNEWS = m; render(); }).catch(function(){});
+      .then(function(m){ INNEWS = withChanges(m); render(); }).catch(function(){});
   if (document.body.getAttribute("data-view") === "terms") q.focus({preventScroll:true});
 })();
 </script>

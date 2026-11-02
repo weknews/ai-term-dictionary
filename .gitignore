@@ -2,3 +2,4 @@
 news/work/
 news/index.json
 news/terms.json
+__pycache__/

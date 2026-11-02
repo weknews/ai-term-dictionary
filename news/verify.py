@@ -24,12 +24,11 @@ import subprocess
 import sys
 from urllib.parse import urlparse
 
-DATE, DRAFT, URLS, PAGES, OUT = sys.argv[1:6]
 # 데이터(발행분·terms.js)를 읽을 곳. run.sh가 origin/main worktree를 넘긴다
 ROOT = os.environ.get("NEWS_ROOT") or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# ponytail: check.py의 금지 목록과 겹친다. check.py가 모듈이 아니라 스크립트라서 복사했다 —
-# 셋째 소비처가 생기면 공용 파일로 뺀다.
+# ponytail: check.py의 금지 목록과 겹친다. check.py가 모듈이 아니라 스크립트라서 복사했다.
+# 주간 용어집(weekly.py)은 여기서 BAN·stray_numbers·parse_pages를 import해 쓴다.
 BAN = {
     "과장": r"혁신적|획기적|압도적|전례 없는|파격적|게임 ?체인저|판도를 바꾼|주목할 만|시사하는 바",
     "결산어": r"결론적으로|요약하면|정리하자면|이를 통해|관건은|중요한 것은|하는 이유다|라고 할 수 있다",
@@ -112,6 +111,7 @@ def stray_numbers(text, source):
 
 
 def main():
+    DATE, DRAFT, URLS, PAGES, OUT = sys.argv[1:6]
     urls = json.load(open(URLS))
     bodies = parse_pages(PAGES)
     raw = open(DRAFT).read()
