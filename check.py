@@ -36,11 +36,15 @@ orphan = [t["k"] for t in TERMS if t["c"] not in ids]
 dup = [k for k, n in Counter(t["k"] for t in TERMS).items() if n > 1]
 tagged = [t["k"] for t in TERMS for f in ("d", "n", "s") if t.get(f) and re.search(r"<[a-z/]", t[f], re.I)]
 noD = [t["k"] for t in TERMS if not t.get("d")]
-for label, lst in [("분류 미매칭", orphan), ("중복 용어", dup), ("HTML 태그 혼입", tagged), ("정의 누락", noD)]:
+# 현황(s)은 그 줄을 관찰한 날짜(a)와 함께 화면에 나간다. 날짜 없는 현황은 언제 적은 건지 알 수 없다
+noA = [t["k"] for t in TERMS if t.get("s") and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", t.get("a", ""))]
+bad = orphan + dup + tagged + noD + noA
+for label, lst in [("분류 미매칭", orphan), ("중복 용어", dup), ("HTML 태그 혼입", tagged), ("정의 누락", noD),
+                   ("현황 날짜(a) 누락", noA)]:
     if lst: fail.append("%s: %s" % (label, ", ".join(lst[:8])))
 print("용어 %d · 분류 %d · 현황줄 %d · 뉘앙스 %d"
       % (len(TERMS), len(CATS), sum(1 for t in TERMS if t.get("s")), sum(1 for t in TERMS if t.get("n"))))
-print("이상: %s" % ("없음" if not (orphan or dup or tagged or noD) else "위 목록 참고"))
+print("이상: %s" % ("없음" if not bad else "위 목록 참고"))
 
 # ── 2. 화면 표기와 실제 수치 ──────────────────────────
 head("2. 화면에 적힌 수치")
