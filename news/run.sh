@@ -62,7 +62,15 @@ EOF
 python3 - "$W/select-$DATE.txt" "$W/candidates-$DATE.json" "$W/list-$DATE.md" <<'PY' || fail "선별 결과 해석 실패"
 import json, re, sys
 raw, out, lst = open(sys.argv[1]).read(), sys.argv[2], open(sys.argv[3]).read()
-cands = json.loads(re.search(r"\[.*\]", raw, re.S).group(), strict=False)
+# 모델이 배열을 쓰고 "고친 결과:"라며 또 쓰는 경우가 있다 — 마지막으로 완결된 배열을 쓴다
+dec, i, cands = json.JSONDecoder(strict=False), 0, None
+while (i := raw.find("[", i)) != -1:
+    try:
+        v, i = dec.raw_decode(raw, i)
+        if isinstance(v, list) and v and isinstance(v[0], dict): cands = v
+    except ValueError:
+        i += 1
+assert cands, "선별 배열 없음"
 titles = dict(re.findall(r"#(\S+) (.*)", lst))
 # fetch_pages.py가 쓰는 형식으로 맞춘다 (title·project·why)
 # 제목 앞에 #ID를 붙인다 — 원문 파일의 제목 줄에 ID가 찍혀야 작문 턴이 항목마다 ID를 정확히 단다
