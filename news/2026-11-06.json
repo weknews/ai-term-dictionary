@@ -1,0 +1,153 @@
+{
+ "date": "2026-11-06",
+ "headline": "OpenAI가 보안 프로그램 Daybreak의 최상위 등급 사용자에게 보안 전문 모델 ChatGPT Cyber를 제공한다고 발표했다.",
+ "items": [
+  {
+   "id": "lab8f7798ef",
+   "role": "pick",
+   "kind": "논쟁",
+   "title": "OpenAI 보안 모델 출시, '이걸로 충분한가' 묻는 기사",
+   "summary": "OpenAI가 사이버 보안에 초점을 맞춘 새 모델 ChatGPT Cyber를 발표했다. 보안 프로그램 Daybreak 가운데 가장 높은 등급인 Daybreak Red 사용자에게 제공된다. 기사는 이 프로그램에 참여하는 보안 전문가가 OpenAI 발표로 \"수천 명\"에 그치고, 잠재적 해커의 수는 훨씬 많다고 짚었다.",
+   "check": "스타트업 CTO 맥스 저스티츠가 같은 코드를 AI에게 맡겨 2시간 만에 심각한 허점을 찾은 과정이 나와 있다. 프로그램 가입 때 운전면허증 사진을 올렸다는 점, 그가 구독과 사용료로 약 5천 달러를 썼다는 점도 함께 나와 있다.",
+   "terms": [
+    "프런티어 모델 / 프런티어 랩",
+    "오픈 웨이트"
+   ],
+   "url": "https://techcrunch.com/2026/11/05/openai-released-a-new-cybersecurity-model-is-that-enough/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "labf3f4f568",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "Uber: AI 에이전트로 호출한 차는 가장 바쁜 주에 4건",
+   "summary": "Uber는 3분기 실적 발표에서 핼러윈 주간에 AI 에이전트(사용자 대신 일을 처리하는 AI)로 주문된 승차가 4건이라고 밝혔다. 같은 주 Uber와 Uber Eats의 전체 거래는 약 3억 2천만 건이었고, 에이전트로 들어온 Uber Eats 주문은 500건이었다. CEO는 \"아주 이르고 제한적인 반응\"이라고 말했다.",
+   "check": "차를 부르는 데 평균 50초, 즐겨 찾는 음식을 다시 주문하는 데 90초가 걸린다는 CEO의 설명이 나와 있다. 기사는 이 시간이면 에이전트가 시간을 줄여 주지 못할 수 있다고 본다. DoorDash도 에이전트 주문이 수백 건이라고 밝혔다는 내용이 함께 나와 있다.",
+   "terms": [
+    "에이전트",
+    "에이전틱 커머스"
+   ],
+   "url": "https://techcrunch.com/2026/11/04/almost-no-one-uses-ai-agents-to-book-their-uber-company-says/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "labd51f62aa",
+   "role": "pick",
+   "kind": "제품",
+   "title": "Box, 에이전트가 문서에서 필요한 부분만 찾아오는 검색 기능 공개",
+   "summary": "파일 저장 서비스 Box가 개발자 행사에서 Box Content Retrieval을 선보였다. Nvidia의 Nemotron 임베딩(글을 뜻 기준으로 숫자로 바꿔 비슷한 내용을 찾게 하는 기술)을 쓴다. Nvidia 임원은 답이 4배 빨라지고 오류는 20% 줄며 토큰 사용은 90% 줄 것으로 기대한다고 말했다.",
+   "check": "에이전트가 문서를 통째로 읽는 대신 질문과 관련 깊은 부분만 돌려받는다는 Box CEO의 설명이 나와 있다. 변호사가 관련 조항과 선례를 찾는 예시, 단어가 달라도 관련 주제를 찾아낸다는 설명도 나와 있다.",
+   "terms": [
+    "임베딩",
+    "RAG"
+   ],
+   "url": "https://techcrunch.com/2026/11/05/box-taps-nvidias-nemotron-for-new-agent-first-content-retrieval-system/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab1c7da4ac",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "Apple, 엔지니어링 팀의 하루 AI 사용 한도를 낮췄다는 보도",
+   "summary": "Bloomberg는 Apple이 엔지니어링 팀의 하루 AI 지출 한도를 300달러에서 200달러로 낮췄다고 보도했다. 일부는 하루 100달러까지 내려갈 수 있고, 엔지니어링 밖에서는 하루 25달러까지 낮추는 안을 검토 중이라고 한다. TechCrunch는 Apple에 입장을 물었다고 적었다.",
+   "check": "올해 초 회사들이 직원에게 AI를 최대한 쓰라고 밀어붙이다가 청구서가 오자 사용량 제한 쪽으로 옮겨 갔다는 기사의 설명이 나와 있다. AI를 만들고 돌리는 비용과 생산성 향상 사이에 차이가 있다는 우려도 적혀 있다.",
+   "terms": [
+    "토큰",
+    "토큰 예산"
+   ],
+   "url": "https://techcrunch.com/2026/11/04/apple-is-reportedly-cutting-budgets-for-its-internal-ai-usage/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab0f2052ea",
+   "role": "pick",
+   "kind": "제품",
+   "title": "화면·조이스틱·마이크가 달린 반지, AI 에이전트와 대화하는 기기로 출시",
+   "summary": "하드웨어 스타트업 Aina가 화면, 조이스틱, 마이크, 스피커가 달린 스마트 반지를 내놓았다. 에이전트에게 말을 걸어 메모를 하거나 요청을 보낼 수 있고 통화도 된다. 선주문 가격은 399달러이고 배송은 2027년 1월에 시작한다.",
+   "check": "창업자가 \"화면과 노트북은 앱을 여는 시대를 위해 설계됐다\"며 에이전트에 맞는 새 인터페이스를 만들려 했다고 밝힌 부분이 나와 있다. 기자가 며칠 써 본 소감과, 소프트웨어 기능이 아직 다듬어지는 중이라는 한계도 적혀 있다.",
+   "terms": [
+    "에이전트"
+   ],
+   "url": "https://techcrunch.com/2026/11/05/ainas-smart-ring-has-a-screen-a-joystick-and-a-mic-so-you-can-talk-to-ai-agents/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "labb06af2d4",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "YC 스타트업, 재료과학 난제 5개에 100만 달러 상금",
+   "summary": "Discovered Materials는 재료과학 난제 5개를 풀면 상금을 주는 도전을 열었다. 상금은 모두 100만 달러다. 문제는 대학 연구자 자문단과 함께 정했다. 회사는 최신 AI 모델에게 며칠씩 맡겼지만 문제당 큰 진전이 없었다고 밝혔다.",
+   "check": "공동창업자가 \"검증 방법과 과제를 먼저 정하고, 설명할 아이디어는 나중에 누군가 내게 하는 방식\"이라고 설명한 부분이 나와 있다. 재료과학은 수학처럼 예·아니오로 답하기 어려워 문제를 분명히 적기가 어렵다는 이야기도 나와 있다.",
+   "terms": [
+    "평가",
+    "벤치마크"
+   ],
+   "url": "https://techcrunch.com/2026/11/05/a-yc-startup-is-putting-1m-behind-five-unsolved-materials-science-problems-for-ai/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "labe8690f74",
+   "role": "launch",
+   "kind": "모델",
+   "title": "NVIDIA, 자율주행·로봇용 가상 세계 생성 모델 4종 공개",
+   "summary": "NVIDIA가 Cosmos 3(주어진 조작에 따라 영상으로 세계를 만들어 내는 모델 묶음)에 모델 4종을 더했다. 날씨와 시간대를 바꾼 주행 영상 만들기, 주행 시뮬레이션, 로봇 팔 동작에 따른 영상 예측 등에 쓰인다. 가중치(모델의 학습 결과물)를 공개했고, 상업적 이용과 비상업적 이용 모두 이용 조건에 따라 허용된다.",
+   "url": "https://huggingface.co/blog/nvidia/cosmos-interactive-world-simulation",
+   "source": "huggingface.co",
+   "terms": []
+  }
+ ],
+ "lens": [
+  {
+   "id": "labb06af2d4",
+   "angle": "만든 방식",
+   "title": "문제와 검증 기준을 먼저 걸고 풀이는 바깥에 맡기기",
+   "what": "Discovered Materials는 대학 연구자 자문단과 재료과학 난제 5개를 정리하고, 풀이에 상금 100만 달러를 걸었다. 공동창업자는 \"검증과 과제를 먼저 정하고 설명할 아이디어는 나중에 누군가 내게 한다\"고 설명했다.",
+   "who": "회사는 자신이 풀든 다른 사람이 풀든 상관없다고 말했다. 풀이 진행을 보면 모델이 이 분야에서 올라가는지 알 수 있다고도 했다.",
+   "question": "우리 일에서 '이게 풀렸다'를 판정할 기준을 먼저 적어 둔다면, 어떤 문제를 바깥에 맡겨 볼 수 있을까?",
+   "url": "https://techcrunch.com/2026/11/05/a-yc-startup-is-putting-1m-behind-five-unsolved-materials-science-problems-for-ai/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "labadd91e24",
+   "angle": "플랫폼",
+   "title": "Google AI 정책 반발 속에서 학교를 파고드는 DuckDuckGo",
+   "what": "Google은 학교가 Gemini는 끌 수 있지만 다른 AI 기능을 끄면 검색도 잃는다고 안내했다. 이후 Gemini, Gemini Notebook, 검색을 기본 꺼짐으로 하고 학교가 개별로 켜게 한다고 해명했다.",
+   "who": "DuckDuckGo는 학교가 기본 검색 엔진을 바꾸는 방법을 안내하며 접근했다. 이 회사는 검색과 브라우저 설정에서 AI 기능을 끌 수 있다고 밝혔다.",
+   "question": "큰 플랫폼이 고객의 요구를 놓친 자리에서, 우리 같은 팀이 먼저 해 줄 수 있는 선택지는 무엇일까?",
+   "url": "https://techcrunch.com/2026/11/04/duckduckgo-pitches-itself-to-schools-amid-backlash-over-googles-ai-policy/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "토큰 예산",
+  "context": "Apple이 엔지니어링 팀의 하루 AI 지출 한도를 낮췄다는 보도에서, AI 사용량에 상한을 두는 방식이 나왔다."
+ },
+ "new_terms": [
+  {
+   "term": "토크맥싱(tokenmaxxing)",
+   "note": "Apple 보도 기사에서 회사들이 직원에게 AI를 최대한 쓰라고 밀어붙인 현상을 가리키는 말로 쓰였다."
+  },
+  {
+   "term": "Daybreak",
+   "note": "OpenAI의 보안 프로그램. 방어 목적의 보안 전문가가 고성능 모델을 쓰게 하며 Blue, Red 등 등급이 있다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "lab3089c4e1",
+   "reason": "한 문장 인용뿐이라 summary와 check를 쓸 근거가 부족하다"
+  },
+  {
+   "id": "lab604513e6",
+   "reason": "팟캐스트 소개문뿐이라 수익 구조에 관한 구체적 내용이 원문에 없다"
+  },
+  {
+   "id": "lab53c56afb",
+   "reason": "수집 실패(HTTP 403)"
+  },
+  {
+   "id": "lab0a437d67",
+   "reason": "수집 실패(HTTP 403)"
+  }
+ ]
+}
