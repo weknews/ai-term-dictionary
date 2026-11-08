@@ -1,0 +1,118 @@
+{
+ "date": "2026-11-09",
+ "headline": "골드만삭스가 은행원과 트레이더 대부분에게서 코딩 에이전트 사용 권한을 거뒀다.",
+ "items": [
+  {
+   "id": "50415628",
+   "role": "pick",
+   "kind": "정책",
+   "title": "골드만삭스, Claude Code를 엔지니어에게만 허용",
+   "summary": "골드만삭스가 내부 지침을 고쳐, Anthropic의 Claude Code와 Microsoft의 GitHub 도구를 엔지니어에게만 허용했다. Claude Code는 스스로 프로그램을 쓰고 실행하는 AI 도구다. 블룸버그 보도에 따르면 생산성과 위험 우려를 검토한 뒤의 결정이다. 트레이딩·퀀트 연구·소프트웨어 일을 함께 하는 스트랫은 계속 쓸 수 있다.",
+   "check": "트레이더들이 이 도구를 고객 거래 흐름 점검과 시장 모델 작성에 써 왔다는 내용이 나와 있다. 이 은행의 CIO가 비개발 직원이 AI로 만든 도구를 엔지니어가 다듬는 방식을 말했다는 부분과 비교해 읽을 수 있다. 기사 끝에는 매체 자체 의견으로, 에이전트가 쓴 코드를 누가 책임질지 정하자는 제안이 있다.",
+   "terms": [
+    "코딩 에이전트",
+    "리뷰 게이트"
+   ],
+   "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
+   "source": "thestateofai.com"
+  },
+  {
+   "id": "labb831b808",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "스탠퍼드 수업, 지난해 숙제가 한 번의 지시로 풀리자 오픈소스 기여를 과제로",
+   "summary": "Mihail Eric은 스탠퍼드에서 현대 소프트웨어 개발자 과정(CS146S)을 가르치고, Monaco에서 AI를 이끈다. 첫 수업의 과제 상당수를 학생이 AI 에이전트에 한 번 시켜 풀 수 있게 되자, 이번에는 오픈소스 프로젝트에 기여하고 그 프로젝트 관리자에게 검토받는 과제를 넣었다. Monaco에서는 직원들이 코딩 에이전트로 소프트웨어를 만들고 장애를 조사한다.",
+   "check": "Monaco가 무엇은 사서 쓰고 무엇은 직접 만들었는지가 나와 있다. 기준은 '사서 배우고, 직접 만들어 간직한다'다. 같은 시스템에 엔지니어는 고장 조사를, 영업 담당은 제품 설명을 묻는 사례도 있다.",
+   "terms": [
+    "코딩 에이전트",
+    "컨텍스트 엔지니어링"
+   ],
+   "url": "https://latent.space/p/cs146s/",
+   "source": "latent.space"
+  },
+  {
+   "id": "50416363",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "AI 작업 스레드 20개에 지친 개발자가 일을 대기열로 바꾼 방법",
+   "summary": "한 개발자가 터미널에서 AI 도구 여러 개를 동시에 돌리다 20개 가까운 대화 사이를 오가며 지쳤다고 쓴다. 그래서 일을 우선순위 대기열처럼 정리했다. 할 일은 저장소 안의 문서 파일로 두고, AI가 그 목록을 돌며 처리하고, 사람의 판단이 필요한 건 한곳에 모이게 했다.",
+   "check": "AI가 해도 되는 일과 사람이 해야 하는 일을 나눈 부분이 나와 있다. 운영 환경 배포는 AI가 하지 않고 본인이 한다. 항목을 하나 열어 결정하고 대기열에 되돌려 닫는 방식이 핵심이라고 설명한 부분도 있다. 여전히 지친다는 말과 남은 과제도 적혀 있다.",
+   "terms": [
+    "승인 게이트",
+    "휴먼 인 더 루프"
+   ],
+   "url": "https://sergeykuhne.com/blog/fighting-ai-brain-fry",
+   "source": "sergeykuhne.com"
+  },
+  {
+   "id": "labed44bd78",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "Gemini 제품 총괄 Tulsee Doshi가 말하는 AI 연구소 안의 PM",
+   "summary": "Lenny's Podcast에 Google의 최상위 AI 모델 제품 총괄 Tulsee Doshi가 나왔다. Gemini와 이미지·영상·음악 생성 모델 Nano Banana, Genie, Veo, Lyria가 그의 담당이다. 다룬 주제는 AI 연구소에서 PM이 하는 일, 지금 되는 것과 거의 되는 것 사이의 균형을 잡는 60-20-20 프레임워크, 첫 평가를 쓰는 법이다.",
+   "check": "수집된 원문은 유료 글이라 목차와 참고 링크까지만 있다. 60-20-20 프레임워크와 첫 평가를 쓰는 법이 다룰 주제로 올라 있다. 본문은 팟캐스트에서 확인할 수 있다.",
+   "terms": [
+    "평가",
+    "프런티어 모델 / 프런티어 랩"
+   ],
+   "url": "https://www.lennysnewsletter.com/p/what-it-actually-takes-to-build-frontier",
+   "source": "lennysnewsletter.com"
+  },
+  {
+   "id": "50411467",
+   "role": "pick",
+   "kind": "논쟁",
+   "title": "AI 코딩 도구마다 '기억' 저장 형식이 달라 서로 읽지 못한다",
+   "summary": "AI 에이전트 기억 도구 LoreKit을 만드는 개발자가, 도구마다 기억을 저장하는 형식이 달라 서로 읽지 못한다고 쓴다. AGENTS.md·CLAUDE.md 같은 지침 파일, Anthropic의 메모리 도구, GitHub Copilot의 저장소별 기억이 예로 나온다. 글쓴이는 2019년 관측 도구들이 OpenTelemetry로 형식을 합의한 사례처럼, 공통 형식을 정하자고 제안한다.",
+   "check": "기억 형식을 한 표로 비교한 부분이 나와 있다. 기억을 누가 쓰는지(사람, 모델, 서비스)와 언제 잊는지가 형식별로 정리돼 있다. 글쓴이가 자기 제품도 여러 제안 중 하나일 뿐이라고 밝힌 부분도 있다.",
+   "terms": [
+    "에이전트 메모리",
+    "에이전트 규약 파일"
+   ],
+   "url": "https://www.lorekit.io/blog/open-agent-memory-format",
+   "source": "lorekit.io"
+  }
+ ],
+ "lens": [
+  {
+   "id": "50410107",
+   "angle": "플랫폼",
+   "title": "Claude Code를 오래 쓰던 사용자가 오픈소스 도구 Pi로 옮긴 이유",
+   "what": "Claude Code를 1년 넘게 쓰던 한 개발자가 작은 불만이 쌓여 오픈소스 도구 Pi로 옮겼다고 블로그에 썼다. 올해 Claude Code가 244번 업데이트됐고 그중 4분의 3 넘게가 시스템 프롬프트나 도구 설명을 바꿨다고 적었다.",
+   "who": "이 글은 필자 한 사람의 경험이다. 필자는 잦은 변경이 자기 설정을 흔들었고, Pi는 안정적이고 직접 고쳐 쓰기 쉬워 만족한다고 쓴다.",
+   "question": "우리 제품이 기대는 외부 도구가 우리 모르게 바뀌면, 다른 도구로 옮길 길을 얼마나 열어 두고 있나?",
+   "url": "https://caleb.software/posts/claude-to-pi.html",
+   "source": "caleb.software"
+  },
+  {
+   "id": "lab314bd089",
+   "angle": "돈",
+   "title": "OpenAI, 새 투자 라운드에서 110억 달러 조달 보도",
+   "what": "블룸버그에 따르면 OpenAI가 기업가치 1.25조 달러로 새 투자 라운드에서 110억 달러를 모았다. 라운드는 아직 닫히지 않았고 총 200억 달러쯤이 될 수 있다. 9월 말 보도된 목표는 300억 달러였다.",
+   "who": "원문은 투자자의 돈이 OpenAI로 들어간다는 사실과, 현재 금액이 목표에 못 미친다는 점까지만 전한다. 같은 날 보도에서 Anthropic의 상장 때 주식을 살 투자자들이 더 낮은 기업가치를 보고 있다는 내용도 있다.",
+   "question": "우리가 쓰는 AI 서비스 회사의 자금 사정이 달라져도 우리 제품은 계속 돌아갈 수 있나?",
+   "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "에이전트 메모리",
+  "context": "AI 코딩 도구마다 기억을 저장하는 형식이 달라 서로 읽지 못한다는 LoreKit 블로그 글에서 나왔다. 글쓴이는 이를 공통 형식으로 맞추자고 제안한다."
+ },
+ "new_terms": [
+  {
+   "term": "AI brain fry",
+   "note": "AI 도구 여러 개를 동시에 돌리며 여러 대화의 맥락을 머릿속에 두다 지치는 상태를 가리키는 말로, 한 개발자의 블로그 글에서 쓰였다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "50411961",
+   "reason": "CPU 연산 최적화와 양자화 수치 중심의 기술 문서라 비개발자에게 풀어 설명하기 어렵다."
+  },
+  {
+   "id": "labd8b2a306",
+   "reason": "여러 무관한 소식을 묶은 뉴스 모음이라 한 항목으로 쓰기 어렵고, 후보 중 렌즈 용도로는 다른 두 건을 골랐다."
+  }
+ ]
+}
