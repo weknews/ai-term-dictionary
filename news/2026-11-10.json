@@ -1,0 +1,136 @@
+{
+ "date": "2026-11-10",
+ "headline": "Anthropic이 가장 앞선 모델의 새 버전인 Mythos 5.2와 Fable 5.2를 공개했다.",
+ "items": [
+  {
+   "id": "lab2b128ff0",
+   "role": "launch",
+   "kind": "모델",
+   "title": "Anthropic, Mythos 5.2와 Fable 5.2 공개",
+   "summary": "Anthropic이 자사의 가장 앞선 모델인 Mythos 5.2와 Fable 5.2의 새 버전을 냈다. 코딩, 추론, 이미지 이해에서 나아졌다고 회사는 밝혔다. Fable은 사용 가격을 내렸고, 응답은 30% 빨라졌다고 한다(회사 발표 기준).",
+   "terms": [
+    "시스템 카드 / 모델 카드"
+   ],
+   "url": "https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "labfe9001b0",
+   "role": "launch",
+   "kind": "모델",
+   "title": "Meta, 가벼운 모델 Muse Ember 공개",
+   "summary": "Meta가 Muse Ember를 냈다. 에이전트(사람 대신 여러 단계의 일을 처리하는 AI)가 하루 종일 반복하는 일에 맞춘, Meta에서 가장 가볍고 비용이 낮은 모델이다. Meta는 작업 하나당 비용이 Haiku, Luna 같은 경쟁 모델보다 낮다고 밝혔다(회사 발표 기준). 텍스트, 이미지, 음성을 별도 모델 없이 다룬다고 한다.",
+   "terms": [],
+   "url": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab9572242c",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "Claude에게 요청해 같은 기능을 C와 Rust로 만들어 비교",
+   "summary": "Simon Willison이 \"-$1,234.56\" 같은 글자를 숫자로 바꾸는 SQLite(작은 데이터베이스) 기능을 Claude 채팅에 요청해 C와 Rust 두 언어로 만들었다. 처음에는 Rust가 더 빨랐다. 이어서 C를 다시 써 달라고 요청하자 다듬은 C가 가장 빨라졌고, Rust보다 약 두 배 빨랐다.",
+   "check": "처음 요청문과, 결과가 아쉬울 때 이어서 한 요청문이 그대로 나와 있다. 마지막에 이 과정을 연구 보고서로 정리하게 한 요청도 나와 있다.",
+   "terms": [],
+   "url": "https://simonwillison.net/2026/Nov/8/sqlite-parse-number-c-vs-rust/",
+   "source": "simonwillison.net"
+  },
+  {
+   "id": "lab057e22ab",
+   "role": "pick",
+   "kind": "제품",
+   "title": "NVIDIA, 일본 인구·금융 맥락을 담은 가상 인물 데이터 공개",
+   "summary": "NVIDIA와 Elith가 일본의 공식 통계에 맞춰 만든 가상 인물 데이터 Nemotron-Personas-Finance-Japan을 공개했다. 900만 명 분량이고, 모두 합성 데이터라 실제 고객 정보를 쓰지 않는다. CC BY 4.0 라이선스로 상업적으로도 쓸 수 있다.",
+   "check": "은행과 보험사 등의 의견을 받아 설계했다는 설명이 나와 있다. 고객 응대 AI 만들기, 지역·연령별 AI 성능 점검 같은 쓰임새도 나와 있다.",
+   "terms": [
+    "합성 데이터"
+   ],
+   "url": "https://huggingface.co/blog/nvidia/nemotron-personas-finance-japan",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "labefd1a1cf",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "AI 연구소가 사는 전문가 데이터, Handshake가 보여 준 실제 과제들",
+   "summary": "Latent Space가 Handshake AI와 나눈 대화를 공개했다. Handshake의 AI 훈련 사업은 약 1년 만에 총 연환산 매출 10억 달러에 이르렀다. 금융, 생명과학, 안전성 분야에서 에이전트가 푸는 과제를 화면으로 보여 준다.",
+   "check": "금융 시연에서 에이전트가 고객 이메일의 한 줄을 처리하다 틀리는 장면이 나와 있다. 뇌 조직 사진 아홉 장 중 괴사가 가장 진행된 두 장을 고르는 과제에서, 사람과 모델의 답이 어떻게 달랐는지도 나와 있다.",
+   "terms": [
+    "RL 환경"
+   ],
+   "url": "https://latent.space/p/handshake/",
+   "source": "latent.space"
+  },
+  {
+   "id": "lab03ff3e39",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "Swift를 써 본 적 없는 창업가가 Codex로 언어 학습 앱을 만들었다",
+   "summary": "Hackmamba 창업가 William Imoh는 Swift를 한 줄도 써 본 적이 없었다. 그런데도 Codex와 GPT-Live로 노르웨이어 학습 앱 Mural을 iOS와 Android용으로 만들었다. 그는 Grok Bot 에이전트들로 약 25명 규모의 팀 운영도 돕게 하고 있다.",
+   "check": "첫 요청문과, 앱이 다른 언어 앱과 다르게 보이도록 한 디자인 요청이 어떤 것인지 소개 목록에 나와 있다. 에이전트에 한 가지만 빼고 접근을 준 이유와, 모델이 나아진 뒤에도 직접 해야 하는 일도 나와 있다.",
+   "terms": [
+    "코딩 에이전트"
+   ],
+   "url": "https://www.lennysnewsletter.com/p/how-this-founder-built-a-better-duolingo",
+   "source": "lennysnewsletter.com"
+  }
+ ],
+ "lens": [
+  {
+   "id": "labefd1a1cf",
+   "angle": "돈",
+   "title": "AI 연구소가 사는 전문가 데이터, 1년 만에 연 10억 달러",
+   "what": "Handshake의 AI 훈련 사업이 출시 후 약 1년 만에 총 연환산 매출 10억 달러에 이르렀다. 금융, 생명과학, 안전성 분야에서 에이전트가 푸는 과제를 만들어 보여 준다.",
+   "who": "원문은 이 사업을 AI 연구소가 전문가 데이터를 사는 시장으로 다룬다. 돈이 연구소에서 데이터 회사로 흐른다.",
+   "question": "우리 일 중 전문가가 하는 판단을 과제로 쪼개 AI에게 풀게 한다면, 어떤 과제부터 만들 수 있을까?",
+   "url": "https://latent.space/p/handshake/",
+   "source": "latent.space"
+  },
+  {
+   "id": "labfe9001b0",
+   "angle": "만든 방식",
+   "title": "무거운 모델이 규칙을 정하고, 가벼운 모델이 물량을 맡는다",
+   "what": "Meta는 Muse Ember를 큰 모델 Muse Wonder와 짝지어 쓰도록 설계했다고 밝혔다. 고객 지원이라면 무거운 모델이 처리 규칙을 세우고, 가벼운 모델이 수만 건에 그 규칙을 적용하는 식이다.",
+   "who": "원문이 든 예에서는 규칙을 세우는 일은 큰 모델이, 건수가 많은 일은 가벼운 모델이 맡는다. 비용이 낮은 모델에 반복 작업이 간다.",
+   "question": "우리 일 중 사람이 규칙을 정하고 나면 같은 일을 수천 번 반복하는 것은 무엇일까?",
+   "url": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "합성 데이터",
+  "context": "NVIDIA가 일본의 공식 통계에 맞춰 가상 인물 900만 명 분량을 만들어 공개했다. 실제 고객 데이터를 쓰지 않고도 금융 AI를 만들고 시험하게 하려는 것이다."
+ },
+ "new_terms": [
+  {
+   "term": "페르소나 데이터셋",
+   "note": "Nemotron-Personas-Finance-Japan 소식에서 나온 말. 통계에 맞춰 만든 가상 인물 설명을 모은 합성 데이터."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "lab7b1451fc",
+   "reason": "MoE 모델에서 전문가를 덜어 내는 방법으로, 비개발자에게 설명하기에 너무 기술적이다."
+  },
+  {
+   "id": "lab05d31a5b",
+   "reason": "CEO 관련 주주 소송 기사로, 오늘의 AI 씬 소식과 거리가 있어 뺐다."
+  },
+  {
+   "id": "lab9c331579",
+   "reason": "수집 실패(HTTP 403)"
+  },
+  {
+   "id": "lab23b94c69",
+   "reason": "수집 실패(HTTP 403)"
+  },
+  {
+   "id": "lab932fe34b",
+   "reason": "수집 실패(HTTP 403)"
+  },
+  {
+   "id": "labf37b680a",
+   "reason": "수집 실패(HTTP 403)"
+  }
+ ]
+}
