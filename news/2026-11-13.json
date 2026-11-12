@@ -1,0 +1,126 @@
+{
+ "date": "2026-11-13",
+ "headline": "Google DeepMind가 일상적인 코딩과 여러 단계 작업을 빠르게 처리하는 새 모델 Gemini 4 Hydrogen을 내놨다.",
+ "items": [
+  {
+   "id": "lab4bad5afe",
+   "role": "launch",
+   "kind": "모델",
+   "title": "Google, 빠른 실행용 모델 Gemini 4 Hydrogen 공개",
+   "summary": "Google DeepMind가 Gemini 4 Hydrogen(코딩과 여러 단계 작업을 빠르게 처리하는 새 모델)을 냈다. 이전 모델인 Gemini 3.8 Flash보다 같은 작업을 2.5배 빠르게 끝낸다고 회사가 밝혔다(회사 발표 기준). Gemini 앱, Google 검색, Google AI Studio, Gemini API, 기업용 Gemini에서 쓸 수 있다.",
+   "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/",
+   "source": "deepmind.google",
+   "terms": []
+  },
+  {
+   "id": "lab796a7f7e",
+   "role": "launch",
+   "kind": "모델",
+   "title": "Anthropic, Claude Fable 5.2와 Mythos 5.2 공개",
+   "summary": "Anthropic이 Claude Fable 5.2와 Claude Mythos 5.2(어려운 기술 과제를 위한 모델)를 냈다. 두 모델은 같은 모델에 안전장치 수준만 다르다. 이전 5.1보다 결과물을 최대 30% 빠르게 내고 값도 낮아졌다고 회사가 밝혔다(회사 발표 기준). Fable은 모든 사용자에게 열려 있고, Mythos는 사이버 보안·생명과학 분야 기관이 신청해야 쓸 수 있다.",
+   "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+   "source": "anthropic.com",
+   "terms": []
+  },
+  {
+   "id": "labf5707a34",
+   "role": "pick",
+   "kind": "정책",
+   "title": "United Airlines, AI 비서의 항공권 예약을 막는다",
+   "summary": "United Airlines가 이용자를 대신해 항공권을 예약하고 예약을 관리하려는 AI 비서의 접근을 제한하겠다고 밝혔다. 이유로 사이버 보안 위험과 연방 규정 위반 가능성을 들었다. 자사 디지털 플랫폼은 물론 여행사와 판매 대행 업체를 거치는 경로도 막는다.",
+   "check": "United가 든 이유가 나와 있다. 계정 정보를 AI 비서와 공유하면 뜻하지 않은 구매나 마일리지 사용이 생길 수 있다는 설명과, 체크인을 사람이 직접 해야 한다는 규정이 함께 나온다. 은행들도 비밀번호를 AI 비서와 공유하지 말라고 안내했다는 내용이 이어진다.",
+   "terms": [
+    "에이전트"
+   ],
+   "url": "https://techcrunch.com/2026/11/12/united-airlines-blocks-ai-agents-from-booking-flights-citing-cybersecurity-risks/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab023d1c79",
+   "role": "pick",
+   "kind": "사고",
+   "title": "Fireworks AI 해킹으로 Notion 고객의 AI 대화 기록이 빠져나갔다",
+   "summary": "개발자들이 AI 모델을 가져다 쓰는 플랫폼 Fireworks AI가 해킹을 당했다. 공격자가 클라우드 공급자를 뚫고 개발 시스템에 들어가 고객의 결제 정보와 일부 데이터를 가져갔다고 회사가 밝혔다. Notion은 자사 고객의 약 1%가 영향을 받았다고 공지했고, 11월 3일에 Fireworks와의 연결을 끊었다.",
+   "check": "Notion 공지에서 어떤 정보가 나갔는지 설명한 부분이 나와 있다. Notion AI의 Insights 기능을 쓴 고객의 대화 기록이고, 모델에 입력하거나 모델이 출력한 내용이 포함된다. 한 회사의 사고가 거래하는 다른 회사로 번진 과정을 기사가 짚는다.",
+   "terms": [
+    "데이터 유출"
+   ],
+   "url": "https://techcrunch.com/2026/11/12/cyberattack-on-fireworks-ai-allowed-hackers-to-access-notion-customers-chat-transcripts/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "laba88bddb1",
+   "role": "pick",
+   "kind": "연구",
+   "title": "IBM, 지시와 데이터를 표시로 나눠 읽히는 LLMON 공개",
+   "summary": "IBM 연구진이 LLMON(지시·데이터·요구사항에 이름표를 붙여 모델에 알려 주는 표기 방식)을 만들었다. 이 방식으로 학습한 실험용 모델 두 개를 Granite 4.1을 바탕으로 공개했다. 데이터 속에 숨겨진 명령을 대부분 무시한다고 연구진이 밝혔다(회사 발표 기준).",
+   "check": "왜 기존 방식인 JSON으로는 모델이 구조를 헷갈리는지 설명한 부분이 나와 있다. 요청 하나를 지시, 데이터, 요구사항으로 나눠 담은 예시도 있다. 모델에게 무엇이 일이고 무엇이 재료인지 알려 주는 방식을 볼 수 있다.",
+   "terms": [
+    "간접 프롬프트 인젝션",
+    "컨텍스트 엔지니어링"
+   ],
+   "url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "labb22522d1",
+   "role": "pick",
+   "kind": "제품",
+   "title": "Tether, 기기 안에서 도는 작은 개인 비서 모델 BotPsy 공개",
+   "summary": "Tether AI Research가 BotPsy(스마트폰 같은 기기 안에서 도는 작은 개인 비서 모델)를 냈다. 웹 검색, 일정, 이메일 같은 단순한 일을 도구를 불러 처리한다. 가중치를 공개하는 방식으로 풀 예정이라고 밝혔다.",
+   "check": "한계를 밝힌 부분이 나와 있다. 모델이 작아서 쉬운 일부터 중간 난이도 일에 맞고, 여전히 실수하며 중요한 판단에는 쓰지 말라고 적혀 있다. 클라우드 모델 대신 기기 안에서 돌리려는 이유를 설명한 첫머리도 나온다.",
+   "terms": [
+    "온디바이스 AI",
+    "SLM / 소형 모델"
+   ],
+   "url": "https://huggingface.co/blog/qvac/botpsy",
+   "source": "huggingface.co"
+  }
+ ],
+ "lens": [
+  {
+   "id": "labf7effce2",
+   "angle": "돈",
+   "title": "Nectar, 크리에이터 섭외 업무를 에이전트로 자동화",
+   "what": "Nectar가 크리에이터를 찾고 메시지를 보내고 캠페인 성과를 추적하는 Creator Agent를 냈다. 미국의 크리에이터 광고 지출이 2026년에 440억 달러에 이를 것으로 전망된다고 IAB가 밝혔다.",
+   "who": "원문은 마케팅 팀이 몇 주씩 스크롤하고 스프레드시트를 만들고 메시지를 하나씩 보내던 일을 이 에이전트가 맡는다고 설명한다. Aspire와 GRIN도 비슷한 에이전트를 내놨다고 나온다.",
+   "question": "우리 같은 팀이 고객이 몇 주씩 손으로 하는 반복 업무를 하나 고른다면 무엇인가?",
+   "url": "https://techcrunch.com/2026/11/12/nectar-launches-an-ai-agent-to-automate-creator-discovery-and-outreach-for-brands/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab0f3a523e",
+   "angle": "만든 방식",
+   "title": "Claude Code와 Obsidian으로 만든 가족용 AI 두뇌",
+   "what": "수학 교육자 Scott Farrar가 가전, 보증서, 보험 서류, 할 일 목록을 문서 파일 폴더로 모아 Claude Code로 다루는 시스템을 만들었다. 아내와 함께 쓰고 벽걸이 화면에도 띄운다.",
+   "who": "원문에서는 AI 대화가 흐려지고 잊어버리는 문제가 이 시스템을 만든 이유로 나온다. 쓰는 사람은 가족 두 명이다.",
+   "question": "우리 일에서 대화창에 매번 다시 설명하는 내용을 파일로 모아 둔다면 무엇이 되는가?",
+   "url": "https://www.lennysnewsletter.com/p/claude-code-obsidian-my-familys-ai",
+   "source": "lennysnewsletter.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "간접 프롬프트 인젝션",
+  "context": "IBM이 LLMON 모델은 데이터 속에 숨겨진 명령을 대부분 무시한다고 밝혀서 나온 말이다."
+ },
+ "new_terms": [
+  {
+   "term": "LLMON",
+   "note": "IBM Granite 4.1 실험 모델이 쓰는 LLM용 표기 방식. 지시와 데이터를 표시로 구분한다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "labd2296a64",
+   "reason": "검색용 벡터 압축 학습법으로 비개발자에게 설명하기에 지나치게 기술적이다"
+  },
+  {
+   "id": "lab6a8ddd1b",
+   "reason": "개발자 대상 워크숍 후기로 비개발자가 얻어 갈 부분이 적고 lens 후보 2개를 이미 채웠다"
+  },
+  {
+   "id": "lab372847c9",
+   "reason": "수집 실패(HTTP 403)"
+  }
+ ]
+}
