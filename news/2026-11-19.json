@@ -1,0 +1,124 @@
+{
+ "date": "2026-11-19",
+ "headline": "시티은행이 이용약관을 바꿔, AI 도구에 계정 접근을 맡긴 고객은 그 도구를 통해 일어난 일에 책임진다고 밝혔다.",
+ "items": [
+  {
+   "id": "lab93ec3dad",
+   "role": "pick",
+   "kind": "제품",
+   "title": "Snapchat, AI 코딩 도구로 AR 효과를 만들 수 있게 열다",
+   "summary": "Snapchat이 Lens(카메라로 얼굴이나 주변을 바꾸는 AR 효과) 제작자가 Claude Code, Cursor, Codex 같은 AI 코딩 도구로 Lens를 만들 수 있게 했다. 만들고 싶은 Lens를 말로 설명하면 AI 도구가 제작부터 게시, 성과 추적까지 맡는다고 Snapchat은 밝혔다. Lens+ Payouts 프로그램에 참여한 제작자는 수익을 얻을 수 있고, Snapchat은 지난달 이 프로그램의 제작자들에게 180만 달러를 지급했다고 밝혔다.",
+   "check": "게임을 아이디어에서 게시까지 하루 만에, 코드를 직접 쓰지 않고 만들 수 있다는 Snapchat의 설명이 나와 있다. 게임 개발자, AI 창작자, 브랜드가 각각 어떻게 쓰는지도 나와 있다.",
+   "terms": [
+    "코딩 에이전트"
+   ],
+   "url": "https://techcrunch.com/2026/11/18/snapchat-now-lets-developers-build-ar-lenses-with-ai-coding-assistants-like-claude-code-and-cursor/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "labacdaad57",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "에이전트는 밖에 두고 코드 실행만 격리 공간에서 하는 방식",
+   "summary": "Simon Willison이 Prime Radiant와 함께 외부 샌드박스 방식을 소개했다. 에이전트가 실행하는 코드는 전용 샌드박스(바깥과 분리된 격리 공간) 안에서 돌고, 에이전트 본체는 그 밖에 둔다. 시연용 구현 세 가지를 공개했고, 에이전트가 접속할 수 있는 주소를 제한하는 기능과 비밀값을 에이전트에게 알려 주지 않고 인증 호출을 하는 장치가 들어 있다.",
+   "check": "저자가 이 작업을 하게 된 이유로 로컬 모델을 시험할 때 실수나 프롬프트 인젝션(AI에게 몰래 끼워 넣는 악의적 지시)으로 컴퓨터가 피해를 입는 일을 막으려는 목적이 나와 있다. 접속 허용 목록을 실행 중에 바꾸는 화면도 나와 있다.",
+   "terms": [
+    "샌드박스",
+    "프롬프트 인젝션"
+   ],
+   "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/",
+   "source": "simonwillison.net"
+  },
+  {
+   "id": "lab5ab3ec09",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "서버 앱을 브라우저 안에서 돌려 링크 하나로 데모를 공유한다",
+   "summary": "Simon Willison이 Datasette Lite를 새로 만들어 공개했다. Datasette(데이터를 표로 열어 보는 서버 앱)를 서버 없이 브라우저 안에서 돌리는 버전이다. 링크 하나에 데이터, 설치할 기능, 설정이 담겨서 링크를 여는 것만으로 같은 화면이 뜬다. 저자는 이 시스템이 5월에 Claude Opus 4.8로 만든 AI 연구용 시험작에서 시작했다고 밝혔다.",
+   "check": "개발 중인 기능의 버그를 설명할 때 고치기 전과 고친 뒤 화면을 각각 링크로 보여 준 사례가 나와 있다. 서버를 따로 띄우지 않고 데모를 공유하는 방식이 나와 있다.",
+   "terms": [],
+   "url": "https://simonwillison.net/2026/Nov/17/datasette-lite/",
+   "source": "simonwillison.net"
+  },
+  {
+   "id": "lab75623b38",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "파인튜닝 소요 시간, 계산식 예상과 실제가 크게 달랐다",
+   "summary": "Dharma-AI 팀이 여러 팀이 함께 쓰는 서버에서 돌린 파인튜닝(이미 만들어진 AI 모델을 추가 데이터로 더 학습시키는 일) 272건을 분석했다. 흔히 쓰는 계산식으로 낸 예상 시간은 실제와 평균 12.41시간 차이가 났다. 작업 설정만 보고 예측하도록 학습시킨 모델은 평균 1.71시간 차이였다고 글쓴이들은 밝혔다.",
+   "check": "계산식이 놓치는 시간으로 준비 작업, 중간 평가, 중간 저장이 짚여 있다. 방법별 예측 오차를 나란히 놓은 비교표가 나와 있다.",
+   "terms": [
+    "파인튜닝"
+   ],
+   "url": "https://huggingface.co/blog/Dharma-AI/predicting-fine-tuning-time",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "labaf1852b4",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "램 32GB 맥북에서 큰 MoE 모델을 돌리는 실험",
+   "summary": "Hugging Face 블로그에서 Tarek Ziadé가 MoE(질문마다 일부 부분만 골라 쓰는 큰 모델)를 램 32GB 맥북에서 돌린 과정을 적었다. 모델의 대부분을 차지하는 전문가 부분을 저장장치에서 필요할 때 읽어 오는 방식이다. 글쓴이는 맥에서의 속도가 자신이 코딩 에이전트를 쓰는 방식에는 느릴 것이라고 밝혔다.",
+   "check": "엔진별 속도를 비교한 표와 글쓴이의 일하는 방식이 나와 있다. 코드는 모두 AI로 만들었고, 글쓴이는 무엇을 시도할지 고르고 결과를 읽고 남길 것을 정하는 일을 했다고 한다.",
+   "terms": [
+    "MoE"
+   ],
+   "url": "https://huggingface.co/blog/moe-expert-streaming",
+   "source": "huggingface.co"
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab708e5261",
+   "angle": "반대편",
+   "title": "은행들, AI 에이전트를 쓰다 생긴 일은 고객 책임이라고 안내",
+   "what": "시티은행이 이용약관을 바꿔, 제3자 AI 에이전트에 계정 접근을 허용한 고객이 그 에이전트를 통해 일어난 활동에 책임진다고 밝혔다. AI 도구가 인증정보를 유출하거나 해킹당해도 고객이 책임진다.",
+   "who": "기사에 따르면 JPMorgan과 Bank of America는 지난달, PNC는 이날 비슷하게 약관을 바꿨다. 시티의 약관에는 은행이 제공하는 AI 에이전트는 추가 책임 걱정 없이 쓸 수 있다고 나와 있다.",
+   "question": "우리 제품이 고객을 대신해 계정이나 결제에 접근한다면, 문제가 생겼을 때의 책임을 고객에게 어떻게 안내하고 있는가?",
+   "url": "https://techcrunch.com/2026/11/18/more-banks-says-customers-using-ai-agents-are-on-their-own-even-if-they-get-hacked/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab620756f2",
+   "angle": "돈",
+   "title": "기업 문서를 AI 에이전트가 읽게 만드는 스타트업, 시드 투자 유치",
+   "what": "Unsiloed AI가 Felicis 주도로 750만 달러 시드 투자를 받았다. 복잡한 문서의 표와 차트에서 정보를 뽑아 AI 에이전트가 쓸 수 있는 데이터로 바꾸고, 그 정보가 원문 어디에서 왔는지도 보여 준다.",
+   "who": "기사는 이 시장에 Reducto, Unstructured 같은 전문 업체와 Microsoft, Amazon의 서비스가 이미 있다고 전한다. 정확도 수치는 회사 발표이고 외부 검증은 되지 않았다.",
+   "question": "우리 서비스에서 AI가 읽고 내놓은 결과를 사용자가 원문과 대조해 볼 수 있게 하고 있는가?",
+   "url": "https://techcrunch.com/2026/11/18/felicis-leads-7-5m-bet-on-unsiloed-ai-to-make-enterprise-documents-usable-by-ai-agents/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "샌드박스",
+  "context": "Simon Willison이 에이전트가 실행하는 코드를 전용 격리 공간 안에서만 돌리는 외부 샌드박스 방식을 소개하면서 이 말이 나왔다."
+ },
+ "new_terms": [
+  {
+   "term": "외부 샌드박스",
+   "note": "에이전트 본체는 밖에 두고 에이전트가 실행하는 코드만 전용 샌드박스 안에서 돌리는 방식으로 쓰였다."
+  },
+  {
+   "term": "전문가 오프로딩",
+   "note": "MoE 모델의 전문가 부분을 램이나 저장장치로 내려 두고 필요할 때만 불러 쓰는 방식으로 쓰였다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "lab7c228905",
+   "reason": "GPT-6.2 출시 소식이지만 OpenAI 원문 수집이 실패해 뉴스레터 요약만 남았고, 선별 표시도 lens여서 뺐다."
+  },
+  {
+   "id": "lab549a7734",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못했다."
+  },
+  {
+   "id": "labc6c361c5",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못했다."
+  },
+  {
+   "id": "lab53f2a143",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못했다."
+  }
+ ]
+}
