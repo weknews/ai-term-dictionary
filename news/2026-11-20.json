@@ -1,0 +1,118 @@
+{
+ "date": "2026-11-20",
+ "headline": "Google DeepMind가 새 AI 모델 Gemini 4 Neon을 내놓았다.",
+ "items": [
+  {
+   "id": "lab0c3c8b23",
+   "role": "launch",
+   "kind": "모델",
+   "title": "Google DeepMind, Gemini 4 Neon 공개",
+   "summary": "Google DeepMind가 Gemini 4 Neon(구글의 새 AI 모델)을 발표했다. 기본 사고 수준에서 같은 계열의 Carbon보다 작업당 비용이 32% 낮다는 것이 회사 발표 기준 설명이다. Gemini API와 Gemini 앱에서 쓸 수 있고, 앱에서는 Pro와 Ultra 구독자가 대상이다.",
+   "url": "https://deepmind.google/blog/introducing-gemini-4-neon/",
+   "source": "deepmind.google",
+   "terms": []
+  },
+  {
+   "id": "lab2a139dc9",
+   "role": "launch",
+   "kind": "모델",
+   "title": "OpenAI, GPT-6.2 Astra와 GPT-6.2 Sol 출시",
+   "summary": "OpenAI가 GPT-6.2 Astra(어려운 프로젝트용 새 모델)와 GPT-6.2 Sol(일상 업무용 효율적인 모델)을 내놓았다. Simon Willison의 정리에 따르면 Astra의 값은 이전 6 Astra의 80%이고, Sol은 6.1 Sol, 6 Sol과 같은 값이다. 두 모델 모두 API에서 쓸 수 있다.",
+   "url": "https://simonwillison.net/2026/Nov/17/gpt62-astra-and-sol/",
+   "source": "simonwillison.net",
+   "terms": []
+  },
+  {
+   "id": "lab652211f5",
+   "role": "launch",
+   "kind": "제품",
+   "title": "Google, 글로 가상 세계를 만드는 Genie 4 공개",
+   "summary": "Google DeepMind가 Genie 4(글로 입력한 내용을 상호작용할 수 있는 가상 세계로 만들어 주는 월드 모델)를 공개했다. 세계 안에서 돌아다니는 중에 글을 입력해 날씨를 바꾸거나 인물을 넣을 수 있고, 장면에 맞춰 소리도 나온다. Google AI Ultra 구독자에게 제공하고, Pro 구독자는 대기자 명단에 등록할 수 있다.",
+   "url": "https://deepmind.google/blog/genie-4-is-now-available/",
+   "source": "deepmind.google",
+   "terms": []
+  },
+  {
+   "id": "lab2919f418",
+   "role": "pick",
+   "kind": "사고",
+   "title": "Meta 에이전트 Muse가 계정 간 대화를 섞는다는 보도",
+   "summary": "Reuters가 사내 게시글을 살펴본 결과, Meta 직원들이 AI 에이전트(사용자 대신 일을 처리하는 AI) Muse가 서로 다른 계정의 대화를 섞고 개인정보를 노출한다는 우려를 제기했다. 한 직원은 날씨 대화 중에 자신의 것이 아닌 은행 잔액 안내를 받았다고 전했다. Meta 대변인은 직원이 쓰는 Muse가 일반에 공개된 것과 다른 버전이라고 밝혔다.",
+   "check": "직원들이 겪은 구체적 사례가 나와 있다. Meta 대변인이 직원 테스트의 목적을 어떻게 설명했는지도 나와 있다.",
+   "terms": [
+    "에이전트",
+    "데이터 유출"
+   ],
+   "url": "https://techcrunch.com/2026/11/19/metas-ai-agent-muse-is-mixing-up-conversations-and-exposing-private-data-report-says/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "labacdaad57",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "코딩 에이전트의 코드를 밖의 격리 공간에서 실행하는 방식",
+   "summary": "Simon Willison이 Prime Radiant와 함께, 코딩 에이전트(코드를 대신 짜고 실행하는 AI)는 밖에 두고 코드 실행만 샌드박스(실수가 있어도 컴퓨터에 피해가 닿지 않게 막은 격리 공간) 안에서 하는 방식을 정리했다. 이 방식을 보여 주는 서버 구현 세 가지를 공개했다.",
+   "check": "에이전트 코드가 접속할 수 있는 사이트를 허용 목록으로 제한하는 기능이 나와 있다. 비밀번호를 에이전트에게 알려 주지 않고 인증이 필요한 호출을 하게 하는 장치도 나와 있다.",
+   "terms": [
+    "샌드박스",
+    "코딩 에이전트"
+   ],
+   "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/",
+   "source": "simonwillison.net"
+  },
+  {
+   "id": "lab75623b38",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "파인튜닝 소요 시간, 계산식은 크게 빗나갔다",
+   "summary": "Dharma-AI가 실제 운영 중인 파인튜닝(기존 AI 모델을 추가 데이터로 다듬는 작업) 272건을 분석했다. 계산식으로 구한 예상 시간은 가장 나은 설정에서도 평균 12.41시간 틀렸다. 작업 전에 알 수 있는 정보만으로 학습한 예측 모델은 평균 1.71시간 틀렸다.",
+   "check": "계산식이 놓치는 작업으로 환경 준비, 평가, 저장 등이 설명되어 있다. 계산식과 예측 모델을 나란히 비교한 표가 나와 있다.",
+   "terms": [
+    "파인튜닝"
+   ],
+   "url": "https://huggingface.co/blog/Dharma-AI/predicting-fine-tuning-time",
+   "source": "huggingface.co"
+  }
+ ],
+ "lens": [
+  {
+   "id": "labf7885a7f",
+   "angle": "돈",
+   "title": "Nadella, 에이전트가 웹의 수익 구조를 바꾼다고 말하다",
+   "what": "Microsoft CEO Satya Nadella가 DealBook Summit에서 AI 에이전트가 웹의 경제를 재편할 것이라고 말했다. 사람 방문(눈길)에 기댄 광고 수익은 클릭당 과금이나 거래 중심으로 가야 할 수 있다고 했다.",
+   "who": "Nadella는 Amazon이 에이전트를 계속 막으면 Shopify 같은 다른 쇼핑 플랫폼이 에이전트를 받아들여 이득을 볼 수 있다고 말했다.",
+   "question": "우리 서비스의 수익은 사람이 화면을 볼 때만 나오는가, AI 에이전트가 대신 방문해도 나오는가?",
+   "url": "https://techcrunch.com/2026/11/18/satya-nadella-predicts-ai-agents-will-reshuffle-the-economics-of-the-web/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab1054662f",
+   "angle": "플랫폼",
+   "title": "Gemini가 Mac에서 사용자 대신 앱을 조작한다",
+   "what": "Google이 Gemini 데스크톱 앱 macOS판에 컴퓨터 유즈(AI가 사용자 컴퓨터에서 직접 작업하는 기능)를 추가했다. 사용자는 작업을 일시정지·중지하거나 실행 전에 승인할 수 있다.",
+   "who": "TechCrunch는 OpenAI, Anthropic, Meta가 데스크톱 앱에서 이미 에이전트 기능을 제공해 왔고 Google은 늦었다고 썼다. 지금은 미국에서 영어로, Google AI Plus·Pro·Ultra 구독자에게만 제공된다.",
+   "question": "우리 제품 사용자가 하는 반복 작업을 AI가 화면 위에서 대신 처리해 준다면, 그래도 제품을 열 이유가 남는 일은 무엇인가?",
+   "url": "https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "컴퓨터 유즈",
+  "context": "Google이 Gemini 데스크톱 앱 macOS판에 컴퓨터 유즈를 넣었다는 소식에서 나왔다. 사용자가 일시정지·중지·승인을 할 수 있다는 점이 함께 전해졌다."
+ },
+ "new_terms": [],
+ "dropped": [
+  {
+   "id": "lab1810ca1f",
+   "reason": "구독자 전용 인터뷰라 본문이 수집되지 않았고 소개 한 줄뿐이다."
+  },
+  {
+   "id": "lab53f2a143",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못했다."
+  },
+  {
+   "id": "lab6687f7be",
+   "reason": "수집 실패(HTTP 403)로 원문을 읽지 못했다."
+  }
+ ]
+}
