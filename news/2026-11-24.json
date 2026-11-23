@@ -1,0 +1,75 @@
+{
+ "date": "2026-11-24",
+ "headline": "Richpanel 대표가 AI 고객지원 약 300건 도입에서 첫 30일 안에 문의 50% 자동화 보장을 모두 지켰다고 말했다.",
+ "items": [
+  {
+   "id": "lab680b3517",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "Richpanel, AI 상담 도입 약 300건에서 30일 안에 문의 절반 자동화",
+   "summary": "Richpanel(고객 문의 응대를 AI로 자동화하는 스타트업)은 고객사마다 AI 상담원이 쓸 도구와 업무 절차를 정해 줘야 하는 문제를 풀었다. 그래서 그 설정을 맡는 AI 매니저 'Boss AI'를 만들었다. 대표 Amit RG는 지난 6개월간 약 300건을 도입했고, 첫 30일 안에 자동화율 50%를 보장하는 약속을 모두 지켰다고 말했다.",
+   "check": "사람 상담원이 도구를 20~30개 쓰는데 그 절차가 글로 남아 있지 않을 수 있다는 설명이 나와 있다. 설정은 정확도를 우선한 모델이 맡고 실제 대화는 비용을 고려한 모델이 맡는 역할 분담도 나와 있다. 고객 만족도가 사람보다 좋았다는 부분은 대표의 말이다.",
+   "terms": [
+    "에이전트",
+    "모델 라우팅 / 캐스케이드"
+   ],
+   "url": "https://openai.com/business/customer-stories/richpanel-ai-customer-support",
+   "source": "openai.com"
+  },
+  {
+   "id": "lab6fd4c32f",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "Hugging Face, AI 에이전트 평가를 만들고 유지하는 방법 정리",
+   "summary": "Hugging Face(AI 모델과 데이터를 공유하는 사이트)가 에이전트 평가를 만드는 과정을 글로 정리했다. 평가는 시스템에 과제를 주고, 답이나 행동을 확인해 점수를 내는 일이다. 글은 물리 연구실의 측정 데이터를 분석하는 에이전트를 예로 들어 여덟 단계를 따라간다.",
+   "check": "같은 모델인데 에이전트를 감싼 소프트웨어만 바꿨더니 정확도가 최대 29.9%포인트 달라졌다는 감사 사례가 나와 있다. 평가 과제와 채점이 틀렸을 때 어떻게 찾고 고치는지, 무엇을 공개하고 무엇을 비공개로 둘지 정리한 부분도 있다.",
+   "terms": [
+    "평가",
+    "벤치마크"
+   ],
+   "url": "https://huggingface.co/blog/agentic-evals",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "lab9dddeb89",
+   "role": "pick",
+   "kind": "연구",
+   "title": "Google DeepMind, 에이전트와 형식 검증을 결합해 더 빠른 양자 알고리즘을 찾는 방식 소개",
+   "summary": "Google DeepMind가 에이전트와 형식 검증(결과가 맞는지 정해진 규칙으로 확인하는 일)을 결합해 더 빠른 양자 알고리즘을 찾는 방식을 블로그에 올렸다. 수집된 원문 본문이 깨져 있어 제목과 선별 사유 외의 내용은 확인하지 못했다.",
+   "check": "본문을 확인하지 못해 가리킬 부분을 특정하지 않는다. 제목에는 에이전트와 형식 검증을 함께 쓴다고 나와 있다.",
+   "terms": [
+    "형식 검증",
+    "에이전트"
+   ],
+   "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
+   "source": "deepmind.google"
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab680b3517",
+   "angle": "돈",
+   "title": "결과를 숫자와 기간으로 걸고 환불을 약속한 AI 상담 서비스",
+   "what": "Richpanel은 고객에게 첫 30일 안에 자동화율 50%를 보장하고, 못 지키면 돈을 돌려준다고 약속한다. 대표는 약 300건 도입 모두에서 이 약속을 지켰다고 말했다.",
+   "who": "대표는 고객사가 이미 값싼 외주 상담을 쓰고 있을 수 있어서, 자동화가 그 출발점과 비교해 비용 면에서 맞아야 한다고 말했다. 비용이 큰 대화 부분에는 값이 낮은 모델을 쓴다고 밝혔다.",
+   "question": "우리 제품이 주는 결과를 숫자와 기간으로 적어 환불 조건으로 걸 수 있을까?",
+   "url": "https://openai.com/business/customer-stories/richpanel-ai-customer-support",
+   "source": "openai.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "평가",
+  "context": "Hugging Face가 에이전트 평가를 만들고 유지하는 방법을 정리한 글에서 나왔다. 글은 평가가 어떤 시스템을 만들고 쓰고 믿을지에 영향을 준다고 말한다."
+ },
+ "new_terms": [
+  {
+   "term": "에이전트 하네스",
+   "note": "Hugging Face 평가 글에서 모델과 도구를 감싸 정해진 환경 안에서 일하게 하는 소프트웨어를 가리키는 말로 쓰였다. 같은 모델이라도 하네스에 따라 점수가 달라졌다는 사례가 나왔다."
+  },
+  {
+   "term": "롤아웃",
+   "note": "Hugging Face 평가 글에서 에이전트가 과제 하나를 처음부터 끝까지 시도하는 한 번의 실행을 가리키는 말로 쓰였다."
+  }
+ ],
+ "dropped": []
+}
