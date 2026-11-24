@@ -1,0 +1,150 @@
+{
+ "date": "2026-11-25",
+ "headline": "Anthropic이 코드 변경을 검토하고 고치고 승인하는 에이전트 묶음 Claude Ship을 내놨다.",
+ "items": [
+  {
+   "id": "lab7a6462e3",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "iFood, 코드 저장소 15,000개에 코딩 에이전트를 돌리는 사내 플랫폼을 만들었다",
+   "summary": "iFood는 코드 저장소 15,000개를 관리한다. 여기에 코딩 에이전트(사람 대신 코드를 고치는 AI)를 돌리는 사내 플랫폼을 만들었다. 작업을 요청하면 샌드박스(바깥과 분리된 실행 공간)에서 처리하고, 결과는 코드 변경 제안으로 돌아온다. 25,000건 넘게 실행됐고 한 번에 드는 추론 비용은 평균 0.04달러다. 보안 플랫폼에서는 수정된 취약점이 두 배 넘게 늘었다고 iFood가 밝혔다.",
+   "check": "정해진 순서로 처리하는 단계 사이에 에이전트 작업을 끼워 넣은 구성이 나와 있다. 작업 결과를 미리 정한 형식으로 받아 성공과 실패를 가려내는 방식도 나와 있다.",
+   "terms": [
+    "샌드박스",
+    "구조화 출력"
+   ],
+   "url": "https://openai.com/business/customer-stories/ifood",
+   "source": "openai.com"
+  },
+  {
+   "id": "lab6e5f032f",
+   "role": "pick",
+   "kind": "연구",
+   "title": "일상 업무용 에이전트 시험에서 가장 앞선 모델도 자주 실패했다",
+   "summary": "ShellBench는 일상 업무를 맡기는 에이전트를 시험하는 새 벤치마크(성능 시험)다. TechCrunch에 따르면 모든 모델을 합쳐 시도의 15.7%가 안전 요건을 하나 이상 지키지 못했다. 같은 과제를 세 번 돌렸을 때, 가장 점수가 높은 모델도 세 번 모두 성공한 경우가 절반이 안 됐다.",
+   "check": "아이의 학교 픽업 일정을 놓치거나 송장을 중복 결제하라고 추천한 사례별 실패율이 나와 있다. 연구진이 각 서비스 고유의 환경에서는 시험하지 않았다는 단서도 있다.",
+   "terms": [
+    "벤치마크"
+   ],
+   "url": "https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab680b3517",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "Richpanel, AI 지원 에이전트의 설정을 AI에게 맡겼다",
+   "summary": "Richpanel(고객지원 AI 회사)은 지원 에이전트가 쓸 도구와 절차를 만드는 'Boss AI'를 만들었다. 설정은 정확도가 중요해 더 깊이 추론하는 모델에 맡기고, 고객 대화는 비용이 낮은 모델에 맡긴다. 이 회사는 첫 30일 안에 자동화율 50%를 보장하고, 약 300건의 도입에서 지켰다고 밝혔다(회사 발표 기준).",
+   "check": "엔지니어가 하던 설정 작업을 AI에게 맡긴다는 발상이 나와 있다. 일에 따라 비싼 모델과 저렴한 모델을 나눠 쓴 이유도 나와 있다.",
+   "terms": [
+    "에이전트"
+   ],
+   "url": "https://openai.com/business/customer-stories/richpanel-ai-customer-support",
+   "source": "openai.com"
+  },
+  {
+   "id": "lab6fd4c32f",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "Hugging Face, 에이전트 평가를 만들고 유지하는 방법을 정리했다",
+   "summary": "Hugging Face가 에이전트 평가(AI가 일을 얼마나 잘하는지 점수를 매기는 시험)를 만드는 방법을 정리했다. 물리학 실험실 사례로 과제 정의부터 점수 보고까지 여덟 단계를 따라간다. 같은 모델이어도 모델을 감싼 소프트웨어를 바꾸면 정확도가 최대 29.9%포인트 달라진 감사 사례를 든다.",
+   "check": "여덟 단계를 한 사례로 따라가는 부분이 나와 있다. 벤치마크가 틀렸을 때 어떻게 찾고 고치는지 다룬 부분도 나와 있다.",
+   "terms": [
+    "평가",
+    "벤치마크"
+   ],
+   "url": "https://huggingface.co/blog/agentic-evals",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "lab9dddeb89",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "구글 딥마인드, 에이전트 팀과 증명 도구로 양자 알고리즘을 개선했다",
+   "summary": "구글 딥마인드는 Gemini 4(구글의 AI 모델) 에이전트 팀으로 양자 알고리즘(양자컴퓨터가 계산하는 절차)을 개선했다. 팀이 낸 아이디어는 Lean(수학적 증명을 검사하는 도구)으로 맞는지 확인한 뒤 공유 노트에 올렸다. 핵융합 관련 계산에서는 필요한 계산 비용을 11.8배 줄였다고 밝혔다(회사 발표 기준).",
+   "check": "팀이 독립적으로 일하다 4시간마다 가상 회의에서 아이디어를 나누고 따져 본 방식이 나와 있다. 연구자가 문제를 정하고 진행을 지켜봤다는 역할 구분도 나와 있다.",
+   "terms": [
+    "멀티 에이전트",
+    "형식 검증"
+   ],
+   "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
+   "source": "deepmind.google"
+  },
+  {
+   "id": "lab27065c56",
+   "role": "launch",
+   "kind": "제품",
+   "title": "Anthropic, 코드 검토·수정·승인 에이전트 묶음 Claude Ship 출시",
+   "summary": "Anthropic이 코드 변경을 검토하고 고치고 승인하는 에이전트 묶음 Claude Ship을 베타로 내놨다. 새로 들어간 PR Steward는 실패한 점검과 충돌을 고치고, Claude Approvals는 팀이 저장소에 파일로 적어 둔 승인 정책을 적용한다. Claude Team과 Enterprise 요금제의 GitHub 저장소에 제공된다.",
+   "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+   "source": "techcrunch.com",
+   "terms": []
+  },
+  {
+   "id": "lab7601f68f",
+   "role": "launch",
+   "kind": "기능",
+   "title": "구글 검색 AI 모드, Drive와 Wallet 정보를 연결해 답한다",
+   "summary": "구글이 검색 AI 모드의 Personal Intelligence(내 구글 앱 정보를 바탕으로 맞춤 답을 주는 기능)를 Drive, Wallet, Gemini 앱으로 넓혔다. 연결은 선택이고 언제든 끌 수 있다. Wallet은 읽기만 할 수 있고 돈을 옮기거나 관리할 수는 없다고 구글은 밝혔다.",
+   "url": "https://techcrunch.com/2026/11/23/google-searchs-ai-mode-can-now-tap-into-drive-and-wallet-for-more-personalized-responses/",
+   "source": "techcrunch.com",
+   "terms": []
+  },
+  {
+   "id": "labeaadf242",
+   "role": "launch",
+   "kind": "기능",
+   "title": "Meta의 AI 에이전트 Muse, 인스타그램 DM에서 쓸 수 있다",
+   "summary": "Meta의 AI 에이전트 Muse(사용자 대신 일을 처리하는 개인 비서)를 인스타그램 DM에서 바로 쓸 수 있게 됐다. 게시물에 대해 묻거나, 마음에 든 가게를 여행 일정에 넣어 달라고 요청할 수 있다. 화요일부터 미국, 캐나다, 멕시코, 일본, 싱가포르의 iOS와 안드로이드 사용자에게 제공된다.",
+   "url": "https://techcrunch.com/2026/11/24/meta-brings-its-muse-ai-assistant-directly-into-instagram-dms/",
+   "source": "techcrunch.com",
+   "terms": []
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab42cb577d",
+   "angle": "플랫폼",
+   "title": "Walmart, Meta의 Muse 안에서 블랙프라이데이 쇼핑을 열었다",
+   "what": "Walmart가 Meta의 AI 에이전트 Muse에서 상품을 찾고 장바구니를 만들 수 있게 했다. Walmart의 Agent Gateway로 외부 AI 비서가 온라인 매장에 연결된다.",
+   "who": "Walmart에 따르면 Muse는 고객의 구매 내역에 접근하지 못하고, 고객은 지출 한도와 구매 전 승인을 정할 수 있다. 기사는 Amazon이 제3자 AI 에이전트의 구매를 막는 조치를 했다고 전한다.",
+   "question": "우리 상품을 고객의 AI 비서가 대신 찾아 고르게 된다면, 비서가 읽고 주문할 수 있는 입구가 우리에게 있는가?",
+   "url": "https://techcrunch.com/2026/11/24/walmart-teams-up-with-meta-to-bring-black-friday-deals-to-ai-agent-muse/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab26c3ceae",
+   "angle": "반대편",
+   "title": "Tidal, 전부 AI로 만든 곡을 금지하고 삭제한다",
+   "what": "Tidal이 완전히 AI로 만든 곡을 다음 달 9일부터 삭제한다. 최근 90일간 올라온 곡의 43% 넘게가 AI 생성으로 확인됐다고 밝혔다.",
+   "who": "Tidal은 AI의 도움을 받은 곡은 계속 받는다. 회사는 AI 생성곡이 너무 많아 실제 음악과 아티스트가 묻힌다고 설명했다.",
+   "question": "우리가 기대는 플랫폼이 AI로 만든 결과물을 받지 않기로 하면, 우리 사업에서 무엇이 먼저 막히는가?",
+   "url": "https://techcrunch.com/2026/11/24/tidal-to-ban-and-remove-millions-of-ai-generated-tracks-as-ai-slop-inundates-music-streaming/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "구조화 출력",
+  "context": "iFood는 에이전트가 작업을 마친 뒤 결과를 미리 정한 형식으로 받아 성공과 실패를 가려낸다고 밝혔다."
+ },
+ "new_terms": [
+  {
+   "term": "병합 요청(PR)",
+   "note": "iFood와 Claude Ship 소식에서 코드 변경을 제안하고 검토·승인받는 단위로 쓰였다."
+  },
+  {
+   "term": "에이전트 게이트웨이",
+   "note": "Walmart가 외부 AI 비서를 자사 온라인 매장에 연결하는 시스템 이름으로 쓴 말이다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "lab16565a3f",
+   "reason": "로봇 강화학습 튜토리얼로 코드와 설정이 중심이라 비개발자에게 풀어 쓰기 어렵다."
+  },
+  {
+   "id": "lab724878a2",
+   "reason": "렌즈 후보 셋 중 에이전트 쇼핑과 플랫폼 정책 소식을 우선해 제외했다."
+  }
+ ]
+}
