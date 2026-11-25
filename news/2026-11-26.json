@@ -1,0 +1,138 @@
+{
+ "date": "2026-11-26",
+ "headline": "OpenAI가 ChatGPT의 Chat과 Work를 하나로 합치기 시작했고, 가장 많이 쓰는 일부 사용자는 사용 한도에 더 빨리 닿을 수 있다고 밝혔다.",
+ "items": [
+  {
+   "id": "lab3c6728c1",
+   "role": "launch",
+   "kind": "모델",
+   "title": "GPT-6 모델이 단백질을 설계한다는 연구를 OpenAI가 발표했다",
+   "summary": "OpenAI가 GPT-6(OpenAI의 모델 계열)로 새 단백질의 모양과 구성 순서를 설계했다고 발표했다. 단백질 전문 모델을 부르지 않고 추론과 코드만으로 설계했다는 설명이다. 실험실 시험에서 이 설계를 바탕으로 만든 단백질이 다섯 가지 대상 모두에서 결합 증거를 보였다(회사 발표 기준). 구성 순서 제안과 후보 선별에는 전문 모델이 도왔다.",
+   "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
+   "source": "openai.com",
+   "terms": []
+  },
+  {
+   "id": "labefc98a45",
+   "role": "launch",
+   "kind": "모델",
+   "title": "Z.ai가 같은 층을 되풀이해 쓰는 첫 모델 GLM-5.4를 내놨다",
+   "summary": "Z.ai(중국의 AI 연구소)가 GLM-5.4(코딩에 쓰는 새 모델)를 내놨다. 같은 층을 여러 번 되풀이해 돌려, 모델 크기를 키우지 않고 더 깊은 네트워크를 얻는 구조를 처음 쓴 모델이다(회사 설명 기준). Z.ai의 코딩 구독(Coding Plan)으로 쓸 수 있고, 일반 API로는 아직 쓸 수 없다. 모델 가중치(공개해서 내려받을 수 있는 모델 파일)는 안전 점검을 마친 뒤 공개할 계획이다.",
+   "url": "https://simonwillison.net/2026/Nov/23/glm-54/",
+   "source": "simonwillison.net",
+   "terms": []
+  },
+  {
+   "id": "labdc85126b",
+   "role": "launch",
+   "kind": "기능",
+   "title": "ChatGPT가 Chat과 Work를 한 화면으로 합치고 사용량도 같이 센다",
+   "summary": "OpenAI가 ChatGPT의 Chat과 Work를 합친 화면을 일부 Pro 구독자에게 내놓기 시작했다. 두 기능은 사용량 계량기 하나를 같이 쓴다. Instant 모델(빠르게 답하는 모델) 대화는 계속 무제한이고 한도에 포함되지 않는다. 지원 페이지에는 12월에 공유 한도를 더 넓게 적용할 계획이라고 적혀 있다.",
+   "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+   "source": "techcrunch.com",
+   "terms": []
+  },
+  {
+   "id": "lab7a6462e3",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "iFood가 코드 저장소 15,000개에서 코딩 에이전트를 돌리는 사내 플랫폼을 만들었다",
+   "summary": "iFood가 코드 저장소 15,000개에서 코딩 에이전트(코드를 스스로 고치는 AI)를 돌리는 사내 플랫폼을 만들었다. 팀이 요청을 보내면 격리된 작업 공간(샌드박스)에서 에이전트가 일하고, 결과는 코드 수정 제안으로 돌아온다. 지금까지 25,000건 넘게 실행했고 한 건 평균 비용은 0.04달러다. 보안 점검 플랫폼에서는 고친 취약점 수가 두 배 넘게 늘었다.",
+   "check": "정해진 단계와 에이전트가 판단하는 단계를 번갈아 배치해 흐름을 예측 가능하게 만든 방식이 나와 있다. 결과를 미리 정한 형식으로 받아 성공과 실패를 가리는 방법과, 개발자가 회의 중에 작업을 맡겨 두는 쓰임새도 나와 있다.",
+   "terms": [
+    "코딩 에이전트",
+    "샌드박스"
+   ],
+   "url": "https://openai.com/business/customer-stories/ifood",
+   "source": "openai.com"
+  },
+  {
+   "id": "lab6e5f032f",
+   "role": "pick",
+   "kind": "연구",
+   "title": "일상 업무 시험 ShellBench에서 가장 앞선 모델도 3분의 1 넘게 실패했다",
+   "summary": "ShellBench(일상 업무를 맡기는 AI 에이전트 시험)에서 OpenAI, Anthropic, Meta의 가장 앞선 모델도 3분의 1 넘게 실패했다. 전체 시도의 15.7%는 안전 요건을 하나 이상 어겼다. 같은 과제를 세 번씩 돌렸을 때 점수가 가장 높은 GPT-6 Astra도 세 번 모두 성공한 비율이 절반에 못 미쳤다.",
+   "check": "학교 아이 데리러 가는 일정을 놓친 비율, 송장을 중복 지급하도록 권한 비율 같은 구체적 실패 사례가 나와 있다. 연구진이 각 회사의 소비자용 제품 환경에서 시험하지는 않았다는 점도 적혀 있다.",
+   "terms": [
+    "에이전트",
+    "벤치마크"
+   ],
+   "url": "https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab37b5c9ba",
+   "role": "pick",
+   "kind": "연구",
+   "title": "과학자 17명이 AI 에이전트에 어디까지 맡길지 답했다",
+   "summary": "Ai2가 자연과학, 응용과학, 사회과학 연구자 17명을 인터뷰했다. AI 에이전트(도구를 쓰며 연구 작업을 대신하는 AI)를 어디에 쓰고 싶은지, 무엇이 잘못될 수 있는지 물었다. 연구자들이 말한 신뢰의 조건은 검증, 프라이버시, 객관성, 책임, 투명성의 다섯 가지로 정리됐다.",
+   "check": "연구자들이 AI의 요약을 믿지 않고 원래 논문과 대조해 확인한다는 설명이 나와 있다. 한 정치학자가 AI로 원고를 고친 뒤 \"무엇이 AI이고 무엇이 나인지 모르겠다\"며 논문을 다시 썼다는 사례도 나와 있다.",
+   "terms": [
+    "에이전트",
+    "휴먼 인 더 루프"
+   ],
+   "url": "https://huggingface.co/blog/allenai/where-scientists-draw-the-line-on-ai-agents",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "lab8caf9280",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "Simon Willison이 지난 12개월의 LLM 변곡점 세 번을 정리했다",
+   "summary": "개발자 Simon Willison이 지난 12개월 동안 LLM(대규모 언어모델)과 코딩 에이전트의 능력에 변곡점이 세 번 있었다고 정리했다. 2025년 11월 Claude Opus 4.5가 나온 뒤 코딩 에이전트의 기본 결과가 대체로 맞게 나왔고, 6월과 7월에는 Fable급 모델이, 9월과 10월에는 3D 모델링과 게임 제작 능력이 변곡점이었다는 설명이다. 모두 글쓴이 본인의 경험에 바탕을 둔 평가다.",
+   "check": "만든 게임이 재미없다고 하자 모델이 12시간 동안 새 기능을 시험 플레이하고 균형을 다시 맞췄다는 사례가 나와 있다. 이때 쓴 지시문도 글에 나와 있다.",
+   "terms": [
+    "코딩 에이전트",
+    "프런티어 모델 / 프런티어 랩"
+   ],
+   "url": "https://simonwillison.net/2026/Nov/24/llm-inflection-points/",
+   "source": "simonwillison.net"
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab16ddaf76",
+   "angle": "반대편",
+   "title": "파산한 Character.AI의 사용자 대화 경매를 42개 주 법무장관이 막고 나섰다",
+   "what": "파산 보호를 신청한 Character.ai가 사용자 대화 기록을 경매에 내놓으려 한다. 42개 주 법무장관 연합이 파산 절차에 개입해 판매를 막으려 하고 있다.",
+   "who": "법무장관들은 구매자가 데이터를 마음대로 쓰거나 되팔 수 있고, 회사의 개인정보 방침도 지킬 의무가 없다고 주장했다. 이들은 Character.ai가 이전에 개인정보를 팔지 않겠다고 밝혔다고도 적었다.",
+   "question": "우리 서비스가 쌓는 고객 대화와 데이터는 회사에 어떤 일이 생겨도 고객에게 약속한 대로 다뤄지는가?",
+   "url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "lab724878a2",
+   "angle": "만든 방식",
+   "title": "Maple이 회사도 볼 수 없는 AI 앱으로 530만 달러를 투자받았다",
+   "what": "Maple이 530만 달러 투자를 받았다. 사용자 데이터를 회사도 볼 수 없게 만든 AI 앱이고, 사용자가 공개된 코드를 직접 확인할 수 있다고 대표가 설명했다.",
+   "who": "기사는 경쟁사들이 개인정보 방침과 데이터 수집을 요구하는 경우가 많다고 적었다. Maple은 구독료로 수익을 내고, 대표는 회사가 데이터에 접근하지 않는 것을 사업 방식으로 삼았다고 말했다.",
+   "question": "우리 고객이 데이터를 맡길 때 \"믿어 달라\"는 말 대신 직접 확인할 수 있게 보여 줄 방법이 있는가?",
+   "url": "https://techcrunch.com/2026/11/24/maple-raises-5-3m-to-build-ai-products-that-protect-your-data-even-from-itself/",
+   "source": "techcrunch.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "샌드박스",
+  "context": "iFood 사례에서 코딩 에이전트의 작업이 격리된 작업 공간 안에서 실행되고, 결과만 코드 수정 제안으로 돌아오는 방식으로 쓰였다."
+ },
+ "new_terms": [
+  {
+   "term": "Loop Transformer",
+   "note": "GLM-5.4 소식에서 쓰였다. 같은 층을 여러 번 되풀이해 돌려 모델 크기를 키우지 않고 더 깊은 네트워크를 얻는 구조를 뜻한다."
+  },
+  {
+   "term": "신뢰 실행 환경(TEE)",
+   "note": "Maple 소식에서 쓰였다. 하드웨어로 암호화된 서버 안에서 데이터를 처리해, 운영 회사도 내용을 볼 수 없게 하는 환경을 뜻한다."
+  }
+ ],
+ "dropped": [
+  {
+   "id": "lab99b93f3e",
+   "reason": "Clay의 Codex·ChatGPT 연동 사례는 구체적인 성과 수치가 원문에 없어 렌즈에서 뺐다."
+  },
+  {
+   "id": "lab50637686",
+   "reason": "수집 실패(URL 오류)로 원문을 읽지 못했다."
+  }
+ ]
+}
