@@ -1,0 +1,115 @@
+{
+ "date": "2026-11-27",
+ "headline": "구글이 Gemini 4 Neon을 내놓았고, 출시 첫날 유료 API 사용량 기록을 세웠다고 밝혔다.",
+ "items": [
+  {
+   "id": "lab054ddac7",
+   "role": "launch",
+   "kind": "모델",
+   "title": "구글 Gemini 4 Neon 출시",
+   "summary": "Gemini 4 Neon은 구글이 만든 AI 모델 Gemini 4 계열의 하나다. 순다르 피차이는 개발자가 돈을 내고 쓰는 연결 서비스(API)에서 출시 첫날 사용량 기록을 세웠다고 밝혔다. 구글 워크스페이스 고객은 Gemini 앱에서 쓸 수 있다.",
+   "url": "https://latent.space/p/ainews-gemini-4-neon-marks-gdm-s-full-return-as-a-frontier-lab/",
+   "source": "latent.space",
+   "terms": []
+  },
+  {
+   "id": "labdc85126b",
+   "role": "launch",
+   "kind": "기능",
+   "title": "ChatGPT, Chat과 Work를 한 화면으로 합친다",
+   "summary": "OpenAI가 ChatGPT의 대화(Chat)와 업무(Work) 기능을 하나로 합친 화면을 일부 Pro 구독자에게 내보내기 시작했다. 둘은 사용량 한도를 하나로 공유한다. OpenAI 대변인은 대부분의 사용자는 한도가 더 자주 차지 않지만, 가장 많이 쓰는 소수는 한도에 더 빨리 닿을 수 있다고 했다. Instant 모델과의 대화는 무제한이며 한도에 들어가지 않는다. 더 넓은 도입은 다음 달로 안내돼 있다.",
+   "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+   "source": "techcrunch.com",
+   "terms": []
+  },
+  {
+   "id": "labc01600d4",
+   "role": "pick",
+   "kind": "방법론",
+   "title": "AI 에이전트 여러 개를 팀으로 만들고 학습시키는 연재 시작",
+   "summary": "Hugging Face가 여러 AI 에이전트(스스로 일을 이어 가는 AI)를 팀으로 일하게 만들고, 학습시키고, 평가하는 방법을 다루는 연재를 시작했다. 첫 글의 실험에서는 에이전트 네 개가 각자 숫자 하나씩만 알고 메시지를 주고받는다. 서로 정보를 모아 정렬된 목록을 답하는 법을 배우게 하는 과제다. 연재가 계속 묻는 것은 소통이 실제로 도움이 됐는지, 아니면 비용을 더 쓴 것뿐인지다.",
+   "check": "같은 비용으로 에이전트 한 개와 네 개를 비교해야 공정하다는 설명이 나와 있다. 에이전트가 많다고 협력의 효과가 입증되는 것은 아니라는 사례도 실려 있다.",
+   "terms": [
+    "멀티 에이전트",
+    "에이전트"
+   ],
+   "url": "https://huggingface.co/blog/training-swarms",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "labd3aa48da",
+   "role": "pick",
+   "kind": "제품",
+   "title": "NVIDIA, 문서 읽기 모델 Parse 3.5의 학습 데이터와 방법 공개",
+   "summary": "NVIDIA는 문서 페이지 이미지를 구조화된 데이터로 바꾸는 모델 Nemotron 3.5 Parse를 내놓았다. 이번에는 이 모델을 학습시킨 합성 데이터와 파인튜닝(내 문서에 맞게 추가로 가르치는 일) 방법을 공개했다. 회사 발표 기준으로 같은 내용을 되풀이하는 출력이 비교 시험에서 약 77% 줄었다.",
+   "check": "눈금 숫자가 없는 막대그래프에서도 축과 막대 높이로 값을 추정한다는 예가 나와 있다. 치과 양식 예제에서는 추가 학습 전에는 놓치던 시술 표를 학습 뒤에 읽어 내는 전후 비교가 실려 있다.",
+   "terms": [
+    "문서 파싱 / 레이아웃 인식",
+    "합성 데이터"
+   ],
+   "url": "https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin",
+   "source": "huggingface.co"
+  },
+  {
+   "id": "50657307",
+   "role": "pick",
+   "kind": "논쟁",
+   "title": "'AI가 치료한 질병 수'를 세는 사이트, 현재 값은 0",
+   "summary": "diseasescuredbyai.com은 AI가 치료한 질병의 수를 공개 장부처럼 세는 사이트다. 이 사이트가 최근 확인한 값은 0이다. AI가 발견한 약으로 FDA나 EMA의 승인을 받은 것도 아직 없다고 적었다.",
+   "check": "수를 올리려면 AI가 찾았을 것, 규제기관이 승인했을 것, 실제로 치료할 것의 세 조건이 모두 필요하다고 나와 있다. 세지 않는 것의 목록, 가장 가까운 후보의 현재 단계, 기업 대표들의 발언 원문도 실려 있다.",
+   "url": "https://diseasescuredbyai.com/",
+   "source": "diseasescuredbyai.com",
+   "terms": []
+  },
+  {
+   "id": "lab8caf9280",
+   "role": "pick",
+   "kind": "현업 기록",
+   "title": "Simon Willison이 꼽은 지난 열두 달 LLM 활용의 세 전환점",
+   "summary": "개발자 Simon Willison이 자신의 경험을 바탕으로 지난 열두 달 동안 코딩 에이전트(코드를 대신 짜 주는 AI)의 능력이 바뀐 시점 세 번을 정리했다. 코딩 에이전트의 등장, Fable급 모델의 등장, 3D 모델링과 게임 제작이다. 모두 글쓴이 개인의 평가다.",
+   "check": "게임이 재미없다는 불만에 'LOT 더 재미있게 만들라'고 지시하자, 모델이 12시간 동안 직접 플레이하며 다듬어 결과가 달라졌다는 경험담이 나와 있다. 목표와 도구를 주는 방식으로 일을 맡긴 사례를 볼 수 있다.",
+   "terms": [
+    "코딩 에이전트"
+   ],
+   "url": "https://simonwillison.net/2026/Nov/24/llm-inflection-points/",
+   "source": "simonwillison.net"
+  }
+ ],
+ "lens": [
+  {
+   "id": "lab16ddaf76",
+   "angle": "반대편",
+   "title": "Character.AI 파산 절차에서 사용자 비공개 대화가 경매에 오른다",
+   "what": "파산 보호(Chapter 11)를 신청한 Character.AI가 사용자 데이터 매각을 추진하자, 42개 주 검찰총장이 파산 절차에 개입했다. 경매는 다음 달 1일로 예정돼 있다.",
+   "who": "검찰총장들은 이 데이터에 미국 계정 2100만 개 이상의 채팅 기록이 있고 그중 210만 개 이상이 미성년자 계정이라고 주장했다. 회사가 개인정보를 팔지 않겠다고 소비자에게 말했는데, 매수자는 그 개인정보 방침을 지킬 의무가 없다는 것도 이유로 들었다.",
+   "question": "우리가 모으는 사용자 대화와 데이터는 회사가 어려워졌을 때 누구에게 넘어가도 괜찮은 것인가?",
+   "url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/",
+   "source": "techcrunch.com"
+  },
+  {
+   "id": "labf7effe08",
+   "angle": "만든 방식",
+   "title": "Claire Vo, 25개 과제로 여섯 모델을 블라인드 비교",
+   "what": "Claire Vo는 코딩, 글쓰기, 영상, 프로토타입 제작 등 25개 과제로 여섯 모델을 이름을 가리고 점수 매겼다. 그 결과 Gemini 4 Neon이 깜짝 1위였다고 소개한다. 자기 작업 기록으로 '짜증 벤치'라는 시험도 따로 만들었다.",
+   "who": "소개글에서 확인되는 것은 본인이 쓰는 모델의 선택이 이 시험으로 정해졌다는 점이다. 느린 모델의 숨은 비용과 속도·비용의 맞바꿈도 다룬다고 적혀 있다.",
+   "question": "모델을 고를 때 남이 만든 순위 대신 우리 업무에서 뽑은 과제 몇 개로 직접 비교한다면 어떤 과제를 넣을 것인가?",
+   "url": "https://www.lennysnewsletter.com/p/gemini-4-neon-beat-gpt-62-and-claude",
+   "source": "lennysnewsletter.com"
+  }
+ ],
+ "term_of_day": {
+  "term": "멀티 에이전트",
+  "context": "Hugging Face의 연재 첫 글에서 AI 에이전트 여러 개가 메시지를 주고받으며 한 과제를 푸는 실험이 소개됐다. 에이전트를 늘리면 정말 나아지는지 같은 비용으로 비교하자는 질문이 함께 나왔다."
+ },
+ "new_terms": [],
+ "dropped": [
+  {
+   "id": "lab78221402",
+   "reason": "수집된 것이 HN 댓글 한 개뿐이고 기사 본문이 없어 '경고' 내용을 확인할 수 없다."
+  },
+  {
+   "id": "lab4f0b7bfb",
+   "reason": "스타트업 렌즈는 두 개까지여서 이번에는 쓰지 않았다."
+  }
+ ]
+}
